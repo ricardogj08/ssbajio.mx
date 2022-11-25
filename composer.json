@@ -1,0 +1,44 @@
+{
+    "name": "genotipo/ssbajio.mx",
+    "type": "project",
+    "description": "Soluciones de Sujeción del Bajío",
+    "homepage": "https://ssbajio.mx/",
+    "license": "Genotipo (R)",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "codeigniter4/framework": "^4.0",
+        "codeigniter4/translations": "^4.2",
+        "codeigniter4/settings": "^2.1"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9",
+        "mikey179/vfsstream": "^1.6",
+        "phpunit/phpunit": "^9.1",
+        "codeigniter/coding-standard": "^1.7"
+    },
+    "suggest": {
+        "ext-fileinfo": "Improves mime type detection for files"
+    },
+    "autoload": {
+        "exclude-from-classmap": [
+            "**/Database/Migrations/**"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Support\\": "tests/_support"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "prettier": "vendor/bin/php-cs-fixer fix --diff"
+    },
+    "authors": [
+        {
+            "name": "Ricardo García Jiménez",
+            "email": "ricardogj08@riseup.net",
+            "homepage": "https://cawfee.club/ricardogj08",
+            "role": "Backend Developer"
+        }
+    ]
+}

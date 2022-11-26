@@ -46,6 +46,16 @@ $routes->group('backend', static function ($routes) {
         $routes->get('recuperacion', 'Backend\Auth::recoverPassword', ['as' => 'backend.recoverPassword']);
         $routes->post('recuperacion', 'Backend\Auth::recoverPassword', ['as' => 'backend.recoverPassword']);
     });
+
+    // Definición de rutas del dashboard.
+    $routes->group('', static function ($routes) {
+        // Rutas de administración de usuarios.
+        $routes->group('usuarios', static function ($routes) {
+            $routes->get('nuevo', 'Backend\Users::new', ['as' => 'backend.users.new']);
+            $routes->post('nuevo', 'Backend\Users::new', ['as' => 'backend.users.new']);
+            $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
+        });
+    });
 });
 
 /*

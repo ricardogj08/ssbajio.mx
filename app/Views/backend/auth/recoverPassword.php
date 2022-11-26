@@ -17,7 +17,7 @@
         Ingresa tu email de acceso.
     </p>
 
-    <p class="text-error mb-2">
+    <p class="text-error mb-4">
         <small>
             <?= session()->getFlashdata('error') ?>
         </small>
@@ -34,16 +34,16 @@
                     </span>
                 </label>
                 <label class="input-group">
-                    <?= form_input([
-                        'name'        => 'email',
-                        'type'        => 'email',
-                        'autofocus'   => true,
-                        'required'    => true,
-                        'maxlength'   => 256,
-                        'placeholder' => 'Escribe tu email',
-                        'value'       => set_value('email'),
-                        'class'       => 'input input-bordered w-full',
-                    ]) ?>
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        maxlength="256"
+                        placeholder="Escribe tu email"
+                        value="<?= set_value('email') ?>"
+                        class="input input-bordered w-full"
+                        autofocus
+                    >
                     <span class="bi bi-envelope text-2xl"></span>
                 </label>
                 <label class="label">
@@ -54,17 +54,13 @@
             </div>
             <!-- Fin del campo de email -->
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <!-- Botón de submit -->
-                <?= form_submit([
-                    'value' => 'Recuperar',
-                    'class' => 'btn btn-primary btn-block',
-                ]) ?>
-                <!-- Fin del botón de submit -->
+                <input type="submit" value="Recuperar" class="btn btn-primary btn-block">
 
-                <?= anchor(url_to('backend.login'), 'Volver', [
-                    'class' => 'btn btn-secondary btn-block',
-                ]) ?>
+                <a href="<?= url_to('backend.login') ?>" class="btn btn-secondary btn-block">
+                    Volver
+                </a>
             </div>
         </div>
     <?= form_close() ?>

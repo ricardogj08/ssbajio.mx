@@ -17,7 +17,7 @@
         Ingresa tus credenciales de acceso.
     </p>
 
-    <p class="text-error mb-2">
+    <p class="text-error mb-4">
         <small>
             <?= session()->getFlashdata('error') ?>
         </small>
@@ -34,16 +34,16 @@
                     </span>
                 </label>
                 <label class="input-group">
-                    <?= form_input([
-                        'name'        => 'email',
-                        'type'        => 'email',
-                        'autofocus'   => true,
-                        'required'    => true,
-                        'maxlength'   => 256,
-                        'placeholder' => 'Escribe tu email',
-                        'value'       => set_value('email'),
-                        'class'       => 'input input-bordered w-full',
-                    ]) ?>
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        maxlength="256"
+                        placeholder="Escribe tu email"
+                        value="<?= set_value('email') ?>"
+                        class="input input-bordered w-full"
+                        autofocus
+                    >
                     <span class="bi bi-envelope text-2xl"></span>
                 </label>
                 <label class="label">
@@ -62,15 +62,16 @@
                     </span>
                 </label>
                 <label class="input-group">
-                    <?= form_password([
-                        'name'        => 'password',
-                        'required'    => true,
-                        'minlength'   => 8,
-                        'maxlength'   => 32,
-                        'placeholder' => 'Escribe tu contraseña',
-                        'value'       => set_value('password'),
-                        'class'       => 'input input-bordered w-full',
-                    ]) ?>
+                    <input
+                        type="password"
+                        name="password"
+                        required
+                        minlength="8"
+                        maxlength="32"
+                        placeholder="Escribe tu contraseña"
+                        value="<?= set_value('password') ?>"
+                        class="input input-bordered w-full"
+                    >
                     <span class="bi bi-key text-2xl"></span>
                 </label>
                 <label class="label">
@@ -82,17 +83,12 @@
             <!-- Fin del campo de contraseña -->
 
             <!-- Botón de submit -->
-            <?= form_submit([
-                'value' => 'Iniciar sesión',
-                'class' => 'btn btn-primary mt-2',
-            ]) ?>
-            <!-- Fin del botón de submit -->
+            <input type="submit" value="Iniciar sesión" class="btn btn-primary">
 
-            <?= anchor(url_to('backend.recoverPassword'), '¿Olvidaste tu contraseña?', [
-                'class' => 'link link-hover text-sm text-right',
-            ]) ?>
+            <a href="<?= url_to('backend.recoverPassword') ?>" class="link link-hover text-sm text-right mt-2">
+                ¿Olvidaste tu contraseña?
+            </a>
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario de inicio de sesión -->
-
 <?= $this->endSection() ?>

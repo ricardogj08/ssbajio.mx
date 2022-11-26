@@ -13,8 +13,9 @@ class CreateUsersTable extends Migration
     {
         $this->forge->addField([
             'id' => [
-                'type'       => 'char',
-                'constraint' => 36,
+                'type'           => 'int',
+                'unsigned'       => true,
+                'auto_increment' => true,
             ],
             'role_id' => [
                 'type'     => 'tinyint',

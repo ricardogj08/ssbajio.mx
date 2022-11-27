@@ -87,7 +87,7 @@
                         Selecciona un rol para el nuevo usuario...
                     </option>
                     <?php foreach($roles as $itr => $role): ?>
-                        <option value="<?= $role->id ?>" <?= set_select('role', $role->id) ?>>
+                        <option value="<?= esc($role->id) ?>" <?= set_select('role', $role->id) ?>>
                             <?= esc($role->description) ?>
                         </option>
                     <?php endforeach ?>

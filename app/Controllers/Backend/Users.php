@@ -30,7 +30,7 @@ class Users extends BaseController
             ]);
 
             return redirect()->route('backend.users.index')
-                ->with('toast-success', 'El nuevo usuario se ha registrado correctamente');
+                ->with('toast-success', 'Un nuevo usuario se ha registrado correctamente');
         }
 
         $roleModel = model('RoleModel');
@@ -48,6 +48,11 @@ class Users extends BaseController
      */
     public function index()
     {
-        return view('backend/users/index');
+        $userModel = model('userModel');
+
+        return view('backend/users/index', [
+            'users' => $userModel->orderBy('id', 'asc')->paginate(8, 'users'),
+            'pager' => $userModel->pager,
+        ]);
     }
 }

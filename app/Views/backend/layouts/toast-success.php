@@ -1,5 +1,5 @@
 <!-- Mensaje de éxito -->
-<div class="toast">
+<div class="toast toast-top">
 	<div class="alert alert-success">
 		<div>
 			<span>

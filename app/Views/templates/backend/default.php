@@ -9,7 +9,7 @@
 </head>
 <body class="drawer drawer-mobile">
     <!-- Checkbox oculto que controla la visibilidad del sidebar -->
-    <input id="drawer" type="checkbox" class="drawer-toggle">
+    <input id="drawer" type="checkbox" class="drawer-toggle" aria-label="Visibilidad del sidebar">
 
     <div class="drawer-content flex flex-col min-h-screen">
         <!-- Barra de navegación en móvil -->

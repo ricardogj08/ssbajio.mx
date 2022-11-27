@@ -30,7 +30,7 @@
         </span>
     </li>
     <li>
-        <a href="#">
+        <a href="<?= url_to('backend.modules.posts.index') ?>">
             <i class="bi bi-pencil-square text-2xl"></i>
             Blog
         </a>

@@ -39,9 +39,11 @@
 
     <div class="divider"></div>
 
+    <!-- Filtros de consulta -->
     <div class="pb-4">
         <?= $this->setVar('method', 'backend.users.index')->include('backend/layouts/search') ?>
     </div>
+    <!-- Fin de los filtros de consulta -->
 
     <!-- Tabla de usuarios -->
     <div class="overflow-x-auto">
@@ -102,4 +104,5 @@
     <div class="flex justify-end pt-4">
         <?= $pager->links('users', 'backend_pagination') ?>
     </div>
+    <!-- Fin de la paginación -->
 <?= $this->endSection() ?>

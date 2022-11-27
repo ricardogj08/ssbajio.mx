@@ -1,11 +1,11 @@
-<!-- Mensaje de éxito -->
+<!-- Notificación exitosa -->
 <div class="toast toast-top">
 	<div class="alert alert-success">
 		<div>
 			<span>
-				<?= esc($message) ?>.
+				<?= esc($message) ?>
 			</span>
 		</div>
 	</div>
 </div>
-<!-- Fin del mensaje de éxito -->
+<!-- Fin de la notificación exitosa -->

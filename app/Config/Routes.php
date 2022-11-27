@@ -55,6 +55,16 @@ $routes->group('backend', static function ($routes) {
             $routes->post('nuevo', 'Backend\Users::new', ['as' => 'backend.users.new']);
             $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
         });
+
+        // Definición de rutas de los módulos.
+        $routes->group('modulos', static function ($routes) {
+            // Rutas del modulo de blog.
+            $routes->group('blog', static function ($routes) {
+                $routes->get('nuevo', 'Backend\Modules\Posts::new', ['as' => 'backend.modules.posts.new']);
+                $routes->post('nuevo', 'Backend\Modules\Posts::new', ['as' => 'backend.modules.posts.new']);
+                $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
+            });
+        });
     });
 });
 

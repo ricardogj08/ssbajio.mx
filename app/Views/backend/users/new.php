@@ -26,7 +26,7 @@
     <!-- Formulario de registro de usuarios -->
     <?= form_open(url_to('backend.users.new')) ?>
         <div class="flex flex-col gap-y-2">
-            <!-- Campo de nombre -->
+            <!-- Campo del nombre -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -49,9 +49,9 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de nombre -->
+            <!-- Fin del campo del nombre -->
 
-            <!-- Campo de email -->
+            <!-- Campo del email -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -73,9 +73,9 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de email -->
+            <!-- Fin del campo del email -->
 
-            <!-- Campo de rol -->
+            <!-- Campo del rol -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -86,7 +86,7 @@
                     <option disabled selected>
                         Selecciona un rol para el nuevo usuario...
                     </option>
-                    <?php foreach($roles as $itr => $role): ?>
+                    <?php foreach($roles as $role): ?>
                         <option value="<?= esc($role->id) ?>" <?= set_select('role', $role->id) ?>>
                             <?= esc($role->description) ?>
                         </option>
@@ -98,9 +98,9 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de rol -->
+            <!-- Fin del campo del rol -->
 
-            <!-- Campo de contraseña -->
+            <!-- Campo de la contraseña -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -123,7 +123,7 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de contraseña -->
+            <!-- Fin del campo de la contraseña -->
 
             <!-- Campo de confirmación de contraseña -->
             <div class="form-control">

@@ -28,9 +28,9 @@
         <!-- Fin de la barra de navegación en móvil -->
 
         <!-- Contenido de la página web -->
-        <div class="grow p-6">
+        <main class="grow p-6">
             <?= $this->renderSection('content') ?>
-        </div>
+        </main>
         <!-- Fin del contenido de la página web -->
 
         <?= $this->include('backend/layouts/footer') ?>

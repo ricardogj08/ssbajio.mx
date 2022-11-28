@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicializa las tablas de la base de datos.
+ * Inicia tablas de la base de datos.
  */
 class MainSeeder extends Seeder
 {

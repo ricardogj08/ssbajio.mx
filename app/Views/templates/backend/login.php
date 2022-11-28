@@ -17,6 +17,7 @@
             <div class="pb-8">
                 <img src="https://ssbajio.mx/wp-content/uploads/2021/02/ssb.logo_.svg" alt="Logo" class="h-12">
             </div>
+            <!-- Fin del logo de la compañía -->
 
             <!-- Contenido de la página web -->
             <?= $this->renderSection('content') ?>

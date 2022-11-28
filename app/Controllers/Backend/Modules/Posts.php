@@ -19,6 +19,8 @@ class Posts extends BaseController
             'excerpt'    => 'required|max_length[512]',
             'started_at' => 'permit_empty|valid_date[Y-m-d\TH:i]',
         ])) {
+            $postModel = model('PostModel');
+
             return redirect()->route('backend.modules.posts.index')
                 ->with('toast-success', 'Un nuevo artículo se ha registrado correctamente');
         }

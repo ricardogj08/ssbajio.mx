@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicializa la tabla de roles.
+ * Inicia la tabla de roles.
  */
 class RoleSeeder extends Seeder
 {

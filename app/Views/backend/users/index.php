@@ -31,6 +31,7 @@
                 </small>
             </p>
         </div>
+
         <a href="<?= url_to('backend.users.new') ?>" class="btn btn-secondary gap-2">
             <i class="bi bi-plus-circle-fill text-xl"></i>
             Registra un nuevo usuario
@@ -58,7 +59,7 @@
             </thead>
             <tbody>
                 <!-- Listado de usuarios -->
-                <?php foreach ($users as $itr => $user): ?>
+                <?php foreach ($users as $user): ?>
                     <tr class="hover">
                         <th><?= esc($user->id) ?></th>
                         <td><?= esc($user->name) ?></td>

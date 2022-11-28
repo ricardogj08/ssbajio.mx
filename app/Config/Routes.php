@@ -56,7 +56,7 @@ $routes->group('backend', static function ($routes) {
             $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
         });
 
-        // Definición de rutas de los módulos.
+        // Definición de rutas de los módulos del backend.
         $routes->group('modulos', static function ($routes) {
             // Rutas del modulo de blog.
             $routes->group('blog', static function ($routes) {

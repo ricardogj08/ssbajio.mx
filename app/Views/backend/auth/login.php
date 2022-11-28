@@ -26,7 +26,7 @@
     <!-- Formulario de inicio de sesión -->
     <?= form_open(url_to('backend.login')) ?>
         <div class="flex flex-col gap-y-2">
-            <!-- Campo de email -->
+            <!-- Campo del email -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -52,9 +52,9 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de email -->
+            <!-- Fin del campo del email -->
 
-            <!-- Campo de contraseña -->
+            <!-- Campo de la contraseña -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -80,7 +80,7 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de contraseña -->
+            <!-- Fin del campo de la contraseña -->
 
             <!-- Botón de submit -->
             <input type="submit" value="Iniciar sesión" class="btn btn-primary">

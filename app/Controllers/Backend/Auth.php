@@ -14,7 +14,7 @@ class Auth extends BaseController
     public function login()
     {
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'email'    => 'required|valid_email|max_length[256]',
+            'email'    => 'required|max_length[256]|valid_email',
             'password' => 'required|min_length[8]|max_length[32]|password',
         ])) {
             return 'ok';
@@ -32,7 +32,7 @@ class Auth extends BaseController
     public function recoverPassword()
     {
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'email' => 'required|valid_email|max_length[256]',
+            'email' => 'required|max_length[256]|valid_email',
         ])) {
             return 'ok';
         }

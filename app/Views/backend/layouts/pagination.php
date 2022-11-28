@@ -8,7 +8,7 @@
 			<i class="bi bi-chevron-bar-left text-xl"></i>
 		</a>
 
-		<!-- Botón de retroceso -->
+		<!-- Botón de la página anterior -->
 		<a href="<?= $pager->getPreviousPage() ?>" class="btn">
 			<i class="bi bi-chevron-left text-xl"></i>
 		</a>
@@ -22,12 +22,12 @@
 	<?php endforeach ?>
 
 	<?php if ($pager->hasNext()): ?>
-		<!-- Botón de siguiente -->
+		<!-- Botón de la siguiente página -->
 		<a href="<?= $pager->getNextPage() ?>" class="btn">
 			<i class="bi bi-chevron-right text-xl"></i>
 		</a>
 
-		<!-- Botón de la última página  -->
+		<!-- Botón de la última página -->
 		<a href="<?= $pager->getLast() ?>" class="btn">
 			<i class="bi bi-chevron-bar-right text-xl"></i>
 		</a>

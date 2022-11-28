@@ -31,6 +31,7 @@
                 </small>
             </p>
         </div>
+
         <a href="<?= url_to('backend.modules.posts.new') ?>" class="btn btn-secondary gap-2">
             <i class="bi bi-plus-circle-fill text-xl"></i>
             Escribe un nuevo artículo

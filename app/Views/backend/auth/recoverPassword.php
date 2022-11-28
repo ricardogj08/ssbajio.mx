@@ -26,7 +26,7 @@
     <!-- Formulario de recuperación -->
     <?= form_open(url_to('backend.recoverPassword')) ?>
         <div class="flex flex-col gap-y-2">
-            <!-- Campo de email -->
+            <!-- Campo del email -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -52,7 +52,7 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de email -->
+            <!-- Fin del campo del email -->
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <!-- Botón de submit -->

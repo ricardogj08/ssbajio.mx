@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicializa la tabla de usuarios.
+ * Inicia la tabla de usuarios.
  */
 class UserSeeder extends Seeder
 {

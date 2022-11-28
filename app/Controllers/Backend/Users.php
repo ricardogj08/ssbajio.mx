@@ -15,7 +15,7 @@ class Users extends BaseController
     {
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'name'         => 'required|max_length[64]',
-            'email'        => 'required|valid_email|max_length[256]|is_unique[users.email]',
+            'email'        => 'required|max_length[256]|valid_email|is_unique[users.email]',
             'role'         => 'required|integer|is_not_unique[roles.id]',
             'password'     => 'required|min_length[8]|max_length[32]|password',
             'pass_confirm' => 'required|matches[password]',

@@ -3,7 +3,6 @@
 namespace App\Controllers\Backend\Modules;
 
 use App\Controllers\BaseController;
-use Config\Services;
 
 class Posts extends BaseController
 {
@@ -26,7 +25,7 @@ class Posts extends BaseController
         }
 
         return view('backend/modules/posts/new', [
-            'validation' => Services::validation(),
+            'validation' => service('validation'),
         ]);
     }
 

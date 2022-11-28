@@ -34,6 +34,12 @@ class CreateUsersTable extends Migration
                 'type'       => 'varchar',
                 'constraint' => 256,
             ],
+            'active' => [
+                'type'       => 'tinyint',
+                'constraint' => 1,
+                'unsigned'   => true,
+                'default'    => true,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => true,

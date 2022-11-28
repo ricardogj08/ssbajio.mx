@@ -46,7 +46,7 @@ class CreatePostsTable extends Migration
                 'type'       => 'tinyint',
                 'constraint' => 1,
                 'unsigned'   => true,
-                'default'    => false,
+                'default'    => true,
             ],
             'started_at' => [
                 'type' => 'datetime',

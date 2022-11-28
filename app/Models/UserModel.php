@@ -13,7 +13,7 @@ class UserModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['name', 'email', 'role_id', 'password'];
+    protected $allowedFields    = ['name', 'email', 'role_id', 'password', 'active'];
 
     // Dates
     protected $useTimestamps = true;

@@ -3,7 +3,6 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
-use Config\Services;
 
 class Users extends BaseController
 {
@@ -16,7 +15,7 @@ class Users extends BaseController
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'name'         => 'required|max_length[64]',
             'email'        => 'required|max_length[256]|valid_email|is_unique[users.email]',
-            'role'         => 'required|integer|is_not_unique[roles.id]',
+            'role'         => 'required|is_natural_no_zero|is_not_unique[roles.id]',
             'password'     => 'required|min_length[8]|max_length[32]|password',
             'pass_confirm' => 'required|matches[password]',
         ])) {
@@ -38,7 +37,7 @@ class Users extends BaseController
         $roles = $roleModel->orderBy('description', 'asc')->findAll();
 
         return view('backend/users/new', [
-            'validation' => Services::validation(),
+            'validation' => service('validation'),
             'roles'      => $roles,
         ]);
     }
@@ -51,8 +50,32 @@ class Users extends BaseController
         $userModel = model('userModel');
 
         return view('backend/users/index', [
-            'users' => $userModel->orderBy('id', 'asc')->paginate(8, 'users'),
-            'pager' => $userModel->pager,
+            'users'      => $userModel->orderBy('id', 'asc')->paginate(8, 'users'),
+            'pager'      => $userModel->pager,
+            'validation' => service('validation'),
         ]);
+    }
+
+    /**
+     * Actualiza el estado de cuenta de un usuario.
+     *
+     * @param mixed|null $id
+     */
+    public function toggleActive($id = null)
+    {
+        if (strtolower($this->request->getMethod()) === 'post' && $this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
+        )) {
+            $userModel = model('userModel');
+
+            $user = $userModel->find($id);
+
+            $active = $user->active ? false : true;
+
+            $userModel->update($user->id, ['active' => $active]);
+        }
+
+        return redirect()->back()->withInput();
     }
 }

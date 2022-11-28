@@ -27,9 +27,11 @@
 
             <p class="text-error">
                 <small>
-                    <?= session()->getFlashdata('error') ?>
+                    <?= esc(session()->getFlashdata('error')) ?>
                 </small>
             </p>
+
+            <?= $validation->listErrors('backend_errors') ?>
         </div>
 
         <a href="<?= url_to('backend.users.new') ?>" class="btn btn-secondary gap-2">
@@ -85,13 +87,23 @@
                             </a>
                             <!-- Fin del botón para editar un usuario -->
 
-                            <!-- Botón para eliminar un usuario -->
-                            <?= form_open(url_to('')) ?>
-                                <label class="btn btn-square btn-sm btn-outline btn-error">
-                                    <i class="bi bi-trash text-xl"></i>
+                            <!-- Botón para dar alta o baja un usuario -->
+                            <?= form_open(url_to('backend.users.toggleActive', $user->id)) ?>
+                                <label
+                                    for="modal-action-submit-<?= esc($user->id) ?>"
+                                    class="btn btn-square btn-sm btn-outline btn-<?= $user->active ? 'error' : 'success' ?>"
+                                >
+                                    <i class="bi bi-<?= $user->active ? 'trash' : 'recycle' ?> text-xl"></i>
                                 </label>
+
+                                <?= $this->setData([
+                                    'id'      => "modal-action-submit-{$user->id}",
+                                    'message' => $user->active
+                                        ? '¿Deseas dar de baja este usuario?'
+                                        : '¿Deseas dar de alta este usuario?',
+                                ])->include('backend/layouts/modal-action-submit') ?>
                             <?= form_close() ?>
-                            <!-- Fin del botón para eliminar un usuario -->
+                            <!-- Fin del botón para dar alta o baja un usuario -->
                         </td>
                     </tr>
                 <?php endforeach ?>

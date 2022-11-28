@@ -3,7 +3,6 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
-use Config\Services;
 
 class Auth extends BaseController
 {
@@ -21,7 +20,7 @@ class Auth extends BaseController
         }
 
         return view('backend/auth/login', [
-            'validation' => Services::validation(),
+            'validation' => service('validation'),
         ]);
     }
 
@@ -38,7 +37,7 @@ class Auth extends BaseController
         }
 
         return view('backend/auth/recoverPassword', [
-            'validation' => Services::validation(),
+            'validation' => service('validation'),
         ]);
     }
 }

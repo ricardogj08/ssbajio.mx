@@ -27,7 +27,7 @@
 
             <p class="text-error">
                 <small>
-                    <?= session()->getFlashdata('error') ?>
+                    <?= esc(session()->getFlashdata('error')) ?>
                 </small>
             </p>
         </div>

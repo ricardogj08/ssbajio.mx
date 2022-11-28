@@ -19,7 +19,7 @@
 
     <p class="text-error mb-4">
         <small>
-            <?= session()->getFlashdata('error') ?>
+            <?= esc(session()->getFlashdata('error')) ?>
         </small>
     </p>
 
@@ -154,11 +154,17 @@
                 <input type="submit" value="Registrar" class="btn btn-primary">
 
                 <!-- Botón que abre el modal de acción -->
-                <label for="modal" class="btn btn-secondary">
+                <label for="modal-action" class="btn btn-secondary">
                     Cancelar
                 </label>
             </div>
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario de registro de usuario -->
+
+    <?= $this->setData([
+        'id'      => 'modal-action',
+        'method'  => 'backend.users.index',
+        'message' => '¿Deseas cancelar el registro del nuevo usuario?',
+    ])->include('backend/layouts/modal-action') ?>
 <?= $this->endSection() ?>

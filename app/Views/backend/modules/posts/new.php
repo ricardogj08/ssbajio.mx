@@ -139,11 +139,17 @@
                 <input type="submit" value="Guardar" class="btn btn-primary">
 
                 <!-- Botón que abre el modal de acción -->
-                <label for="modal" class="btn btn-secondary">
+                <label for="modal-action" class="btn btn-secondary">
                     Cancelar
                 </label>
             </div>
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario de registro de artículos -->
+
+    <?= $this->setData([
+        'id'      => 'modal-action',
+        'method'  => 'backend.modules.posts.index',
+        'message' => '¿Deseas cancelar la publicación del nuevo artículo?',
+    ])->include('backend/layouts/modal-action') ?>
 <?= $this->endSection() ?>

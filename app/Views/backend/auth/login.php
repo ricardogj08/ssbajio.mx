@@ -19,7 +19,7 @@
 
     <p class="text-error mb-4">
         <small>
-            <?= session()->getFlashdata('error') ?>
+            <?= esc(session()->getFlashdata('error')) ?>
         </small>
     </p>
 

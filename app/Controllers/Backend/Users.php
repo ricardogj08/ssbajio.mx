@@ -43,16 +43,31 @@ class Users extends BaseController
     }
 
     /**
-     * Renderiza la vista de la tabla de usuarios.
+     * Renderiza la vista de la tabla de usuarios y
+     * realiza búsquedas y consultas de todos los usuarios.
      */
     public function index()
     {
         $userModel = model('userModel');
 
+        $this->validate([
+            'q' => 'if_exist|max_length[256]',
+        ]);
+
+        $query = $this->request->getGet('q') === null
+            ? ''
+            : trimAll($this->request->getGet('q'));
+
+        $users = $userModel->role()
+            ->like('users.name', $query)
+            ->orderBy('users.id', 'asc')
+            ->paginate(8, 'users');
+
         return view('backend/users/index', [
-            'users'      => $userModel->orderBy('id', 'asc')->paginate(8, 'users'),
+            'users'      => $users,
             'pager'      => $userModel->pager,
             'validation' => service('validation'),
+            'query'      => $query,
         ]);
     }
 

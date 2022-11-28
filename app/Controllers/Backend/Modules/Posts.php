@@ -34,6 +34,12 @@ class Posts extends BaseController
      */
     public function index()
     {
-        return view('backend/modules/posts/index');
+        $query = $this->request->getGet('q') === null
+            ? ''
+            : trimAll($this->request->getGet('q'));
+
+        return view('backend/modules/posts/index', [
+            'query' => $query,
+        ]);
     }
 }

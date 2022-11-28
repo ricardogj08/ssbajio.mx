@@ -42,7 +42,10 @@
 
     <!-- Filtros de consulta -->
     <div class="pb-4">
-        <?= $this->setVar('method', 'backend.modules.posts.index')->include('backend/layouts/search') ?>
+        <?= $this->setData([
+            'method' => 'backend.modules.posts.index',
+            'query'  => $query,
+        ])->include('backend/layouts/search') ?>
     </div>
     <!-- Fin de los filtros de consulta -->
 <?= $this->endSection() ?>

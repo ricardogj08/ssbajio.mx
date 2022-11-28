@@ -17,4 +17,14 @@ class UserModel extends Model
 
     // Dates
     protected $useTimestamps = true;
+
+    /**
+     * Rol del usuario.
+     */
+    public function role()
+    {
+        $this->builder()->select('users.*, roles.description as role')->join('roles', 'roles.id = users.role_id', 'inner');
+
+        return $this;
+    }
 }

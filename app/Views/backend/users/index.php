@@ -44,7 +44,10 @@
 
     <!-- Filtros de consulta -->
     <div class="pb-4">
-        <?= $this->setVar('method', 'backend.users.index')->include('backend/layouts/search') ?>
+        <?= $this->setData([
+            'method' => 'backend.users.index',
+            'query'  => $query,
+        ])->include('backend/layouts/search') ?>
     </div>
     <!-- Fin de los filtros de consulta -->
 
@@ -56,6 +59,7 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Correo</th>
+                    <th>Rol</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -65,7 +69,8 @@
                     <tr class="hover">
                         <th><?= esc($user->id) ?></th>
                         <td><?= esc($user->name) ?></td>
-                        <td> <?= esc($user->email) ?></td>
+                        <td><?= esc($user->email) ?></td>
+                        <td><?= esc($user->role) ?></td>
                         <td class="flex gap-x-2">
                             <!-- Botón para mostrar un usuario -->
                             <a

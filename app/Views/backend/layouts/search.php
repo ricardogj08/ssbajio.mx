@@ -3,7 +3,13 @@
 	<div class="form-control">
 		<div class="input-group">
 			<!-- Campo de búsqueda -->
-			<input type="text" name="q" placeholder="Buscar..." class="input input-bordered w-full">
+			<input
+				type="text"
+				name="q"
+				placeholder="Buscar..."
+				value="<?= esc($query) ?>"
+				class="input input-bordered w-full"
+			>
 
 			<!-- Botón de submit -->
 			<button type="submit" class="btn btn-primary gap-2">

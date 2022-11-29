@@ -35,7 +35,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Website\Home::index', ['as' => 'website.home.index']);
 
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {

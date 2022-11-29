@@ -13,5 +13,6 @@ class MainSeeder extends Seeder
     {
         $this->call('RoleSeeder');
         $this->call('UserSeeder');
+        $this->call('SettingSeeder');
     }
 }

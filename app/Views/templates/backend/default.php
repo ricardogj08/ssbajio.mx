@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="<?= service('request')->getLocale() ?>" data-theme="autumn">
+<html
+    lang="<?= service('request')->getLocale() ?>"
+    data-theme="<?= esc(service('settings')->get('App.theme')) ?>"
+>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

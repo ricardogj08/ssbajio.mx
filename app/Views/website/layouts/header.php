@@ -99,7 +99,7 @@
                     </li>
                     <li>
                         <a
-                            href="<?= url_to('') ?>"
+                            href="<?= url_to('website.posts.index') ?>"
                             class="block py-2 lg:py-0 border-b lg:border-0 border-ssbajio-gray-dark-2 hover:text-ssbajio-gray-light-1"
                         >
                             Blog

@@ -44,9 +44,13 @@ $routes->group('contacto', static function ($routes) {
 });
 
 // Definición de rutas del blog.
-$routes->group('contacto', static function ($routes) {
+$routes->group('blog', static function ($routes) {
     $routes->get('', 'Website\Posts::index', ['as' => 'website.posts.index']);
+    $routes->get('(:segment)', 'Website\Posts::show', ['as' => 'website.posts.show']);
 });
+
+// Ruta de suscripción al newsletter.
+$routes->post('newsletter', 'Website\Newsletter::create', ['as' => 'website.newsletter.create']);
 
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {

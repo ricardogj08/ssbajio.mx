@@ -75,7 +75,7 @@
                 </h2>
 
                 <!-- Formulario de contacto -->
-                <?= form_open(url_to('')) ?>
+                <?= form_open(url_to('website.prospects.create')) ?>
                     <div class="flex flex-col lg:flex-row lg:gap-7.5 pt-5 lg:pt-10 pb-7 lg:pb-14">
                         <div class="flex flex-col gap-y-3 w-full lg:w-1/3">
                             <!-- Campo del nombre completo -->

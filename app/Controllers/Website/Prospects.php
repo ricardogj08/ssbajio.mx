@@ -13,4 +13,13 @@ class Prospects extends BaseController
     {
         return view('website/prospects/new');
     }
+
+    /**
+     * Registra un nuevo prospecto y
+     * renderiza la página de agradecimiento.
+     */
+    public function create()
+    {
+        return view('website/prospects/create');
+    }
 }

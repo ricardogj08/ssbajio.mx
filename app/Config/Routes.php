@@ -36,7 +36,17 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Website\Home::index', ['as' => 'website.home.index']);
-$routes->get('contacto', 'Website\Prospects::new', ['as' => 'website.prospects.new']);
+
+// Definición de rutas del formulario de contacto.
+$routes->group('contacto', static function ($routes) {
+    $routes->get('', 'Website\Prospects::new', ['as' => 'website.prospects.new']);
+    $routes->post('gracias', 'Website\Prospects::create', ['as' => 'website.prospects.create']);
+});
+
+// Definición de rutas del blog.
+$routes->group('contacto', static function ($routes) {
+    $routes->get('', 'Website\Posts::index', ['as' => 'website.posts.index']);
+});
 
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {

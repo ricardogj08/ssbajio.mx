@@ -1,11 +1,9 @@
 <!-- Listado de errores -->
-<p>
-	<small>
-		<ul class="text-error">
-			<?php foreach ($errors as $error): ?>
-				<li><?= esc($error) ?></li>
-			<?php endforeach ?>
-		</ul>
-	</small>
-</p>
+<ul class="text-error">
+    <?php foreach ($errors as $error): ?>
+        <li>
+            <small><?= esc($error) ?></small>
+        </li>
+    <?php endforeach ?>
+</ul>
 <!-- Fin del listado de errores -->

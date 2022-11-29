@@ -9,19 +9,30 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <h1 class="text-2xl font-bold mb-2">
-        Escribe un nuevo artículo
-    </h1>
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
+        <div>
+            <h1 class="text-2xl font-bold mb-2">
+                Escribe un nuevo artículo
+            </h1>
 
-    <h2 class="text-sm">
-        Publica o programa un nuevo artículo.
-    </h2>
+            <h2 class="text-sm">
+                Publica o programa un nuevo artículo.
+            </h2>
 
-    <p class="text-error mb-4">
-        <small>
-            <?= session()->getFlashdata('error') ?>
-        </small>
-    </p>
+            <p class="text-error">
+                <small>
+                    <?= session()->getFlashdata('error') ?>
+                </small>
+            </p>
+        </div>
+
+        <label for="modal-action" class="btn gap-2">
+            <i class="bi bi-arrow-left-circle text-xl"></i>
+            Volver
+        </label>
+    </div>
+
+    <div class="divider"></div>
 
     <!-- Formulario de registro de artículos -->
     <?= form_open_multipart(url_to('backend.modules.posts.new')) ?>

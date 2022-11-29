@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?= service('request')->getLocale() ?>" data-theme="dracula">
+<html lang="<?= service('request')->getLocale() ?>" data-theme="autumn">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,5 +44,7 @@
         <?= $this->include('backend/layouts/menu') ?>
     </div>
     <!-- Fin del sidebar -->
+
+    <?= $this->renderSection('scripts') ?>
 </body>
 </html>

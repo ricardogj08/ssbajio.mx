@@ -9,12 +9,6 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <!-- Notificación exitosa -->
-    <?php if(session()->has('toast-success')): ?>
-        <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
-    <?php endif ?>
-    <!-- Fin de la notificación exitosa -->
-
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
         <div>
             <h1 class="text-2xl font-bold mb-2">
@@ -48,4 +42,12 @@
         ])->include('backend/layouts/search') ?>
     </div>
     <!-- Fin de los filtros de consulta -->
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+    <!-- Notificación exitosa -->
+    <?php if(session()->has('toast-success')): ?>
+        <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin de la notificación exitosa -->
 <?= $this->endSection() ?>

@@ -9,12 +9,6 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <!-- Notificación exitosa -->
-    <?php if(session()->has('toast-success')): ?>
-        <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
-    <?php endif ?>
-    <!-- Fin de la notificación exitosa -->
-
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
         <div>
             <h1 class="text-2xl font-bold mb-2">
@@ -53,7 +47,7 @@
 
     <!-- Tabla de usuarios -->
     <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table table-compact lg:table-normal w-full">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -74,7 +68,7 @@
                         <td class="flex gap-x-2">
                             <!-- Botón para mostrar un usuario -->
                             <a
-                                href="#"
+                                href="<?= url_to('backend.users.show', $user->id) ?>"
                                 aria-label="Mostrar datos de usuario"
                                 class="btn btn-square btn-sm btn-outline btn-warning"
                             >
@@ -92,7 +86,7 @@
                             </a>
                             <!-- Fin del botón para editar un usuario -->
 
-                            <!-- Botón para dar alta o baja un usuario -->
+                            <!-- Botón para dar de alta o baja un usuario -->
                             <?= form_open(url_to('backend.users.toggleActive', $user->id)) ?>
                                 <label
                                     for="modal-action-submit-<?= esc($user->id) ?>"
@@ -108,7 +102,7 @@
                                         : '¿Deseas dar de alta este usuario?',
                                 ])->include('backend/layouts/modal-action-submit') ?>
                             <?= form_close() ?>
-                            <!-- Fin del botón para dar alta o baja un usuario -->
+                            <!-- Fin del botón para dar de alta o baja un usuario -->
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -123,4 +117,12 @@
         <?= $pager->links('users', 'backend_pagination') ?>
     </div>
     <!-- Fin de la paginación -->
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+    <!-- Notificación exitosa -->
+    <?php if(session()->has('toast-success')): ?>
+        <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin de la notificación exitosa -->
 <?= $this->endSection() ?>

@@ -55,6 +55,7 @@ $routes->group('backend', static function ($routes) {
             $routes->post('nuevo', 'Backend\Users::new', ['as' => 'backend.users.new']);
             $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
             $routes->post('cuenta/(:num)', 'Backend\Users::toggleActive/$1', ['as' => 'backend.users.toggleActive']);
+            $routes->get('(:num)', 'Backend\Users::show/$1', ['as' => 'backend.users.show']);
         });
 
         // Definición de rutas de los módulos del backend.

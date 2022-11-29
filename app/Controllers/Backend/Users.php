@@ -89,8 +89,32 @@ class Users extends BaseController
             $active = $user->active ? false : true;
 
             $userModel->update($user->id, ['active' => $active]);
+
+            return redirect()->back()
+                ->with('toast-success', 'Un usuario se ha dado de ' . ($active ? 'alta' : 'baja') . ' correctamente');
         }
 
         return redirect()->back()->withInput();
+    }
+
+    /**
+     * Renderiza la vista de los datos del usuario.
+     *
+     * @param mixed|null $id
+     */
+    public function show($id = null)
+    {
+        if ($this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
+        )) {
+            $userModel = model('userModel');
+
+            $user = $userModel->role()->find($id);
+
+            return view('backend/users/show', ['user' => $user]);
+        }
+
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
     }
 }

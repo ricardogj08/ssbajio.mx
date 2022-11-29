@@ -107,7 +107,7 @@
                     </li>
                     <li>
                         <a
-                            href="<?= url_to('') ?>"
+                            href="<?= url_to('website.prospects.new') ?>"
                             class="bg-ssbajio-red-1 ssbajio-btn block mt-4 lg:mt-0 text-center hover:bg-ssbajio-red-2"
                         >
                             Contacto

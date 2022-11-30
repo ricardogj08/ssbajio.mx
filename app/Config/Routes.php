@@ -58,8 +58,14 @@ $routes->group('backend', static function ($routes) {
     $routes->group('login', static function ($routes) {
         $routes->get('', 'Backend\Auth::login', ['as' => 'backend.login']);
         $routes->post('', 'Backend\Auth::login', ['as' => 'backend.login']);
-        $routes->get('recuperacion', 'Backend\Auth::recoverPassword', ['as' => 'backend.recoverPassword']);
-        $routes->post('recuperacion', 'Backend\Auth::recoverPassword', ['as' => 'backend.recoverPassword']);
+
+        // Rutas de recuperación de contraseñas.
+        $routes->group('recuperacion', static function ($routes) {
+            $routes->get('', 'Backend\Auth::recoverPassword', ['as' => 'backend.recoverPassword']);
+            $routes->post('', 'Backend\Auth::recoverPassword', ['as' => 'backend.recoverPassword']);
+            $routes->get('completar/(:num)/(:hash)', 'Backend\Auth::resetPassword/$1/$2', ['as' => 'backend.resetPassword']);
+            $routes->post('completar/(:num)/(:hash)', 'Backend\Auth::resetPassword/$1/$2', ['as' => 'backend.resetPassword']);
+        });
     });
 
     // Definición de rutas del dashboard.

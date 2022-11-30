@@ -101,6 +101,19 @@ database.development.DBCollat = utf8mb4_spanish_ci
 # database.production.DBCollat = utf8mb4_spanish_ci
 
 #--------------------------------------------------------------------
+# EMAIL
+#--------------------------------------------------------------------
+
+email.protocol = 'smtp'
+email.SMTPHost = 'mail.ejemplo.com'
+email.SMTPUser = 'ejemplo@email.com'
+email.SMTPPass = '12345678'
+email.SMTPPort = 465
+email.SMTPTimeout = 16
+email.SMTPCrypto = ''
+email.mailType = 'html'
+
+#--------------------------------------------------------------------
 # CONTENT SECURITY POLICY
 #--------------------------------------------------------------------
 

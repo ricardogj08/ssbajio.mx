@@ -12,6 +12,7 @@ class Users extends BaseController
      */
     public function new()
     {
+        // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'name'         => 'required|max_length[64]',
             'email'        => 'required|max_length[256]|valid_email|is_unique[users.email]',
@@ -21,6 +22,7 @@ class Users extends BaseController
         ])) {
             $userModel = model('userModel');
 
+            // Registra el nuevo usuario.
             $userModel->insert([
                 'name'     => trimAll($this->request->getPost('name')),
                 'email'    => lowerCase(trim($this->request->getPost('email'))),
@@ -28,12 +30,14 @@ class Users extends BaseController
                 'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             ]);
 
-            return redirect()->route('backend.users.index')
-                ->with('toast-success', 'Un nuevo usuario se ha registrado correctamente');
+            return redirect()
+                ->route('backend.users.index')
+                ->with('toast-success', 'El nuevo usuario de acceso se ha registrado correctamente');
         }
 
         $roleModel = model('RoleModel');
 
+        // Consulta todos los roles del backend.
         $roles = $roleModel->orderBy('description', 'asc')->findAll();
 
         return view('backend/users/new', [
@@ -50,14 +54,21 @@ class Users extends BaseController
     {
         $userModel = model('userModel');
 
+        // Valida el parámetro de búsqueda.
         $this->validate([
             'q' => 'if_exist|max_length[256]',
         ]);
 
+        // Patrón de búsqueda (por defecto: '').
         $query = $this->request->getGet('q') === null
             ? ''
             : trimAll($this->request->getGet('q'));
 
+        /**
+         * Consulta los datos de los usuarios
+         * que coinciden con el patrón de búsqueda
+         * con paginación.
+         */
         $users = $userModel->role()
             ->like('users.name', $query)
             ->orderBy('users.id', 'asc')
@@ -78,20 +89,25 @@ class Users extends BaseController
      */
     public function toggleActive($id = null)
     {
+        // Valida si existe el usuario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validateData(
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {
             $userModel = model('userModel');
 
+            // Consulta los datos del usuario.
             $user = $userModel->find($id);
 
+            // Realiza un toggle del estado de cuenta.
             $active = $user->active ? false : true;
 
+            // Actualiza el estado de cuenta.
             $userModel->update($user->id, ['active' => $active]);
 
-            return redirect()->back()
-                ->with('toast-success', 'Un usuario se ha dado de ' . ($active ? 'alta' : 'baja') . ' correctamente');
+            return redirect()
+                ->back()
+                ->with('toast-success', 'El usuario de acceso se ha dado de ' . ($active ? 'alta' : 'baja') . ' correctamente');
         }
 
         return redirect()->back()->withInput();
@@ -104,12 +120,14 @@ class Users extends BaseController
      */
     public function show($id = null)
     {
+        // Valida si existe el usuario.
         if ($this->validateData(
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {
             $userModel = model('userModel');
 
+            // Consulta los datos del usuario.
             $user = $userModel->role()->find($id);
 
             return view('backend/users/show', ['user' => $user]);

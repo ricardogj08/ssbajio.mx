@@ -17,6 +17,12 @@
         Ingresa tus credenciales de acceso.
     </p>
 
+    <p class="text-success">
+        <small>
+            <?= esc(session()->getFlashdata('success')) ?>
+        </small>
+    </p>
+
     <p class="text-error mb-4">
         <small>
             <?= esc(session()->getFlashdata('error')) ?>

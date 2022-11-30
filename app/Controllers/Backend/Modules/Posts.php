@@ -12,6 +12,7 @@ class Posts extends BaseController
      */
     public function new()
     {
+        // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'title'      => 'required|max_length[256]',
             'cover'      => 'uploaded[cover]|max_size[cover,2048]|is_image[cover]',
@@ -20,8 +21,9 @@ class Posts extends BaseController
         ])) {
             $postModel = model('PostModel');
 
-            return redirect()->route('backend.modules.posts.index')
-                ->with('toast-success', 'Un nuevo artículo se ha registrado correctamente');
+            return redirect()
+                ->route('backend.modules.posts.index')
+                ->with('toast-success', 'El nuevo artículo se ha registrado correctamente');
         }
 
         return view('backend/modules/posts/new', [
@@ -30,10 +32,12 @@ class Posts extends BaseController
     }
 
     /**
-     * Renderiza la vista de la tabla de artículos.
+     * Renderiza la vista de la tabla de artículos
+     * y realiza búsquedas y consultas de todos los artículos.
      */
     public function index()
     {
+        // Patrón de búsqueda (por defecto: '').
         $query = $this->request->getGet('q') === null
             ? ''
             : trimAll($this->request->getGet('q'));

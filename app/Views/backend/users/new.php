@@ -94,7 +94,7 @@
                     </span>
                 </label>
                 <select name="role" required class="select select-bordered select-primary">
-                    <option disabled selected>
+                    <option value="" disabled selected>
                         Selecciona un rol para el nuevo usuario...
                     </option>
                     <?php foreach($roles as $role): ?>

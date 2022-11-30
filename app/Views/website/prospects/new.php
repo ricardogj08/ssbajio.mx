@@ -74,83 +74,134 @@
                     Escríbenos
                 </h2>
 
+                <p class="text-red-600">
+                    <small>
+                        <?= esc(session()->getFlashdata('error')) ?>
+                    </small>
+                </p>
+
                 <!-- Formulario de contacto -->
                 <?= form_open(url_to('website.prospects.create')) ?>
                     <div class="flex flex-col lg:flex-row lg:gap-7.5 pt-5 lg:pt-10 pb-7 lg:pb-14">
                         <div class="flex flex-col gap-y-3 w-full lg:w-1/3">
                             <!-- Campo del nombre completo -->
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Nombre y apellido"
-                                class="norm-form-input prospects-form-field prospects-form-input"
-                            >
+                            <div>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Nombre y apellido"
+                                    value="<?= esc(set_value('name')) ?>"
+                                    class="norm-form-input prospects-form-field prospects-form-input"
+                                >
+                                <p class="text-red-600">
+                                    <small>
+                                        <?= esc($validation->getError('name')) ?>
+                                    </small>
+                                </p>
+                            </div>
                             <!-- Fin del campo del nombre completo -->
 
                             <!-- Campo del número de teléfono -->
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="Teléfono"
-                                class="norm-form-input prospects-form-field prospects-form-input"
-                            >
+                            <div>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="Teléfono"
+                                    value="<?= esc(set_value('phone')) ?>"
+                                    class="norm-form-input prospects-form-field prospects-form-input"
+                                >
+                                <p class="text-red-600">
+                                    <small>
+                                        <?= esc($validation->getError('phone')) ?>
+                                    </small>
+                                </p>
+                            </div>
                             <!-- Fin del campo del número de teléfono -->
 
                             <!-- Campo del email -->
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                class="norm-form-input prospects-form-field prospects-form-input"
-                            >
+                            <div>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value="<?= esc(set_value('email')) ?>"
+                                    class="norm-form-input prospects-form-field prospects-form-input"
+                                >
+                                <p class="text-red-600">
+                                    <small>
+                                        <?= esc($validation->getError('email')) ?>
+                                    </small>
+                                </p>
+                            </div>
                             <!-- Fin del campo del email -->
 
                             <!-- Campo de la empresa -->
-                            <input
-                                type="text"
-                                name="company"
-                                placeholder="Empresa"
-                                class="norm-form-input prospects-form-field prospects-form-input"
-                            >
+                            <div>
+                                <input
+                                    type="text"
+                                    name="company"
+                                    placeholder="Empresa"
+                                    value="<?= esc(set_value('company')) ?>"
+                                    class="norm-form-input prospects-form-field prospects-form-input"
+                                >
+                                <p class="text-red-600">
+                                    <small>
+                                        <?= esc($validation->getError('name')) ?>
+                                    </small>
+                                </p>
+                            </div>
                             <!-- Fin del campo de la empresa -->
 
                             <!-- Campo del interés -->
-                            <div class="flex items-center prospects-form-field">
-                                <select name="" class="norm-form-input prospects-form-input">
-                                    <option selected>
-                                        Interés en:
-                                    </option>
-                                    <option>
-                                        Genotipo
-                                    </option>
-                                    <option>
-                                        Genotipo
-                                    </option>
-                                    <option>
-                                        Genotipo
-                                    </option>
-                                </select>
-                                <i class="bi bi-chevron-down text-ssbajio-dark-1"></i>
+                            <div>
+                                <div class="flex items-center prospects-form-field">
+                                    <select name="solution" class="norm-form-input prospects-form-input">
+                                        <option value="" selected>
+                                            Interés en:
+                                        </option>
+                                        <option>
+                                            Genotipo
+                                        </option>
+                                        <option>
+                                            Genotipo
+                                        </option>
+                                        <option>
+                                            Genotipo
+                                        </option>
+                                    </select>
+                                    <i class="bi bi-chevron-down text-ssbajio-dark-1"></i>
+                                </div>
+                                <p class="text-red-600">
+                                    <small>
+                                        <?= esc($validation->getError('solution')) ?>
+                                    </small>
+                                </p>
                             </div>
                             <!-- Fin del campo del interés -->
 
                             <!-- Campo de cómo supiste de nosotros -->
-                            <div class="flex items-center prospects-form-field">
-                                <select name="" class="norm-form-input prospects-form-input">
-                                    <option selected>
-                                        ¿Cómo supiste de nosotros?
-                                    </option>
-                                    <option>
-                                        Genotipo
-                                    </option>
-                                    <option>
-                                        Genotipo
-                                    </option>
-                                    <option>
-                                        Genotipo
-                                    </option>
-                                </select>
-                                <i class="bi bi-chevron-down text-ssbajio-dark-1"></i>
+                            <div>
+                                <div class="flex items-center prospects-form-field">
+                                    <select name="origin" class="norm-form-input prospects-form-input">
+                                        <option value="" selected>
+                                            ¿Cómo supiste de nosotros?
+                                        </option>
+                                        <?php foreach ($origins as $origin): ?>
+                                            <option
+                                                value="<?= esc($origin->id) ?>"
+                                                <?= set_select('origin', $origin->id) ?>
+                                            >
+                                                <?= esc($origin->description) ?>
+                                            </option>
+                                        <?php endforeach ?>
+                                    </select>
+                                    <i class="bi bi-chevron-down text-ssbajio-dark-1"></i>
+                                </div>
+                                <p class="text-red-600">
+                                    <small>
+                                        <?= esc($validation->getError('origin')) ?>
+                                    </small>
+                                </p>
                             </div>
                             <!-- Fin del campo de cómo supiste de nosotros -->
                         </div>
@@ -165,8 +216,14 @@
                                 rows="4"
                                 cols="50"
                                 name="message"
-                                class="norm-form-input prospects-form-field prospects-form-input prospects-form-textarea"></textarea>
+                                class="norm-form-input prospects-form-field prospects-form-input prospects-form-textarea"><?= esc(set_value('message')) ?></textarea>
+                            <p class="text-red-600">
+                                <small>
+                                    <?= esc($validation->getError('message')) ?>
+                                </small>
+                            </p>
                         </div>
+
                         <!-- Fin del campo del mensaje -->
                     </div>
 

@@ -20,5 +20,8 @@ class AuthModel extends Model
      */
     public function user()
     {
+        $this->builder()->select('auth.*')->join('users', 'users.id = auth.user_id', 'inner');
+
+        return $this;
     }
 }

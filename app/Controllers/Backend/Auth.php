@@ -90,8 +90,63 @@ class Auth extends BaseController
     /**
      * Renderiza la vista para restaurar contraseñas
      * y restaura la contraseña de un usuario.
+     *
+     * @param mixed|null $id
+     * @param mixed|null $key
      */
     public function resetPassword($id = null, $key = null)
     {
+        // Valida si existe el usuario.
+        if ($this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[users.id, active, 1]']
+        )) {
+            $authModel = model('AuthModel');
+
+            // Consulta los datos de autenticación del usuario.
+            $auth = $authModel->user()
+                ->where('users.active', true)
+                ->find($id);
+
+            if ($auth !== null) {
+                // Valida la llave autenticación.
+                if (hash_equals($auth->hash, hash('sha512', $key))) {
+                    // Valida si la llave de autenticación ha expirado.
+                    if (Time::now()->isAfter(Time::parse($auth->expires))) {
+                        return redirect()
+                            ->route('backend.recoverPassword')
+                            ->with('error', 'Tu enlace de recuperación de contraseña ha expirado, por favor intentalo de nuevo');
+                    }
+
+                    // Valida los campos del formulario.
+                    if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
+                        'password'     => 'required|min_length[8]|max_length[32]|password',
+                        'pass_confirm' => 'required|matches[password]',
+                    ])) {
+                        $userModel = model('UserModel');
+
+                        // Actualiza la contraseña del usuario.
+                        $userModel->update($auth->user_id, [
+                            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                        ]);
+
+                        // Elimina el registro de autenticación.
+                        $authModel->delete($auth->user_id);
+
+                        return redirect()
+                            ->route('backend.login')
+                            ->with('success', 'Tu contraseña se ha actualizado correctamente');
+                    }
+
+                    return view('backend/auth/resetPassword', [
+                        'validation' => service('validation'),
+                        'id'         => $id,
+                        'key'        => $key,
+                    ]);
+                }
+            }
+        }
+
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
     }
 }

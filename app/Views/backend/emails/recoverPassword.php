@@ -13,7 +13,7 @@
 
 	<p class="text-justify">
 		¡Hola <?= esc(word_limiter($user, 1, '')) ?>!,
-		haz click en el siguiente botón para completar tu solicitud de recuperación de contraseña:
+		presiona el siguiente botón para completar tu solicitud de recuperación de contraseña:
 	</p>
 
 	<p class="text-center pt-4 pb-2">
@@ -21,7 +21,7 @@
 			href="<?= url_to('backend.resetPassword', $id, $key) ?>"
 			class="btn btn-primary btn-block sm:btn-wide"
 		>
-			Recuperar
+			Recuperar contraseña
 		</a>
 	</p>
 

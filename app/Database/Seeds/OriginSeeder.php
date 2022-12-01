@@ -15,10 +15,6 @@ class OriginSeeder extends Seeder
 
         $originModel->ignore()->insertBatch([
             [
-                'name'        => 'form',
-                'description' => 'Formulario de contacto',
-            ],
-            [
                 'name'        => 'google',
                 'description' => 'A través de Google',
             ],

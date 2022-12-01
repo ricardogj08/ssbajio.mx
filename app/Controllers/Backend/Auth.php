@@ -67,7 +67,7 @@ class Auth extends BaseController
                 return redirect()
                     ->route('backend.recoverPassword')
                     ->withInput()
-                    ->with('error', 'El mensaje de correo electrónico no se ha podido enviar');
+                    ->with('error', 'Tuvimos un problema para enviar tu mensaje de correo electrónico');
             }
 
             // Registra el hash de autorización del usuario con fecha de expiración.
@@ -99,7 +99,7 @@ class Auth extends BaseController
         // Valida si existe el usuario.
         if ($this->validateData(
             ['id' => $id],
-            ['id' => 'required|is_natural_no_zero|is_not_unique[users.id, active, 1]']
+            ['id' => 'required|is_natural_no_zero|is_not_unique[users.id,active,1]']
         )) {
             $authModel = model('AuthModel');
 

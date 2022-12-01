@@ -15,3 +15,11 @@ function lowerCase(string $str)
 {
     return mb_strtolower($str, 'utf-8');
 }
+
+/**
+ * Elimina todos los espacios de un string.
+ */
+function stripAllSpaces(string $str)
+{
+    return preg_replace('/\s+/', '', $str);
+}

@@ -4,11 +4,11 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
+/**
+ * Crea la tabla de autorizaciones.
+ */
 class CreateAuthTable extends Migration
 {
-    /**
-     * Crea la tabla de autorizaciones.
-     */
     public function up()
     {
         $this->forge->addField([
@@ -34,7 +34,7 @@ class CreateAuthTable extends Migration
         ]);
 
         $this->forge->addPrimaryKey('user_id');
-        $this->forge->addForeignKey('user_id', 'users', 'id', 'restric', 'cascade');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'restrict', 'restrict');
 
         $this->forge->createTable('auth', true);
     }

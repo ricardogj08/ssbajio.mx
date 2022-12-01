@@ -4,11 +4,11 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
+/**
+ * Crea la tabla de orígenes de prospectos.
+ */
 class CreateOriginsTable extends Migration
 {
-    /**
-     * Crea la tabla de orígenes de prospectos.
-     */
     public function up()
     {
         $this->forge->addField([
@@ -24,7 +24,7 @@ class CreateOriginsTable extends Migration
             ],
             'description' => [
                 'type'       => 'varchar',
-                'constraint' => 32,
+                'constraint' => 64,
             ],
         ]);
 

@@ -89,6 +89,8 @@
                                 <input
                                     type="text"
                                     name="name"
+                                    required
+                                    maxlength="64"
                                     placeholder="Nombre y apellido"
                                     value="<?= esc(set_value('name')) ?>"
                                     class="norm-form-input prospects-form-field prospects-form-input"
@@ -106,6 +108,8 @@
                                 <input
                                     type="tel"
                                     name="phone"
+                                    required
+                                    maxlength="15"
                                     placeholder="Teléfono"
                                     value="<?= esc(set_value('phone')) ?>"
                                     class="norm-form-input prospects-form-field prospects-form-input"
@@ -123,6 +127,8 @@
                                 <input
                                     type="email"
                                     name="email"
+                                    required
+                                    maxlength="256"
                                     placeholder="Email"
                                     value="<?= esc(set_value('email')) ?>"
                                     class="norm-form-input prospects-form-field prospects-form-input"
@@ -140,6 +146,8 @@
                                 <input
                                     type="text"
                                     name="company"
+                                    maxlength="64"
+                                    required
                                     placeholder="Empresa"
                                     value="<?= esc(set_value('company')) ?>"
                                     class="norm-form-input prospects-form-field prospects-form-input"
@@ -155,19 +163,18 @@
                             <!-- Campo del interés -->
                             <div>
                                 <div class="flex items-center prospects-form-field">
-                                    <select name="solution" class="norm-form-input prospects-form-input">
+                                    <select name="solution" required class="norm-form-input prospects-form-input">
                                         <option value="" selected>
                                             Interés en:
                                         </option>
-                                        <option>
-                                            Genotipo
-                                        </option>
-                                        <option>
-                                            Genotipo
-                                        </option>
-                                        <option>
-                                            Genotipo
-                                        </option>
+                                        <?php foreach ($solutions as $solution): ?>
+                                            <option
+                                                value="<?= esc($solution->id) ?>"
+                                                <?= set_select('solution', $solution->id) ?>
+                                            >
+                                                <?= esc($solution->description) ?>
+                                            </option>
+                                        <?php endforeach ?>
                                     </select>
                                     <i class="bi bi-chevron-down text-ssbajio-dark-1"></i>
                                 </div>
@@ -182,7 +189,7 @@
                             <!-- Campo de cómo supiste de nosotros -->
                             <div>
                                 <div class="flex items-center prospects-form-field">
-                                    <select name="origin" class="norm-form-input prospects-form-input">
+                                    <select name="origin" required class="norm-form-input prospects-form-input">
                                         <option value="" selected>
                                             ¿Cómo supiste de nosotros?
                                         </option>
@@ -213,9 +220,10 @@
                             </label>
                             <textarea
                                 id="message"
+                                name="message"
+                                maxlength="4096"
                                 rows="4"
                                 cols="50"
-                                name="message"
                                 class="norm-form-input prospects-form-field prospects-form-input prospects-form-textarea"><?= esc(set_value('message')) ?></textarea>
                             <p class="text-red-600">
                                 <small>

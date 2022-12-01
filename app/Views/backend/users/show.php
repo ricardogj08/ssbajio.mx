@@ -55,11 +55,17 @@
             </tr>
             <tr>
                 <th>Fecha de registro:</th>
-                <td><?= esc($user->created_at) ?></td>
+                <td>
+                    <?= esc(CodeIgniter\I18n\Time::parse($user->created_at)
+                        ->toLocalizedString("dd 'de' MMMM 'del' yyyy '-' hh:mm a")) ?>
+                </td>
             </tr>
             <tr>
                 <th>Fecha de modificación:</th>
-                <td><?= esc($user->updated_at) ?></td>
+                <td>
+                    <?= esc(CodeIgniter\I18n\Time::parse($user->updated_at)
+                        ->toLocalizedString("dd 'de' MMMM 'del' yyyy '-' hh:mm a")) ?>
+                </td>
             </tr>
         </table>
     </div>

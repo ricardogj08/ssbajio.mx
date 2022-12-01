@@ -64,7 +64,7 @@ class CreatePostsTable extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('user_id', 'users', 'id', 'restric', 'restric');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'restrict', 'restrict');
 
         $this->forge->createTable('posts', true);
     }

@@ -4,6 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
+/**
+ * Modelo que representa la tabla de autenticaciones.
+ */
 class AuthModel extends Model
 {
     protected $table            = 'auth';

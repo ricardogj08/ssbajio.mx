@@ -10,7 +10,7 @@
 	}
 
 	.norm-form-input {
-		@apply appearance-none bg-none focus:ring-0 focus:outline-none border-0 p-0 rounded-none outline-none resize-none w-full;
+		@apply appearance-none bg-none autofill:bg-none focus:ring-0 focus:outline-none border-0 p-0 rounded-none outline-none resize-none w-full;
 	}
 
 	.prospects-form-field {

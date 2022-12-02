@@ -74,7 +74,7 @@
     <div class="flex flex-col lg:flex-row justify-end pt-4">
         <!-- Botón para editar el usuario -->
         <a href="<?= url_to('') ?>" class="btn btn-outline btn-info">
-            Editar
+            Modificar
         </a>
     </div>
 <?= $this->endSection() ?>

@@ -10,7 +10,7 @@ class Posts extends BaseController
      * Renderiza la vista de registro de artículos
      * y registra un nuevo artículo.
      */
-    public function new()
+    public function create()
     {
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
@@ -23,10 +23,10 @@ class Posts extends BaseController
 
             return redirect()
                 ->route('backend.modules.posts.index')
-                ->with('toast-success', 'El nuevo artículo se ha registrado correctamente');
+                ->with('toast-success', 'El artículo se ha registrado correctamente');
         }
 
-        return view('backend/modules/posts/new', [
+        return view('backend/modules/posts/create', [
             'validation' => service('validation'),
         ]);
     }

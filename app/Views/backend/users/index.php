@@ -28,7 +28,7 @@
             <?= $validation->listErrors('backend_errors') ?>
         </div>
 
-        <a href="<?= url_to('backend.users.new') ?>" class="btn btn-secondary gap-2">
+        <a href="<?= url_to('backend.users.create') ?>" class="btn btn-secondary gap-2">
             <i class="bi bi-plus-circle-fill text-xl"></i>
             Registra un nuevo usuario
         </a>
@@ -69,7 +69,7 @@
                             <!-- Botón para mostrar un usuario -->
                             <a
                                 href="<?= url_to('backend.users.show', $user->id) ?>"
-                                aria-label="Mostrar datos del usuario"
+                                aria-label="Mostrar los datos del usuario"
                                 class="btn btn-square btn-sm btn-outline btn-warning"
                             >
                                 <i class="bi bi-eye text-xl"></i>
@@ -79,7 +79,7 @@
                             <!-- Botón para editar un usuario -->
                             <a
                                 href="#"
-                                aria-label="Editar datos del usuario"
+                                aria-label="Modificar los datos del usuario"
                                 class="btn btn-square btn-sm btn-outline btn-info"
                             >
                                 <i class="bi bi-pencil text-xl"></i>

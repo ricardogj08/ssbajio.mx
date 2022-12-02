@@ -65,7 +65,7 @@
                             <!-- Botón para mostrar un prospecto -->
                             <a
                                 href="#"
-                                aria-label="Mostrar datos del prospecto"
+                                aria-label="Mostrar los datos del prospecto"
                                 class="btn btn-square btn-sm btn-outline btn-warning"
                             >
                                 <i class="bi bi-eye text-xl"></i>
@@ -75,7 +75,7 @@
                             <!-- Botón para editar un prospecto -->
                             <a
                                 href="#"
-                                aria-label="Editar datos del prospecto"
+                                aria-label="Modificar los datos del prospecto"
                                 class="btn btn-square btn-sm btn-outline btn-info"
                             >
                                 <i class="bi bi-pencil text-xl"></i>

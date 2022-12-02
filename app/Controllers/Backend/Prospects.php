@@ -6,6 +6,10 @@ use App\Controllers\BaseController;
 
 class Prospects extends BaseController
 {
+    /**
+     * Renderiza la vista de la tabla de prospectos y
+     * realiza búsquedas y consultas de todos los prospectos.
+     */
     public function index()
     {
         // Valida el parámetro de búsqueda.
@@ -30,13 +34,13 @@ class Prospects extends BaseController
         $prospects = $prospectModel->info()
             ->like('prospects.name', $query)
             ->orderBy('prospects.created_at', 'desc')
-            ->paginate(8, 'prospects');;
+            ->paginate(8, 'prospects');
 
         return view('backend/prospects/index', [
             'validation' => service('validation'),
             'query'      => $query,
             'prospects'  => $prospects,
-            'pager'      => $prospectModel->pager
+            'pager'      => $prospectModel->pager,
         ]);
     }
 }

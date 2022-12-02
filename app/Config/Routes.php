@@ -72,8 +72,8 @@ $routes->group('backend', static function ($routes) {
     $routes->group('', static function ($routes) {
         // Rutas de administración de usuarios.
         $routes->group('usuarios', static function ($routes) {
-            $routes->get('nuevo', 'Backend\Users::new', ['as' => 'backend.users.new']);
-            $routes->post('nuevo', 'Backend\Users::new', ['as' => 'backend.users.new']);
+            $routes->get('nuevo', 'Backend\Users::create', ['as' => 'backend.users.create']);
+            $routes->post('nuevo', 'Backend\Users::create', ['as' => 'backend.users.create']);
             $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
             $routes->post('cuenta/(:num)', 'Backend\Users::toggleActive/$1', ['as' => 'backend.users.toggleActive']);
             $routes->get('(:num)', 'Backend\Users::show/$1', ['as' => 'backend.users.show']);
@@ -84,12 +84,19 @@ $routes->group('backend', static function ($routes) {
             $routes->get('', 'Backend\Prospects::index', ['as' => 'backend.prospects.index']);
         });
 
+        // Rutas de configuración del backend.
+        $routes->group('configuracion', static function ($routes) {
+            $routes->get('modificar', 'Backend\Settings::update', ['as' => 'backend.settings.update']);
+            $routes->post('modificar', 'Backend\Settings::update', ['as' => 'backend.settings.update']);
+            $routes->get('', 'Backend\Settings::index', ['as' => 'backend.settings.index']);
+        });
+
         // Definición de rutas de los módulos del backend.
         $routes->group('modulos', static function ($routes) {
             // Rutas del modulo de blog.
             $routes->group('blog', static function ($routes) {
-                $routes->get('nuevo', 'Backend\Modules\Posts::new', ['as' => 'backend.modules.posts.new']);
-                $routes->post('nuevo', 'Backend\Modules\Posts::new', ['as' => 'backend.modules.posts.new']);
+                $routes->get('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
+                $routes->post('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
                 $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
             });
         });

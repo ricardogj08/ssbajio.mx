@@ -35,7 +35,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de registro de artículos -->
-    <?= form_open_multipart(url_to('backend.modules.posts.new')) ?>
+    <?= form_open_multipart(url_to('backend.modules.posts.create')) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del título -->
             <div class="form-control">

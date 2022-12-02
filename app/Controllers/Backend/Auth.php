@@ -67,7 +67,7 @@ class Auth extends BaseController
                 return redirect()
                     ->route('backend.recoverPassword')
                     ->withInput()
-                    ->with('error', 'Tuvimos un problema para enviar tu mensaje de correo electrónico');
+                    ->with('error', 'Tuvimos un problema para enviar tu mensaje de correo electrónico, por favor inténtelo de nuevo');
             }
 
             // Registra el hash de autorización del usuario con fecha de expiración.
@@ -115,7 +115,7 @@ class Auth extends BaseController
                     if (Time::now()->isAfter(Time::parse($auth->expires))) {
                         return redirect()
                             ->route('backend.recoverPassword')
-                            ->with('error', 'Tu enlace de recuperación de contraseña ha expirado, por favor intentalo de nuevo');
+                            ->with('error', 'Tu enlace de recuperación de contraseña ha expirado, por favor inténtelo de nuevo');
                     }
 
                     // Valida los campos del formulario.

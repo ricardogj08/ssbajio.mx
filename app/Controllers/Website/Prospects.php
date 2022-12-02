@@ -83,7 +83,7 @@ class Prospects extends BaseController
                 return redirect()
                     ->route('website.prospects.new')
                     ->withInput()
-                    ->with('error', 'Tuvimos un problema para enviar tu mensaje de correo electrónico');
+                    ->with('error', 'Tuvimos un problema para enviar tu mensaje de correo electrónico, por favor inténtelo de nuevo');
             }
 
             return view('website/prospects/create');

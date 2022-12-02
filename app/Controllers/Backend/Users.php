@@ -10,7 +10,7 @@ class Users extends BaseController
      * Renderiza la vista de registro de usuarios
      * y registra un nuevo usuario.
      */
-    public function new()
+    public function create()
     {
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
@@ -32,7 +32,7 @@ class Users extends BaseController
 
             return redirect()
                 ->route('backend.users.index')
-                ->with('toast-success', 'El nuevo usuario de acceso se ha registrado correctamente');
+                ->with('toast-success', 'El usuario de acceso se ha registrado correctamente');
         }
 
         $roleModel = model('RoleModel');
@@ -40,7 +40,7 @@ class Users extends BaseController
         // Consulta todos los roles del backend.
         $roles = $roleModel->orderBy('description', 'asc')->findAll();
 
-        return view('backend/users/new', [
+        return view('backend/users/create', [
             'validation' => service('validation'),
             'roles'      => $roles,
         ]);
@@ -85,7 +85,7 @@ class Users extends BaseController
     }
 
     /**
-     * Actualiza el estado de cuenta de un usuario.
+     * Modifica el estado de cuenta de un usuario.
      *
      * @param mixed|null $id
      */

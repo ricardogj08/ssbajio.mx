@@ -85,6 +85,7 @@ Compila Tailwind CSS para el backend:
 * [daisyUI](https://daisyui.com/)
 * [Flowbite](https://flowbite.com/)
 * [JavaScript Standard Style](https://standardjs.com/)
+* [Google Tag Manager - Guía de inicio rápido](https://developers.google.com/tag-manager/quickstart?hl=es)
 
 ## Licencia
 

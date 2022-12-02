@@ -12,9 +12,9 @@
         </a>
     </li>
     <li>
-        <a href="#">
+        <a href="<?= url_to('backend.settings.index') ?>">
             <i class="bi bi-gear-fill text-2xl"></i>
-            Configuración
+            Configuraciones
         </a>
     </li>
     <li>

@@ -35,7 +35,7 @@
     <div class="divider"></div>
 
     <!-- Formulario de registro de usuarios -->
-    <?= form_open(url_to('backend.users.new')) ?>
+    <?= form_open(url_to('backend.users.create')) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del nombre -->
             <div class="form-control">

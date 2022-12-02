@@ -86,6 +86,7 @@ Compila Tailwind CSS para el backend:
 * [Flowbite](https://flowbite.com/)
 * [JavaScript Standard Style](https://standardjs.com/)
 * [Google Tag Manager - Guía de inicio rápido](https://developers.google.com/tag-manager/quickstart?hl=es)
+* [Configurar e instalar Tag Manager](https://support.google.com/tagmanager/answer/6103696?hl=es)
 
 ## Licencia
 

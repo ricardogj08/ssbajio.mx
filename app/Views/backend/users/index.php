@@ -95,6 +95,7 @@
                                     <i class="bi bi-<?= $user->active ? 'trash' : 'recycle' ?> text-xl"></i>
                                 </label>
 
+                                <!-- Botón de submit con modal -->
                                 <?= $this->setData([
                                     'id'      => "modal-action-submit-{$user->id}",
                                     'message' => $user->active

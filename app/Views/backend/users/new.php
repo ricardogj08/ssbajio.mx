@@ -4,7 +4,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        Backend | Registro de usuarios
+        Usuarios | Registro
     </title>
 <?= $this->endSection() ?>
 

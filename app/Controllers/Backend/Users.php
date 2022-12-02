@@ -52,17 +52,19 @@ class Users extends BaseController
      */
     public function index()
     {
-        $userModel = model('userModel');
-
         // Valida el parámetro de búsqueda.
-        $this->validate([
+        if (! $this->validate([
             'q' => 'if_exist|max_length[256]',
-        ]);
+        ])) {
+            return redirect()->route('backend.users.index')->withInput();
+        }
 
         // Patrón de búsqueda (por defecto: '').
         $query = $this->request->getGet('q') === null
             ? ''
             : trimAll($this->request->getGet('q'));
+
+        $userModel = model('userModel');
 
         /**
          * Consulta los datos de los usuarios
@@ -71,7 +73,7 @@ class Users extends BaseController
          */
         $users = $userModel->role()
             ->like('users.name', $query)
-            ->orderBy('users.id', 'asc')
+            ->orderBy('users.created_at', 'desc')
             ->paginate(8, 'users');
 
         return view('backend/users/index', [

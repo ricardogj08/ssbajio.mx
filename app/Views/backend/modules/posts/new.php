@@ -4,7 +4,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        Blog | Registro de artículos
+        Blog | Registro
     </title>
 <?= $this->endSection() ?>
 

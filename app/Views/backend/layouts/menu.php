@@ -6,7 +6,7 @@
         </span>
     </li>
     <li>
-        <a href="#">
+        <a href="<?= url_to('backend.prospects.index') ?>">
             <i class="bi bi-person-lines-fill text-2xl"></i>
             Prospectos
         </a>

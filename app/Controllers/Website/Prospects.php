@@ -77,6 +77,9 @@ class Prospects extends BaseController
 
             // Envía el mensaje del email.
             if (! $email->send()) {
+                // Elimina el registro del prospecto si falla el envío.
+                $prospectModel->delete($id);
+
                 return redirect()
                     ->route('website.prospects.new')
                     ->withInput()

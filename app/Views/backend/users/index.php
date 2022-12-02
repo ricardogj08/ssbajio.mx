@@ -4,7 +4,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        Backend | Listado de usuarios
+        Backend | Usuarios
     </title>
 <?= $this->endSection() ?>
 
@@ -69,7 +69,7 @@
                             <!-- Botón para mostrar un usuario -->
                             <a
                                 href="<?= url_to('backend.users.show', $user->id) ?>"
-                                aria-label="Mostrar datos de usuario"
+                                aria-label="Mostrar datos del usuario"
                                 class="btn btn-square btn-sm btn-outline btn-warning"
                             >
                                 <i class="bi bi-eye text-xl"></i>
@@ -79,7 +79,7 @@
                             <!-- Botón para editar un usuario -->
                             <a
                                 href="#"
-                                aria-label="Editar datos de usuario"
+                                aria-label="Editar datos del usuario"
                                 class="btn btn-square btn-sm btn-outline btn-info"
                             >
                                 <i class="bi bi-pencil text-xl"></i>

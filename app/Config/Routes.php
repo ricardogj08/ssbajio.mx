@@ -79,6 +79,11 @@ $routes->group('backend', static function ($routes) {
             $routes->get('(:num)', 'Backend\Users::show/$1', ['as' => 'backend.users.show']);
         });
 
+        // Rutas de administración de prospectos.
+        $routes->group('prospectos', static function ($routes) {
+            $routes->get('', 'Backend\Prospects::index', ['as' => 'backend.prospects.index']);
+        });
+
         // Definición de rutas de los módulos del backend.
         $routes->group('modulos', static function ($routes) {
             // Rutas del modulo de blog.

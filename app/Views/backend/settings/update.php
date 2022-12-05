@@ -34,7 +34,7 @@
 
     <div class="divider"></div>
 
-    <?= form_open(url_to('backend.settings.update')) ?>
+    <?= form_open_multipart(url_to('backend.settings.update')) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo de Google Tag Manager -->
             <div class="form-control">
@@ -58,6 +58,54 @@
             </div>
             <!-- Fin del campo de Google Tag Manager -->
 
+            <!-- Campo del tema de colores -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Tema de colores:
+                    </span>
+                </label>
+                <select name="theme" class="select select-bordered">
+                    <option value="" selected>
+                        Selecciona un tema de colores...
+                    </option>
+                    <?php foreach ($themes as $theme): ?>
+                        <option value="<?= esc($theme) ?>"<?= $theme === $settings->get('App.theme') ? ' selected' : '' ?>>
+                            <?= esc($theme) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('theme')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del tema de colores -->
+
+            <!-- Campo del favicon -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Favicon:
+                    </span>
+                </label>
+                <input
+                    type="file"
+                    name="favicon"
+                    size="2048"
+                    accept="image/*"
+                    class="file-input file-input-bordered"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('favicon')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del favicon -->
+
+            <!-- Botón de submit -->
             <div class="flex flex-col lg:flex-row justify-end">
                 <label for="modal-action-submit" class="btn btn-primary">
                     Guardar

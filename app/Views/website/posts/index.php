@@ -1,6 +1,6 @@
 <?= $this->extend('templates/website/default') ?>
 
-<?= $this->section('content') ?>
+<?= $this->section('head') ?>
     <title>
         Blog
     </title>
@@ -27,7 +27,7 @@
     </div>
     <!-- Fin del banner -->
 
-    <!-- Sección de newsletter, artículos y paginación -->
+    <!-- Sección del newsletter, artículos y paginación -->
     <div class="bg-ssbajio-gray-light-3">
         <div class="container">
             <div class="pt-12 lg:pt-24 pb-18 lg:pb-38">
@@ -49,7 +49,7 @@
                                     class="bg-cover bg-center bg-no-repeat"
                                 >
                                     <div class="grid grid-cols-4 lg:gap-7.5 pt-32 lg:pt-62 group-hover:backdrop-brightness-75 transition-all">
-                                        <div class="bg-ssbajio-dark-1 col-span-1 lg:col-span-1 py-5 lg:py-10 text-white text-center">
+                                        <div class="bg-ssbajio-dark-1 col-span-1 py-5 lg:py-10 text-white text-center">
                                             <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
                                                 08
                                             </div>
@@ -80,7 +80,7 @@
                                     class="bg-cover bg-center bg-no-repeat"
                                 >
                                     <div class="grid grid-cols-4 lg:gap-7.5 pt-32 lg:pt-62 group-hover:backdrop-brightness-75 transition-all">
-                                        <div class="bg-ssbajio-dark-1 col-span-1 lg:col-span-1 py-5 lg:py-10 text-white text-center">
+                                        <div class="bg-ssbajio-dark-1 col-span-1 py-5 lg:py-10 text-white text-center">
                                             <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
                                                 10
                                             </div>
@@ -111,7 +111,7 @@
                                     class="bg-cover bg-center bg-no-repeat"
                                 >
                                     <div class="grid grid-cols-4 lg:gap-7.5 pt-32 lg:pt-62 group-hover:backdrop-brightness-75 transition-all">
-                                        <div class="bg-ssbajio-dark-1 col-span-1 lg:col-span-1 py-5 lg:py-10 text-white text-center">
+                                        <div class="bg-ssbajio-dark-1 col-span-1 py-5 lg:py-10 text-white text-center">
                                             <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
                                                 08
                                             </div>
@@ -142,7 +142,7 @@
                                     class="bg-cover bg-center bg-no-repeat"
                                 >
                                     <div class="grid grid-cols-4 lg:gap-7.5 pt-32 lg:pt-62 group-hover:backdrop-brightness-75 transition-all">
-                                        <div class="bg-ssbajio-dark-1 col-span-1 lg:col-span-1 py-5 lg:py-10 text-white text-center">
+                                        <div class="bg-ssbajio-dark-1 col-span-1 py-5 lg:py-10 text-white text-center">
                                             <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
                                                 10
                                             </div>
@@ -173,7 +173,7 @@
                                     class="bg-cover bg-center bg-no-repeat"
                                 >
                                     <div class="grid grid-cols-4 lg:gap-7.5 pt-32 lg:pt-62 group-hover:backdrop-brightness-75 transition-all">
-                                        <div class="bg-ssbajio-dark-1 col-span-1 lg:col-span-1 py-5 lg:py-10 text-white text-center">
+                                        <div class="bg-ssbajio-dark-1 col-span-1 py-5 lg:py-10 text-white text-center">
                                             <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
                                                 10
                                             </div>
@@ -226,7 +226,7 @@
             </div>
         </div>
     </div>
-    <!-- Fin de la sección de newsletter, artículos y paginación -->
+    <!-- Fin de la sección del newsletter, artículos y paginación -->
 
 	<?= $this->include('website/layouts/footer') ?>
 <?= $this->endSection() ?>

@@ -1,6 +1,6 @@
 <?= $this->extend('templates/website/default') ?>
 
-<?= $this->section('content') ?>
+<?= $this->section('head') ?>
     <title>
         Gracias
     </title>

@@ -19,5 +19,6 @@ class Posts extends BaseController
      */
     public function show()
     {
+        return view('website/posts/show');
     }
 }

@@ -1,6 +1,6 @@
 <?= $this->extend('templates/backend/email') ?>
 
-<?= $this->section('content') ?>
+<?= $this->section('head') ?>
 	<title>
 		Recuperación de contraseña
 	</title>

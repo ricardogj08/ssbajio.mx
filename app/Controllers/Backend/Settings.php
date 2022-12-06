@@ -3,7 +3,6 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
-use RuntimeException;
 
 class Settings extends BaseController
 {
@@ -28,6 +27,7 @@ class Settings extends BaseController
             'googleTagManager' => 'if_exist|string',
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
             'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
+            'loginBackground'  => 'max_size[loginBackground,2048]|is_image[loginBackground]',
         ])) {
             // ID de Google Tag Manager.
             setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
@@ -37,6 +37,7 @@ class Settings extends BaseController
 
             $favicon = $this->request->getFile('favicon');
 
+            // Ruta de archivos subidos para las configuraciones del backend.
             $uploadsPath = FCPATH . 'uploads/backend/settings/';
 
             // Favicon.
@@ -52,8 +53,27 @@ class Settings extends BaseController
                 $favicon->move($uploadsPath, $newName);
 
                 setting()->set('App.favicon', $newName);
-            } else {
-                throw new RuntimeException($favicon->getErrorString() . '(' . $favicon->getError() . ')');
+
+                unset($favicon, $oldFavicon, $newName);
+            }
+
+            $loginBackground = $this->request->getFile('loginBackground');
+
+            // Fondo del login.
+            if ($loginBackground->isValid() && ! $loginBackground->hasMoved()) {
+                $oldLoginBackground = $uploadsPath . setting()->get('App.loginBackground');
+
+                // Elimina el fondo anterior.
+                is_file($oldLoginBackground) && unlink($oldLoginBackground);
+
+                $newName = $loginBackground->getRandomName();
+
+                // Almacena el nuevo fondo.
+                $loginBackground->move($uploadsPath, $newName);
+
+                setting()->set('App.loginBackground', $newName);
+
+                unset($loginBackground, $oldLoginBackground, $newName);
             }
         }
 

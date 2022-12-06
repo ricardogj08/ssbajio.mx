@@ -24,5 +24,9 @@ class SettingSeeder extends Seeder
         if (setting()->get('App.favicon') === null) {
             setting()->set('App.favicon', '1670343267_cb330cbc1f1a8556a514.svg');
         }
+
+        if (setting()->get('App.loginBackground') === null) {
+            setting()->set('App.loginBackground', '1670351356_af7dc5299ed3ff3ba50e.jpg');
+        }
     }
 }

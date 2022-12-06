@@ -105,6 +105,28 @@
             </div>
             <!-- Fin del campo del favicon -->
 
+            <!--- Campo del fondo del login -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Fondo de inicio de sesión:
+                    </span>
+                </label>
+                <input
+                    type="file"
+                    name="loginBackground"
+                    size="2048"
+                    accept="image/*"
+                    class="file-input file-input-bordered"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('loginBackground')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del fondo del login -->
+
             <!-- Botón de submit -->
             <div class="flex flex-col lg:flex-row justify-end">
                 <label for="modal-action-submit" class="btn btn-primary">

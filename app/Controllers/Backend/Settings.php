@@ -28,6 +28,7 @@ class Settings extends BaseController
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
             'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
             'loginBackground'  => 'max_size[loginBackground,2048]|is_image[loginBackground]',
+            'logo'             => 'max_size[logo,2048]|is_image[logo]',
         ])) {
             // ID de Google Tag Manager.
             setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
@@ -74,6 +75,25 @@ class Settings extends BaseController
                 setting()->set('App.loginBackground', $newName);
 
                 unset($loginBackground, $oldLoginBackground, $newName);
+            }
+
+            $logo = $this->request->getFile('logo');
+
+            // Logo.
+            if ($logo->isValid() && ! $logo->hasMoved()) {
+                $oldLogo = $uploadsPath . setting()->get('App.logo');
+
+                // Elimina el fondo anterior.
+                is_file($oldLogo) && unlink($oldLogo);
+
+                $newName = $logo->getRandomName();
+
+                // Almacena el nuevo fondo.
+                $logo->move($uploadsPath, $newName);
+
+                setting()->set('App.logo', $newName);
+
+                unset($logo, $oldLogo, $newName);
             }
         }
 

@@ -105,7 +105,7 @@
             </div>
             <!-- Fin del campo del favicon -->
 
-            <!--- Campo del fondo del login -->
+            <!-- Campo del fondo del login -->
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">
@@ -126,6 +126,28 @@
                 </label>
             </div>
             <!-- Fin del campo del fondo del login -->
+
+            <!-- Campo del logo del backend -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Logo:
+                    </span>
+                </label>
+                <input
+                    type="file"
+                    name="logo"
+                    size="2048"
+                    accept="image/*"
+                    class="file-input file-input-bordered"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('logo')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del logo del backend -->
 
             <!-- Botón de submit -->
             <div class="flex flex-col lg:flex-row justify-end">

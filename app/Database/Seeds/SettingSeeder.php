@@ -28,5 +28,9 @@ class SettingSeeder extends Seeder
         if (setting()->get('App.loginBackground') === null) {
             setting()->set('App.loginBackground', '1670351356_af7dc5299ed3ff3ba50e.jpg');
         }
+
+        if (setting()->get('App.logo') === null) {
+            setting()->set('App.logo', '1670357740_ba0feaa5940d0094187a.svg');
+        }
     }
 }

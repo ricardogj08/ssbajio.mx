@@ -17,7 +17,7 @@
     <?= $this->renderSection('head') ?>
 </head>
 <body
-    style="background-image: url(<?= base_url(['uploads/backend/settings/', setting()->get('App.loginBackground')]) ?>);"
+    style="background-image: url('<?= base_url(['uploads/backend/settings/', setting()->get('App.loginBackground')]) ?>');"
     class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center"
 >
     <div class="container max-w-2xl">
@@ -25,7 +25,7 @@
             <!-- Logo de la compañía -->
             <div class="pb-8">
                 <img
-                    src="https://picsum.photos/1920/1080"
+                    src="<?= base_url(['uploads/backend/settings/', setting()->get('App.logo')]) ?>"
                     alt="Logo <?= esc(setting()->get('App.siteName')) ?>"
                     class="h-12"
                 >

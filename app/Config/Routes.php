@@ -55,7 +55,7 @@ $routes->post('newsletter', 'Website\Newsletter::create', ['as' => 'website.news
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {
     // Rutas de inicio de sesión.
-    $routes->group('login', static function ($routes) {
+    $routes->group('login', ['filter' => 'auth:true'], static function ($routes) {
         $routes->get('', 'Backend\Auth::login', ['as' => 'backend.login']);
         $routes->post('', 'Backend\Auth::login', ['as' => 'backend.login']);
 
@@ -69,7 +69,10 @@ $routes->group('backend', static function ($routes) {
     });
 
     // Definición de rutas del dashboard.
-    $routes->group('', static function ($routes) {
+    $routes->group('', ['filter' => 'auth'], static function ($routes) {
+        // Ruta de cierre de sesión.
+        $routes->get('logout', 'Backend\Auth::logout', ['as' => 'backend.logout']);
+
         // Rutas de administración de usuarios.
         $routes->group('usuarios', static function ($routes) {
             $routes->get('nuevo', 'Backend\Users::create', ['as' => 'backend.users.create']);
@@ -83,6 +86,8 @@ $routes->group('backend', static function ($routes) {
         $routes->group('prospectos', static function ($routes) {
             $routes->get('', 'Backend\Prospects::index', ['as' => 'backend.prospects.index']);
         });
+
+        $routes->addRedirect('', 'backend.prospects.index');
 
         // Rutas de configuración del backend.
         $routes->group('configuraciones', static function ($routes) {

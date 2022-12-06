@@ -23,7 +23,9 @@ class UserModel extends Model
      */
     public function role()
     {
-        $this->builder()->select('users.*, roles.description as role')->join('roles', 'roles.id = users.role_id', 'inner');
+        $this->builder()
+            ->select('users.*, roles.name as role_name, roles.description as role')
+            ->join('roles', 'roles.id = users.role_id', 'inner');
 
         return $this;
     }

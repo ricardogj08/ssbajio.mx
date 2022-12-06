@@ -18,7 +18,34 @@ class Auth extends BaseController
             'email'    => 'required|max_length[256]|valid_email|is_not_unique[users.email]',
             'password' => 'required|min_length[8]|max_length[32]|password',
         ])) {
-            return 'ok';
+            $userModel = model('UserModel');
+
+            // Consulta los datos del usuario.
+            $user = $userModel->role()
+                ->where('email', lowerCase(trim($this->request->getPost('email'))))->first();
+
+            // Valida la contraseña del usuario.
+            if (password_verify($this->request->getPost('password'), $user->password)) {
+                // Asigna variables de sesión del usuario.
+                session()->set([
+                    'user' => [
+                        'id'    => $user->id,
+                        'name'  => $user->name,
+                        'email' => $user->email,
+                        'role'  => [
+                            'name'        => $user->role_name,
+                            'description' => $user->role,
+                        ],
+                    ],
+                ]);
+
+                return redirect()->route('backend.prospects.index');
+            }
+
+            return redirect()
+                ->route('backend.login')
+                ->withInput()
+                ->with('error', 'La identificación de sesión o la contraseña son incorrectas');
         }
 
         return view('backend/auth/login', [
@@ -39,7 +66,7 @@ class Auth extends BaseController
             $userModel = model('userModel');
 
             // Consulta los datos del usuario.
-            $user = $userModel->where('email', lowerCase($this->request->getPost('email')))
+            $user = $userModel->where('email', lowerCase(trim($this->request->getPost('email'))))
                 ->where('active', true)
                 ->first();
 
@@ -148,5 +175,15 @@ class Auth extends BaseController
         }
 
         throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+    }
+
+    /**
+     * Cierra la sesión de un usuario.
+     */
+    public function logout()
+    {
+        session()->destroy()->stop();
+
+        return redirect('backend.login');
     }
 }

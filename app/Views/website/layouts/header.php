@@ -67,7 +67,7 @@
                     </li>
                     <li>
                         <a
-                            href="#"
+                            href="<?= url_to('website.home.index') ?>"
                             class="block py-2 lg:py-0 border-b lg:border-0 border-ssbajio-gray-dark-2 hover:text-ssbajio-gray-light-1"
                         >
                             Inicio

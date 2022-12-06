@@ -85,7 +85,7 @@ $routes->group('backend', static function ($routes) {
         });
 
         // Rutas de configuración del backend.
-        $routes->group('configuracion', static function ($routes) {
+        $routes->group('configuraciones', static function ($routes) {
             $routes->get('modificar', 'Backend\Settings::update', ['as' => 'backend.settings.update']);
             $routes->post('modificar', 'Backend\Settings::update', ['as' => 'backend.settings.update']);
             $routes->get('', 'Backend\Settings::index', ['as' => 'backend.settings.index']);

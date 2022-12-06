@@ -1,13 +1,18 @@
-<?php $settings = service('settings') ?>
+<?php helper('setting') ?>
 <!doctype html>
 <html
     lang="<?= service('request')->getLocale() ?>"
-    data-theme="<?= esc($settings->get('App.theme')) ?>"
+    data-theme="<?= esc(setting()->get('App.theme')) ?>"
 >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="<?= site_url('css/backend.css') ?>">
+    <link
+        rel="icon"
+        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
+        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+    >
+    <link rel="stylesheet" type="text/css" href="<?= base_url('css/backend.css') ?>">
     <?= $this->renderSection('head') ?>
 </head>
 <body class="bg-base-300 min-h-screen">
@@ -18,7 +23,7 @@
             <div class="pb-8">
                 <img
                     src="https://picsum.photos/1920/1080"
-                    alt="Logo <?= esc($settings->get('App.siteName')) ?>"
+                    alt="Logo <?= esc(setting()->get('App.siteName')) ?>"
                     class="h-12">
             </div>
             <!-- Fin del logo de la compañía -->
@@ -30,7 +35,7 @@
         <footer class="footer footer-center pt-8 text-base-content">
             <div>
                 <p class="whitespace-pre-line">Copyright &copy; <?= CodeIgniter\I18n\Time::now()->getYear() ?> - Todos los derechos reservador por
-                    <?= esc($settings->get('App.siteName')) ?>
+                    <?= esc(setting()->get('App.siteName')) ?>
                 </p>
             </div>
         </footer>

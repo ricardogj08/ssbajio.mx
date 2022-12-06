@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
+use RuntimeException;
 
 class Settings extends BaseController
 {
@@ -22,27 +23,50 @@ class Settings extends BaseController
 
         $themeslist = implode(',', array_merge($themes, ['']));
 
-        $settings = service('settings');
-
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'googleTagManager' => 'if_exist|string',
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
+            'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
         ])) {
             // ID de Google Tag Manager.
-            $settings->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
+            setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
 
             // Tema de colores.
-            $settings->set('App.theme', trim($this->request->getPost('theme')));
+            setting()->set('App.theme', trim($this->request->getPost('theme')));
+
+            $favicon = $this->request->getFile('favicon');
+
+            $uploadsPath = FCPATH . 'uploads/backend/settings/';
+
+            // Favicon.
+            if ($favicon->isValid() && ! $favicon->hasMoved()) {
+                $oldFavicon = $uploadsPath . setting()->get('App.favicon');
+
+                // Elimina el favicon anterior.
+                is_file($oldFavicon) && unlink($oldFavicon);
+
+                $newName = $favicon->getRandomName();
+
+                // Almacena el nuevo favicon.
+                $favicon->move($uploadsPath, $newName);
+
+                setting()->set('App.favicon', $newName);
+            } else {
+                throw new RuntimeException($favicon->getErrorString() . '(' . $favicon->getError() . ')');
+            }
         }
 
         return view('backend/settings/update', [
             'validation' => service('validation'),
-            'settings'   => $settings,
+            'settings'   => setting(),
             'themes'     => $themes,
         ]);
     }
 
+    /**
+     * Renderiza la vista de todas las configuraciones del sitio web.
+     */
     public function index()
     {
         return view('backend/settings/index');

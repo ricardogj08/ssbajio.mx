@@ -54,11 +54,8 @@
     <!-- Fin de la tabla de -->
 
 	<p class="text-center pt-4">
-		<a
-			href="mailto:<?= esc('ricardo@genotipo.com', 'url') ?>"
-			class="btn btn-primary btn-block sm:btn-wide"
-		>
-			Responder solicitud
-		</a>
+        <?= mailto($prospect->email, 'Responder solicitud', [
+            'class' => 'btn btn-primary btn-block sm:btn-wide',
+        ]) ?>
 	</p>
 <?= $this->endSection() ?>

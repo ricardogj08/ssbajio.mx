@@ -11,7 +11,7 @@
 <?= $this->section('content') ?>
     <!-- Sección de contacto -->
     <div
-        style="background-image: url('<?= site_url('images/website/prospects/new/hero.webp') ?>');"
+        style="background-image: url('<?= base_url('images/website/prospects/new/hero.webp') ?>');"
         class="bg-cover bg-center bg-no-repeat"
     >
         <!-- Filtro de opacidad -->
@@ -55,7 +55,7 @@
 
                 <div class="hidden lg:flex justify-end absolute bottom-0 right-0">
                     <img
-                        src="<?= site_url('images/website/prospects/new/cuadrado-circulos-white.webp') ?>"
+                        src="<?= base_url('images/website/prospects/new/cuadrado-circulos-white.webp') ?>"
                         alt="Cuadrado de circulos blancos"
                         class="w-48 h-auto"
                     >

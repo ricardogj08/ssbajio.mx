@@ -1,4 +1,4 @@
-<?php $settings = service('settings') ?>
+<?php helper('setting') ?>
 <!doctype html>
 <html lang="<?= service('request')->getLocale() ?>">
 <head>
@@ -14,14 +14,19 @@
                 j.async = true;
                 j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
                 f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "<?= esc($settings->get('App.googleTagManager'), 'js') ?>");
+            })(window, document, "script", "dataLayer", "<?= esc(setting()->get('App.googleTagManager'), 'js') ?>");
         </script>
     <?php endif ?>
     <!-- End Google Tag Manager -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="<?= site_url('css/website.css') ?>">
+    <link
+        rel="icon"
+        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
+        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+    >
+    <link rel="stylesheet" type="text/css" href="<?= base_url('css/website.css') ?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <?= $this->renderSection('head') ?>
 </head>
@@ -30,7 +35,7 @@
     <?php if (ENVIRONMENT === 'production'): ?>
         <noscript>
             <iframe
-                src="https://www.googletagmanager.com/ns.html?id=<?= esc($settings->get('App.googleTagManager'), 'js') ?>"
+                src="https://www.googletagmanager.com/ns.html?id=<?= esc(setting()->get('App.googleTagManager'), 'js') ?>"
                 height="0"
                 width="0"
                 style="display: none; visibility: hidden;">
@@ -45,7 +50,7 @@
     </main>
     <!-- Fin del contenido de la página web -->
 
-    <script type="text/javascript" src="<?= site_url('js/flowbite.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flowbite.js') ?>"></script>
     <?= $this->renderSection('scripts') ?>
 </body>
 </html>

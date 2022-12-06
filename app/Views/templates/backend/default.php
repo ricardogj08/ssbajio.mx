@@ -1,12 +1,18 @@
+<?php helper('setting') ?>
 <!doctype html>
 <html
     lang="<?= service('request')->getLocale() ?>"
-    data-theme="<?= esc(service('settings')->get('App.theme')) ?>"
+    data-theme="<?= esc(setting()->get('App.theme')) ?>"
 >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="<?= site_url('css/backend.css') ?>">
+    <link
+        rel="icon"
+        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
+        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+    >
+    <link rel="stylesheet" type="text/css" href="<?= base_url('css/backend.css') ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <?= $this->renderSection('head') ?>
 </head>

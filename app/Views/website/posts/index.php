@@ -11,7 +11,7 @@
 
     <!-- Banner -->
     <div
-        style="background-image: url('<?= site_url('images/website/posts/index/banner.webp') ?>');"
+        style="background-image: url('<?= base_url('images/website/posts/index/banner.webp') ?>');"
         class="bg-cover bg-center bg-no-repeat"
     >
         <div class="container">

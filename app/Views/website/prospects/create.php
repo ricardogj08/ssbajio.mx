@@ -13,14 +13,14 @@
             <div class="flex justify-between items-end">
                 <div>
                     <img
-                        src="<?= site_url('images/website/prospects/create/tornillo-top-left.webp') ?>"
+                        src="<?= base_url('images/website/prospects/create/tornillo-top-left.webp') ?>"
                         alt="Tornillo superior izquierdo"
                         class="w-44 lg:w-52 h-auto"
                     >
                 </div>
                 <div>
                     <img
-                        src="<?= site_url('images/website/prospects/create/tornillo-top-right.webp') ?>"
+                        src="<?= base_url('images/website/prospects/create/tornillo-top-right.webp') ?>"
                         alt="Tornillo superior derecho"
                         class="w-32 lg:w-40 h-auto"
                     >
@@ -31,7 +31,7 @@
             <!-- Sección de agradecimiento -->
             <div class="lg:px-32">
                 <div
-                    style="background-image: url('<?= site_url('images/website/prospects/create/background.webp') ?>');"
+                    style="background-image: url('<?= base_url('images/website/prospects/create/background.webp') ?>');"
                     class="flex flex-col lg:items-center text-center bg-no-repeat bg-right bg-[length:13.04rem_9.625rem] lg:bg-[length:19.563rem_14.438rem]"
                 >
                     <h1 class="text-white font-title text-8xl lg:text-192 uppercase leading-none">
@@ -53,7 +53,7 @@
             <!-- Tornillo inferior -->
             <div>
                 <img
-                    src="<?= site_url('images/website/prospects/create/tornillo-bottom-left.webp') ?>"
+                    src="<?= base_url('images/website/prospects/create/tornillo-bottom-left.webp') ?>"
                     alt="Tornillo inferior izquierdo"
                     class="w-32 lg:w-40 h-auto"
                 >

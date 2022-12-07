@@ -16,7 +16,7 @@
             </h1>
 
             <h2 class="text-sm">
-                Actualiza todas las configuraciones del sitio web.
+                Modifica o actualiza todas las configuraciones del sitio web.
             </h2>
 
             <p class="text-error">
@@ -54,6 +54,7 @@
                     id="company"
                     required
                     maxlength="256"
+                    placeholder="Escribe el nombre de la empresa"
                     value="<?= esc($settings->get('App.siteName')) ?>"
                     class="input input-bordered input-primary"
                 >
@@ -64,6 +65,31 @@
                 </label>
             </div>
             <!-- Fin del campo del nombre de la empresa -->
+
+            <!-- Campo del teléfono de la empresa -->
+            <div class="form-control">
+                <label for="phone" class="label">
+                    <span class="label-text">
+                        Teléfono de contacto:
+                    </span>
+                </label>
+                <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    required
+                    maxlength="15"
+                    placeholder="Escribe el teléfono de contacto"
+                    value="<?= esc($settings->get('App.phone')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('phone')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del teléfono de la empresa -->
 
             <!-- Campo del tema de colores -->
             <div class="form-control">
@@ -300,6 +326,9 @@
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= esc($validation->getError('whatsapp')) ?>
+                    </span>
+                    <span class="label-text-alt">
+                        *en formato internacional
                     </span>
                 </label>
             </div>

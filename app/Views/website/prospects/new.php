@@ -40,7 +40,7 @@
                         <div class="flex items-center gap-x-5 lg:gap-x-10">
                             <i class="bi bi-telephone text-2xl lg:text-28"></i>
                             <h3 class="lg:text-22 [word-spacing:0.5rem]">
-                                442 215 2730
+                                <?= esc(service('settings')->get('App.phone')) ?>
                             </h3>
                         </div>
                         <div class="flex items-center gap-x-5 lg:gap-x-10">

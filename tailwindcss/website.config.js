@@ -50,7 +50,11 @@ module.exports = {
         15: '3.75rem'
       },
       height: {
+        18: '4.5rem',
         65: '16.25rem'
+      },
+      width: {
+        18: '4.5rem'
       },
       backdropBrightness: {
         20: '.20'

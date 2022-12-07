@@ -25,6 +25,7 @@ class Settings extends BaseController
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'company'          => 'required|max_length[256]',
+            'phone'            => 'required|max_length[15]',
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
             'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
             'loginBackground'  => 'max_size[loginBackground,2048]|is_image[loginBackground]',
@@ -37,6 +38,9 @@ class Settings extends BaseController
         ])) {
             // Nombre de la empresa.
             setting()->set('App.siteName', trimAll($this->request->getPost('company')));
+
+            // Teléfono de contacto.
+            setting()->set('App.phone', trimAll($this->request->getPost('phone') ?? ''));
 
             // Tema de colores.
             setting()->set('App.theme', trim($this->request->getPost('theme') ?? ''));

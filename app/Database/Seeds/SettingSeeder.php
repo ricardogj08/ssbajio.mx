@@ -17,6 +17,10 @@ class SettingSeeder extends Seeder
             setting()->set('App.siteName', 'Soluciones de Sujeción del Bajío');
         }
 
+        if (setting()->get('App.phone') === null) {
+            setting()->set('App.phone', '442 215 2730');
+        }
+
         if (setting()->get('App.theme') === null) {
             setting()->set('App.theme', 'autumn');
         }

@@ -1,10 +1,11 @@
+<?php helper('setting') ?>
 <nav class="bg-white shadow-md">
     <div class="container lg:px-12 py-4">
         <!-- Barra de navegación -->
         <div class="flex flex-wrap items-center justify-between text-ssbajio-gray-dark-1 dark:text-white font-semibold">
             <div class="flex items-center gap-x-5 lg:gap-x-10">
                 <!-- Logo -->
-                <a href="<?= url_to('website.home.index') ?>" aria-label="Logo <?= service('settings')->get('App.siteName') ?>">
+                <a href="<?= url_to('website.home.index') ?>" aria-label="Logo <?= esc(setting()->get('App.siteName')) ?>">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846.52 246.06" xmlns:v="https://vecta.io/nano"
                     class="h-12 lg:h-20 w-auto"
                   >
@@ -30,7 +31,7 @@
                 <div class="hidden lg:flex items-center gap-x-2">
                     <i class="bi bi-telephone-fill text-15"></i>
                     <span class="[word-spacing:0.25rem]">
-                        442 215 2730
+                        <?= esc(setting()->get('App.phone')) ?>
                     </span>
                 </div>
                 <!-- Fin del número telefónico -->
@@ -61,7 +62,7 @@
                         >
                             <i class="bi bi-telephone-fill mr-2"></i>
                             <span class="[word-spacing:0.25rem]">
-                                442 215 2730
+                                <?= esc(setting()->get('App.phone')) ?>
                             </span>
                         </a>
                     </li>

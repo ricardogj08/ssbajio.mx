@@ -39,7 +39,7 @@
         <div class="flex flex-col gap-y-2">
             <!-- Campo del título -->
             <div class="form-control">
-                <label class="label">
+                <label for="title" class="label">
                     <span class="label-text">
                         Título:
                     </span>
@@ -47,6 +47,7 @@
                 <input
                     type="text"
                     name="title"
+                    id="title"
                     required
                     maxlength="256"
                     placeholder="Escribe el título del artículo"
@@ -88,13 +89,14 @@
 
             <!-- Campo del resumen -->
             <div class="form-control">
-                <label class="label">
+                <label for="excerpt" class="label">
                     <span class="label-text">
                         Sinopsis:
                     </span>
                 </label>
                 <textarea
                     name="excerpt"
+                    id="excerpt"
                     required
                     maxlength="512"
                     placeholder="Escribe el resumen del artículo"

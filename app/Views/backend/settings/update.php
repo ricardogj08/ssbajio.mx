@@ -41,14 +41,38 @@
                 General
             </h3>
 
+            <!-- Campo del nombre de la empresa -->
+            <div class="form-control">
+                <label for="company" class="label">
+                    <span class="label-text">
+                        Nombre de la empresa:
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="company"
+                    id="company"
+                    required
+                    maxlength="256"
+                    value="<?= esc($settings->get('App.siteName')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('company')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del nombre de la empresa -->
+
             <!-- Campo del tema de colores -->
             <div class="form-control">
-                <label class="label">
+                <label for="theme" class="label">
                     <span class="label-text">
                         Tema de colores:
                     </span>
                 </label>
-                <select name="theme" class="select select-bordered select-secondary">
+                <select name="theme" id="theme" class="select select-bordered select-secondary">
                     <option value="" selected>
                         Selecciona un tema de colores...
                     </option>
@@ -147,7 +171,7 @@
 
             <!-- Campo de emails de destino -->
             <div class="form-control">
-                <label class="label">
+                <label for="emails[to]" class="label">
                     <span class="label-text">
                         Emails de destino:
                     </span>
@@ -155,6 +179,7 @@
                 <input
                     type="text"
                     name="emails[to]"
+                    id="emails[to]"
                     required
                     placeholder="Escribe las direcciones de email"
                     value="<?= esc($settings->get('App.emailsTo')) ?>"
@@ -173,7 +198,7 @@
 
             <!-- Campo de emails de destino con copia (CC) -->
             <div class="form-control">
-                <label class="label">
+                <label for="emails[cc]" class="label">
                     <span class="label-text">
                         Emails de destino con copia (CC):
                     </span>
@@ -181,6 +206,7 @@
                 <input
                     type="text"
                     name="emails[cc]"
+                    id="emails[cc]"
                     placeholder="Escribe las direcciones de email"
                     value="<?= esc($settings->get('App.emailsCC')) ?>"
                     class="input input-bordered input-secondary"
@@ -198,7 +224,7 @@
 
             <!-- Campo de emails de destino con copia oculta (CCO) -->
             <div class="form-control">
-                <label class="label">
+                <label for="emails[cco]" class="label">
                     <span class="label-text">
                         Emails de destino con copia oculta (CCO):
                     </span>
@@ -206,6 +232,7 @@
                 <input
                     type="text"
                     name="emails[cco]"
+                    id="emails[cco]"
                     placeholder="Escribe las direcciones de email"
                     value="<?= esc($settings->get('App.emailsCCO')) ?>"
                     class="input input-bordered input-secondary"
@@ -233,7 +260,7 @@
 
             <!-- Campo de Google Tag Manager -->
             <div class="form-control">
-                <label class="label">
+                <label for="googleTagManager" class="label">
                     <span class="label-text">
                         ID de Google Tag Manager:
                     </span>
@@ -241,6 +268,7 @@
                 <input
                     type="text"
                     name="googleTagManager"
+                    id="googleTagManager"
                     placeholder="Escribe el ID de Google Tag Manager"
                     value="<?= esc($settings->get('App.googleTagManager')) ?>"
                     class="input input-bordered input-primary"
@@ -252,23 +280,52 @@
                 </label>
             </div>
             <!-- Fin del campo de Google Tag Manager -->
+
+            <!-- Campo de WhatsApp -->
+            <div class="form-control">
+                <label for="whatsapp" class="label">
+                    <span class="label-text">
+                        Número de WhatsApp:
+                    </span>
+                </label>
+                <input
+                    type="tel"
+                    name="whatsapp"
+                    id="whatsapp"
+                    maxlength="15"
+                    placeholder="Escribe el número de WhatsApp"
+                    value="<?= esc($settings->get('App.whatsapp')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('whatsapp')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de WhatsApp -->
         </section>
         <!-- Fin del grupo de campos de aplicaciones -->
 
-        <!-- Botón de submit -->
-        <div class="flex flex-col lg:flex-row justify-end mt-2">
+        <div class="flex flex-col lg:flex-row lg:justify-end gap-4 mt-2">
             <label for="modal-action-submit" class="btn btn-primary">
                 Guardar
             </label>
+
+            <!-- Botón que abre el modal de acción -->
+            <label for="modal-action" class="btn btn-secondary">
+                Cancelar
+            </label>
         </div>
 
-        <!-- Botón de submit con modal -->
+        <!-- Modal de submit -->
         <?= $this->setData([
             'id'      => 'modal-action-submit',
             'message' => '¿Deseas guardar los cambios?',
         ])->include('backend/layouts/modal-action-submit') ?>
     <?= form_close() ?>
 
+    <!-- Modal de cancelación -->
     <?= $this->setData([
         'id'      => 'modal-action',
         'method'  => 'backend.settings.index',

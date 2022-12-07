@@ -20,9 +20,7 @@ class Prospects extends BaseController
         }
 
         // Patrón de búsqueda (por defecto: '').
-        $query = $this->request->getGet('q') === null
-            ? ''
-            : trimAll($this->request->getGet('q'));
+        $query = trimAll($this->request->getGet('q') ?? '');
 
         $prospectModel = model('ProspectModel');
 

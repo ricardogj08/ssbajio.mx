@@ -24,6 +24,7 @@ class Settings extends BaseController
 
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
+            'company'          => 'required|max_length[256]',
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
             'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
             'loginBackground'  => 'max_size[loginBackground,2048]|is_image[loginBackground]',
@@ -32,7 +33,11 @@ class Settings extends BaseController
             'emails.cc'        => 'permit_empty|valid_emails',
             'emails.cco'       => 'permit_empty|valid_emails',
             'googleTagManager' => 'if_exist|string',
+            'whatsapp'         => 'if_exist|max_length[15]',
         ])) {
+            // Nombre de la empresa.
+            setting()->set('App.siteName', trimAll($this->request->getPost('company')));
+
             // Tema de colores.
             setting()->set('App.theme', trim($this->request->getPost('theme') ?? ''));
 
@@ -104,7 +109,10 @@ class Settings extends BaseController
             setting()->set('App.emailsCCO', lowerCase(trimAll($emails['cco'] ?? '')));
 
             // ID de Google Tag Manager.
-            setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
+            setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager') ?? ''));
+
+            // WhatsApp.
+            setting()->set('App.whatsapp', stripAllSpaces($this->request->getPost('whatsapp') ?? ''));
 
             return redirect()->route('backend.settings.index');
         }

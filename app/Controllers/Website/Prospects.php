@@ -46,11 +46,7 @@ class Prospects extends BaseController
         ])) {
             $prospectModel = model('ProspectModel');
 
-            $message = trimAll($this->request->getPost('message'));
-
-            if ($message === '') {
-                $message = null;
-            }
+            $message = trimAll($this->request->getPost('message') ?? '');
 
             $id = $prospectModel->insert([
                 'name'        => trimAll($this->request->getPost('name')),
@@ -59,7 +55,7 @@ class Prospects extends BaseController
                 'company'     => trimAll($this->request->getPost('company')),
                 'origin_id'   => $this->request->getPost('origin'),
                 'solution_id' => $this->request->getPost('solution'),
-                'message'     => $message,
+                'message'     => $message === '' ? null : $message,
             ]);
 
             // Consulta los datos del prospecto.

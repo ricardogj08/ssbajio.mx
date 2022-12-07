@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
     <title>
-        <?= service('settings')->get('App.siteName') ?>
+        <?= service('settings')->get('App.company') ?>
     </title>
 <?= $this->endSection() ?>
 

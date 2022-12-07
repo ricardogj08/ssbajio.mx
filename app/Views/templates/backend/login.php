@@ -17,7 +17,7 @@
     <?= $this->renderSection('head') ?>
 </head>
 <body
-    style="background-image: url('<?= base_url(['uploads/backend/settings/', setting()->get('App.loginBackground')]) ?>');"
+    style="background-image: url('<?= base_url(['uploads/backend/settings/', setting()->get('App.background')]) ?>');"
     class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center"
 >
     <div class="container max-w-2xl">
@@ -26,7 +26,7 @@
             <div class="pb-8">
                 <img
                     src="<?= base_url(['uploads/backend/settings/', setting()->get('App.logo')]) ?>"
-                    alt="Logo <?= esc(setting()->get('App.siteName')) ?>"
+                    alt="Logo <?= esc(setting()->get('App.company')) ?>"
                     class="h-12"
                 >
             </div>

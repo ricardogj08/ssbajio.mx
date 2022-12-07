@@ -28,7 +28,7 @@ class Settings extends BaseController
             'phone'            => 'required|max_length[15]',
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
             'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
-            'loginBackground'  => 'max_size[loginBackground,2048]|is_image[loginBackground]',
+            'background'       => 'max_size[background,2048]|is_image[background]',
             'logo'             => 'max_size[logo,2048]|is_image[logo]',
             'emails.to'        => 'required|valid_emails',
             'emails.cc'        => 'permit_empty|valid_emails',
@@ -37,7 +37,7 @@ class Settings extends BaseController
             'whatsapp'         => 'if_exist|max_length[15]',
         ])) {
             // Nombre de la empresa.
-            setting()->set('App.siteName', trimAll($this->request->getPost('company')));
+            setting()->set('App.company', trimAll($this->request->getPost('company')));
 
             // Teléfono de contacto.
             setting()->set('App.phone', trimAll($this->request->getPost('phone') ?? ''));
@@ -67,23 +67,23 @@ class Settings extends BaseController
                 unset($favicon, $oldFavicon, $newName);
             }
 
-            $loginBackground = $this->request->getFile('loginBackground');
+            $background = $this->request->getFile('background');
 
             // Fondo del login.
-            if ($loginBackground->isValid() && ! $loginBackground->hasMoved()) {
-                $oldLoginBackground = $uploadsPath . setting()->get('App.loginBackground');
+            if ($background->isValid() && ! $background->hasMoved()) {
+                $oldBackground = $uploadsPath . setting()->get('App.background');
 
                 // Elimina el fondo anterior.
-                is_file($oldLoginBackground) && unlink($oldLoginBackground);
+                is_file($oldBackground) && unlink($oldBackground);
 
-                $newName = $loginBackground->getRandomName();
+                $newName = $background->getRandomName();
 
                 // Almacena el nuevo fondo.
-                $loginBackground->move($uploadsPath, $newName);
+                $background->move($uploadsPath, $newName);
 
-                setting()->set('App.loginBackground', $newName);
+                setting()->set('App.background', $newName);
 
-                unset($loginBackground, $oldLoginBackground, $newName);
+                unset($background, $oldBackground, $newName);
             }
 
             $logo = $this->request->getFile('logo');
@@ -133,6 +133,8 @@ class Settings extends BaseController
      */
     public function index()
     {
-        return view('backend/settings/index');
+        return view('backend/settings/index', [
+            'settings' => setting(),
+        ]);
     }
 }

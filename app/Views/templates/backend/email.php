@@ -23,7 +23,7 @@
             <div class="pb-8">
                 <img
                     src="<?= base_url(['uploads/backend/settings/', setting()->get('App.logo')]) ?>"
-                    alt="Logo <?= esc(setting()->get('App.siteName')) ?>"
+                    alt="Logo <?= esc(setting()->get('App.company')) ?>"
                     class="h-12">
             </div>
             <!-- Fin del logo de la compañía -->
@@ -35,7 +35,7 @@
         <footer class="footer footer-center pt-8 text-base-content">
             <div>
                 <p class="whitespace-pre-line">Copyright &copy; <?= CodeIgniter\I18n\Time::now()->getYear() ?> - Todos los derechos reservador por
-                    <?= esc(setting()->get('App.siteName')) ?>
+                    <?= esc(setting()->get('App.company')) ?>
                 </p>
             </div>
         </footer>

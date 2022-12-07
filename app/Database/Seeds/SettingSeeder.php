@@ -13,8 +13,8 @@ class SettingSeeder extends Seeder
     {
         helper('setting');
 
-        if (setting()->get('App.siteName') === null) {
-            setting()->set('App.siteName', 'Soluciones de Sujeción del Bajío');
+        if (setting()->get('App.company') === null) {
+            setting()->set('App.company', 'Soluciones de Sujeción del Bajío');
         }
 
         if (setting()->get('App.phone') === null) {
@@ -29,8 +29,8 @@ class SettingSeeder extends Seeder
             setting()->set('App.favicon', '1670343267_cb330cbc1f1a8556a514.svg');
         }
 
-        if (setting()->get('App.loginBackground') === null) {
-            setting()->set('App.loginBackground', '1670351356_af7dc5299ed3ff3ba50e.jpg');
+        if (setting()->get('App.background') === null) {
+            setting()->set('App.background', '1670351356_af7dc5299ed3ff3ba50e.jpg');
         }
 
         if (setting()->get('App.logo') === null) {

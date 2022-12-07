@@ -34,6 +34,7 @@
 
     <div class="divider"></div>
 
+    <!-- Formulario de modificación de configuraciones -->
     <?= form_open_multipart(url_to('backend.settings.update')) ?>
         <!-- Grupo de campos de configuraciones general -->
         <section>
@@ -55,7 +56,7 @@
                     required
                     maxlength="256"
                     placeholder="Escribe el nombre de la empresa"
-                    value="<?= esc($settings->get('App.siteName')) ?>"
+                    value="<?= esc($settings->get('App.company')) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -141,22 +142,22 @@
 
             <!-- Campo del fondo del login -->
             <div class="form-control">
-                <label for="loginBackground" class="label">
+                <label for="background" class="label">
                     <span class="label-text">
                         Fondo de inicio de sesión:
                     </span>
                 </label>
                 <input
                     type="file"
-                    name="loginBackground"
-                    id="loginBackground"
+                    name="background"
+                    id="background"
                     size="2048"
                     accept="image/*"
                     class="file-input file-input-bordered file-input-primary"
                 >
                 <label class="label">
                     <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('loginBackground')) ?>
+                        <?= esc($validation->getError('background')) ?>
                     </span>
                 </label>
             </div>
@@ -199,7 +200,7 @@
             <div class="form-control">
                 <label for="emails[to]" class="label">
                     <span class="label-text">
-                        Emails de destino:
+                        Destinatarios:
                     </span>
                 </label>
                 <input
@@ -207,7 +208,7 @@
                     name="emails[to]"
                     id="emails[to]"
                     required
-                    placeholder="Escribe las direcciones de email"
+                    placeholder="Escribe los emails de destino"
                     value="<?= esc($settings->get('App.emailsTo')) ?>"
                     class="input input-bordered input-primary"
                 >
@@ -226,14 +227,14 @@
             <div class="form-control">
                 <label for="emails[cc]" class="label">
                     <span class="label-text">
-                        Emails de destino con copia (CC):
+                        Destinatarios con copia (CC):
                     </span>
                 </label>
                 <input
                     type="text"
                     name="emails[cc]"
                     id="emails[cc]"
-                    placeholder="Escribe las direcciones de email"
+                    placeholder="Escribe los emails con copia"
                     value="<?= esc($settings->get('App.emailsCC')) ?>"
                     class="input input-bordered input-secondary"
                 >
@@ -252,14 +253,14 @@
             <div class="form-control">
                 <label for="emails[cco]" class="label">
                     <span class="label-text">
-                        Emails de destino con copia oculta (CCO):
+                        Destinatarios con copia oculta (CCO):
                     </span>
                 </label>
                 <input
                     type="text"
                     name="emails[cco]"
                     id="emails[cco]"
-                    placeholder="Escribe las direcciones de email"
+                    placeholder="Escribe los emails con copia oculta"
                     value="<?= esc($settings->get('App.emailsCCO')) ?>"
                     class="input input-bordered input-secondary"
                 >
@@ -353,6 +354,7 @@
             'message' => '¿Deseas guardar los cambios?',
         ])->include('backend/layouts/modal-action-submit') ?>
     <?= form_close() ?>
+    <!-- Fin del formulario de modificación de configuraciones -->
 
     <!-- Modal de cancelación -->
     <?= $this->setData([

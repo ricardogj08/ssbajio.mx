@@ -5,7 +5,7 @@
         <div class="flex flex-wrap items-center justify-between text-ssbajio-gray-dark-1 dark:text-white font-semibold">
             <div class="flex items-center gap-x-5 lg:gap-x-10">
                 <!-- Logo -->
-                <a href="<?= url_to('website.home.index') ?>" aria-label="Logo <?= esc(setting()->get('App.siteName')) ?>">
+                <a href="<?= url_to('website.home.index') ?>" aria-label="Logo <?= esc(setting()->get('App.company')) ?>">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846.52 246.06" xmlns:v="https://vecta.io/nano"
                     class="h-12 lg:h-20 w-auto"
                   >

@@ -37,7 +37,7 @@
         <!-- Fin de la barra de navegación en móvil -->
 
         <!-- Contenido de la página web -->
-        <main class="grow p-6">
+        <main class="grow p-6 lg:px-12">
             <?= $this->renderSection('content') ?>
         </main>
         <!-- Fin del contenido de la página web -->

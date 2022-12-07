@@ -64,7 +64,7 @@
 
             <!-- Campo de la portada -->
             <div class="form-control">
-                <label class="label">
+                <label for="cover" class="label">
                     <span class="label-text">
                         Portada:
                     </span>
@@ -72,10 +72,10 @@
                 <input
                     type="file"
                     name="cover"
+                    id="cover"
                     size="2048"
                     accept="image/*"
                     required
-                    aria-label="Portada del artículo"
                     class="file-input file-input-bordered file-input-primary"
                 >
                 <label class="label">
@@ -110,7 +110,7 @@
 
             <!-- Campo de la fecha y hora de publicación -->
             <div class="form-control">
-                <label class="label">
+                <label for="started_at" class="label">
                     <span class="label-text">
                         Fecha y hora de publicación (opcional):
                     </span>
@@ -118,7 +118,7 @@
                 <input
                     type="datetime-local"
                     name="started_at"
-                    aria-label="Fecha y hora de publicación del artículo"
+                    id="started_at"
                     value="<?= set_value('started_at') ?>"
                     class="input input-bordered input-secondary"
                 >

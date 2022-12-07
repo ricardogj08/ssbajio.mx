@@ -22,7 +22,7 @@
             <!-- Logo de la compañía -->
             <div class="pb-8">
                 <img
-                    src="https://picsum.photos/1920/1080"
+                    src="<?= base_url(['uploads/backend/settings/', setting()->get('App.logo')]) ?>"
                     alt="Logo <?= esc(setting()->get('App.siteName')) ?>"
                     class="h-12">
             </div>

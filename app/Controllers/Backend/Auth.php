@@ -182,7 +182,8 @@ class Auth extends BaseController
      */
     public function logout()
     {
-        session()->destroy()->stop();
+        session()->stop();
+        session()->destroy();
 
         return redirect('backend.login');
     }

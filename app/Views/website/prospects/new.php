@@ -164,7 +164,7 @@
                             <div>
                                 <div class="flex items-center prospects-form-field">
                                     <select name="solution" required class="norm-form-input prospects-form-input">
-                                        <option value="" selected>
+                                        <option value="" disabled selected>
                                             Interés en:
                                         </option>
                                         <?php foreach ($solutions as $solution): ?>
@@ -190,7 +190,7 @@
                             <div>
                                 <div class="flex items-center prospects-form-field">
                                     <select name="origin" required class="norm-form-input prospects-form-input">
-                                        <option value="" selected>
+                                        <option value="" disabled selected>
                                             ¿Cómo supiste de nosotros?
                                         </option>
                                         <?php foreach ($origins as $origin): ?>

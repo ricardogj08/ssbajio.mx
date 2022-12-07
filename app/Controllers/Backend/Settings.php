@@ -24,17 +24,17 @@ class Settings extends BaseController
 
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'googleTagManager' => 'if_exist|string',
             'theme'            => "if_exist|string|in_list[{$themeslist}]",
             'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
             'loginBackground'  => 'max_size[loginBackground,2048]|is_image[loginBackground]',
             'logo'             => 'max_size[logo,2048]|is_image[logo]',
+            'emails.to'        => 'required|valid_emails',
+            'emails.cc'        => 'permit_empty|valid_emails',
+            'emails.cco'       => 'permit_empty|valid_emails',
+            'googleTagManager' => 'if_exist|string',
         ])) {
-            // ID de Google Tag Manager.
-            setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
-
             // Tema de colores.
-            setting()->set('App.theme', trim($this->request->getPost('theme')));
+            setting()->set('App.theme', trim($this->request->getPost('theme') ?? ''));
 
             $favicon = $this->request->getFile('favicon');
 
@@ -95,6 +95,18 @@ class Settings extends BaseController
 
                 unset($logo, $oldLogo, $newName);
             }
+
+            $emails = $this->request->getPost('emails');
+
+            // Emails de contacto.
+            setting()->set('App.emailsTo', lowerCase(trimAll($emails['to'] ?? '')));
+            setting()->set('App.emailsCC', lowerCase(trimAll($emails['cc'] ?? '')));
+            setting()->set('App.emailsCCO', lowerCase(trimAll($emails['cco'] ?? '')));
+
+            // ID de Google Tag Manager.
+            setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager')));
+
+            return redirect()->route('backend.settings.index');
         }
 
         return view('backend/settings/update', [

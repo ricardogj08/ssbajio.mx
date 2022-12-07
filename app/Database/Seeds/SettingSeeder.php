@@ -32,5 +32,17 @@ class SettingSeeder extends Seeder
         if (setting()->get('App.logo') === null) {
             setting()->set('App.logo', '1670357740_ba0feaa5940d0094187a.svg');
         }
+
+        if (setting()->get('App.emailsTo') === null) {
+            setting()->set('App.emailsTo', 'pruebas@genotipo.com');
+        }
+
+        if (setting()->get('App.emailsCC') === null) {
+            setting()->set('App.emailsCC', 'leads@genotipo.com');
+        }
+
+        if (setting()->get('App.emailsCCO') === null) {
+            setting()->set('App.emailsCCO', 'ricardo@genotipo.com');
+        }
     }
 }

@@ -35,28 +35,11 @@
     <div class="divider"></div>
 
     <?= form_open_multipart(url_to('backend.settings.update')) ?>
-        <div class="flex flex-col gap-y-2">
-            <!-- Campo de Google Tag Manager -->
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">
-                        Google Tag Manager:
-                    </span>
-                </label>
-                <input
-                    type="text"
-                    name="googleTagManager"
-                    placeholder="Escribe el ID de Google Tag Manager"
-                    value="<?= esc($settings->get('App.googleTagManager')) ?>"
-                    class="input input-bordered"
-                >
-                <label class="label">
-                    <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('googleTagManager')) ?>
-                    </span>
-                </label>
-            </div>
-            <!-- Fin del campo de Google Tag Manager -->
+        <!-- Grupo de campos de configuraciones general -->
+        <section>
+            <h3 class="text-xl font-bold">
+                General
+            </h3>
 
             <!-- Campo del tema de colores -->
             <div class="form-control">
@@ -65,7 +48,7 @@
                         Tema de colores:
                     </span>
                 </label>
-                <select name="theme" class="select select-bordered">
+                <select name="theme" class="select select-bordered select-secondary">
                     <option value="" selected>
                         Selecciona un tema de colores...
                     </option>
@@ -85,7 +68,7 @@
 
             <!-- Campo del favicon -->
             <div class="form-control">
-                <label class="label">
+                <label for="favicon" class="label">
                     <span class="label-text">
                         Favicon:
                     </span>
@@ -93,9 +76,10 @@
                 <input
                     type="file"
                     name="favicon"
+                    id="favicon"
                     size="2048"
                     accept="image/*"
-                    class="file-input file-input-bordered"
+                    class="file-input file-input-bordered file-input-primary"
                 >
                 <label class="label">
                     <span class="label-text-alt text-error">
@@ -107,7 +91,7 @@
 
             <!-- Campo del fondo del login -->
             <div class="form-control">
-                <label class="label">
+                <label for="loginBackground" class="label">
                     <span class="label-text">
                         Fondo de inicio de sesión:
                     </span>
@@ -115,9 +99,10 @@
                 <input
                     type="file"
                     name="loginBackground"
+                    id="loginBackground"
                     size="2048"
                     accept="image/*"
-                    class="file-input file-input-bordered"
+                    class="file-input file-input-bordered file-input-primary"
                 >
                 <label class="label">
                     <span class="label-text-alt text-error">
@@ -129,7 +114,7 @@
 
             <!-- Campo del logo del backend -->
             <div class="form-control">
-                <label class="label">
+                <label for="logo" class="label">
                     <span class="label-text">
                         Logo:
                     </span>
@@ -137,9 +122,10 @@
                 <input
                     type="file"
                     name="logo"
+                    id="logo"
                     size="2048"
                     accept="image/*"
-                    class="file-input file-input-bordered"
+                    class="file-input file-input-bordered file-input-primary"
                 >
                 <label class="label">
                     <span class="label-text-alt text-error">
@@ -147,14 +133,133 @@
                     </span>
                 </label>
             </div>
-            <!-- Fin del logo del backend -->
+            <!-- Fin del campo del logo del backend -->
+        </section>
+        <!-- Fin del grupo de campos de configuraciones generales -->
 
-            <!-- Botón de submit -->
-            <div class="flex flex-col lg:flex-row justify-end">
-                <label for="modal-action-submit" class="btn btn-primary">
-                    Guardar
+        <div class="divider"></div>
+
+        <!-- Grupo de campos de los emails -->
+        <section>
+            <h3 class="text-xl font-bold">
+                Correos de contacto
+            </h3>
+
+            <!-- Campo de emails de destino -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Emails de destino:
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="emails[to]"
+                    required
+                    placeholder="Escribe las direcciones de email"
+                    value="<?= esc($settings->get('App.emailsTo')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('emails.to')) ?>
+                    </span>
+                    <span class="label-text-alt">
+                        *separados por comas
+                    </span>
                 </label>
             </div>
+            <!-- Fin del campo de emails de destino -->
+
+            <!-- Campo de emails de destino con copia (CC) -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Emails de destino con copia (CC):
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="emails[cc]"
+                    placeholder="Escribe las direcciones de email"
+                    value="<?= esc($settings->get('App.emailsCC')) ?>"
+                    class="input input-bordered input-secondary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('emails.cc')) ?>
+                    </span>
+                    <span class="label-text-alt">
+                        *separados por comas
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de emails de destino con copia (CC) -->
+
+            <!-- Campo de emails de destino con copia oculta (CCO) -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Emails de destino con copia oculta (CCO):
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="emails[cco]"
+                    placeholder="Escribe las direcciones de email"
+                    value="<?= esc($settings->get('App.emailsCCO')) ?>"
+                    class="input input-bordered input-secondary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('emails.cco')) ?>
+                    </span>
+                    <span class="label-text-alt">
+                        *separados por comas
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de emails de destino con copia oculta (CCO) -->
+        </section>
+        <!-- Fin del grupo de campos de los emails -->
+
+        <div class="divider"></div>
+
+        <!-- Grupo de campos de aplicaciones -->
+        <section>
+            <h3 class="text-xl font-bold">
+                Aplicaciones
+            </h3>
+
+            <!-- Campo de Google Tag Manager -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        ID de Google Tag Manager:
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="googleTagManager"
+                    placeholder="Escribe el ID de Google Tag Manager"
+                    value="<?= esc($settings->get('App.googleTagManager')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('googleTagManager')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de Google Tag Manager -->
+        </section>
+        <!-- Fin del grupo de campos de aplicaciones -->
+
+        <!-- Botón de submit -->
+        <div class="flex flex-col lg:flex-row justify-end mt-2">
+            <label for="modal-action-submit" class="btn btn-primary">
+                Guardar
+            </label>
         </div>
 
         <!-- Botón de submit con modal -->

@@ -96,7 +96,7 @@
                 </label>
                 <select name="role" id="role" required class="select select-bordered select-primary">
                     <option value="" disabled selected>
-                        Selecciona un rol para el nuevo usuario...
+                        Selecciona un rol para el usuario...
                     </option>
                     <?php foreach($roles as $role): ?>
                         <option value="<?= esc($role->id) ?>"<?= $user->role_id === $role->id ? ' selected' : '' ?>>

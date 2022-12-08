@@ -71,6 +71,7 @@ class Users extends BaseController
          * con paginación.
          */
         $users = $userModel->role()
+            ->where('users.id !=', session('user.id'))
             ->like('users.name', $query)
             ->orderBy('users.created_at', 'desc')
             ->paginate(8, 'users');
@@ -91,7 +92,7 @@ class Users extends BaseController
     public function toggleActive($id = null)
     {
         // Valida si existe el usuario.
-        if ($this->validateData(
+        if (session('user.id') !== $id && $this->validateData(
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {
@@ -111,7 +112,7 @@ class Users extends BaseController
                 ->with('toast-success', 'El usuario de acceso se ha dado de ' . ($active ? 'alta' : 'baja') . ' correctamente');
         }
 
-        return redirect()->back()->withInput();
+        throw PageNotFoundException::forPageNotFound();
     }
 
     /**
@@ -122,7 +123,7 @@ class Users extends BaseController
     public function show($id = null)
     {
         // Valida si existe el usuario.
-        if ($this->validateData(
+        if (session('user.id') !== $id && $this->validateData(
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {
@@ -146,7 +147,7 @@ class Users extends BaseController
     public function update($id = null)
     {
         // Valida si existe el usuario.
-        if ($this->validateData(
+        if (session('user.id') !== $id && $this->validateData(
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {

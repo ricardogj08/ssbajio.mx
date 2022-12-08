@@ -73,6 +73,13 @@ $routes->group('backend', static function ($routes) {
         // Ruta de cierre de sesión.
         $routes->get('logout', 'Backend\Auth::logout', ['as' => 'backend.logout']);
 
+        // Rutas de la cuenta del usuario de sesión.
+        $routes->group('cuenta', static function ($routes) {
+            $routes->get('', 'Backend\Account::show', ['as' => 'backend.account.show']);
+            $routes->get('modificar', 'Backend\Account::update', ['as' => 'backend.account.update']);
+            $routes->post('modificar', 'Backend\Account::update', ['as' => 'backend.account.update']);
+        });
+
         // Rutas de administración de usuarios.
         $routes->group('usuarios', static function ($routes) {
             $routes->get('nuevo', 'Backend\Users::create', ['as' => 'backend.users.create']);

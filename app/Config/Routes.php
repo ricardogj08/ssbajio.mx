@@ -85,6 +85,8 @@ $routes->group('backend', static function ($routes) {
         // Rutas de administración de prospectos.
         $routes->group('prospectos', static function ($routes) {
             $routes->get('', 'Backend\Prospects::index', ['as' => 'backend.prospects.index']);
+            $routes->get('(:num)', 'Backend\Prospects::show/$1', ['as' => 'backend.prospects.show']);
+            $routes->post('eliminar/(:num)', 'Backend\Prospects::delete/$1', ['as' => 'backend.prospects.delete']);
         });
 
         $routes->addRedirect('', 'backend.prospects.index');

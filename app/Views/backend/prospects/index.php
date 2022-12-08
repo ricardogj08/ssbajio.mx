@@ -64,7 +64,7 @@
                         <td class="flex gap-x-2">
                             <!-- Botón para mostrar un prospecto -->
                             <a
-                                href="#"
+                                href="<?= url_to('backend.prospects.show', $prospect->id) ?>"
                                 aria-label="Mostrar los datos del prospecto"
                                 class="btn btn-square btn-sm btn-outline btn-warning"
                             >
@@ -83,7 +83,7 @@
                             <!-- Fin del botón para editar un prospecto -->
 
                             <!-- Botón para eliminar un prospecto -->
-                            <?= form_open(url_to('')) ?>
+                            <?= form_open(url_to('backend.prospects.delete', $prospect->id)) ?>
                                 <label
                                     for="modal-action-submit-<?= esc($prospect->id) ?>"
                                     class="btn btn-square btn-sm btn-outline btn-error"
@@ -111,4 +111,12 @@
         <?= $pager->links('prospects', 'backend_pagination') ?>
     </div>
     <!-- Fin de la paginación -->
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+    <!-- Notificación exitosa -->
+    <?php if(session()->has('toast-success')): ?>
+        <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin de la notificación exitosa -->
 <?= $this->endSection() ?>

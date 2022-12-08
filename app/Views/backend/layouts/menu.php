@@ -1,5 +1,34 @@
 <!-- Menú de navegación del sidebar -->
 <ul class="menu p-4 w-80 bg-base-300">
+    <li>
+        <!-- Datos del usuario de sesión -->
+        <div>
+            <i class="bi bi-person-vcard-fill text-4xl"></i>
+            <div>
+                <div class="text-xs">
+                    <div class="font-semibold">
+                        <?= esc(session('user.name')) ?>
+                    </div>
+                    <div>
+                        <?= esc(session('user.email')) ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de los datos del usuario de sesión -->
+    </li>
+
+    <li>
+        <div>
+            <a href="<?= url_to('backend.logout') ?>" class="btn btn-outline btn-sm btn-block gap-2">
+                <i class="bi bi-box-arrow-right text-xl"></i>
+                Cerrar sesión
+            </a>
+        </div>
+    </li>
+
+    <li></li>
+
     <li class="menu-title">
         <span>
             General
@@ -23,7 +52,9 @@
             Usuarios
         </a>
     </li>
+
     <li></li>
+
     <li class="menu-title">
         <span>
             Módulos

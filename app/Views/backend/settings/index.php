@@ -1,5 +1,3 @@
-<?php helper('form') ?>
-
 <?= $this->extend('templates/backend/default') ?>
 
 <?= $this->section('head') ?>
@@ -44,22 +42,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Empresa</th>
+                        <th>Empresa:</th>
                         <td><?= $settings->get('App.company') ?></td>
                     </tr>
 
                     <tr>
-                        <th>Teléfono</th>
+                        <th>Teléfono:</th>
                         <td><?= $settings->get('App.phone') ?></td>
                     </tr>
 
                     <tr>
-                        <th>Tema</th>
+                        <th>Tema:</th>
                         <td><?= $settings->get('App.theme') ?></td>
                     </tr>
 
                     <tr>
-                        <th>Favicon</th>
+                        <th>Favicon:</th>
                         <td>
                             <img
                                 src="<?= base_url(['uploads/backend/settings/', $settings->get('App.favicon')]) ?>"
@@ -70,7 +68,7 @@
                     </tr>
 
                     <tr>
-                        <th>Fondo</th>
+                        <th>Fondo:</th>
                         <td>
                             <img
                                 src="<?= base_url(['uploads/backend/settings/', $settings->get('App.background')]) ?>"
@@ -81,7 +79,7 @@
                     </tr>
 
                     <tr>
-                        <th>Logo</th>
+                        <th>Logo:</th>
                         <td>
                             <img
                                 src="<?= base_url(['uploads/backend/settings/', $settings->get('App.logo')]) ?>"
@@ -114,22 +112,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Remitente</th>
+                        <th>Remitente:</th>
                         <td><?= esc(config('Email')->SMTPUser) ?></td>
                     </tr>
 
                     <tr>
-                        <th>Destinatarios</th>
+                        <th>Destinatarios:</th>
                         <td><?= esc($settings->get('App.emailsTo')) ?></td>
                     </tr>
 
                     <tr>
-                        <th>Destinatarios CC</th>
+                        <th>Destinatarios CC:</th>
                         <td><?= esc($settings->get('App.emailsCC')) ?></td>
                     </tr>
 
                     <tr>
-                        <th>Destinatarios CCO</th>
+                        <th>Destinatarios CCO:</th>
                         <td><?= esc($settings->get('App.emailsCCO')) ?></td>
                     </tr>
                 </tbody>
@@ -156,12 +154,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Google Tag Manager</th>
+                        <th>Google Tag Manager:</th>
                         <td><?= esc($settings->get('App.googleTagManager')) ?></td>
                     </tr>
 
                     <tr>
-                        <th>WhatsApp</th>
+                        <th>WhatsApp:</th>
                         <td><?= esc($settings->get('App.whatsapp')) ?></td>
                     </tr>
                 </tbody>

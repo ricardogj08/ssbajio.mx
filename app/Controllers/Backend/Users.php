@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Users extends BaseController
 {
@@ -133,6 +134,62 @@ class Users extends BaseController
             return view('backend/users/show', ['user' => $user]);
         }
 
-        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        throw PageNotFoundException::forPageNotFound();
+    }
+
+    /**
+     * Renderiza la vista para editar un usuario
+     * y modifica los datos de un usuario.
+     *
+     * @param mixed|null $id
+     */
+    public function update($id = null)
+    {
+        // Valida si existe el usuario.
+        if ($this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
+        )) {
+            $userModel = model('UserModel');
+
+            $user = $userModel->find($id);
+
+            // Valida los campos del formulario.
+            if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
+                'name'         => 'required|max_length[64]',
+                'email'        => "required|max_length[256]|valid_email|is_unique[users.email,email,{$user->email}]",
+                'role'         => 'required|is_natural_no_zero|is_not_unique[roles.id]',
+                'password'     => 'permit_empty|min_length[8]|max_length[32]|password',
+                'pass_confirm' => 'required_with[password]|matches[password]',
+            ])) {
+                $password = $this->request->getPost('password');
+
+                // Actualiza los datos del usuario.
+                $userModel->update($id, [
+                    'name'     => trimAll($this->request->getPost('name')),
+                    'email'    => lowerCase(trim($this->request->getPost('email'))),
+                    'role_id'  => $this->request->getPost('role'),
+                    'password' => empty($password)
+                        ? $user->password
+                        : password_hash($password, PASSWORD_DEFAULT),
+                ]);
+
+                return redirect()->route('backend.users.index')
+                    ->with('toast-success', 'El usuario se ha modificado correctamente');
+            }
+
+            $roleModel = model('RoleModel');
+
+            // Consulta todos los roles del backend.
+            $roles = $roleModel->orderBy('description', 'asc')->findAll();
+
+            return view('backend/users/update', [
+                'user'       => $user,
+                'validation' => service('validation'),
+                'roles'      => $roles,
+            ]);
+        }
+
+        throw PageNotFoundException::forPageNotFound();
     }
 }

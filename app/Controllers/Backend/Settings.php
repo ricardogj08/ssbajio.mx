@@ -118,7 +118,8 @@ class Settings extends BaseController
             // WhatsApp.
             setting()->set('App.whatsapp', stripAllSpaces($this->request->getPost('whatsapp') ?? ''));
 
-            return redirect()->route('backend.settings.index');
+            return redirect()->route('backend.settings.index')
+                ->with('toast-success', 'El sitio web se ha modificado correctamente');
         }
 
         return view('backend/settings/update', [

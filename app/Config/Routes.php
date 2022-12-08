@@ -80,6 +80,8 @@ $routes->group('backend', static function ($routes) {
             $routes->get('', 'Backend\Users::index', ['as' => 'backend.users.index']);
             $routes->post('cuenta/(:num)', 'Backend\Users::toggleActive/$1', ['as' => 'backend.users.toggleActive']);
             $routes->get('(:num)', 'Backend\Users::show/$1', ['as' => 'backend.users.show']);
+            $routes->get('modificar/(:num)', 'Backend\Users::update/$1', ['as' => 'backend.users.update']);
+            $routes->post('modificar/(:num)', 'Backend\Users::update/$1', ['as' => 'backend.users.update']);
         });
 
         // Rutas de administración de prospectos.

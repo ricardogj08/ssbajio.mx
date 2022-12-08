@@ -78,7 +78,7 @@
 
                             <!-- Botón para editar un usuario -->
                             <a
-                                href="#"
+                                href="<?= url_to('backend.users.update', $user->id) ?>"
                                 aria-label="Modificar los datos del usuario"
                                 class="btn btn-square btn-sm btn-outline btn-info"
                             >

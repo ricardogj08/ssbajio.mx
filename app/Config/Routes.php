@@ -89,6 +89,8 @@ $routes->group('backend', static function ($routes) {
             $routes->get('', 'Backend\Prospects::index', ['as' => 'backend.prospects.index']);
             $routes->get('(:num)', 'Backend\Prospects::show/$1', ['as' => 'backend.prospects.show']);
             $routes->post('eliminar/(:num)', 'Backend\Prospects::delete/$1', ['as' => 'backend.prospects.delete']);
+            $routes->get('modificar/(:num)', 'Backend\Prospects::update/$1', ['as' => 'backend.prospects.update']);
+            $routes->post('modificar/(:num)', 'Backend\Prospects::update/$1', ['as' => 'backend.prospects.update']);
         });
 
         $routes->addRedirect('', 'backend.prospects.index');

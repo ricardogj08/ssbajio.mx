@@ -81,7 +81,10 @@
 
     <div class="flex flex-col lg:flex-row justify-end pt-4">
         <!-- Botón para editar el prospecto -->
-        <a href="<?= url_to('') ?>" class="btn btn-outline btn-info">
+        <a
+            href="<?= url_to('backend.prospects.update', $prospect->id) ?>"
+            class="btn btn-outline btn-info"
+        >
             Modificar
         </a>
     </div>

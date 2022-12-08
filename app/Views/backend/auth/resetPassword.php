@@ -30,7 +30,7 @@
         <div class="flex flex-col gap-y-2">
             <!-- Campo de la nueva contraseña -->
             <div class="form-control">
-                <label class="label">
+                <label for="password" class="label">
                     <span class="label-text">
                         Nueva contraseña:
                     </span>
@@ -38,6 +38,7 @@
                 <input
                     type="password"
                     name="password"
+                    id="password"
                     required
                     minlength="8"
                     maxlength="32"
@@ -55,7 +56,7 @@
 
             <!-- Campo de confirmación de contraseña -->
             <div class="form-control">
-                <label class="label">
+                <label for="pass_confirm" class="label">
                     <span class="label-text">
                         Repetir contraseña:
                     </span>
@@ -63,6 +64,7 @@
                 <input
                     type="password"
                     name="pass_confirm"
+                    id="pass_confirm"
                     required
                     minlength="8"
                     maxlength="32"

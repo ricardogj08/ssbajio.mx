@@ -39,7 +39,7 @@
         <div class="flex flex-col gap-y-2">
             <!-- Campo del nombre -->
             <div class="form-control">
-                <label class="label">
+                <label for="name" class="label">
                     <span class="label-text">
                         Nombre:
                     </span>
@@ -47,6 +47,7 @@
                 <input
                     type="text"
                     name="name"
+                    id="name"
                     required
                     maxlength="64"
                     placeholder="Escribe su nombre completo"
@@ -64,7 +65,7 @@
 
             <!-- Campo del email -->
             <div class="form-control">
-                <label class="label">
+                <label for="email" class="label">
                     <span class="label-text">
                         Email:
                     </span>
@@ -72,6 +73,7 @@
                 <input
                     type="email"
                     name="email"
+                    id="email"
                     required
                     maxlength="256"
                     placeholder="Escribe su email"
@@ -88,12 +90,12 @@
 
             <!-- Campo del rol -->
             <div class="form-control">
-                <label class="label">
+                <label for="role" class="label">
                     <span class="label-text">
                         Rol:
                     </span>
                 </label>
-                <select name="role" required class="select select-bordered select-primary">
+                <select name="role" id="role" required class="select select-bordered select-primary">
                     <option value="" disabled selected>
                         Selecciona un rol para el nuevo usuario...
                     </option>
@@ -113,7 +115,7 @@
 
             <!-- Campo de la contraseña -->
             <div class="form-control">
-                <label class="label">
+                <label for="password" class="label">
                     <span class="label-text">
                         Contraseña:
                     </span>
@@ -121,6 +123,7 @@
                 <input
                     type="password"
                     name="password"
+                    id="password"
                     required
                     minlength="8"
                     maxlength="32"
@@ -138,7 +141,7 @@
 
             <!-- Campo de confirmación de contraseña -->
             <div class="form-control">
-                <label class="label">
+                <label for="pass_confirm" class="label">
                     <span class="label-text">
                         Repetir contraseña:
                     </span>
@@ -146,6 +149,7 @@
                 <input
                     type="password"
                     name="pass_confirm"
+                    id="pass_confirm"
                     required
                     minlength="8"
                     maxlength="32"

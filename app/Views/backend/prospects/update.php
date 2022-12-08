@@ -4,7 +4,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        <?= esc($user->name) ?> | Modificar
+        <?= esc($prospect->name) ?> | Modificar
     </title>
 <?= $this->endSection() ?>
 
@@ -12,11 +12,11 @@
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
         <div>
             <h1 class="text-2xl font-bold mb-2">
-                <?= esc($user->name) ?>
+                <?= esc($prospect->name) ?>
             </h1>
 
             <h2 class="text-sm">
-                Modifica o actualiza los datos del usuario.
+                Modifica o actualiza los datos del prospecto.
             </h2>
 
             <p class="text-error">
@@ -34,8 +34,8 @@
 
     <div class="divider"></div>
 
-    <!-- Formulario de modificación del usuario -->
-    <?= form_open(url_to('backend.users.update', $user->id)) ?>
+    <!-- Formulario de modificación del prospecto -->
+    <?= form_open(url_to('backend.prospects.update', $prospect->id)) ?>
         <div class="flex flex-col gap-y-2">
             <!-- Campo del nombre -->
             <div class="form-control">
@@ -51,7 +51,7 @@
                     required
                     maxlength="64"
                     placeholder="Escribe su nombre completo"
-                    value="<?= esc($user->name) ?>"
+                    value="<?= esc($prospect->name) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -61,6 +61,30 @@
                 </label>
             </div>
             <!-- Fin del campo del nombre -->
+
+            <!-- Campo del teléfono -->
+            <div class="form-control">
+                <label for="phone" class="label">
+                    <span class="label-text">
+                        Teléfono:
+                    </span>
+                </label>
+                <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    required
+                    maxlength="15"
+                    value="<?= esc($prospect->phone) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('phone')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del teléfono -->
 
             <!-- Campo del email -->
             <div class="form-control">
@@ -75,8 +99,7 @@
                     id="email"
                     required
                     maxlength="256"
-                    placeholder="Escribe su email"
-                    value="<?= esc($user->email) ?>"
+                    value="<?= esc($prospect->email) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -87,80 +110,102 @@
             </div>
             <!-- Fin del campo del email -->
 
-            <!-- Campo del rol -->
+            <!-- Campo de la empresa -->
             <div class="form-control">
-                <label for="role" class="label">
+                <label for="company" class="label">
                     <span class="label-text">
-                        Rol:
+                        Empresa:
                     </span>
                 </label>
-                <select name="role" id="role" required class="select select-bordered select-primary">
+                <input
+                    type="text"
+                    name="company"
+                    id="company"
+                    required
+                    maxlength="64"
+                    value="<?= esc($prospect->company) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('company')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de la empresa -->
+
+            <!-- Campo del interés -->
+            <div class="form-control">
+                <label for="solution" class="label">
+                    <span class="label-text">
+                        Interés en:
+                    </span>
+                </label>
+                <select name="solution" id="solution" required class="select select-bordered select-primary">
                     <option value="" disabled selected>
-                        Selecciona un rol para el nuevo usuario...
+                        Selecciona una solución de interés...
                     </option>
-                    <?php foreach($roles as $role): ?>
-                        <option value="<?= esc($role->id) ?>"<?= $user->role_id === $role->id ? ' selected' : '' ?>>
-                            <?= esc($role->description) ?>
+                    <?php foreach($solutions as $solution): ?>
+                        <option value="<?= esc($solution->id) ?>"<?= $prospect->solution_id === $solution->id ? ' selected' : '' ?>>
+                            <?= esc($solution->description) ?>
                         </option>
                     <?php endforeach ?>
                 </select>
                 <label class="label">
                     <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('role')) ?>
+                        <?= esc($validation->getError('solution')) ?>
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo del rol -->
+            <!-- Fin del campo del interés -->
 
-            <!-- Campo de la contraseña -->
+            <!-- Campo del origen -->
             <div class="form-control">
-                <label for="password" class="label">
+                <label for="origin" class="label">
                     <span class="label-text">
-                        Nueva contraseña:
+                        Origen:
                     </span>
                 </label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    minlength="8"
-                    maxlength="32"
-                    placeholder="Escribe la nueva contraseña"
-                    value=""
-                    class="input input-bordered input-primary"
-                >
+                <select name="origin" id="origin" required class="select select-bordered select-primary">
+                    <option value="" disabled selected>
+                        Selecciona el origen del prospecto...
+                    </option>
+                    <?php foreach($origins as $origin): ?>
+                        <option value="<?= esc($origin->id) ?>"<?= $prospect->origin_id === $origin->id ? ' selected' : '' ?>>
+                            <?= esc($origin->description) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
                 <label class="label">
                     <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('password')) ?>
+                        <?= esc($validation->getError('origin')) ?>
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de la contraseña -->
+            <!-- Fin del campo del origen -->
 
-            <!-- Campo de confirmación de contraseña -->
+            <!-- Campo del mensaje -->
             <div class="form-control">
-                <label for="pass_confirm" class="label">
+                <label for="message" class="label">
                     <span class="label-text">
-                        Repetir contraseña:
+                        Mensaje:
                     </span>
                 </label>
-                <input
-                    type="password"
-                    name="pass_confirm"
-                    id="pass_confirm"
-                    minlength="8"
-                    maxlength="32"
-                    placeholder="Repita su contraseña"
-                    value=""
-                    class="input input-bordered input-primary"
-                >
+                <textarea
+                    name="message"
+                    id="message"
+                    maxlength="4096"
+                    rows="4"
+                    cols="50"
+                    class="textarea textarea-bordered textarea-secondary resize-none h-32"
+                ><?= esc($prospect->message) ?></textarea>
                 <label class="label">
                     <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('pass_confirm')) ?>
+                        <?= esc($validation->getError('message')) ?>
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de confirmación de contraseña -->
+            <!-- Fin del campo del mensaje -->
 
             <div class="flex flex-col lg:flex-row lg:justify-end gap-4">
                 <label for="modal-action-submit" class="btn btn-primary">
@@ -180,11 +225,11 @@
             ])->include('backend/layouts/modal-action-submit') ?>
         </div>
     <?= form_close() ?>
-    <!-- Fin del formulario de modificación del usuario -->
+    <!-- Fin del formulario de modificación del prospecto -->
 
     <?= $this->setData([
         'id'      => 'modal-action',
-        'method'  => 'backend.users.index',
-        'message' => '¿Deseas cancelar las modificaciones del usuario?',
+        'method'  => 'backend.prospects.index',
+        'message' => '¿Deseas cancelar las modificaciones del prospecto?',
     ])->include('backend/layouts/modal-action') ?>
 <?= $this->endSection() ?>

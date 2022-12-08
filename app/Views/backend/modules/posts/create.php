@@ -99,6 +99,8 @@
                     id="excerpt"
                     required
                     maxlength="512"
+                    rows="4"
+                    cols="50"
                     placeholder="Escribe el resumen del artículo"
                     class="textarea textarea-bordered textarea-primary resize-none h-32"
                 ><?= set_value('excerpt') ?></textarea>

@@ -74,7 +74,7 @@
 
                             <!-- Botón para editar un prospecto -->
                             <a
-                                href="#"
+                                href="<?= url_to('backend.prospects.update', $prospect->id) ?>"
                                 aria-label="Modificar los datos del prospecto"
                                 class="btn btn-square btn-sm btn-outline btn-info"
                             >

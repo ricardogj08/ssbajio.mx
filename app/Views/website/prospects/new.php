@@ -231,7 +231,6 @@
                                 </small>
                             </p>
                         </div>
-
                         <!-- Fin del campo del mensaje -->
                     </div>
 

@@ -24,17 +24,19 @@ class Settings extends BaseController
 
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'company'          => 'required|max_length[256]',
-            'phone'            => 'required|max_length[15]',
-            'theme'            => "if_exist|string|in_list[{$themeslist}]",
-            'favicon'          => 'max_size[favicon,2048]|is_image[favicon]',
-            'background'       => 'max_size[background,2048]|is_image[background]',
-            'logo'             => 'max_size[logo,2048]|is_image[logo]',
-            'emails.to'        => 'required|valid_emails',
-            'emails.cc'        => 'permit_empty|valid_emails',
-            'emails.cco'       => 'permit_empty|valid_emails',
-            'googleTagManager' => 'if_exist|string',
-            'whatsapp'         => 'if_exist|max_length[15]',
+            'company'                   => 'required|max_length[256]',
+            'phone'                     => 'required|max_length[15]',
+            'theme'                     => "if_exist|string|in_list[{$themeslist}]",
+            'favicon'                   => 'max_size[favicon,2048]|is_image[favicon]',
+            'background'                => 'max_size[background,2048]|is_image[background]',
+            'logo'                      => 'max_size[logo,2048]|is_image[logo]',
+            'emails.to'                 => 'required|valid_emails',
+            'emails.cc'                 => 'permit_empty|valid_emails',
+            'emails.cco'                => 'permit_empty|valid_emails',
+            'googleTagManager'          => 'if_exist|string',
+            'googleSearchConsole'       => 'max_size[googleSearchConsole,1]|ext_in[googleSearchConsole,html]',
+            'deleteGoogleSearchConsole' => 'if_exist|in_list[1]',
+            'whatsapp'                  => 'if_exist|max_length[15]',
         ])) {
             // Nombre de la empresa.
             setting()->set('App.company', trimAll($this->request->getPost('company')));
@@ -92,12 +94,12 @@ class Settings extends BaseController
             if ($logo->isValid() && ! $logo->hasMoved()) {
                 $oldLogo = $uploadsPath . setting()->get('App.logo');
 
-                // Elimina el fondo anterior.
+                // Elimina el logo anterior.
                 is_file($oldLogo) && unlink($oldLogo);
 
                 $newName = $logo->getRandomName();
 
-                // Almacena el nuevo fondo.
+                // Almacena el nuevo logo.
                 $logo->move($uploadsPath, $newName);
 
                 setting()->set('App.logo', $newName);
@@ -111,6 +113,34 @@ class Settings extends BaseController
             setting()->set('App.emailsTo', lowerCase(trimAll($emails['to'] ?? '')));
             setting()->set('App.emailsCC', lowerCase(trimAll($emails['cc'] ?? '')));
             setting()->set('App.emailsCCO', lowerCase(trimAll($emails['cco'] ?? '')));
+
+            // Elimina el archivo de Google Search Console.
+            if ((bool) $this->request->getPost('deleteGoogleSearchConsole')) {
+                $file = FCPATH . setting()->get('App.googleSearchConsole');
+
+                is_file($file) && unlink($file);
+
+                setting()->forget('App.googleSearchConsole');
+
+                unset($file);
+            }
+
+            $googleSearchConsole = $this->request->getFile('googleSearchConsole');
+
+            // Google Search Console.
+            if ($googleSearchConsole->isValid() && ! $googleSearchConsole->hasMoved()) {
+                $oldGoogleSearchConsole = FCPATH . setting()->get('App.googleSearchConsole');
+
+                // Elimina el archivo anterior.
+                is_file($oldGoogleSearchConsole) && unlink($oldGoogleSearchConsole);
+
+                // Almacena el archivo.
+                $googleSearchConsole->move(FCPATH);
+
+                setting()->set('App.googleSearchConsole', $googleSearchConsole->getName());
+
+                unset($googleSearchConsole, $oldGoogleSearchConsole);
+            }
 
             // ID de Google Tag Manager.
             setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager') ?? ''));

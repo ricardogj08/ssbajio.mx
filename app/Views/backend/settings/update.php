@@ -308,6 +308,41 @@
             </div>
             <!-- Fin del campo de Google Tag Manager -->
 
+            <!-- Campo de search console -->
+            <div class="form-control">
+                <label for="googleSearchConsole" class="label">
+                    <span class="label-text">
+                        Verificación de Google Search Console:
+                    </span>
+                </label>
+                <input
+                    type="file"
+                    name="googleSearchConsole"
+                    id="googleSearchConsole"
+                    size="1"
+                    accept=".html"
+                    class="file-input file-input-bordered file-input-secondary w-full"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('googleSearchConsole')) ?>
+                        <?= esc($validation->getError('deleteGoogleSearchConsole')) ?>
+                    </span>
+                    <?php if ($settings->get('App.googleSearchConsole')): ?>
+                        <span class="label-text-alt cursor-pointer flex items-center gap-x-2">
+                            <i class="bi bi-trash text-2xl text-error"></i>
+                            <input
+                                type="checkbox"
+                                name="deleteGoogleSearchConsole"
+                                value="1"
+                                class="checkbox checkbox-error"
+                            >
+                        </span>
+                    <?php endif ?>
+                </label>
+            </div>
+            <!-- Fin del campo de search console -->
+
             <!-- Campo de WhatsApp -->
             <div class="form-control">
                 <label for="whatsapp" class="label">

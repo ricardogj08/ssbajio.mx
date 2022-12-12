@@ -159,6 +159,19 @@
                     </tr>
 
                     <tr>
+                        <th>Google Search Console:</th>
+                        <td>
+                            <a
+                                href="<?= base_url($settings->get('App.googleSearchConsole') ?? '') ?>"
+                                target="_blank"
+                                class="link link-secondary"
+                            >
+                                <?= esc($settings->get('App.googleSearchConsole')) ?>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
                         <th>WhatsApp:</th>
                         <td><?= esc($settings->get('App.whatsapp')) ?></td>
                     </tr>

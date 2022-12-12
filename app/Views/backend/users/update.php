@@ -41,7 +41,7 @@
             <div class="form-control">
                 <label for="name" class="label">
                     <span class="label-text">
-                        Nombre:
+                        Nombre completo:
                     </span>
                 </label>
                 <input

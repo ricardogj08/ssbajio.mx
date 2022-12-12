@@ -41,7 +41,7 @@
             <div class="form-control">
                 <label for="name" class="label">
                     <span class="label-text">
-                        Nombre:
+                        Nombre completo:
                     </span>
                 </label>
                 <input
@@ -75,6 +75,7 @@
                     id="phone"
                     required
                     maxlength="15"
+                    placeholder="Escribe su teléfono"
                     value="<?= esc($prospect->phone) ?>"
                     class="input input-bordered input-primary"
                 >
@@ -99,6 +100,7 @@
                     id="email"
                     required
                     maxlength="256"
+                    placeholder="Escribe su email"
                     value="<?= esc($prospect->email) ?>"
                     class="input input-bordered input-primary"
                 >
@@ -123,6 +125,7 @@
                     id="company"
                     required
                     maxlength="64"
+                    placeholder="Escribe su empresa"
                     value="<?= esc($prospect->company) ?>"
                     class="input input-bordered input-primary"
                 >
@@ -197,6 +200,7 @@
                     maxlength="4096"
                     rows="4"
                     cols="50"
+                    placeholder="Escribe una nota para el prospecto..."
                     class="textarea textarea-bordered textarea-secondary resize-none h-32"
                 ><?= esc($prospect->message) ?></textarea>
                 <label class="label">

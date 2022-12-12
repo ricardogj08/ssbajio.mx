@@ -20,10 +20,10 @@
 
     <li>
         <div>
-            <a href="<?= url_to('backend.logout') ?>" class="btn btn-outline btn-sm btn-block normal-case gap-2">
+            <label for="modal-action-logout" class="btn btn-outline btn-sm btn-block normal-case gap-2">
                 <i class="bi bi-box-arrow-right text-xl"></i>
                 Cerrar sesión
-            </a>
+            </label>
         </div>
     </li>
 
@@ -68,3 +68,9 @@
     </li>
 </ul>
 <!-- Fin del menú de navegación del sidebar -->
+
+<?= $this->setData([
+    'id'      => 'modal-action-logout',
+    'method'  => 'backend.logout',
+    'message' => '¿Deseas cerrar tu sesión?',
+])->include('backend/layouts/modal-action') ?>

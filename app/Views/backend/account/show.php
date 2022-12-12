@@ -14,7 +14,7 @@
             </h1>
 
             <h2 class="text-sm">
-                Información y datos de la cuenta de usuario.
+                Consulta la información de tu cuenta de usuario.
             </h2>
         </div>
 
@@ -30,7 +30,7 @@
     <div class="overflow-x-auto">
         <table class="table table-compact lg:table-normal table-zebra w-full">
             <tr>
-                <th>Nombre:</th>
+                <th>Nombre completo:</th>
                 <td><?= esc($user->name) ?></td>
             </tr>
             <tr>
@@ -74,4 +74,12 @@
             Modificar
         </a>
     </div>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+    <!-- Notificación exitosa -->
+    <?php if(session()->has('toast-success')): ?>
+        <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
+    <?php endif ?>
+    <!-- Fin de la notificación exitosa -->
 <?= $this->endSection() ?>

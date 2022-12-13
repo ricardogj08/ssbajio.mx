@@ -154,6 +154,11 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <th>WhatsApp:</th>
+                        <td><?= esc($settings->get('App.whatsapp')) ?></td>
+                    </tr>
+
+                    <tr>
                         <th>Google Tag Manager:</th>
                         <td><?= esc($settings->get('App.googleTagManager')) ?></td>
                     </tr>
@@ -172,8 +177,8 @@
                     </tr>
 
                     <tr>
-                        <th>WhatsApp:</th>
-                        <td><?= esc($settings->get('App.whatsapp')) ?></td>
+                        <th>Google reCAPTCHA:</th>
+                        <td><?= esc($settings->get('App.googleRecaptcha')) ?></td>
                     </tr>
                 </tbody>
             </table>

@@ -6,6 +6,8 @@
     <title>
         Contacto
     </title>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -234,7 +236,14 @@
                         <!-- Fin del campo del mensaje -->
                     </div>
 
-                    <div class="text-center">
+                    <div class="flex flex-col items-center gap-y-6">
+                        <!-- reCAPTCHA v2 -->
+                        <div
+                            class="g-recaptcha"
+                            data-sitekey="<?= esc(service('settings')->get('App.googleRecaptcha') ?? 'your_site_key') ?>"
+                        >
+                        </div>
+
                         <!-- Botón de submit -->
                         <input
                             type="submit"

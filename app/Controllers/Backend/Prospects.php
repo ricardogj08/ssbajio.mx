@@ -21,7 +21,7 @@ class Prospects extends BaseController
         }
 
         // Patrón de búsqueda (por defecto: '').
-        $query = trimAll($this->request->getGet('q') ?? '');
+        $query = trimAll($this->request->getGet('q'));
 
         $prospectModel = model('ProspectModel');
 
@@ -116,7 +116,7 @@ class Prospects extends BaseController
                 'solution' => 'required|is_natural_no_zero|is_not_unique[solutions.id]',
                 'message'  => 'if_exist|max_length[4096]',
             ])) {
-                $message = trimAll($this->request->getPost('message') ?? '');
+                $message = trimAll($this->request->getPost('message'));
 
                 // Actualiza los datos del prospecto.
                 $prospectModel->update($id, [

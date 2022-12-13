@@ -38,7 +38,7 @@ class Posts extends BaseController
     public function index()
     {
         // Patrón de búsqueda (por defecto: '').
-        $query = trimAll($this->request->getGet('q') ?? '');
+        $query = trimAll($this->request->getGet('q'));
 
         return view('backend/modules/posts/index', [
             'query' => $query,

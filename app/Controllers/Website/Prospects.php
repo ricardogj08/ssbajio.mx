@@ -46,7 +46,7 @@ class Prospects extends BaseController
         ])) {
             $prospectModel = model('ProspectModel');
 
-            $message = trimAll($this->request->getPost('message') ?? '');
+            $message = trimAll($this->request->getPost('message'));
 
             $id = $prospectModel->insert([
                 'name'        => trimAll($this->request->getPost('name')),

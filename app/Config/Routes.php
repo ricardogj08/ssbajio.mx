@@ -40,7 +40,7 @@ $routes->get('/', 'Website\Home::index', ['as' => 'website.home.index']);
 // Definición de rutas del formulario de contacto.
 $routes->group('contacto', static function ($routes) {
     $routes->get('', 'Website\Prospects::new', ['as' => 'website.prospects.new']);
-    $routes->post('gracias', 'Website\Prospects::create', ['as' => 'website.prospects.create']);
+    $routes->post('gracias', 'Website\Prospects::create', ['as' => 'website.prospects.create', 'filter' => 'reCAPTCHA']);
 });
 
 // Definición de rutas del blog.

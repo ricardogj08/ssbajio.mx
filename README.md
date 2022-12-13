@@ -88,6 +88,9 @@ Compila Tailwind CSS para el backend:
 * [Google Tag Manager - Guía de inicio rápido](https://developers.google.com/tag-manager/quickstart?hl=es)
 * [Configurar e instalar Tag Manager](https://support.google.com/tagmanager/answer/6103696?hl=es)
 * [Servicio de ayuda de WhatsApp - Cómo usar la función de clic para chatear](https://faq.whatsapp.com/5913398998672934/?helpref=uf_share)
+* [Google reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display)
+* [Google reCAPTCHA - Registra un sitio nuevo](https://www.google.com/recaptcha/admin/create)
+* [Google reCAPTCHA - Verifying the user's response](https://developers.google.com/recaptcha/docs/verify)
 
 ## Licencia
 

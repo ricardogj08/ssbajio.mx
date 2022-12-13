@@ -33,19 +33,20 @@ class Settings extends BaseController
             'emails.to'                 => 'required|valid_emails',
             'emails.cc'                 => 'permit_empty|valid_emails',
             'emails.cco'                => 'permit_empty|valid_emails',
-            'googleTagManager'          => 'if_exist|string',
+            'whatsapp'                  => 'if_exist|max_length[15]',
+            'googleTagManager'          => 'if_exist|max_length[256]',
             'googleSearchConsole'       => 'max_size[googleSearchConsole,1]|ext_in[googleSearchConsole,html]',
             'deleteGoogleSearchConsole' => 'if_exist|in_list[1]',
-            'whatsapp'                  => 'if_exist|max_length[15]',
+            'googleRecaptcha'           => 'if_exist|max_length[256]',
         ])) {
             // Nombre de la empresa.
             setting()->set('App.company', trimAll($this->request->getPost('company')));
 
             // Teléfono de contacto.
-            setting()->set('App.phone', trimAll($this->request->getPost('phone') ?? ''));
+            setting()->set('App.phone', trimAll($this->request->getPost('phone')));
 
             // Tema de colores.
-            setting()->set('App.theme', trim($this->request->getPost('theme') ?? ''));
+            setting()->set('App.theme', strtrim($this->request->getPost('theme')));
 
             $favicon = $this->request->getFile('favicon');
 
@@ -110,9 +111,15 @@ class Settings extends BaseController
             $emails = $this->request->getPost('emails');
 
             // Emails de contacto.
-            setting()->set('App.emailsTo', lowerCase(trimAll($emails['to'] ?? '')));
-            setting()->set('App.emailsCC', lowerCase(trimAll($emails['cc'] ?? '')));
-            setting()->set('App.emailsCCO', lowerCase(trimAll($emails['cco'] ?? '')));
+            setting()->set('App.emailsTo', lowerCase(trimAll($emails['to'])));
+            setting()->set('App.emailsCC', lowerCase(trimAll($emails['cc'])));
+            setting()->set('App.emailsCCO', lowerCase(trimAll($emails['cco'])));
+
+            // WhatsApp.
+            setting()->set('App.whatsapp', stripAllSpaces($this->request->getPost('whatsapp')));
+
+            // ID de Google Tag Manager.
+            setting()->set('App.googleTagManager', strtrim($this->request->getPost('googleTagManager')));
 
             // Elimina el archivo de Google Search Console.
             if ((bool) $this->request->getPost('deleteGoogleSearchConsole')) {
@@ -142,11 +149,8 @@ class Settings extends BaseController
                 unset($googleSearchConsole, $oldGoogleSearchConsole);
             }
 
-            // ID de Google Tag Manager.
-            setting()->set('App.googleTagManager', trim($this->request->getPost('googleTagManager') ?? ''));
-
-            // WhatsApp.
-            setting()->set('App.whatsapp', stripAllSpaces($this->request->getPost('whatsapp') ?? ''));
+            // Google reCAPTCHA.
+            setting()->set('App.googleRecaptcha', strtrim($this->request->getPost('googleRecaptcha')));
 
             return redirect()->route('backend.settings.index')
                 ->with('toast-success', 'El sitio web se ha modificado correctamente');

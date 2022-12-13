@@ -36,6 +36,8 @@ app.indexPage = ''
 app.defaultLocale = es
 app.appTimezone = 'America/Mexico_City'
 
+GOOGLE_RECAPTCHA_SECRET_KEY = 
+
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
 # app.sessionCookieName = 'ci_session'
 # app.sessionExpiration = 7200

@@ -58,7 +58,7 @@
                 <ul class="flex flex-col lg:flex-row lg:items-center gap-x-6 gap-y-2 pt-2 lg:pt-0 text-sm lg:text-base">
                     <li class="lg:hidden">
                         <a
-                            href="tel:<?= esc(stripAllSpaces(setting()->get('App.phone') ?? '')) ?>"
+                            href="tel:<?= esc(stripAllSpaces(setting()->get('App.phone'))) ?>"
                             class="block py-2 lg:py-0 border-b lg:border-0 border-ssbajio-gray-dark-2 hover:text-ssbajio-gray-light-1"
                         >
                             <i class="bi bi-telephone-fill mr-2"></i>

@@ -285,6 +285,33 @@
                 Aplicaciones
             </h3>
 
+            <!-- Campo de WhatsApp -->
+            <div class="form-control">
+                <label for="whatsapp" class="label">
+                    <span class="label-text">
+                        Número de WhatsApp:
+                    </span>
+                </label>
+                <input
+                    type="tel"
+                    name="whatsapp"
+                    id="whatsapp"
+                    maxlength="15"
+                    placeholder="Escribe el número de WhatsApp"
+                    value="<?= esc($settings->get('App.whatsapp')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('whatsapp')) ?>
+                    </span>
+                    <span class="label-text-alt">
+                        *en formato internacional
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de WhatsApp -->
+
             <!-- Campo de Google Tag Manager -->
             <div class="form-control">
                 <label for="googleTagManager" class="label">
@@ -296,6 +323,7 @@
                     type="text"
                     name="googleTagManager"
                     id="googleTagManager"
+                    maxlength="256"
                     placeholder="Escribe el ID de Google Tag Manager"
                     value="<?= esc($settings->get('App.googleTagManager')) ?>"
                     class="input input-bordered input-primary"
@@ -343,32 +371,29 @@
             </div>
             <!-- Fin del campo de search console -->
 
-            <!-- Campo de WhatsApp -->
+            <!-- Campo del reCAPTCHA -->
             <div class="form-control">
-                <label for="whatsapp" class="label">
+                <label for="googleRecaptcha" class="label">
                     <span class="label-text">
-                        Número de WhatsApp:
+                        Clave de sitio de Google reCAPTCHA:
                     </span>
                 </label>
                 <input
-                    type="tel"
-                    name="whatsapp"
-                    id="whatsapp"
-                    maxlength="15"
-                    placeholder="Escribe el número de WhatsApp"
-                    value="<?= esc($settings->get('App.whatsapp')) ?>"
-                    class="input input-bordered input-primary"
+                    type="text"
+                    name="googleRecaptcha"
+                    id="googleRecaptcha"
+                    maxlength="256"
+                    placeholder="Escribe la clave de sitio de Google reCAPTCHA"
+                    value="<?= esc($settings->get('App.googleRecaptcha')) ?>"
+                    class="input input-bordered input-secondary"
                 >
                 <label class="label">
-                    <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('whatsapp')) ?>
-                    </span>
                     <span class="label-text-alt">
-                        *en formato internacional
+                        <?= esc($validation->getError('googleRecaptcha')) ?>
                     </span>
                 </label>
             </div>
-            <!-- Fin del campo de WhatsApp -->
+            <!-- Fin del campo del reCAPTCHA -->
         </section>
         <!-- Fin del grupo de campos de aplicaciones -->
 

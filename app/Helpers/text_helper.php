@@ -3,23 +3,31 @@
 /**
  * Elimina todos los espacios sobrantes de un string.
  */
-function trimAll(string $str)
+function trimAll(?string $str)
 {
-    return trim(preg_replace('/\s+/', ' ', $str));
+    return trim(preg_replace('/\s+/', ' ', $str ?? ''));
 }
 
 /**
  * Convierte un string a minúsculas.
  */
-function lowerCase(string $str)
+function lowerCase(?string $str)
 {
-    return mb_strtolower($str, 'utf-8');
+    return mb_strtolower($str ?? '', 'utf-8');
 }
 
 /**
  * Elimina todos los espacios de un string.
  */
-function stripAllSpaces(string $str)
+function stripAllSpaces(?string $str)
 {
-    return preg_replace('/\s+/', '', $str);
+    return preg_replace('/\s+/', '', $str ?? '');
+}
+
+/**
+ * Elimina espacios de principio y fin de un string.
+ */
+function strtrim(?string $str)
+{
+    return trim($str ?? '');
 }

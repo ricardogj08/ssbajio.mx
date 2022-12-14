@@ -17,4 +17,16 @@ class PostModel extends Model
 
     // Dates
     protected $useTimestamps = true;
+
+    /**
+     * Usuario del artículo.
+     */
+    public function user()
+    {
+        $this->builder()
+            ->select('posts.*, users.name as user')
+            ->join('users', 'users.id = posts.user_id', 'inner');
+
+        return $this;
+    }
 }

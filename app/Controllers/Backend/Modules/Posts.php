@@ -79,11 +79,58 @@ class Posts extends BaseController
      */
     public function index()
     {
+        // Valida el parámetro de búsqueda.
+        if (! $this->validate([
+            'q' => 'if_exist|max_length[256]',
+        ])) {
+            return redirect()
+                ->route('backend.modules.posts.index')
+                ->with('error', $this->validator->getError('q'));
+        }
+
         // Patrón de búsqueda (por defecto: '').
         $query = trimAll($this->request->getGet('q'));
 
+        $postModel = model('PostModel');
+
+        /**
+         * Consulta los datos de todos los artículos
+         * que coinciden con el patrón de búsqueda
+         * con paginación.
+         */
+        $posts = $postModel
+            ->like('posts.title', $query)
+            ->orderBy('posts.created_at', 'desc')
+            ->paginate(8, 'posts');
+
         return view('backend/modules/posts/index', [
-            'query' => $query,
+            'query'      => $query,
+            'validation' => service('validation'),
+            'posts'      => $posts,
+            'pager'      => $postModel->pager,
         ]);
+    }
+
+    /**
+     * Renderiza la vista de los datos de un artículo.
+     *
+     * @param mixed|null $id
+     */
+    public function show($id = null)
+    {
+        // Valida si existe el artículo.
+        if (session('user.id') !== $id && $this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[posts.id]']
+        )) {
+            $postModel = model('postModel');
+
+            // Consulta los datos del artículo.
+            $post = $postModel->user()->find($id);
+
+            return view('backend/posts/show', ['post' => $post]);
+        }
+
+        throw PageNotFoundException::forPageNotFound();
     }
 }

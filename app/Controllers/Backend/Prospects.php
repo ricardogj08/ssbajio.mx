@@ -17,7 +17,9 @@ class Prospects extends BaseController
         if (! $this->validate([
             'q' => 'if_exist|max_length[256]',
         ])) {
-            return redirect()->route('backend.prospects.index')->withInput();
+            return redirect()
+                ->route('backend.prospects.index')
+                ->with('error', $this->validator->getError('q'));
         }
 
         // Patrón de búsqueda (por defecto: '').
@@ -26,11 +28,12 @@ class Prospects extends BaseController
         $prospectModel = model('ProspectModel');
 
         /**
-         * Consulta los datos de los prospectos
+         * Consulta los datos de todos los prospectos
          * que coinciden con el patrón de búsqueda
          * con paginación.
          */
-        $prospects = $prospectModel->info()
+        $prospects = $prospectModel
+            ->solution()
             ->like('prospects.name', $query)
             ->orderBy('prospects.created_at', 'desc')
             ->paginate(8, 'prospects');
@@ -44,7 +47,7 @@ class Prospects extends BaseController
     }
 
     /**
-     * Renderiza la vista de los datos del prospecto.
+     * Renderiza la vista de los datos de un prospecto.
      *
      * @param mixed|null $id
      */
@@ -58,7 +61,10 @@ class Prospects extends BaseController
             $prospectModel = model('ProspectModel');
 
             // Consulta los datos del prospecto.
-            $prospect = $prospectModel->info()->find($id);
+            $prospect = $prospectModel
+                ->solution()
+                ->origin()
+                ->find($id);
 
             return view('backend/prospects/show', ['prospect' => $prospect]);
         }
@@ -84,7 +90,7 @@ class Prospects extends BaseController
             $prospectModel->delete($id);
 
             return redirect()
-                ->back()
+                ->route('backend.prospects.index')
                 ->with('toast-success', 'El prospecto se ha eliminado correctamente');
         }
 

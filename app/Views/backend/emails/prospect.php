@@ -46,7 +46,7 @@
                 <th>Fecha:</th>
                 <td>
                     <?= esc(CodeIgniter\I18n\Time::parse($prospect->created_at)
-                        ->toLocalizedString("dd MMMM, yyyy '-' hh:mm a")) ?>
+                        ->toLocalizedString('dd MMMM, yyyy - hh:mm a')) ?>
                 </td>
             </tr>
         </table>

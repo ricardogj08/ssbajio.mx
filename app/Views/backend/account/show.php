@@ -51,14 +51,14 @@
                 <th>Fecha de registro:</th>
                 <td>
                     <?= esc(CodeIgniter\I18n\Time::parse($user->created_at)
-                        ->toLocalizedString("dd MMMM, yyyy '-' hh:mm a")) ?>
+                        ->toLocalizedString('dd MMMM, yyyy - hh:mm a')) ?>
                 </td>
             </tr>
             <tr>
                 <th>Fecha de modificación:</th>
                 <td>
                     <?= esc(CodeIgniter\I18n\Time::parse($user->updated_at)
-                        ->toLocalizedString("dd MMMM, yyyy '-' hh:mm a")) ?>
+                        ->toLocalizedString('dd MMMM, yyyy - hh:mm a')) ?>
                 </td>
             </tr>
         </table>

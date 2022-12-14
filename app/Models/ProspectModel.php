@@ -19,14 +19,25 @@ class ProspectModel extends Model
     protected $useTimestamps = true;
 
     /**
-     * Obtiene información completa del prospecto.
+     * Solución del prospecto.
      */
-    public function info()
+    public function solution()
     {
         $this->builder()
-            ->select('prospects.*, origins.description as origin, solutions.description as solution')
-            ->join('origins', 'origins.id = prospects.origin_id', 'inner')
+            ->select('prospects.*, solutions.description as solution')
             ->join('solutions', 'solutions.id = prospects.solution_id', 'inner');
+
+        return $this;
+    }
+
+    /**
+     * Origen del prospecto.
+     */
+    public function origin()
+    {
+        $this->builder()
+            ->select('prospects.*, origins.description as origin')
+            ->join('origins', 'origins.id = prospects.origin_id', 'inner');
 
         return $this;
     }

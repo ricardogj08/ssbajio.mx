@@ -57,7 +57,9 @@ class Users extends BaseController
         if (! $this->validate([
             'q' => 'if_exist|max_length[256]',
         ])) {
-            return redirect()->route('backend.users.index')->withInput();
+            return redirect()
+                ->route('backend.users.index')
+                ->with('error', $this->validator->getError('q'));
         }
 
         // Patrón de búsqueda (por defecto: '').
@@ -66,7 +68,7 @@ class Users extends BaseController
         $userModel = model('userModel');
 
         /**
-         * Consulta los datos de los usuarios
+         * Consulta los datos de todos los usuarios
          * que coinciden con el patrón de búsqueda
          * con paginación.
          */
@@ -116,7 +118,7 @@ class Users extends BaseController
     }
 
     /**
-     * Renderiza la vista de los datos del usuario.
+     * Renderiza la vista de los datos de un usuario.
      *
      * @param mixed|null $id
      */

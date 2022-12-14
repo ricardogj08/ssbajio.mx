@@ -1,3 +1,5 @@
+<?php helper('form') ?>
+
 <?= $this->extend('templates/backend/default') ?>
 
 <?= $this->section('head') ?>
@@ -65,21 +67,37 @@
                 <th>Fecha de registro:</th>
                 <td>
                     <?= esc(CodeIgniter\I18n\Time::parse($prospect->created_at)
-                        ->toLocalizedString("dd MMMM, yyyy '-' hh:mm a")) ?>
+                        ->toLocalizedString('dd MMMM, yyyy - hh:mm a')) ?>
                 </td>
             </tr>
             <tr>
                 <th>Fecha de modificación:</th>
                 <td>
                     <?= esc(CodeIgniter\I18n\Time::parse($prospect->updated_at)
-                        ->toLocalizedString("dd MMMM, yyyy '-' hh:mm a")) ?>
+                        ->toLocalizedString('dd MMMM, yyyy - hh:mm a')) ?>
                 </td>
             </tr>
         </table>
     </div>
     <!-- Fin de la tabla de datos del prospecto -->
 
-    <div class="flex flex-col lg:flex-row justify-end pt-4">
+    <div class="flex flex-col lg:flex-row justify-end pt-4 gap-4">
+        <!-- Botón para eliminar el prospecto -->
+        <?= form_open(url_to('backend.prospects.delete', $prospect->id)) ?>
+            <label
+                for="modal-action-submit"
+                class="btn btn-outline btn-error btn-block"
+            >
+                Eliminar
+            </label>
+
+            <?= $this->setData([
+                'id'      => 'modal-action-submit',
+                'message' => '¿Deseas eliminar este prospecto?',
+            ])->include('backend/layouts/modal-action-submit') ?>
+        <?= form_close() ?>
+        <!-- Fin del botón para eliminar el prospecto -->
+
         <!-- Botón para editar el prospecto -->
         <a
             href="<?= url_to('backend.prospects.update', $prospect->id) ?>"

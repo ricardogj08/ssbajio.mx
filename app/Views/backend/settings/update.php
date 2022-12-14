@@ -128,7 +128,7 @@
                     type="file"
                     name="favicon"
                     id="favicon"
-                    size="2048"
+                    size="2097152"
                     accept="image/*"
                     class="file-input file-input-bordered file-input-primary"
                 >
@@ -151,7 +151,7 @@
                     type="file"
                     name="background"
                     id="background"
-                    size="2048"
+                    size="2097152"
                     accept="image/*"
                     class="file-input file-input-bordered file-input-primary"
                 >
@@ -174,7 +174,7 @@
                     type="file"
                     name="logo"
                     id="logo"
-                    size="2048"
+                    size="2097152"
                     accept="image/*"
                     class="file-input file-input-bordered file-input-primary"
                 >
@@ -347,7 +347,7 @@
                     type="file"
                     name="googleSearchConsole"
                     id="googleSearchConsole"
-                    size="1"
+                    size="2048"
                     accept=".html"
                     class="file-input file-input-bordered file-input-secondary w-full"
                 >

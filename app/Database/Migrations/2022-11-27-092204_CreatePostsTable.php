@@ -40,7 +40,7 @@ class CreatePostsTable extends Migration
                 'constraint' => 512,
             ],
             'body' => [
-                'type' => 'longtext',
+                'type' => 'mediumtext',
             ],
             'active' => [
                 'type'       => 'tinyint',

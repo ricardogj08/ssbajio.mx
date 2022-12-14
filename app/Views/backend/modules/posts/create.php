@@ -3,6 +3,10 @@
 <?= $this->extend('templates/backend/default') ?>
 
 <?= $this->section('head') ?>
+    <link rel="stylesheet" type="text/css" href="<?= base_url('css/trix.css') ?>">
+
+    <script type="text/javascript" src="<?= base_url('js/trix.js') ?>"></script>
+
     <title>
         Blog | Registro
     </title>
@@ -21,7 +25,7 @@
 
             <p class="text-error">
                 <small>
-                    <?= session()->getFlashdata('error') ?>
+                    <?= esc(session()->getFlashdata('error')) ?>
                 </small>
             </p>
         </div>
@@ -74,9 +78,9 @@
                     type="file"
                     name="cover"
                     id="cover"
-                    size="2048"
-                    accept="image/*"
                     required
+                    size="2097152"
+                    accept="image/*"
                     class="file-input file-input-bordered file-input-primary"
                 >
                 <label class="label">
@@ -101,8 +105,8 @@
                     maxlength="512"
                     rows="4"
                     cols="50"
-                    placeholder="Escribe el resumen del artículo"
-                    class="textarea textarea-bordered textarea-primary resize-none h-32"
+                    placeholder="Escribe el resumen del artículo..."
+                    class="textarea textarea-bordered textarea-primary text-justify resize-none h-32"
                 ><?= set_value('excerpt') ?></textarea>
                 <label class="label">
                     <span class="label-text-alt text-error">
@@ -136,11 +140,23 @@
 
             <!-- Campos del contenido -->
             <div class="form-control">
-                <label class="label">
+                <label for="body" class="label">
                     <span class="label-text">
                        Contenido:
                     </span>
                 </label>
+                <input
+                    type="hidden"
+                    name="body"
+                    id="body"
+                    value="<?= set_value('body') ?>"
+                >
+                <trix-editor
+                    input="body"
+                    placeholder="Escribe el contenido del artículo..."
+                    aria-label="Editor de texto"
+                    class="trix-content"
+                ></trix-editor>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= esc($validation->getError('body')) ?>

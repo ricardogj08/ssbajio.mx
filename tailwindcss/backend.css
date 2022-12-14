@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	trix-editor ul {
+		@apply list-disc;
+	}
+
+	trix-editor ol {
+		@apply list-decimal;
+	}
+
+	trix-editor a {
+		@apply link link-info;
+	}
+
+	trix-toolbar {
+		@apply text-gray-500;
+	}
+
+	trix-toolbar button {
+		@apply bg-neutral-content !important;
+	}
+}

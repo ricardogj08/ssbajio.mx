@@ -130,3 +130,9 @@ nb-configuration.xml
 
 # Node.js
 node_modules/
+
+#-------------------------
+# Upload Files
+#-------------------------
+public/uploads/website/posts*
+!public/uploads/website/posts/index.html

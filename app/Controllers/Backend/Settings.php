@@ -35,7 +35,7 @@ class Settings extends BaseController
             'emails.cco'                => 'permit_empty|valid_emails',
             'whatsapp'                  => 'if_exist|max_length[15]',
             'googleTagManager'          => 'if_exist|max_length[256]',
-            'googleSearchConsole'       => 'max_size[googleSearchConsole,1]|ext_in[googleSearchConsole,html]',
+            'googleSearchConsole'       => 'max_size[googleSearchConsole,2]|ext_in[googleSearchConsole,html]',
             'deleteGoogleSearchConsole' => 'if_exist|in_list[1]',
             'googleRecaptcha'           => 'if_exist|max_length[256]',
         ])) {

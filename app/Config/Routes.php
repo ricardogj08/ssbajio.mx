@@ -116,6 +116,8 @@ $routes->group('backend', static function ($routes) {
                 $routes->get('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
                 $routes->post('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
                 $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
+                $routes->get('(:num)', 'Backend\Modules\Posts::show/$1', ['as' => 'backend.modules.posts.show']);
+                $routes->post('eliminar/(:num)', 'Backend\Modules\Posts::delete/$1', ['as' => 'backend.modules.posts.delete']);
             });
         });
     });

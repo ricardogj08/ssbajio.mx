@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend\Modules;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\I18n\Time;
 use RuntimeException;
 
@@ -119,7 +120,7 @@ class Posts extends BaseController
     public function show($id = null)
     {
         // Valida si existe el artículo.
-        if (session('user.id') !== $id && $this->validateData(
+        if ($this->validateData(
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[posts.id]']
         )) {
@@ -128,7 +129,40 @@ class Posts extends BaseController
             // Consulta los datos del artículo.
             $post = $postModel->user()->find($id);
 
-            return view('backend/posts/show', ['post' => $post]);
+            return view('backend/modules/posts/show', ['post' => $post]);
+        }
+
+        throw PageNotFoundException::forPageNotFound();
+    }
+
+    /**
+     * Elimina el registro de un artículo.
+     *
+     * @param mixed|null $id
+     */
+    public function delete($id = null)
+    {
+        // Valida si existe el artículo.
+        if ($this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[posts.id]']
+        )) {
+            $postModel = model('postModel');
+
+            // Consulta los datos del artículo.
+            $post = $postModel->find($id);
+
+            $cover = FCPATH . 'uploads/website/posts/' . $post->cover;
+
+            // Elimina la portada.
+            is_file($cover) && unlink($cover);
+
+            // Elimina el artículo.
+            $postModel->delete($post->id);
+
+            return redirect()
+                ->route('backend.modules.posts.index')
+                ->with('toast-success', 'El artículo se ha eliminado correctamente');
         }
 
         throw PageNotFoundException::forPageNotFound();

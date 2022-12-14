@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\I18n\Time;
 
 class Auth extends BaseController
@@ -174,7 +175,7 @@ class Auth extends BaseController
             }
         }
 
-        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        throw PageNotFoundException::forPageNotFound();
     }
 
     /**

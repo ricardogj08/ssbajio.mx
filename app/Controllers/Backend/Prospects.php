@@ -32,8 +32,7 @@ class Prospects extends BaseController
          * que coinciden con el patrón de búsqueda
          * con paginación.
          */
-        $prospects = $prospectModel
-            ->solution()
+        $prospects = $prospectModel->solution()
             ->like('prospects.name', $query)
             ->orderBy('prospects.created_at', 'desc')
             ->paginate(8, 'prospects');
@@ -61,8 +60,7 @@ class Prospects extends BaseController
             $prospectModel = model('ProspectModel');
 
             // Consulta los datos del prospecto.
-            $prospect = $prospectModel
-                ->solution()
+            $prospect = $prospectModel->solution()
                 ->origin()
                 ->find($id);
 
@@ -94,7 +92,7 @@ class Prospects extends BaseController
                 ->with('toast-success', 'El prospecto se ha eliminado correctamente');
         }
 
-        return redirect()->back()->withInput();
+        throw PageNotFoundException::forPageNotFound();
     }
 
     /**

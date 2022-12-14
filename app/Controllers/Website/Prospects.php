@@ -59,7 +59,9 @@ class Prospects extends BaseController
             ]);
 
             // Consulta los datos del prospecto.
-            $prospect = $prospectModel->info()->find($id);
+            $prospect = $prospectModel->solution()
+                ->origin()
+                ->find($id);
 
             $email = service('email');
 

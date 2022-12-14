@@ -82,7 +82,7 @@
                         <td class="flex gap-x-2">
                             <!-- Botón para mostrar un artículo -->
                             <a
-                                href="#"
+                                href="<?= url_to('backend.modules.posts.show', $post->id) ?>"
                                 aria-label="Mostrar los datos del artículo"
                                 class="btn btn-square btn-sm btn-outline btn-warning"
                             >
@@ -101,7 +101,7 @@
                             <!-- Fin del botón para editar un artículo -->
 
                             <!-- Botón para eliminar un artículo -->
-                            <?= form_open('') ?>
+                            <?= form_open(url_to('backend.modules.posts.delete', $post->id)) ?>
                                 <label
                                     for="modal-action-submit-<?= esc($post->id) ?>"
                                     class="btn btn-square btn-sm btn-outline btn-error"

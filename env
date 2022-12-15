@@ -38,6 +38,8 @@ app.appTimezone = 'America/Mexico_City'
 
 GOOGLE_RECAPTCHA_SECRET_KEY = 
 
+TINIFY_API_KEY = 
+
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
 # app.sessionCookieName = 'ci_session'
 # app.sessionExpiration = 7200

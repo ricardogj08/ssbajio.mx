@@ -91,6 +91,7 @@ Compila Tailwind CSS para el backend:
 * [Google reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display)
 * [Google reCAPTCHA - Registra un sitio nuevo](https://www.google.com/recaptcha/admin/create)
 * [Google reCAPTCHA - Verifying the user's response](https://developers.google.com/recaptcha/docs/verify)
+* [Tinify - API Reference](https://tinypng.com/developers/reference/php)
 
 ## Licencia
 

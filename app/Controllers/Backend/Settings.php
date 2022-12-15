@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
+use App\Libraries\ImageCompressor;
 
 class Settings extends BaseController
 {
@@ -53,6 +54,8 @@ class Settings extends BaseController
             // Ruta de archivos subidos para las configuraciones del backend.
             $uploadsPath = FCPATH . 'uploads/backend/settings/';
 
+            $compress = ImageCompressor::getInstance();
+
             // Favicon.
             if ($favicon->isValid() && ! $favicon->hasMoved()) {
                 $oldFavicon = $uploadsPath . setting()->get('App.favicon');
@@ -66,6 +69,8 @@ class Settings extends BaseController
                 $favicon->move($uploadsPath, $newName);
 
                 setting()->set('App.favicon', $newName);
+
+                $compress->run($uploadsPath . $newName);
 
                 unset($favicon, $oldFavicon, $newName);
             }
@@ -86,6 +91,8 @@ class Settings extends BaseController
 
                 setting()->set('App.background', $newName);
 
+                $compress->run($uploadsPath . $newName);
+
                 unset($background, $oldBackground, $newName);
             }
 
@@ -104,6 +111,8 @@ class Settings extends BaseController
                 $logo->move($uploadsPath, $newName);
 
                 setting()->set('App.logo', $newName);
+
+                $compress->run($uploadsPath . $newName);
 
                 unset($logo, $oldLogo, $newName);
             }

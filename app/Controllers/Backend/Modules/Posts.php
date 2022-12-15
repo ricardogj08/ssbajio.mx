@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend\Modules;
 
 use App\Controllers\BaseController;
+use App\Libraries\ImageCompressor;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\I18n\Time;
 use RuntimeException;
@@ -30,7 +31,6 @@ class Posts extends BaseController
                 ],
             ]
         )) {
-            exit();
             $cover = $this->request->getFile('cover');
 
             // Portada.
@@ -50,8 +50,11 @@ class Posts extends BaseController
                 ['title' => $slug],
                 ['title' => 'max_length[256]|is_unique[posts.slug]'],
             )) {
+                // Ruta de archivos subidos para los artículos.
+                $uploadsPath = FCPATH . 'uploads/website/posts/';
+
                 // Almacena la portada.
-                $cover->move(FCPATH . 'uploads/website/posts', $coverName);
+                $cover->move($uploadsPath, $coverName);
 
                 $started_at = trim($this->request->getPost('started_at'));
 
@@ -70,6 +73,8 @@ class Posts extends BaseController
                         ? null
                         : Time::parse($started_at)->toDateTimeString(),
                 ]);
+
+                ImageCompressor::getInstance()->run($uploadsPath . $coverName);
 
                 return redirect()
                     ->route('backend.modules.posts.index')

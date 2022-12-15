@@ -144,7 +144,7 @@ class Auth extends BaseController
                 ->find($id);
 
             if ($auth !== null) {
-                // Valida la llave autenticación.
+                // Valida la llave de autenticación.
                 if (hash_equals($auth->hash, hash('sha512', $key))) {
                     // Valida si la llave de autenticación ha expirado.
                     if (Time::now()->isAfter(Time::parse($auth->expires))) {

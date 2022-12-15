@@ -96,7 +96,7 @@ class Prospects extends BaseController
     }
 
     /**
-     * Renderiza para editar un prospecto
+     * Renderiza la vista para editar un prospecto
      * y modifica los datos de un prospecto.
      *
      * @param mixed|null $id

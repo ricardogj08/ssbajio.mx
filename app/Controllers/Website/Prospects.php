@@ -48,6 +48,7 @@ class Prospects extends BaseController
 
             $message = trimAll($this->request->getPost('message'));
 
+            // Registra un nuevo prospecto.
             $id = $prospectModel->insert([
                 'name'        => trimAll($this->request->getPost('name')),
                 'phone'       => stripAllSpaces($this->request->getPost('phone')),

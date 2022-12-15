@@ -11,7 +11,18 @@ class Posts extends BaseController
      */
     public function index()
     {
-        return view('website/posts/index');
+        $postModel = model('PostModel');
+
+        // Consulta los datos de todos los artículos con paginación.
+        $posts = $postModel->where('active', true)
+            ->orderBy('started_at', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->paginate(5, 'posts');
+
+        return view('website/posts/index', [
+            'posts' => $posts,
+            'pager' => $postModel->pager,
+        ]);
     }
 
     /**

@@ -72,5 +72,5 @@
 <?= $this->setData([
     'id'      => 'modal-action-logout',
     'method'  => 'backend.logout',
-    'message' => '¿Deseas cerrar tu sesión?',
+    'message' => '¿Deseas cerrar sesión?',
 ])->include('backend/layouts/modal-action') ?>

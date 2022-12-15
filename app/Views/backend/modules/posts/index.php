@@ -71,7 +71,7 @@
                                 target="_blank"
                                 class="link link-hover"
                             >
-                                <?= esc(excerpt($post->title, false, 32)) ?>
+                                <?= esc(excerpt($post->title, false, 40)) ?>
                             </a>
                         </td>
                         <td><?= $post->active ? 'Sí' : 'No' ?></td>
@@ -126,7 +126,7 @@
 
     <!-- Paginación -->
     <div class="flex justify-end pt-4">
-        <?= $pager->links('posts', 'backend_pagination') ?>
+        <?= $pager->links('posts', 'website_posts_pagination') ?>
     </div>
     <!-- Fin de la paginación -->
 <?= $this->endSection() ?>

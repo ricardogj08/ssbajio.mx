@@ -44,7 +44,7 @@
                                 <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
                                     08
                                 </div>
-                                <div class="lg:text-xl font-semibold uppercase">
+                                <div class="text-xs lg:text-xl font-semibold uppercase">
                                     Junio
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
 
                     <!-- Sección de compartir el artículos -->
                     <div>
-                        <div class="text-ssbajio-dark-1 text-17 font-semibold text-center mb-8">
+                        <div class="text-ssbajio-dark-1 text-17 font-semibold text-center mb-4 lg:mb-8">
                             Comparte este artículo
                         </div>
                         <div class="flex items-center justify-center justify-evenly">

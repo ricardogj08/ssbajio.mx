@@ -1,6 +1,7 @@
 <!-- Número de páginas a mostrar antes y después de la página actual -->
 <?php $pager->setSurroundCount(2) ?>
 
+<!-- Paginación del backend -->
 <div class="btn-group">
 	<?php if ($pager->hasPrevious()): ?>
 		<!-- Botón de la primera página  -->
@@ -33,3 +34,4 @@
 		</a>
 	<?php endif ?>
 </div>
+<!-- Fin de la paginación del backend -->

@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de orígenes de prospectos.
+ * Migración que crea la tabla de orígenes de prospectos.
  */
 class CreateOriginsTable extends Migration
 {

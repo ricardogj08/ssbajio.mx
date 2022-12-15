@@ -15,10 +15,17 @@ class Auth extends BaseController
     public function login()
     {
         // Valida los campos del formulario.
-        if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'email'    => 'required|max_length[256]|valid_email|is_not_unique[users.email]',
-            'password' => 'required|min_length[8]|max_length[32]|password',
-        ])) {
+        if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+            [
+                'email'    => 'required|max_length[256]|valid_email|is_not_unique[users.email]',
+                'password' => 'required|min_length[8]|max_length[32]|password',
+            ],
+            [
+                'password' => [
+                    'password' => lang('Validation.regex_match'),
+                ],
+            ]
+        )) {
             $userModel = model('UserModel');
 
             // Consulta los datos del usuario.
@@ -147,10 +154,17 @@ class Auth extends BaseController
                     }
 
                     // Valida los campos del formulario.
-                    if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-                        'password'     => 'required|min_length[8]|max_length[32]|password',
-                        'pass_confirm' => 'required|matches[password]',
-                    ])) {
+                    if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+                        [
+                            'password'     => 'required|min_length[8]|max_length[32]|password',
+                            'pass_confirm' => 'required|matches[password]',
+                        ],
+                        [
+                            'password' => [
+                                'password' => lang('Validation.regex_match'),
+                            ],
+                        ]
+                    )) {
                         $userModel = model('UserModel');
 
                         // Actualiza la contraseña del usuario.

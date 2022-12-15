@@ -14,13 +14,20 @@ class Users extends BaseController
     public function create()
     {
         // Valida los campos del formulario.
-        if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'name'         => 'required|max_length[64]',
-            'email'        => 'required|max_length[256]|valid_email|is_unique[users.email]',
-            'role'         => 'required|is_natural_no_zero|is_not_unique[roles.id]',
-            'password'     => 'required|min_length[8]|max_length[32]|password',
-            'pass_confirm' => 'required|matches[password]',
-        ])) {
+        if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+            [
+                'name'         => 'required|max_length[64]',
+                'email'        => 'required|max_length[256]|valid_email|is_unique[users.email]',
+                'role'         => 'required|is_natural_no_zero|is_not_unique[roles.id]',
+                'password'     => 'required|min_length[8]|max_length[32]|password',
+                'pass_confirm' => 'required|matches[password]',
+            ],
+            [
+                'password' => [
+                    'password' => lang('Validation.regex_match'),
+                ],
+            ]
+        )) {
             $userModel = model('userModel');
 
             // Registra el nuevo usuario.
@@ -158,13 +165,20 @@ class Users extends BaseController
             $user = $userModel->find($id);
 
             // Valida los campos del formulario.
-            if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-                'name'         => 'required|max_length[64]',
-                'email'        => "required|max_length[256]|valid_email|is_unique[users.email,email,{$user->email}]",
-                'role'         => 'required|is_natural_no_zero|is_not_unique[roles.id]',
-                'password'     => 'permit_empty|min_length[8]|max_length[32]|password',
-                'pass_confirm' => 'required_with[password]|matches[password]',
-            ])) {
+            if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+                [
+                    'name'         => 'required|max_length[64]',
+                    'email'        => "required|max_length[256]|valid_email|is_unique[users.email,email,{$user->email}]",
+                    'role'         => 'required|is_natural_no_zero|is_not_unique[roles.id]',
+                    'password'     => 'permit_empty|min_length[8]|max_length[32]|password',
+                    'pass_confirm' => 'required_with[password]|matches[password]',
+                ],
+                [
+                    'password' => [
+                        'password' => lang('Validation.regex_match'),
+                    ],
+                ]
+            )) {
                 $password = $this->request->getPost('password');
 
                 // Actualiza los datos del usuario.

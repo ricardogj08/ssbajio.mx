@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de soluciones de ssbajio.
+ * Migración que crea la tabla de soluciones de ssbajio.
  */
 class CreateSolutionsTable extends Migration
 {

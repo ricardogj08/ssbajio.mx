@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de roles.
+ * Migración que crea la tabla de roles.
  */
 class CreateRolesTable extends Migration
 {

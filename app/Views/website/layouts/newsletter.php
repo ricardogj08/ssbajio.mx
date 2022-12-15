@@ -5,6 +5,12 @@
     Suscríbete a nuestro newsletter
 </div>
 
+<p class="text-green-500">
+    <small>
+        <?= esc(session()->getFlashdata('success')) ?>
+    </small>
+</p>
+
 <p class="text-red-600 mb-5">
     <small>
         <?= esc(session()->getFlashdata('error')) ?>
@@ -17,9 +23,10 @@
         <input
             type="email"
             name="email"
-            placeholder="Email"
             required
             maxlength="256"
+            placeholder="Email"
+            value="<?= esc(set_value('email')) ?>"
             class="norm-form-input bg-white px-6 py-3.5 rounded lg:rounded-3xl border border-ssbajio-blue-1 hover:ring-1 focus:ring-1 ring-ssbajio-blue-1 text-15 text-ssbajio-gray-dark-3 placeholder:text-ssbajio-gray-dark-3"
         >
         <!-- Fin del campo del email -->

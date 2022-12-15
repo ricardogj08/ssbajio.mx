@@ -16,13 +16,21 @@ class Posts extends BaseController
     public function create()
     {
         // Valida los campos del formulario.
-        if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'title'      => 'required|max_length[256]',
-            'cover'      => 'uploaded[cover]|max_size[cover,2048]|is_image[cover]',
-            'excerpt'    => 'required|max_length[512]',
-            'started_at' => 'permit_empty|valid_date[Y-m-d\TH:i]',
-            'body'       => 'required|max_length[2097152]',
-        ])) {
+        if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+            [
+                'title'      => 'required|max_length[256]',
+                'cover'      => 'uploaded[cover]|max_size[cover,2048]|is_image[cover]',
+                'excerpt'    => 'required|max_length[512]',
+                'started_at' => 'permit_empty|valid_date[Y-m-d\TH:i]|date_greater_than_equal_to_now',
+                'body'       => 'required|max_length[2097152]',
+            ],
+            [
+                'started_at' => [
+                    'date_greater_than_equal_to_now' => lang('Validation.valid_date'),
+                ],
+            ]
+        )) {
+            exit();
             $cover = $this->request->getFile('cover');
 
             // Portada.

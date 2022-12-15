@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de prospectos.
+ * Migración que crea la tabla de prospectos.
  */
 class CreateProspectsTable extends Migration
 {

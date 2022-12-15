@@ -127,6 +127,7 @@
                     type="datetime-local"
                     name="started_at"
                     id="started_at"
+                    min="<?= esc(CodeIgniter\I18n\Time::now()->toLocalizedString("YYYY-MM-dd'T'HH:mm")) ?>"
                     value="<?= set_value('started_at') ?>"
                     class="input input-bordered input-secondary"
                 >

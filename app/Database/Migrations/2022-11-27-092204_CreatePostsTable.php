@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de artículos.
+ * Migración que crea la tabla de artículos.
  */
 class CreatePostsTable extends Migration
 {

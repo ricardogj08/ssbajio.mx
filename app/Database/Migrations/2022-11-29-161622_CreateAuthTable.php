@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Crea la tabla de autorizaciones.
+ * Migración que crea la tabla de autorizaciones.
  */
 class CreateAuthTable extends Migration
 {

@@ -31,12 +31,19 @@ class Account extends BaseController
         $user = $userModel->role()->find(session('user.id'));
 
         // Valida los campos del formulario.
-        if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-            'name'         => 'required|max_length[64]',
-            'email'        => "required|max_length[256]|valid_email|is_unique[users.email,email,{$user->email}]",
-            'password'     => 'permit_empty|min_length[8]|max_length[32]|password',
-            'pass_confirm' => 'required_with[password]|matches[password]',
-        ])) {
+        if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+            [
+                'name'         => 'required|max_length[64]',
+                'email'        => "required|max_length[256]|valid_email|is_unique[users.email,email,{$user->email}]",
+                'password'     => 'permit_empty|min_length[8]|max_length[32]|password',
+                'pass_confirm' => 'required_with[password]|matches[password]',
+            ],
+            [
+                'password' => [
+                    'password' => lang('Validation.regex_match'),
+                ],
+            ]
+        )) {
             $password = $this->request->getPost('password');
 
             // Actualiza los datos del usuario de sesión.

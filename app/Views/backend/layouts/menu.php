@@ -66,6 +66,12 @@
             Blog
         </a>
     </li>
+    <li>
+        <a href="#">
+            <i class="bi bi-newspaper text-2xl"></i>
+            Newsletter
+        </a>
+    </li>
 </ul>
 <!-- Fin del menú de navegación del sidebar -->
 

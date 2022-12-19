@@ -74,6 +74,10 @@ Compila Tailwind CSS para el backend:
 
 	npm run tailwindcss-backend
 
+Comprueba y publica artículos programados:
+
+	php spark publish:posts
+
 ## Referencias
 
 * [CodeIgniter4 User Guide](https://codeigniter4.github.io/userguide/)

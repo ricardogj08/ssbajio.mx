@@ -1,4 +1,3 @@
-<?php helper('setting') ?>
 <!doctype html>
 <html
     lang="<?= service('request')->getLocale() ?>"

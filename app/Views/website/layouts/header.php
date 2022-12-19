@@ -1,5 +1,3 @@
-<?php helper('setting') ?>
-<?php helper('text') ?>
 <nav class="bg-white shadow-md">
     <div class="container lg:px-12 py-4">
         <!-- Barra de navegación -->

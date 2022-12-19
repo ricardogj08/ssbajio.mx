@@ -111,13 +111,19 @@ $routes->group('backend', static function ($routes) {
 
         // Definición de rutas de los módulos del backend.
         $routes->group('modulos', static function ($routes) {
-            // Rutas del modulo de blog.
+            // Rutas del módulo del blog.
             $routes->group('blog', static function ($routes) {
                 $routes->get('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
                 $routes->post('nuevo', 'Backend\Modules\Posts::create', ['as' => 'backend.modules.posts.create']);
                 $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
                 $routes->get('(:num)', 'Backend\Modules\Posts::show/$1', ['as' => 'backend.modules.posts.show']);
                 $routes->post('eliminar/(:num)', 'Backend\Modules\Posts::delete/$1', ['as' => 'backend.modules.posts.delete']);
+            });
+
+            // Rutas del módulo del newsletter.
+            $routes->group('newsletter', static function ($routes) {
+                $routes->get('', 'Backend\Modules\Newsletter::index', ['as' => 'backend.modules.newsletter.index']);
+                $routes->post('eliminar/(:num)', 'Backend\Modules\Newsletter::delete/$1', ['as' => 'backend.modules.newsletter.delete']);
             });
         });
     });

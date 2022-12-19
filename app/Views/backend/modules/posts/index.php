@@ -16,7 +16,7 @@
             </h1>
 
             <h2 class="text-sm">
-                Busca y consulta todos los artículos publicados o programados.
+                Búsqueda y consulta de todos los artículos publicados o programados.
             </h2>
 
             <p class="text-error">
@@ -77,7 +77,7 @@
                         <td><?= $post->active ? 'Sí' : 'No' ?></td>
                         <td>
                             <?= esc(CodeIgniter\I18n\Time::parse($post->started_at ?? '')
-                                ->toLocalizedString('yyyy-MM-dd - hh:mm a')) ?>
+                                ->toLocalizedString('dd MMMM, YYYY - hh:mm a')) ?>
                         </td>
                         <td class="flex gap-x-2">
                             <!-- Botón para mostrar un artículo -->
@@ -126,7 +126,7 @@
 
     <!-- Paginación -->
     <div class="flex justify-end pt-4">
-        <?= $pager->links('posts', 'website_posts_pagination') ?>
+        <?= $pager->links('posts', 'backend_pagination') ?>
     </div>
     <!-- Fin de la paginación -->
 <?= $this->endSection() ?>

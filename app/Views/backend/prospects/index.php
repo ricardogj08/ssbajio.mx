@@ -14,7 +14,7 @@
     </h1>
 
     <h2 class="text-sm">
-        Busca y consulta todos los prospectos registrados.
+        Búsqueda y consulta de todos los prospectos registrados.
     </h2>
 
     <p class="text-error">

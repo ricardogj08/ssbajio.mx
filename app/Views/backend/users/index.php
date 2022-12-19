@@ -16,7 +16,7 @@
             </h1>
 
             <h2 class="text-sm">
-                Busca y consulta todos los usuarios de acceso.
+                Búsqueda y consulta de todos los usuarios de acceso.
             </h2>
 
             <p class="text-error">

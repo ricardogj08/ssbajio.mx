@@ -67,7 +67,7 @@
         </a>
     </li>
     <li>
-        <a href="#">
+        <a href="<?= url_to('backend.modules.newsletter.index') ?>">
             <i class="bi bi-newspaper text-2xl"></i>
             Newsletter
         </a>

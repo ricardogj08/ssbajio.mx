@@ -46,7 +46,7 @@ $routes->group('contacto', static function ($routes) {
 // Definición de rutas del blog.
 $routes->group('blog', static function ($routes) {
     $routes->get('', 'Website\Posts::index', ['as' => 'website.posts.index']);
-    $routes->get('(:segment)', 'Website\Posts::show', ['as' => 'website.posts.show']);
+    $routes->get('(:segment)', 'Website\Posts::show/$1', ['as' => 'website.posts.show']);
 });
 
 // Ruta de suscripción al newsletter.
@@ -128,6 +128,10 @@ $routes->group('backend', static function ($routes) {
             $routes->group('newsletter', static function ($routes) {
                 $routes->get('', 'Backend\Modules\Newsletter::index', ['as' => 'backend.modules.newsletter.index']);
                 $routes->post('eliminar/(:num)', 'Backend\Modules\Newsletter::delete/$1', ['as' => 'backend.modules.newsletter.delete']);
+                $routes->get('nuevo', 'Backend\Modules\Newsletter::create', ['as' => 'backend.modules.newsletter.create']);
+                $routes->post('nuevo', 'Backend\Modules\Newsletter::create', ['as' => 'backend.modules.newsletter.create']);
+                $routes->get('modificar/(:num)', 'Backend\Modules\Newsletter::update/$1', ['as' => 'backend.modules.newsletter.update']);
+                $routes->post('modificar/(:num)', 'Backend\Modules\Newsletter::update/$1', ['as' => 'backend.modules.newsletter.update']);
             });
         });
     });

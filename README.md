@@ -9,6 +9,7 @@ Soluciones de Sujeción del Bajío
 * [PHP >= 7.4](https://www.php.net/)
 * [Composer](https://getcomposer.org/)
 * [MariaDB >= 5.1](https://mariadb.org/)
+* [npm](https://www.npmjs.com/)
 
 ## Instalación
 
@@ -19,13 +20,14 @@ Clona el repositorio del proyecto:
 
 Instala las dependencias del proyecto:
 
-* Desarrollo:
+**Desarrollo**:
 
-`composer install`
+	composer install
+	npm install
 
-* Producción:
+**Producción**:
 
-`composer install --no-dev -o`
+	composer install --no-dev -o
 
 ## Configuración 
 
@@ -46,7 +48,7 @@ Construye todas tablas de la base de datos:
 
 	php spark migrate --all
 
-Inicia las tablas de la base de datos:
+Inicializa las tablas de la base de datos:
 
 	php spark db:seed MainSeeder
 
@@ -77,6 +79,10 @@ Compila Tailwind CSS para el backend:
 Comprueba y publica artículos programados:
 
 	php spark publish:posts
+
+Envía por email los últimos artículos publicados:
+
+	php spark send:newsletter
 
 ## Referencias
 

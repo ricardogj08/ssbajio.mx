@@ -25,6 +25,11 @@
 
             <?= $validation->listErrors('backend_errors') ?>
         </div>
+
+        <a href="<?= url_to('backend.modules.newsletter.create') ?>" class="btn btn-secondary gap-2">
+            <i class="bi bi-plus-circle-fill text-xl"></i>
+            Registra un nuevo usuario
+        </a>
     </div>
 
     <div class="divider"></div>
@@ -51,26 +56,36 @@
             </thead>
             <tbody>
                 <!-- Lista de emails -->
-                <?php foreach($emails as $email): ?>
+                <?php foreach($users as $user): ?>
                     <tr class="hover">
-                        <th><?= esc($email->id) ?></th>
-                        <td><?= esc($email->email) ?></td>
+                        <th><?= esc($user->id) ?></th>
+                        <td><?= esc($user->email) ?></td>
                         <td>
-                            <?= esc(CodeIgniter\I18n\Time::parse($email->created_at)
+                            <?= esc(CodeIgniter\I18n\Time::parse($user->created_at)
                                 ->toLocalizedString('dd MMMM, YYYY - hh:mm a')) ?>
                         </td>
                         <td class="flex gap-x-2">
+                            <!-- Botón para editar un email -->
+                            <a
+                                href="<?= url_to('backend.modules.newsletter.update', $user->id) ?>"
+                                aria-label="Modificar los datos del email"
+                                class="btn btn-square btn-sm btn-outline btn-info"
+                            >
+                                <i class="bi bi-pencil text-xl"></i>
+                            </a>
+                            <!-- Fin del botón para editar un email -->
+
                             <!-- Botón para eliminar un email -->
-                            <?= form_open(url_to('backend.modules.newsletter.delete', $email->id)) ?>
+                            <?= form_open(url_to('backend.modules.newsletter.delete', $user->id)) ?>
                                 <label
-                                    for="modal-action-submit-<?= esc($email->id) ?>"
+                                    for="modal-action-submit-<?= esc($user->id) ?>"
                                     class="btn btn-square btn-sm btn-outline btn-error"
                                 >
                                     <i class="bi bi-trash text-xl"></i>
                                 </label>
 
                                 <?= $this->setData([
-                                    'id'      => "modal-action-submit-{$email->id}",
+                                    'id'      => "modal-action-submit-{$user->id}",
                                     'message' => '¿Deseas eliminar este usuario?',
                                 ])->include('backend/layouts/modal-action-submit') ?>
                             <?= form_close() ?>

@@ -27,8 +27,10 @@ class Posts extends BaseController
 
     /**
      * Renderiza la vista de un artículo.
+     *
+     * @param mixed|null $id
      */
-    public function show()
+    public function show($id = null)
     {
         return view('website/posts/show');
     }

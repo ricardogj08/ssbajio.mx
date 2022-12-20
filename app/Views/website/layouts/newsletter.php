@@ -1,5 +1,3 @@
-<?php helper('form') ?>
-
 <!-- Newsletter -->
 <div class="text-17 <?= empty($red) ? 'text-ssbajio-dark-1' : 'text-ssbajio-red-1' ?> font-semibold">
     Suscríbete a nuestro newsletter

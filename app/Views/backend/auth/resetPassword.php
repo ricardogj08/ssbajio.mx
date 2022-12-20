@@ -1,5 +1,3 @@
-<?php helper('form') ?>
-
 <?= $this->extend('templates/backend/clean') ?>
 
 <?= $this->section('head') ?>

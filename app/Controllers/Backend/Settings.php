@@ -167,7 +167,6 @@ class Settings extends BaseController
 
         return view('backend/settings/update', [
             'validation' => service('validation'),
-            'settings'   => setting(),
             'themes'     => $themes,
         ]);
     }
@@ -177,8 +176,6 @@ class Settings extends BaseController
      */
     public function index()
     {
-        return view('backend/settings/index', [
-            'settings' => setting(),
-        ]);
+        return view('backend/settings/index');
     }
 }

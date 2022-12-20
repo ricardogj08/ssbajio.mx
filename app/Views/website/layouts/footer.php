@@ -7,7 +7,7 @@
             <!-- Derechos de autor -->
             <div class="text-ssbajio-gray-light-2 font-light flex flex-col gap-y-2.5 items-center lg:items-start text-center lg:text-left">
                 <p class="text-13">
-                    <?= esc(service('settings')->get('App.company')) ?>. Todos los derechos reservados
+                    <?= esc(setting()->get('App.company')) ?>. Todos los derechos reservados
                     <?= CodeIgniter\I18n\Time::now()->getYear() ?>
                 </p>
                 <p class="flex text-sm lg:text-base">

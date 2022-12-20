@@ -1,5 +1,3 @@
-<?php helper('form') ?>
-
 <?= $this->extend('templates/website/default') ?>
 
 <?= $this->section('head') ?>

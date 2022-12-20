@@ -31,4 +31,22 @@ class Newsletter extends BaseController
             ->withInput()
             ->with('error', $this->validator->getError('email'));
     }
+
+    /**
+     * @param mixed|null $id
+     * @param mixed|null $key
+     */
+    public function remove($id = null, $key = null)
+    {
+        return view('website/newsletter/remove');
+    }
+
+    /**
+     * @param mixed|null $id
+     * @param mixed|null $key
+     */
+    public function delete($id = null, $key = null)
+    {
+        return view('website/newsletter/delete');
+    }
 }

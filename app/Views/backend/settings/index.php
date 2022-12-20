@@ -43,25 +43,25 @@
                 <tbody>
                     <tr>
                         <th>Empresa:</th>
-                        <td><?= $settings->get('App.company') ?></td>
+                        <td><?= setting()->get('App.company') ?></td>
                     </tr>
 
                     <tr>
                         <th>Teléfono:</th>
-                        <td><?= $settings->get('App.phone') ?></td>
+                        <td><?= setting()->get('App.phone') ?></td>
                     </tr>
 
                     <tr>
                         <th>Tema:</th>
-                        <td><?= $settings->get('App.theme') ?></td>
+                        <td><?= setting()->get('App.theme') ?></td>
                     </tr>
 
                     <tr>
                         <th>Favicon:</th>
                         <td>
                             <img
-                                src="<?= base_url(['uploads/backend/settings/', $settings->get('App.favicon')]) ?>"
-                                alt="Favicon <?= esc($settings->get('App.company')) ?>"
+                                src="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+                                alt="Favicon <?= esc(setting()->get('App.company')) ?>"
                                 class="h-8 lg:h-12"
                             >
                         </td>
@@ -71,8 +71,8 @@
                         <th>Fondo:</th>
                         <td>
                             <img
-                                src="<?= base_url(['uploads/backend/settings/', $settings->get('App.background')]) ?>"
-                                alt="Fondo <?= esc($settings->get('App.company')) ?>"
+                                src="<?= base_url(['uploads/backend/settings/', setting()->get('App.background')]) ?>"
+                                alt="Fondo <?= esc(setting()->get('App.company')) ?>"
                                 class="h-8 lg:h-12"
                             >
                         </td>
@@ -82,8 +82,8 @@
                         <th>Logo:</th>
                         <td>
                             <img
-                                src="<?= base_url(['uploads/backend/settings/', $settings->get('App.logo')]) ?>"
-                                alt="Logo <?= esc($settings->get('App.company')) ?>"
+                                src="<?= base_url(['uploads/backend/settings/', setting()->get('App.logo')]) ?>"
+                                alt="Logo <?= esc(setting()->get('App.company')) ?>"
                                 class="h-8 lg:h-12"
                             >
                         </td>
@@ -118,17 +118,17 @@
 
                     <tr>
                         <th>Destinatarios:</th>
-                        <td><?= esc($settings->get('App.emailsTo')) ?></td>
+                        <td><?= esc(setting()->get('App.emailsTo')) ?></td>
                     </tr>
 
                     <tr>
                         <th>Destinatarios CC:</th>
-                        <td><?= esc($settings->get('App.emailsCC')) ?></td>
+                        <td><?= esc(setting()->get('App.emailsCC')) ?></td>
                     </tr>
 
                     <tr>
                         <th>Destinatarios CCO:</th>
-                        <td><?= esc($settings->get('App.emailsCCO')) ?></td>
+                        <td><?= esc(setting()->get('App.emailsCCO')) ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -155,30 +155,30 @@
                 <tbody>
                     <tr>
                         <th>WhatsApp:</th>
-                        <td><?= esc($settings->get('App.whatsapp')) ?></td>
+                        <td><?= esc(setting()->get('App.whatsapp')) ?></td>
                     </tr>
 
                     <tr>
                         <th>Google Tag Manager:</th>
-                        <td><?= esc($settings->get('App.googleTagManager')) ?></td>
+                        <td><?= esc(setting()->get('App.googleTagManager')) ?></td>
                     </tr>
 
                     <tr>
                         <th>Google Search Console:</th>
                         <td>
                             <a
-                                href="<?= base_url($settings->get('App.googleSearchConsole') ?? '') ?>"
+                                href="<?= base_url(setting()->get('App.googleSearchConsole') ?? '') ?>"
                                 target="_blank"
                                 class="link link-secondary"
                             >
-                                <?= esc($settings->get('App.googleSearchConsole')) ?>
+                                <?= esc(setting()->get('App.googleSearchConsole')) ?>
                             </a>
                         </td>
                     </tr>
 
                     <tr>
                         <th>Google reCAPTCHA:</th>
-                        <td><?= esc($settings->get('App.googleRecaptcha')) ?></td>
+                        <td><?= esc(setting()->get('App.googleRecaptcha')) ?></td>
                     </tr>
                 </tbody>
             </table>

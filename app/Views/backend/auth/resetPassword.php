@@ -7,7 +7,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <h1 class="text-2xl font-bold mb-2">
+    <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
         Restablece tu contraseña
     </h1>
 

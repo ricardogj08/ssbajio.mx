@@ -3,6 +3,7 @@
 namespace App\Controllers\Website;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Newsletter extends BaseController
 {
@@ -33,20 +34,42 @@ class Newsletter extends BaseController
     }
 
     /**
-     * @param mixed|null $id
-     * @param mixed|null $key
-     */
-    public function remove($id = null, $key = null)
-    {
-        return view('website/newsletter/remove');
-    }
-
-    /**
+     * Renderiza la vista para cancelar la suscripción de un usuario al newsletter
+     * y elimina el registro del newsletter del usuario.
+     *
      * @param mixed|null $id
      * @param mixed|null $key
      */
     public function delete($id = null, $key = null)
     {
-        return view('website/newsletter/delete');
+        // Valida si existe el usuario.
+        if ($this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[newsletter.id]'],
+        )) {
+            $newsletterModel = model('NewsletterModel');
+
+            // Consulta los datos del usuario.
+            $user = $newsletterModel->find($id);
+
+            // Valida la llave de cancelación de suscripción.
+            if ($user->hash !== null && hash_equals($user->hash, hash('sha512', $key))) {
+                if (strtolower($this->request->getMethod()) === 'post') {
+                    // Elimina el registro del newsletter del usuario.
+                    $newsletterModel->delete($user->id);
+
+                    return redirect()
+                        ->route('website.posts.index')
+                        ->with('success', 'Tu suscripción al newsletter se ha cancelado correctamente');
+                }
+
+                return view('website/newsletter/delete', [
+                    'user' => $user,
+                    'key'  => $key,
+                ]);
+            }
+        }
+
+        throw PageNotFoundException::forPageNotFound();
     }
 }

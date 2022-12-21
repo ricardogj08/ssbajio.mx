@@ -52,8 +52,8 @@ $routes->group('blog', static function ($routes) {
 // Ruta de suscripción al newsletter.
 $routes->group('newsletter', static function ($routes) {
     $routes->post('nuevo', 'Website\Newsletter::create', ['as' => 'website.newsletter.create']);
-    $routes->get('cancelar/(:num)/(:hash)', 'Website\Newsletter::remove/$1/$2', ['as' => 'website.newsletter.remove']);
-    $routes->post('eliminar/(:num)/(:hash)', 'Website\Newsletter::delete/$1/$2', ['as' => 'website.newsletter.delete']);
+    $routes->get('cancelar/(:num)/(:hash)', 'Website\Newsletter::delete/$1/$2', ['as' => 'website.newsletter.delete']);
+    $routes->post('cancelar/(:num)/(:hash)', 'Website\Newsletter::delete/$1/$2', ['as' => 'website.newsletter.delete']);
 });
 
 // Definición de rutas del backend.

@@ -11,7 +11,9 @@
         type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
         href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
     >
-    <link rel="stylesheet" type="text/css" href="<?= base_url('css/backend.css') ?>">
+    <style>
+        <?= file_get_contents(FCPATH . 'css/backend.css') ?>
+    </style>
     <?= $this->renderSection('head') ?>
 </head>
 <body class="bg-base-300 min-h-screen">

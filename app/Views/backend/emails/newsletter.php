@@ -61,7 +61,7 @@
     <!-- Fin del link de cancelación de suscripción  -->
     <p class="text-sm font-medium text-center sm:text-right">
         <a
-            href="<?= url_to('website.newsletter.remove', $user->id, $key) ?>"
+            href="<?= url_to('website.newsletter.delete', $user->id, $key) ?>"
             class="link link-hover"
         >
             Cancelar suscripción

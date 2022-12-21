@@ -143,49 +143,47 @@ class Auth extends BaseController
                 ->where('users.active', true)
                 ->find($id);
 
-            if ($auth !== null) {
-                // Valida la llave de autenticación.
-                if (hash_equals($auth->hash, hash('sha512', $key))) {
-                    // Valida si la llave de autenticación ha expirado.
-                    if (Time::now()->isAfter(Time::parse($auth->expires))) {
-                        return redirect()
-                            ->route('backend.recoverPassword')
-                            ->with('error', 'Tu enlace de recuperación de contraseña ha expirado, por favor inténtelo de nuevo');
-                    }
-
-                    // Valida los campos del formulario.
-                    if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
-                        [
-                            'password'     => 'required|min_length[8]|max_length[32]|password',
-                            'pass_confirm' => 'required|matches[password]',
-                        ],
-                        [
-                            'password' => [
-                                'password' => lang('Validation.regex_match'),
-                            ],
-                        ]
-                    )) {
-                        $userModel = model('UserModel');
-
-                        // Actualiza la contraseña del usuario.
-                        $userModel->update($auth->user_id, [
-                            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-                        ]);
-
-                        // Elimina el registro de autenticación.
-                        $authModel->delete($auth->user_id);
-
-                        return redirect()
-                            ->route('backend.login')
-                            ->with('success', 'Tu contraseña se ha actualizado correctamente');
-                    }
-
-                    return view('backend/auth/resetPassword', [
-                        'validation' => service('validation'),
-                        'id'         => $id,
-                        'key'        => $key,
-                    ]);
+            // Valida la llave de autenticación.
+            if ($auth !== null && hash_equals($auth->hash, hash('sha512', $key))) {
+                // Valida si la llave de autenticación ha expirado.
+                if (Time::now()->isAfter(Time::parse($auth->expires))) {
+                    return redirect()
+                        ->route('backend.recoverPassword')
+                        ->with('error', 'Tu enlace de recuperación de contraseña ha expirado, por favor inténtelo de nuevo');
                 }
+
+                // Valida los campos del formulario.
+                if (strtolower($this->request->getMethod()) === 'post' && $this->validate(
+                    [
+                        'password'     => 'required|min_length[8]|max_length[32]|password',
+                        'pass_confirm' => 'required|matches[password]',
+                    ],
+                    [
+                        'password' => [
+                            'password' => lang('Validation.regex_match'),
+                        ],
+                    ]
+                )) {
+                    $userModel = model('UserModel');
+
+                    // Actualiza la contraseña del usuario.
+                    $userModel->update($auth->user_id, [
+                        'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                    ]);
+
+                    // Elimina el registro de autenticación.
+                    $authModel->delete($auth->user_id);
+
+                    return redirect()
+                        ->route('backend.login')
+                        ->with('success', 'Tu contraseña se ha actualizado correctamente');
+                }
+
+                return view('backend/auth/resetPassword', [
+                    'validation' => service('validation'),
+                    'id'         => $auth->user_id,
+                    'key'        => $key,
+                ]);
             }
         }
 

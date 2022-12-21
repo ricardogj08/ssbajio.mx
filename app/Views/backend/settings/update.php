@@ -9,7 +9,7 @@
 <?= $this->section('content') ?>
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
         <div>
-            <h1 class="text-2xl font-bold mb-2">
+            <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
                 Modifica el sitio web
             </h1>
 

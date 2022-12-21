@@ -9,7 +9,7 @@
                     <div class="font-semibold">
                         <?= esc(session('user.name')) ?>
                     </div>
-                    <div>
+                    <div class="underline decoration-wavy underline-offset-4">
                         <?= esc(session('user.email')) ?>
                     </div>
                 </div>

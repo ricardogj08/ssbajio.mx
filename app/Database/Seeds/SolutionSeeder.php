@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicia la tabla de soluciones de ssbajio.
+ * Inicializa la tabla de soluciones de ssbajio.
  */
 class SolutionSeeder extends Seeder
 {

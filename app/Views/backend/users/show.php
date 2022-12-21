@@ -101,7 +101,7 @@
 
 <?= $this->section('scripts') ?>
     <!-- Notificación exitosa -->
-    <?php if(session()->has('toast-success')): ?>
+    <?php if (session()->has('toast-success')): ?>
         <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
     <?php endif ?>
     <!-- Fin de la notificación exitosa -->

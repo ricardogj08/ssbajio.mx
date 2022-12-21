@@ -11,9 +11,9 @@
         Recupera tu contraseña
     </h1>
 
-    <p class="text-sm">
+    <h2 class="text-sm">
         Ingresa tu email de acceso.
-    </p>
+    </h2>
 
     <p class="text-error mb-4">
         <small>
@@ -26,7 +26,7 @@
         <div class="flex flex-col gap-y-2">
             <!-- Campo del email -->
             <div class="form-control">
-                <label class="label">
+                <label for="email" class="label">
                     <span class="label-text">
                         Email:
                     </span>
@@ -35,6 +35,7 @@
                     <input
                         type="email"
                         name="email"
+                        id="email"
                         required
                         maxlength="256"
                         placeholder="Escribe tu email"

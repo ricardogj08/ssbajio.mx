@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 
 /**
- * Inicia la tabla de orígenes de prospectos.
+ * Inicializa la tabla de orígenes de prospectos.
  */
 class OriginSeeder extends Seeder
 {

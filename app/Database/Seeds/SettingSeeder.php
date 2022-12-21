@@ -7,7 +7,7 @@ use CodeIgniter\Database\Seeder;
 class SettingSeeder extends Seeder
 {
     /**
-     * Inicia la tabla de configuraciones.
+     * Inicializa la tabla de configuraciones.
      */
     public function run()
     {

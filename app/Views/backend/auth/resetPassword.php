@@ -78,10 +78,7 @@
             <!-- Fin del campo de confirmación de contraseña -->
 
             <!-- Botón de submit -->
-            <input
-                type="submit"
-                class="btn btn-primary"
-            >
+            <input type="submit" class="btn btn-primary">
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario para restablecer la contraseña -->

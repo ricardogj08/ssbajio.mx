@@ -56,7 +56,7 @@
             </thead>
             <tbody>
                 <!-- Lista de emails -->
-                <?php foreach($users as $user): ?>
+                <?php foreach ($users as $user): ?>
                     <tr class="hover">
                         <th><?= esc($user->id) ?></th>
                         <td><?= esc($user->email) ?></td>
@@ -108,7 +108,7 @@
 
 <?= $this->section('scripts') ?>
     <!-- Notificación exitosa -->
-    <?php if(session()->has('toast-success')): ?>
+    <?php if (session()->has('toast-success')): ?>
         <?= $this->setVar('message', session()->getFlashdata('toast-success'))->include('backend/layouts/toast-success') ?>
     <?php endif ?>
     <!-- Fin de la notificación exitosa -->

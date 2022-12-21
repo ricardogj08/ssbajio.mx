@@ -66,7 +66,7 @@ class SendNewsletter extends BaseCommand
             // Define el cuerpo del mensaje.
             $email->setMessage(view('backend/emails/newsletter', [
                 'posts' => $posts,
-                'id'    => $user->id,
+                'user'  => $user,
                 'key'   => $key,
             ]));
 

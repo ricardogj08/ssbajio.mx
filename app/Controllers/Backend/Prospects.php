@@ -133,7 +133,8 @@ class Prospects extends BaseController
                     'message'     => $message === '' ? null : $message,
                 ]);
 
-                return redirect()->route('backend.prospects.index')
+                return redirect()
+                    ->route('backend.prospects.index')
                     ->with('toast-success', 'El prospecto se ha modificado correctamente');
             }
 

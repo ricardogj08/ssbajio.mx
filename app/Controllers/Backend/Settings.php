@@ -161,7 +161,8 @@ class Settings extends BaseController
             // Google reCAPTCHA.
             setting()->set('App.googleRecaptcha', strtrim($this->request->getPost('googleRecaptcha')));
 
-            return redirect()->route('backend.settings.index')
+            return redirect()
+                ->route('backend.settings.index')
                 ->with('toast-success', 'El sitio web se ha modificado correctamente');
         }
 

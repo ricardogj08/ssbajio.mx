@@ -191,7 +191,8 @@ class Users extends BaseController
                         : password_hash($password, PASSWORD_DEFAULT),
                 ]);
 
-                return redirect()->route('backend.users.index')
+                return redirect()
+                    ->route('backend.users.index')
                     ->with('toast-success', 'El usuario se ha modificado correctamente');
             }
 

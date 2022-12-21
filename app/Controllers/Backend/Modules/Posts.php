@@ -112,8 +112,7 @@ class Posts extends BaseController
          * que coinciden con el patrón de búsqueda
          * con paginación.
          */
-        $posts = $postModel
-            ->like('posts.title', $query)
+        $posts = $postModel->like('posts.title', $query)
             ->orderBy('posts.created_at', 'desc')
             ->paginate(8, 'posts');
 

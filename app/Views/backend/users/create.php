@@ -97,7 +97,7 @@
                     <option value="" disabled selected>
                         Selecciona un rol para el nuevo usuario...
                     </option>
-                    <?php foreach($roles as $role): ?>
+                    <?php foreach ($roles as $role): ?>
                         <option value="<?= esc($role->id) ?>" <?= set_select('role', $role->id) ?>>
                             <?= esc($role->description) ?>
                         </option>

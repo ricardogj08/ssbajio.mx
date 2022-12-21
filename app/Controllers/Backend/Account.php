@@ -55,7 +55,8 @@ class Account extends BaseController
                     : password_hash($password, PASSWORD_DEFAULT),
             ]);
 
-            return redirect()->route('backend.account.show')
+            return redirect()
+                ->route('backend.account.show')
                 ->with('toast-success', 'Tu cuenta se ha modificado correctamente');
         }
 

@@ -146,7 +146,7 @@
                     <option value="" disabled selected>
                         Selecciona una solución de interés...
                     </option>
-                    <?php foreach($solutions as $solution): ?>
+                    <?php foreach ($solutions as $solution): ?>
                         <option value="<?= esc($solution->id) ?>"<?= $prospect->solution_id === $solution->id ? ' selected' : '' ?>>
                             <?= esc($solution->description) ?>
                         </option>
@@ -171,7 +171,7 @@
                     <option value="" disabled selected>
                         Selecciona el origen del prospecto...
                     </option>
-                    <?php foreach($origins as $origin): ?>
+                    <?php foreach ($origins as $origin): ?>
                         <option value="<?= esc($origin->id) ?>"<?= $prospect->origin_id === $origin->id ? ' selected' : '' ?>>
                             <?= esc($origin->description) ?>
                         </option>

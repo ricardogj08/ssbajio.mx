@@ -11,9 +11,9 @@
         Inicio de sesión
     </h1>
 
-    <p class="text-sm">
+    <h2 class="text-sm">
         Ingresa tus credenciales de acceso.
-    </p>
+    </h2>
 
     <p class="text-success">
         <small>
@@ -32,7 +32,7 @@
         <div class="flex flex-col gap-y-2">
             <!-- Campo del email -->
             <div class="form-control">
-                <label class="label">
+                <label for="email" class="label">
                     <span class="label-text">
                         Email:
                     </span>
@@ -41,6 +41,7 @@
                     <input
                         type="email"
                         name="email"
+                        id="email"
                         required
                         maxlength="256"
                         placeholder="Escribe tu email"
@@ -60,7 +61,7 @@
 
             <!-- Campo de la contraseña -->
             <div class="form-control">
-                <label class="label">
+                <label for="password" class="label">
                     <span class="label-text">
                         Contraseña:
                     </span>
@@ -69,6 +70,7 @@
                     <input
                         type="password"
                         name="password"
+                        id="password"
                         required
                         minlength="8"
                         maxlength="32"
@@ -89,7 +91,10 @@
             <!-- Botón de submit -->
             <input type="submit" value="Iniciar sesión" class="btn btn-primary">
 
-            <a href="<?= url_to('backend.recoverPassword') ?>" class="link link-hover text-sm text-right mt-2">
+            <a
+                href="<?= url_to('backend.recoverPassword') ?>"
+                class="link link-hover text-sm text-right mt-2"
+            >
                 ¿Olvidaste tu contraseña?
             </a>
         </div>

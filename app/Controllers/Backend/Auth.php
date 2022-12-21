@@ -30,7 +30,8 @@ class Auth extends BaseController
 
             // Consulta los datos del usuario.
             $user = $userModel->role()
-                ->where('email', lowerCase(trim($this->request->getPost('email'))))->first();
+                ->where('email', lowerCase(trim($this->request->getPost('email'))))
+                ->first();
 
             // Valida la contraseña del usuario.
             if (password_verify($this->request->getPost('password'), $user->password)) {
@@ -92,8 +93,7 @@ class Auth extends BaseController
             // Define el asunto y el cuerpo del mensaje.
             $email->setSubject('Recupera tu cuenta');
             $email->setMessage(view('backend/emails/recoverPassword', [
-                'user' => $user->name,
-                'id'   => $user->id,
+                'user' => $user,
                 'key'  => $key,
             ]));
 

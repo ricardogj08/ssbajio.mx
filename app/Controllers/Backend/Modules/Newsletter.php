@@ -32,8 +32,7 @@ class Newsletter extends BaseController
          * que coinciden con el patrón de búsqueda
          * con paginación.
          */
-        $users = $newsletterModel
-            ->like('email', $query)
+        $users = $newsletterModel->like('email', $query)
             ->orderBy('created_at', 'desc')
             ->paginate(8, 'emails');
 
@@ -123,7 +122,8 @@ class Newsletter extends BaseController
                     'email' => lowerCase(trim($this->request->getPost('email'))),
                 ]);
 
-                return redirect()->route('backend.modules.newsletter.index')
+                return redirect()
+                    ->route('backend.modules.newsletter.index')
                     ->with('toast-success', 'El usuario se ha modificado correctamente');
             }
 

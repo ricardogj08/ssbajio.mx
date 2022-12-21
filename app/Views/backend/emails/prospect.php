@@ -1,15 +1,15 @@
 <?= $this->extend('templates/backend/email') ?>
 
 <?= $this->section('head') ?>
-	<title>
-		Prospecto registrado
-	</title>
+    <title>
+        Prospecto registrado
+    </title>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-	<h1 class="text-2xl font-bold mb-4">
-		Prospecto
-	</h1>
+    <h1 class="text-2xl font-bold mb-4">
+        Prospecto
+    </h1>
 
     <!-- Tabla de datos del prospecto -->
     <div class="overflow-x-auto">
@@ -53,9 +53,9 @@
     </div>
     <!-- Fin de la tabla de -->
 
-	<p class="text-center pt-4">
+    <p class="text-center pt-4">
         <?= mailto($prospect->email, 'Responder solicitud', [
             'class' => 'btn btn-primary btn-block sm:btn-wide',
         ]) ?>
-	</p>
+    </p>
 <?= $this->endSection() ?>

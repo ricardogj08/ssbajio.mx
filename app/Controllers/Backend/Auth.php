@@ -87,7 +87,7 @@ class Auth extends BaseController
             $email = service('email');
 
             // Define el remitente y el destinatario del email.
-            $email->setFrom(config('Email')->SMTPUser, setting()->get('App.company'));
+            $email->setFrom(config('Email')->SMTPUser, setting()->get('App.general', 'company'));
             $email->setTo($user->email);
 
             // Define el asunto y el cuerpo del mensaje.

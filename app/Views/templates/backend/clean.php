@@ -1,15 +1,15 @@
 <!doctype html>
 <html
     lang="<?= service('request')->getLocale() ?>"
-    data-theme="<?= esc(setting()->get('App.theme')) ?>"
+    data-theme="<?= esc(setting()->get('App.general', 'theme')) ?>"
 >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
         rel="icon"
-        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
-        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.general', 'favicon')))->getMimeType() ?>"
+        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'favicon')]) ?>"
     >
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/backend.css') ?>">
     <?= $this->renderSection('head') ?>

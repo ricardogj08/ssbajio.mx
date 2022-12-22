@@ -12,7 +12,7 @@
     </h1>
 
     <h2 class="text-sm text-center">
-        <?= esc(setting()->get('App.company')) ?>
+        <?= esc(setting()->get('App.general', 'company')) ?>
     </h2>
 
     <div class="divider"></div>

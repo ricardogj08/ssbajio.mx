@@ -54,7 +54,7 @@
                     required
                     maxlength="256"
                     placeholder="Escribe el nombre de la empresa"
-                    value="<?= esc(setting()->get('App.company')) ?>"
+                    value="<?= esc(setting()->get('App.general', 'company')) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -79,7 +79,7 @@
                     required
                     maxlength="15"
                     placeholder="Escribe el teléfono de contacto"
-                    value="<?= esc(setting()->get('App.phone')) ?>"
+                    value="<?= esc(setting()->get('App.general', 'phone')) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -102,7 +102,7 @@
                         Selecciona un tema de colores...
                     </option>
                     <?php foreach ($themes as $theme): ?>
-                        <option value="<?= esc($theme) ?>"<?= $theme === setting()->get('App.theme') ? ' selected' : '' ?>>
+                        <option value="<?= esc($theme) ?>"<?= $theme === setting()->get('App.general', 'theme') ? ' selected' : '' ?>>
                             <?= esc($theme) ?>
                         </option>
                     <?php endforeach ?>
@@ -207,7 +207,7 @@
                     id="emails[to]"
                     required
                     placeholder="Escribe los emails de destino"
-                    value="<?= esc(setting()->get('App.emailsTo')) ?>"
+                    value="<?= esc(setting()->get('App.emails', 'to')) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -233,7 +233,7 @@
                     name="emails[cc]"
                     id="emails[cc]"
                     placeholder="Escribe los emails con copia"
-                    value="<?= esc(setting()->get('App.emailsCC')) ?>"
+                    value="<?= esc(setting()->get('App.emails', 'cc')) ?>"
                     class="input input-bordered input-secondary"
                 >
                 <label class="label">
@@ -259,7 +259,7 @@
                     name="emails[cco]"
                     id="emails[cco]"
                     placeholder="Escribe los emails con copia oculta"
-                    value="<?= esc(setting()->get('App.emailsCCO')) ?>"
+                    value="<?= esc(setting()->get('App.emails', 'cco')) ?>"
                     class="input input-bordered input-secondary"
                 >
                 <label class="label">
@@ -296,7 +296,7 @@
                     id="whatsapp"
                     maxlength="15"
                     placeholder="Escribe el número de WhatsApp"
-                    value="<?= esc(setting()->get('App.whatsapp')) ?>"
+                    value="<?= esc(setting()->get('App.apps', 'whatsapp')) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -323,7 +323,7 @@
                     id="googleTagManager"
                     maxlength="256"
                     placeholder="Escribe el ID de Google Tag Manager"
-                    value="<?= esc(setting()->get('App.googleTagManager')) ?>"
+                    value="<?= esc(setting()->get('App.apps', 'google:TagManager')) ?>"
                     class="input input-bordered input-primary"
                 >
                 <label class="label">
@@ -354,7 +354,7 @@
                         <?= esc($validation->getError('googleSearchConsole')) ?>
                         <?= esc($validation->getError('deleteGoogleSearchConsole')) ?>
                     </span>
-                    <?php if (setting()->get('App.googleSearchConsole')): ?>
+                    <?php if (setting()->get('App.apps', 'google:SearchConsole')): ?>
                         <span class="label-text-alt cursor-pointer flex items-center gap-x-2">
                             <i class="bi bi-trash text-2xl text-error"></i>
                             <input
@@ -373,7 +373,7 @@
             <div class="form-control">
                 <label for="googleRecaptcha" class="label">
                     <span class="label-text">
-                        Clave de sitio de Google reCAPTCHA:
+                        Clave de sitio web de Google reCAPTCHA:
                     </span>
                 </label>
                 <input
@@ -381,8 +381,8 @@
                     name="googleRecaptcha"
                     id="googleRecaptcha"
                     maxlength="256"
-                    placeholder="Escribe la clave de sitio de Google reCAPTCHA"
-                    value="<?= esc(setting()->get('App.googleRecaptcha')) ?>"
+                    placeholder="Escribe la clave de sitio web de Google reCAPTCHA"
+                    value="<?= esc(setting()->get('App.apps', 'google:Recaptcha')) ?>"
                     class="input input-bordered input-secondary"
                 >
                 <label class="label">

@@ -67,10 +67,10 @@ class Prospects extends BaseController
             $email = service('email');
 
             // Define el remitente y el destinatario del email.
-            $email->setFrom(config('Email')->SMTPUser, setting()->get('App.company'));
-            $email->setTo(setting()->get('App.emailsTo') ?? '');
-            $email->setCC(setting()->get('App.emailsCC') ?? '');
-            $email->setBCC(setting()->get('App.emailsCCO') ?? '');
+            $email->setFrom(config('Email')->SMTPUser, setting()->get('App.general', 'company'));
+            $email->setTo(setting()->get('App.emails', 'to') ?? '');
+            $email->setCC(setting()->get('App.emails', 'cc') ?? '');
+            $email->setBCC(setting()->get('App.emails', 'cco') ?? '');
 
             // Define el asunto y el cuerpo del mensaje.
             $email->setSubject('Prospecto');

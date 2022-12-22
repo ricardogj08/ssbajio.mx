@@ -4,7 +4,7 @@
         <a
             target="_blank"
             aria-label="Chat de WhatsApp"
-            href="https://wa.me/<?= esc(setting()->get('App.whatsapp')) ?>"
+            href="https://wa.me/<?= esc(setting()->get('App.apps', 'whatsapp')) ?>"
             class="bg-slate-800 text-white hover:text-emerald-400 border-4 border-green-400 rounded-full flex items-center justify-center w-18 h-18 transition-colors duration-500"
         >
             <i class="bi bi-whatsapp text-4xl"></i>

@@ -13,7 +13,7 @@
                 j.async = true;
                 j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
                 f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "<?= esc(setting()->get('App.googleTagManager'), 'js') ?>");
+            })(window, document, "script", "dataLayer", "<?= esc(setting()->get('App.apps', 'google:TagManager'), 'js') ?>");
         </script>
     <?php endif ?>
     <!-- End Google Tag Manager -->
@@ -22,8 +22,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
         rel="icon"
-        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
-        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.general', 'favicon')))->getMimeType() ?>"
+        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'favicon')]) ?>"
     >
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/website.css') ?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
@@ -34,7 +34,7 @@
     <?php if (ENVIRONMENT === 'production'): ?>
         <noscript>
             <iframe
-                src="https://www.googletagmanager.com/ns.html?id=<?= esc(setting()->get('App.googleTagManager'), 'js') ?>"
+                src="https://www.googletagmanager.com/ns.html?id=<?= esc(setting()->get('App.apps', 'google:TagManager'), 'js') ?>"
                 height="0"
                 width="0"
                 style="display: none; visibility: hidden;">

@@ -36,18 +36,18 @@ class Settings extends BaseController
             'emails.cco'                => 'permit_empty|valid_emails',
             'whatsapp'                  => 'if_exist|max_length[15]',
             'googleTagManager'          => 'if_exist|max_length[256]',
-            'googleSearchConsole'       => 'max_size[googleSearchConsole,2]|ext_in[googleSearchConsole,html]',
+            'googleSearchConsole'       => 'max_size[googleSearchConsole,2]|mime_in[googleSearchConsole,text/plain]|ext_in[googleSearchConsole,html]',
             'deleteGoogleSearchConsole' => 'if_exist|in_list[1]',
             'googleRecaptcha'           => 'if_exist|max_length[256]',
         ])) {
             // Nombre de la empresa.
-            setting()->set('App.company', trimAll($this->request->getPost('company')));
+            setting()->set('App.general', trimAll($this->request->getPost('company')), 'company');
 
             // Teléfono de contacto.
-            setting()->set('App.phone', trimAll($this->request->getPost('phone')));
+            setting()->set('App.general', trimAll($this->request->getPost('phone')), 'phone');
 
             // Tema de colores.
-            setting()->set('App.theme', strtrim($this->request->getPost('theme')));
+            setting()->set('App.general', strtrim($this->request->getPost('theme')), 'theme');
 
             $favicon = $this->request->getFile('favicon');
 
@@ -58,7 +58,7 @@ class Settings extends BaseController
 
             // Favicon.
             if ($favicon->isValid() && ! $favicon->hasMoved()) {
-                $oldFavicon = $uploadsPath . setting()->get('App.favicon');
+                $oldFavicon = $uploadsPath . setting()->get('App.general', 'favicon');
 
                 // Elimina el favicon anterior.
                 is_file($oldFavicon) && unlink($oldFavicon);
@@ -68,7 +68,7 @@ class Settings extends BaseController
                 // Almacena el nuevo favicon.
                 $favicon->move($uploadsPath, $newName);
 
-                setting()->set('App.favicon', $newName);
+                setting()->set('App.general', $newName, 'favicon');
 
                 $compress->run($uploadsPath . $newName);
 
@@ -79,7 +79,7 @@ class Settings extends BaseController
 
             // Fondo del login.
             if ($background->isValid() && ! $background->hasMoved()) {
-                $oldBackground = $uploadsPath . setting()->get('App.background');
+                $oldBackground = $uploadsPath . setting()->get('App.general', 'background');
 
                 // Elimina el fondo anterior.
                 is_file($oldBackground) && unlink($oldBackground);
@@ -89,7 +89,7 @@ class Settings extends BaseController
                 // Almacena el nuevo fondo.
                 $background->move($uploadsPath, $newName);
 
-                setting()->set('App.background', $newName);
+                setting()->set('App.general', $newName, 'background');
 
                 $compress->run($uploadsPath . $newName);
 
@@ -100,7 +100,7 @@ class Settings extends BaseController
 
             // Logo.
             if ($logo->isValid() && ! $logo->hasMoved()) {
-                $oldLogo = $uploadsPath . setting()->get('App.logo');
+                $oldLogo = $uploadsPath . setting()->get('App.general', 'logo');
 
                 // Elimina el logo anterior.
                 is_file($oldLogo) && unlink($oldLogo);
@@ -110,7 +110,7 @@ class Settings extends BaseController
                 // Almacena el nuevo logo.
                 $logo->move($uploadsPath, $newName);
 
-                setting()->set('App.logo', $newName);
+                setting()->set('App.general', $newName, 'logo');
 
                 $compress->run($uploadsPath . $newName);
 
@@ -120,23 +120,23 @@ class Settings extends BaseController
             $emails = $this->request->getPost('emails');
 
             // Emails de contacto.
-            setting()->set('App.emailsTo', lowerCase(trimAll($emails['to'])));
-            setting()->set('App.emailsCC', lowerCase(trimAll($emails['cc'])));
-            setting()->set('App.emailsCCO', lowerCase(trimAll($emails['cco'])));
+            setting()->set('App.emails', lowerCase(trimAll($emails['to'])), 'to');
+            setting()->set('App.emails', lowerCase(trimAll($emails['cc'])), 'cc');
+            setting()->set('App.emails', lowerCase(trimAll($emails['cco'])), 'cco');
 
             // WhatsApp.
-            setting()->set('App.whatsapp', stripAllSpaces($this->request->getPost('whatsapp')));
+            setting()->set('App.apps', stripAllSpaces($this->request->getPost('whatsapp')), 'whatsapp');
 
             // ID de Google Tag Manager.
-            setting()->set('App.googleTagManager', strtrim($this->request->getPost('googleTagManager')));
+            setting()->set('App.apps', strtrim($this->request->getPost('googleTagManager')), 'google:TagManager');
 
             // Elimina el archivo de Google Search Console.
             if ((bool) $this->request->getPost('deleteGoogleSearchConsole')) {
-                $file = FCPATH . setting()->get('App.googleSearchConsole');
+                $file = FCPATH . setting()->get('App.apps', 'google:SearchConsole');
 
                 is_file($file) && unlink($file);
 
-                setting()->forget('App.googleSearchConsole');
+                setting()->forget('App.apps', 'google:SearchConsole');
 
                 unset($file);
             }
@@ -145,7 +145,7 @@ class Settings extends BaseController
 
             // Google Search Console.
             if ($googleSearchConsole->isValid() && ! $googleSearchConsole->hasMoved()) {
-                $oldGoogleSearchConsole = FCPATH . setting()->get('App.googleSearchConsole');
+                $oldGoogleSearchConsole = FCPATH . setting()->get('App.apps', 'google:SearchConsole');
 
                 // Elimina el archivo anterior.
                 is_file($oldGoogleSearchConsole) && unlink($oldGoogleSearchConsole);
@@ -153,13 +153,13 @@ class Settings extends BaseController
                 // Almacena el archivo.
                 $googleSearchConsole->move(FCPATH);
 
-                setting()->set('App.googleSearchConsole', $googleSearchConsole->getName());
+                setting()->set('App.apps', $googleSearchConsole->getName(), 'google:SearchConsole');
 
                 unset($googleSearchConsole, $oldGoogleSearchConsole);
             }
 
             // Google reCAPTCHA.
-            setting()->set('App.googleRecaptcha', strtrim($this->request->getPost('googleRecaptcha')));
+            setting()->set('App.apps', strtrim($this->request->getPost('googleRecaptcha')), 'google:Recaptcha');
 
             return redirect()
                 ->route('backend.settings.index')

@@ -40,7 +40,7 @@
                         <div class="flex items-center gap-x-5 lg:gap-x-10">
                             <i class="bi bi-telephone text-2xl lg:text-28"></i>
                             <h3 class="lg:text-22 [word-spacing:0.5rem]">
-                                <?= esc(setting()->get('App.phone')) ?>
+                                <?= esc(setting()->get('App.general', 'phone')) ?>
                             </h3>
                         </div>
                         <div class="flex items-center gap-x-5 lg:gap-x-10">
@@ -238,7 +238,7 @@
                         <!-- reCAPTCHA v2 -->
                         <div
                             class="g-recaptcha"
-                            data-sitekey="<?= esc(setting()->get('App.googleRecaptcha') ?? 'your_site_key') ?>"
+                            data-sitekey="<?= esc(setting()->get('App.apps', 'google:Recaptcha') ?? 'your_site_key') ?>"
                         >
                         </div>
 

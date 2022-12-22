@@ -51,7 +51,7 @@ class SendNewsletter extends BaseCommand
         $users = $newsletterModel->findAll();
 
         // Define el asunto del mensaje.
-        $email->setFrom(config('Email')->SMTPUser, setting()->get('App.company'));
+        $email->setFrom(config('Email')->SMTPUser, setting()->get('App.general', 'company'));
 
         // Define el remitente del email.
         $email->setSubject('Newsletter');

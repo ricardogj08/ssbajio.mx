@@ -1,15 +1,15 @@
 <!doctype html>
 <html
     lang="<?= service('request')->getLocale() ?>"
-    data-theme="<?= esc(setting()->get('App.theme')) ?>"
+    data-theme="<?= esc(setting()->get('App.general', 'theme')) ?>"
 >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
         rel="icon"
-        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.favicon')))->getMimeType() ?>"
-        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.favicon')]) ?>"
+        type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.general', 'favicon')))->getMimeType() ?>"
+        href="<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'favicon')]) ?>"
     >
     <style>
         <?= file_get_contents(FCPATH . 'css/backend.css') ?>
@@ -23,8 +23,8 @@
             <!-- Logo de la compañía -->
             <div class="pb-8">
                 <img
-                    src="<?= base_url(['uploads/backend/settings/', setting()->get('App.logo')]) ?>"
-                    alt="Logo <?= esc(setting()->get('App.company')) ?>"
+                    src="<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'logo')]) ?>"
+                    alt="Logo <?= esc(setting()->get('App.general', 'company')) ?>"
                     class="h-12">
             </div>
             <!-- Fin del logo de la compañía -->
@@ -36,7 +36,7 @@
         <footer class="footer footer-center pt-8 text-base-content">
             <div>
                 <p class="whitespace-pre-line">Copyright &copy; <?= CodeIgniter\I18n\Time::now()->getYear() ?> - Todos los derechos reservador por
-                    <?= esc(setting()->get('App.company')) ?>
+                    <?= esc(setting()->get('App.general', 'company')) ?>
                 </p>
             </div>
         </footer>

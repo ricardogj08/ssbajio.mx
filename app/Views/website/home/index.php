@@ -2,7 +2,7 @@
 
 <?= $this->section('content') ?>
     <title>
-        <?= esc(setting()->get('App.company')) ?>
+        <?= esc(setting()->get('App.general', 'company')) ?>
     </title>
 <?= $this->endSection() ?>
 

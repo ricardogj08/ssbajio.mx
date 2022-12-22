@@ -9,7 +9,7 @@
                     <div class="font-semibold">
                         <?= esc(session('user.name')) ?>
                     </div>
-                    <div class="underline decoration-wavy underline-offset-4">
+                    <div class="underline decoration-wavy underline-offset-4<?= url_is(single_service('uri', url_to('backend.account.show'))->getPath() . '*') ? ' decoration-primary' : '' ?>">
                         <?= esc(session('user.email')) ?>
                     </div>
                 </div>
@@ -20,8 +20,8 @@
 
     <li>
         <div>
-            <label for="modal-action-logout" class="btn btn-outline btn-sm btn-block normal-case gap-2">
-                <i class="bi bi-box-arrow-right text-xl"></i>
+            <label for="modal-action-logout" class="btn btn-sm btn-block normal-case gap-2">
+                <i class="bi bi-power text-xl"></i>
                 Cerrar sesión
             </label>
         </div>
@@ -35,19 +35,28 @@
         </span>
     </li>
     <li>
-        <a href="<?= url_to('backend.prospects.index') ?>">
+        <a
+            href="<?= url_to('backend.prospects.index') ?>"
+            class="<?= url_is(single_service('uri', url_to('backend.prospects.index'))->getPath() . '*') ? 'active' : '' ?>"
+        >
             <i class="bi bi-person-lines-fill text-2xl"></i>
             Prospectos
         </a>
     </li>
     <li>
-        <a href="<?= url_to('backend.settings.index') ?>">
+        <a
+            href="<?= url_to('backend.settings.index') ?>"
+            class="<?= url_is(single_service('uri', url_to('backend.settings.index'))->getPath() . '*') ? 'active' : '' ?>"
+        >
             <i class="bi bi-gear-fill text-2xl"></i>
             Configuraciones
         </a>
     </li>
     <li>
-        <a href="<?= url_to('backend.users.index') ?>">
+        <a
+            href="<?= url_to('backend.users.index') ?>"
+            class="<?= url_is(single_service('uri', url_to('backend.users.index'))->getPath() . '*') ? 'active' : '' ?>"
+        >
             <i class="bi bi-people-fill text-2xl"></i>
             Usuarios
         </a>
@@ -61,13 +70,19 @@
         </span>
     </li>
     <li>
-        <a href="<?= url_to('backend.modules.posts.index') ?>">
+        <a
+            href="<?= url_to('backend.modules.posts.index') ?>"
+            class="<?= url_is(single_service('uri', url_to('backend.modules.posts.index'))->getPath() . '*') ? 'active' : '' ?>"
+        >
             <i class="bi bi-pencil-square text-2xl"></i>
             Blog
         </a>
     </li>
     <li>
-        <a href="<?= url_to('backend.modules.newsletter.index') ?>">
+        <a
+            href="<?= url_to('backend.modules.newsletter.index') ?>"
+            class="<?= url_is(single_service('uri', url_to('backend.modules.newsletter.index'))->getPath() . '*') ? 'active' : '' ?>"
+        >
             <i class="bi bi-newspaper text-2xl"></i>
             Newsletter
         </a>

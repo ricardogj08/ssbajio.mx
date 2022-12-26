@@ -30,7 +30,9 @@ module.exports = {
         title: "'Fjalla One', sans-serif"
       },
       gap: {
-        7.5: '1.875rem' // Bootstrap's gutter
+        7.5: '1.875rem', // Bootstrap's gutter
+        17.5: '4.375rem'
+
       },
       padding: {
         4.5: '1.125rem',
@@ -43,7 +45,9 @@ module.exports = {
         30: '7.5rem',
         31: '7.75rem',
         34: '8.5rem',
+        37: '9.25rem',
         38: '9.5rem',
+        50: '12.5rem',
         53: '13.25rem',
         62: '15.5rem',
         74: '18.5rem'
@@ -51,13 +55,15 @@ module.exports = {
       margin: {
         4.5: '1.125rem',
         7.5: '1.875rem',
+        13: '3.25rem',
         15: '3.75rem'
       },
       height: {
         18: '4.5rem',
         43: '10.75rem',
         62: '15.5rem',
-        65: '16.25rem'
+        65: '16.25rem',
+        88: '22rem'
       },
       width: {
         18: '4.5rem',

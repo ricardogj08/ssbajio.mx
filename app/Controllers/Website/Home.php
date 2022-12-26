@@ -50,6 +50,48 @@ class Home extends BaseController
                     'dark'        => false,
                 ],
             ])),
+            'sectors' => json_decode(json_encode([
+                [
+                    'name' => 'Sector alimenticio',
+                    'icon' => 'bi-justify',
+                    'dark' => true,
+                ],
+                [
+                    'name' => 'Transporte y automotriz',
+                    'icon' => 'bi-car-front-fill',
+                    'dark' => true,
+                ],
+                [
+                    'name' => 'Construcción y Ferretero',
+                    'icon' => 'bi-wrench-adjustable',
+                    'dark' => true,
+                ],
+                [
+                    'name' => 'Sector industrial',
+                    'icon' => 'bi-bar-chart-fill',
+                    'dark' => false,
+                ],
+                [
+                    'name' => 'Sector alimenticio',
+                    'icon' => 'bi-justify',
+                    'dark' => true,
+                ],
+                [
+                    'name' => 'Transporte y automotriz',
+                    'icon' => 'bi-car-front-fill',
+                    'dark' => true,
+                ],
+                [
+                    'name' => 'Construcción y Ferretero',
+                    'icon' => 'bi-wrench-adjustable',
+                    'dark' => true,
+                ],
+                [
+                    'name' => 'Sector industrial',
+                    'icon' => 'bi-bar-chart-fill',
+                    'dark' => false,
+                ],
+            ])),
         ]);
     }
 }

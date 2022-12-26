@@ -351,8 +351,14 @@
                 >
                 <label class="label">
                     <span class="label-text-alt text-error">
-                        <?= esc($validation->getError('googleSearchConsole')) ?>
-                        <?= esc($validation->getError('deleteGoogleSearchConsole')) ?>
+                        <ul>
+                            <li>
+                                <?= esc($validation->getError('googleSearchConsole')) ?>
+                            </li>
+                            <li>
+                                <?= esc($validation->getError('deleteGoogleSearchConsole')) ?>
+                            </li>
+                        </ul>
                     </span>
                     <?php if (setting()->get('App.apps', 'google:SearchConsole')): ?>
                         <span class="label-text-alt cursor-pointer flex items-center gap-x-2">

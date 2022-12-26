@@ -102,6 +102,7 @@ Envía por email los últimos artículos publicados:
 * [Google reCAPTCHA - Registra un sitio nuevo](https://www.google.com/recaptcha/admin/create)
 * [Google reCAPTCHA - Verifying the user's response](https://developers.google.com/recaptcha/docs/verify)
 * [Tinify - API Reference](https://tinypng.com/developers/reference/php)
+* [Clippy - CSS clip-path maker](https://bennettfeely.com/clippy/)
 
 ## Licencia
 

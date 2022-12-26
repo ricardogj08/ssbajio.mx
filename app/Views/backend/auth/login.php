@@ -37,7 +37,7 @@
                         Email:
                     </span>
                 </label>
-                <label class="input-group">
+                <div class="input-group">
                     <input
                         type="email"
                         name="email"
@@ -50,7 +50,7 @@
                         autofocus
                     >
                     <span class="bi bi-envelope text-2xl"></span>
-                </label>
+                </div>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= esc($validation->getError('email')) ?>
@@ -66,7 +66,7 @@
                         Contraseña:
                     </span>
                 </label>
-                <label class="input-group">
+                <div class="input-group">
                     <input
                         type="password"
                         name="password"
@@ -79,7 +79,7 @@
                         class="input input-bordered w-full"
                     >
                     <span class="bi bi-key text-2xl"></span>
-                </label>
+                </div>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= esc($validation->getError('password')) ?>

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    '.app/Views/templates/website/**/*.php',
+    './app/Views/templates/website/**/*.php',
     './app/Views/website/**/*.php',
     './node_modules/flowbite/**/*.js'
   ],
@@ -38,6 +38,7 @@ module.exports = {
         13: '3.25rem',
         15: '3.75rem',
         18: '4.5rem',
+        19: '4.75rem',
         26: '6.5rem',
         30: '7.5rem',
         31: '7.75rem',
@@ -54,10 +55,13 @@ module.exports = {
       },
       height: {
         18: '4.5rem',
+        43: '10.75rem',
+        62: '15.5rem',
         65: '16.25rem'
       },
       width: {
-        18: '4.5rem'
+        18: '4.5rem',
+        66: '16.5rem'
       },
       backdropBrightness: {
         30: '.3',
@@ -87,7 +91,8 @@ module.exports = {
             light: {
               1: '#8F939C',
               2: '#E2E2E2',
-              3: '#F7F9FC'
+              3: '#F7F9FC',
+              4: '#EAEDF3'
             },
             dark: {
               1: '#525252',

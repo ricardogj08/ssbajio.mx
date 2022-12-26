@@ -1,4 +1,6 @@
-<?= $this->include('website/layouts/whatsapp') ?>
+<aside>
+    <?= $this->include('website/layouts/whatsapp') ?>
+</aside>
 
 <!-- Pie de página -->
 <footer class="bg-ssbajio-dark-1">

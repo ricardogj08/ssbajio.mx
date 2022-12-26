@@ -83,9 +83,9 @@
                         </h6>
 
                         <div class="grid grid-cols-2 lg:grid-cols-3 gap-7.5 pb-3.5 lg:pb-7.5">
-                            <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 w-full">
-                            <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 w-full">
-                            <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 w-full">
+                            <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 object-cover">
+                            <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 object-cover">
+                            <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 object-cover">
                         </div>
                         <!-- Fin del contenido del artículo -->
                     </div>

@@ -17,7 +17,7 @@
 </head>
 <body
     style="background-image: url('<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'background')]) ?>');"
-    class="h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center"
+    class="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center"
 >
     <div class="container max-w-2xl">
         <main class="bg-base-300/80 p-8 rounded-2xl">

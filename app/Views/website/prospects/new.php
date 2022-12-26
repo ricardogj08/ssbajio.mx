@@ -9,6 +9,8 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+    <?= $this->include('website/layouts/header') ?>
+
     <!-- Sección de contacto -->
     <div
         style="background-image: url('<?= base_url('images/website/prospects/new/hero.webp') ?>');"
@@ -16,7 +18,6 @@
     >
         <!-- Filtro de opacidad -->
         <div class="backdrop-brightness-20">
-            <?= $this->include('website/layouts/header') ?>
             <div class="container relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-7.5 items-baseline pt-13 pb-13 lg:pb-0 text-white">
                     <div>

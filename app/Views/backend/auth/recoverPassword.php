@@ -31,7 +31,7 @@
                         Email:
                     </span>
                 </label>
-                <label class="input-group">
+                <div class="input-group">
                     <input
                         type="email"
                         name="email"
@@ -44,7 +44,7 @@
                         autofocus
                     >
                     <span class="bi bi-envelope text-2xl"></span>
-                </label>
+                </div>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= esc($validation->getError('email')) ?>

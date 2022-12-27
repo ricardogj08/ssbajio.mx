@@ -17,6 +17,7 @@ class SolutionModel extends Model
         'alias',
         'slug',
         'cover',
+        'thumbnail',
         'name',
         'excerpt',
         'title',

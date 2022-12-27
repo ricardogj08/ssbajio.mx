@@ -29,6 +29,7 @@ class Posts extends BaseController
      * Renderiza la vista de un artículo.
      *
      * @param mixed|null $id
+     * @param mixed|null $slug
      */
     public function show($slug = null)
     {

@@ -51,7 +51,7 @@
                                 <a href="<?= url_to('website.posts.show', $post->slug) ?>" class="group">
                                     <!-- Portada -->
                                     <div
-                                        style="background-image: url('<?= base_url(['uploads/website/posts', $post->cover]) ?>')"
+                                        style="background-image: url('<?= base_url(['uploads/website/posts/covers/', $post->cover]) ?>')"
                                         class="bg-cover bg-center bg-no-repeat"
                                     >
                                         <div class="grid grid-cols-4 lg:gap-7.5 pt-32 lg:pt-62 group-hover:backdrop-brightness-75 transition-all">

@@ -51,7 +51,7 @@ class Posts extends BaseController
                 ['title' => 'max_length[256]|is_unique[posts.slug]'],
             )) {
                 // Ruta de archivos subidos para los artículos.
-                $uploadsPath = FCPATH . 'uploads/website/posts/';
+                $uploadsPath = FCPATH . 'uploads/website/posts/covers/';
 
                 // Almacena la portada.
                 $cover->move($uploadsPath, $coverName);
@@ -164,7 +164,7 @@ class Posts extends BaseController
             // Consulta los datos del artículo.
             $post = $postModel->find($id);
 
-            $cover = FCPATH . 'uploads/website/posts/' . $post->cover;
+            $cover = FCPATH . 'uploads/website/posts/covers/' . $post->cover;
 
             // Elimina la portada.
             is_file($cover) && unlink($cover);

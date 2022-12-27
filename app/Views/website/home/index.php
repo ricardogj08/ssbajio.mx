@@ -134,7 +134,7 @@
                                             class="w-full h-full flex justify-center items-center"
                                         >
                                             <img
-                                                src="<?= base_url(['uploads/website/solutions', $solution->cover]) ?>"
+                                                src="<?= base_url(['uploads/website/solutions/covers/', $solution->cover]) ?>"
                                                 class="h-43"
                                                 alt="<?= esc($solution->name) ?>"
                                             >
@@ -357,41 +357,113 @@
                 <div class="recommendations-carousel">
                     <div class="flex justify-center">
                         <img
-                            src="<?= base_url('images/website/home/index/recommendations/traxion.webp') ?>"
-                            class="w-52 h-16 object-cover"
-                            alt="Grupo Traxion"
-                        >
-                    </div>
-
-                    <div class="flex justify-center">
-                        <img
-                            src="<?= base_url('images/website/home/index/recommendations/operbus.webp') ?>"
-                            class="w-52 h-16 object-cover"
-                            alt="Operbus"
-                        >
-                    </div>
-
-                    <div class="flex justify-center">
-                        <img
-                            src="<?= base_url('images/website/home/index/recommendations/ayco.webp') ?>"
-                            class="w-52 h-16 object-cover"
-                            alt="AYCO"
-                        >
-                    </div>
-
-                    <div class="flex justify-center">
-                        <img
                             src="<?= base_url('images/website/home/index/recommendations/irizar.webp') ?>"
-                            class="w-52 h-16 object-cover"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
                             alt="Irizar"
                         >
                     </div>
 
                     <div class="flex justify-center">
                         <img
+                            src="<?= base_url('images/website/home/index/recommendations/grupo-bimbo.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Grupo Bimbo"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/ayco.webp') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="AYCO"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/multiservicios-nieto.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Multi Servicios Nieto"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/mahle.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="MAHLE"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
                             src="<?= base_url('images/website/home/index/recommendations/operbus.webp') ?>"
-                            class="w-52 h-16 object-cover"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
                             alt="Operbus"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/grupo-herdez.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Grupo Herdez"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/mccormick.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="McCormick"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/canels.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Canel's"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/traxion.webp') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Grupo Traxion"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/egoba.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Transportadora Egoba"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/mym.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Transportes Muebleros MYM"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/fn.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Auto Express Frontera Norte"
+                        >
+                    </div>
+
+                    <div class="flex justify-center">
+                        <img
+                            src="<?= base_url('images/website/home/index/recommendations/lipu.png') ?>"
+                            class="w-52 h-16 lg:h-24 object-scale-down"
+                            alt="Transportes LiPU"
                         >
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                 <!-- Portada -->
                 <div class="sm:col-span-1">
                     <img
-                        src="<?= base_url(['uploads/website/posts', $post->cover]) ?>"
+                        src="<?= base_url(['uploads/website/posts/covers/', $post->cover]) ?>"
                         alt="Portada <?= esc($post->title) ?>"
                         class="h-40 sm:h-24 w-full object-cover"
                     >

@@ -134,5 +134,5 @@ node_modules/
 #-------------------------
 # Upload Files
 #-------------------------
-public/uploads/website/posts*
-!public/uploads/website/posts/index.html
+public/uploads/website/posts/covers/*
+!public/uploads/website/posts/covers/index.html

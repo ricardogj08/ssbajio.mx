@@ -32,6 +32,11 @@ class CreateSolutionsTable extends Migration
                 'constraint' => 64,
                 'unique'     => true,
             ],
+            'thumbnail' => [
+                'type'       => 'varchar',
+                'constraint' => 64,
+                'unique'     => true,
+            ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 256,

@@ -8,6 +8,5 @@ class Solutions extends BaseController
 {
     public function show($slug = null)
     {
-
     }
 }

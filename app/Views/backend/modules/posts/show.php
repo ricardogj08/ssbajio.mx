@@ -53,7 +53,7 @@
                 <th>Portada:</th>
                 <td>
                     <img
-                        src="<?= base_url(['uploads/website/posts/', $post->cover]) ?>"
+                        src="<?= base_url(['uploads/website/posts/covers/', $post->cover]) ?>"
                         alt="Portada <?= esc($post->title) ?>"
                         class="h-8 lg:h-12"
                     >

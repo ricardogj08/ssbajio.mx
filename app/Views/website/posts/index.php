@@ -2,8 +2,13 @@
 
 <?= $this->section('head') ?>
     <title>
-        Blog
+        Blog sobre Tornillería Industrial | <?= esc(setting()->get('App.general', 'company')) ?>
     </title>
+
+    <meta
+        name="description"
+        content="Todo lo que necesitas saber sobre el mundo de la Tornillería y Herramientas Industriales. ¡Conoce nuestros Casos de Éxito!"
+    >
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -42,7 +47,7 @@
                     <div class="lg:col-start-5 lg:col-end-13">
                         <?php foreach ($posts as $itr => $post): ?>
                             <!-- Artículo -->
-                            <article class="<?= $itr % 2 === 0 ? '' : 'pt-12 lg:pt-24 pb-9 lg:pb-18' ?>">
+                            <article class="<?= $itr % 2 ? 'pt-12 lg:pt-24 pb-9 lg:pb-18' : '' ?>">
                                 <a href="<?= url_to('website.posts.show', $post->slug) ?>" class="group">
                                     <!-- Portada -->
                                     <div

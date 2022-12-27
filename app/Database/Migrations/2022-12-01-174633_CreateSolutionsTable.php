@@ -17,15 +17,53 @@ class CreateSolutionsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            'alias' => [
                 'type'       => 'varchar',
                 'constraint' => 32,
                 'unique'     => true,
+            ],
+            'slug' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
+                'unique'     => true,
+            ],
+            'cover' => [
+                'type'       => 'varchar',
+                'constraint' => 64,
+                'unique'     => true,
+            ],
+            'name' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
+            ],
+            'excerpt' => [
+                'type'       => 'varchar',
+                'constraint' => 512,
+            ],
+            'title' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
+            ],
+            'caption' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
                 'null'       => true,
+            ],
+            'subtitle' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
             ],
             'description' => [
                 'type'       => 'varchar',
-                'constraint' => 64,
+                'constraint' => 512,
+            ],
+            'created_at' => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type' => 'datetime',
+                'null' => true,
             ],
         ]);
 

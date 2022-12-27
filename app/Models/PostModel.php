@@ -13,7 +13,16 @@ class PostModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['title', 'slug', 'cover', 'excerpt', 'started_at', 'body', 'user_id', 'active'];
+    protected $allowedFields    = [
+        'title',
+        'slug',
+        'cover',
+        'excerpt',
+        'started_at',
+        'body',
+        'user_id',
+        'active',
+    ];
 
     // Dates
     protected $useTimestamps = true;

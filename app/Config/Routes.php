@@ -56,6 +56,11 @@ $routes->group('newsletter', static function ($routes) {
     $routes->post('cancelar/(:num)/(:hash)', 'Website\Newsletter::delete/$1/$2', ['as' => 'website.newsletter.delete']);
 });
 
+// Ruta de soluciones de SSB.
+$routes->group('soluciones', static function ($routes) {
+    $routes->get('(:segment)', 'Website\Solutions::show/$1', ['as' => 'website.solutions.show']);
+});
+
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {
     // Rutas de inicio de sesión.

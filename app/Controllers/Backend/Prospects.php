@@ -144,7 +144,7 @@ class Prospects extends BaseController
             $solutionModel = model('SolutionModel');
 
             // Consulta todas las soluciones de ssbajio.
-            $solutions = $solutionModel->orderBy('description', 'asc')->findAll();
+            $solutions = $solutionModel->orderBy('name', 'asc')->findAll();
 
             $originModel = model('OriginModel');
 

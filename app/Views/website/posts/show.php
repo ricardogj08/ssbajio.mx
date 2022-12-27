@@ -4,6 +4,11 @@
     <title>
         Test
     </title>
+
+    <meta
+        name="description"
+        content=""
+    >
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>

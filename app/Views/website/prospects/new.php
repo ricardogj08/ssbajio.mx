@@ -2,8 +2,13 @@
 
 <?= $this->section('head') ?>
     <title>
-        Contacto
+        &#9655; <?= esc(setting()->get('App.general', 'company')) ?> | Contáctanos
     </title>
+
+    <meta
+        name="description"
+        content="Nuestro equipo es especialista en el sector de la Tornillería y Herramientas de Fijación. Estamos capacitados para atenderte en todo momento."
+    >
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?= $this->endSection() ?>
@@ -173,7 +178,7 @@
                                                 value="<?= esc($solution->id) ?>"
                                                 <?= set_select('solution', $solution->id) ?>
                                             >
-                                                <?= esc($solution->description) ?>
+                                                <?= esc($solution->name) ?>
                                             </option>
                                         <?php endforeach ?>
                                     </select>

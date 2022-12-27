@@ -11,85 +11,44 @@ class Home extends BaseController
      */
     public function index()
     {
+        $solutionModel = model('SolutionModel');
+
+        $solutions = $solutionModel->orderBy('created_at', 'asc')->findAll();
+
         return view('website/home/index', [
-            'solutions' => json_decode(json_encode([
-                [
-                    'name'        => 'Tornillería Industrial',
-                    'description' => 'Gran variedad de tornillos, tuercas y rondanas.',
-                    'cover'       => 'https://i.ibb.co/VNWbynM/tornillo.webp',
-                    'dark'        => false,
-                ],
-                [
-                    'name'        => 'Herramientas eléctricas y manuales',
-                    'description' => 'Encuentra todo tipo de herramientas industriales de las mejores marcas.',
-                    'cover'       => 'https://i.ibb.co/g7hK321/herramienta.webp',
-                    'dark'        => true,
-                ],
-                [
-                    'name'        => 'Pintura Automotriz',
-                    'description' => 'Contamos con pinturas de esmalte y vinílica, línea Excelo de la marca Sherwin Williams.',
-                    'cover'       => 'https://i.ibb.co/wsnxzWj/Bitmap.webp',
-                    'dark'        => false,
-                ],
-                [
-                    'name'        => 'Tornillería Industrial',
-                    'description' => 'Gran variedad de tornillos, tuercas y rondanas.',
-                    'cover'       => 'https://i.ibb.co/VNWbynM/tornillo.webp',
-                    'dark'        => false,
-                ],
-                [
-                    'name'        => 'Herramientas eléctricas y manuales',
-                    'description' => 'Encuentra todo tipo de herramientas industriales de las mejores marcas.',
-                    'cover'       => 'https://i.ibb.co/g7hK321/herramienta.webp',
-                    'dark'        => true,
-                ],
-                [
-                    'name'        => 'Pintura Automotriz',
-                    'description' => 'Contamos con pinturas de esmalte y vinílica, línea Excelo de la marca Sherwin Williams.',
-                    'cover'       => 'https://i.ibb.co/wsnxzWj/Bitmap.webp',
-                    'dark'        => false,
-                ],
-            ])),
-            'sectors' => json_decode(json_encode([
+            'solutions' => $solutions,
+            'sectors'   => json_decode(json_encode([
                 [
                     'name' => 'Sector alimenticio',
                     'icon' => 'bi-justify',
-                    'dark' => true,
                 ],
                 [
                     'name' => 'Transporte y automotriz',
                     'icon' => 'bi-car-front-fill',
-                    'dark' => true,
                 ],
                 [
                     'name' => 'Construcción y Ferretero',
                     'icon' => 'bi-wrench-adjustable',
-                    'dark' => true,
                 ],
                 [
                     'name' => 'Sector industrial',
                     'icon' => 'bi-bar-chart-fill',
-                    'dark' => false,
                 ],
                 [
                     'name' => 'Sector alimenticio',
                     'icon' => 'bi-justify',
-                    'dark' => true,
                 ],
                 [
                     'name' => 'Transporte y automotriz',
                     'icon' => 'bi-car-front-fill',
-                    'dark' => true,
                 ],
                 [
                     'name' => 'Construcción y Ferretero',
                     'icon' => 'bi-wrench-adjustable',
-                    'dark' => true,
                 ],
                 [
                     'name' => 'Sector industrial',
                     'icon' => 'bi-bar-chart-fill',
-                    'dark' => false,
                 ],
             ])),
         ]);

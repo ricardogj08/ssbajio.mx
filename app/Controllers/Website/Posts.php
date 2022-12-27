@@ -30,7 +30,7 @@ class Posts extends BaseController
      *
      * @param mixed|null $id
      */
-    public function show($id = null)
+    public function show($slug = null)
     {
         return view('website/posts/show');
     }

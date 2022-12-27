@@ -13,5 +13,18 @@ class SolutionModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['name', 'description'];
+    protected $allowedFields    = [
+        'alias',
+        'slug',
+        'cover',
+        'name',
+        'excerpt',
+        'title',
+        'caption',
+        'subtitle',
+        'description',
+    ];
+
+    // Dates
+    protected $useTimestamps = true;
 }

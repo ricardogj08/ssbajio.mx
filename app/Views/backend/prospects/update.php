@@ -148,7 +148,7 @@
                     </option>
                     <?php foreach ($solutions as $solution): ?>
                         <option value="<?= esc($solution->id) ?>"<?= $prospect->solution_id === $solution->id ? ' selected' : '' ?>>
-                            <?= esc($solution->description) ?>
+                            <?= esc($solution->name) ?>
                         </option>
                     <?php endforeach ?>
                 </select>

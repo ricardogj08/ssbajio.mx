@@ -13,7 +13,15 @@ class ProspectModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $allowedFields    = ['name', 'phone', 'email', 'company', 'origin_id', 'solution_id', 'message'];
+    protected $allowedFields    = [
+        'name',
+        'phone',
+        'email',
+        'company',
+        'origin_id',
+        'solution_id',
+        'message',
+    ];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,7 +32,7 @@ class ProspectModel extends Model
     public function solution()
     {
         $this->builder()
-            ->select('prospects.*, solutions.description as solution')
+            ->select('prospects.*, solutions.name as solution')
             ->join('solutions', 'solutions.id = prospects.solution_id', 'inner');
 
         return $this;

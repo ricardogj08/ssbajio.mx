@@ -1,9 +1,14 @@
 <?= $this->extend('templates/website/default') ?>
 
-<?= $this->section('content') ?>
+<?= $this->section('head') ?>
     <title>
-        <?= esc(setting()->get('App.general', 'company')) ?>
+        Proveedor de Tornillos y Herramientas Industriales en México
     </title>
+
+    <meta
+        name="description"
+        content="Distribuidores Mayoristas de Tornillería Industrial, Refaccionaria, para Construcción, Ferretera y Automotriz. Con Servicio de administración de almacenes."
+    >
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -114,12 +119,12 @@
                         <!-- Lista de soluciones -->
                         <?php foreach ($solutions as $itr => $solution): ?>
                             <!-- Solución -->
-                            <a href="#" class="group">
+                            <a href="<?= url_to('website.solutions.show', $solution->slug) ?>" class="group">
                                 <div class="flex flex-col items-center gap-y-5 lg:gap-y-10 lg:px-4">
                                     <!-- Portada de la solución -->
                                     <div
                                         style="background-image: url('<?= base_url('images/website/home/index/' .
-                                            ($solution->dark
+                                            ($itr % 2
                                                 ? 'background-solution-dark.webp'
                                                 : 'background-solution-red.webp')) ?>');"
                                         class="bg-cover bg-center bg-no-repeat h-62 w-66 group-hover:brightness-75 transition"
@@ -129,7 +134,7 @@
                                             class="w-full h-full flex justify-center items-center"
                                         >
                                             <img
-                                                src="<?= $solution->cover ?>"
+                                                src="<?= base_url(['uploads/website/solutions', $solution->cover]) ?>"
                                                 class="h-43"
                                                 alt="<?= esc($solution->name) ?>"
                                             >
@@ -145,7 +150,7 @@
 
                                         <!-- Descripción de la solución -->
                                         <p class="text-ssbajio-gray-light-4 text-17 font-light">
-                                            <?= esc($solution->description) ?>
+                                            <?= esc($solution->excerpt) ?>
                                         </p>
                                     </div>
                                 </div>
@@ -239,7 +244,7 @@
                     <!-- Carrusel de sectores -->
                     <div class="sectors-carousel">
                         <!-- Lista de sectores -->
-                        <?php foreach ($sectors as $sector): ?>
+                        <?php foreach ($sectors as $itr => $sector): ?>
                             <!-- Sector -->
                             <a href="#" class="group flex justify-center">
                                 <div class="flex flex-col gap-y-8">
@@ -254,9 +259,9 @@
                                     <!-- Fin de la portada del sector -->
 
                                     <div class="flex items-center gap-x-4">
-                                        <i class="bi <?= esc($sector->icon) ?> <?= $sector->dark ? 'text-ssbajio-dark-1' : 'text-ssbajio-red-1' ?> text-4xl"></i>
+                                        <i class="bi <?= esc($sector->icon) ?> <?= ($itr + 1) % 4 ? 'text-ssbajio-dark-1' : 'text-ssbajio-red-1' ?> text-4xl"></i>
 
-                                        <h3 class="<?= $sector->dark ? 'text-ssbajio-gray-dark-1' : 'text-ssbajio-red-1' ?> font-semibold">
+                                        <h3 class="<?= ($itr + 1) % 4 ? 'text-ssbajio-gray-dark-1' : 'text-ssbajio-red-1' ?> font-semibold">
                                             <?= esc($sector->name) ?>
                                         </h3>
                                     </div>

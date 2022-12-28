@@ -130,12 +130,11 @@
                                         class="bg-cover bg-center bg-no-repeat h-62 w-66 group-hover:brightness-75 transition"
                                     >
                                         <div
-                                            style="clip-path: polygon(0 0, 100% 0, 100% 28%, 35% 100%, 0 100%, 0% 50%);"
-                                            class="w-full h-full flex justify-center items-center"
+                                            class="ssbajio-mask w-full h-full flex justify-center items-center"
                                         >
                                             <img
                                                 src="<?= base_url(['uploads/website/solutions/covers/', $solution->cover]) ?>"
-                                                class="h-43"
+                                                class="h-43 object-scale-down"
                                                 alt="<?= esc($solution->name) ?>"
                                             >
                                         </div>

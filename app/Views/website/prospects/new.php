@@ -2,7 +2,7 @@
 
 <?= $this->section('head') ?>
     <title>
-        &#9655; <?= esc(setting()->get('App.general', 'company')) ?> | Contáctanos
+        ▷ <?= esc(setting()->get('App.general', 'company')) ?> | Contáctanos
     </title>
 
     <meta

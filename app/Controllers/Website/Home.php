@@ -13,7 +13,10 @@ class Home extends BaseController
     {
         $solutionModel = model('SolutionModel');
 
-        $solutions = $solutionModel->orderBy('created_at', 'asc')->findAll();
+        // Consulta todas las soluciones de ssbajio.
+        $solutions = $solutionModel->select('name, cover, slug, excerpt')
+            ->orderBy('created_at', 'asc')
+            ->findAll();
 
         return view('website/home/index', [
             'solutions' => $solutions,

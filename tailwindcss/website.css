@@ -25,4 +25,8 @@
 	.prospects-form-textarea {
 		@apply h-40 lg:h-full border border-ssbajio-gray-dark-2 rounded-2xl px-5 text-justify break-words;
 	}
+
+	.ssbajio-mask {
+		clip-path: polygon(0 0, 100% 0, 100% 28%, 35% 100%, 0 100%, 0% 50%);
+	}
 }

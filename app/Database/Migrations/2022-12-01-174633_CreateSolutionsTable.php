@@ -45,6 +45,14 @@ class CreateSolutionsTable extends Migration
                 'type'       => 'varchar',
                 'constraint' => 512,
             ],
+            'metatitle' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
+            ],
+            'metadescription' => [
+                'type'       => 'varchar',
+                'constraint' => 512,
+            ],
             'title' => [
                 'type'       => 'varchar',
                 'constraint' => 256,

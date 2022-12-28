@@ -20,6 +20,8 @@ class SolutionModel extends Model
         'thumbnail',
         'name',
         'excerpt',
+        'metatitle',
+        'metadescription',
         'title',
         'caption',
         'subtitle',

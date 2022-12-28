@@ -14,7 +14,8 @@ class Posts extends BaseController
         $postModel = model('PostModel');
 
         // Consulta los datos de todos los artículos con paginación.
-        $posts = $postModel->where('active', true)
+        $posts = $postModel->select('title, cover, slug, excerpt, created_at, started_at')
+            ->where('active', true)
             ->orderBy('started_at', 'desc')
             ->orderBy('created_at', 'desc')
             ->paginate(5, 'posts');

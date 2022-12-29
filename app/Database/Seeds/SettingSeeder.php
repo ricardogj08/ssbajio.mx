@@ -48,5 +48,9 @@ class SettingSeeder extends Seeder
         if (setting()->get('App.emails', 'cco') === null) {
             setting()->set('App.emails', 'ricardo@genotipo.com', 'cco');
         }
+
+        if (setting()->get('App.apps', 'google:Recaptcha') === null) {
+            setting()->set('App.apps', '6LeKlZojAAAAALJDscGS6k4ko0ZCOCNn8vgp_Ks4', 'google:Recaptcha');
+        }
     }
 }

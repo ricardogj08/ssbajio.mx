@@ -64,7 +64,9 @@ class Prospects extends BaseController
                 ->origin()
                 ->find($id);
 
-            return view('backend/prospects/show', ['prospect' => $prospect]);
+            return view('backend/prospects/show', [
+                'prospect' => $prospect,
+            ]);
         }
 
         throw PageNotFoundException::forPageNotFound();
@@ -112,25 +114,31 @@ class Prospects extends BaseController
 
             // Valida los campos del formulario.
             if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
-                'name'     => 'required|max_length[64]',
-                'phone'    => 'required|max_length[15]',
-                'email'    => 'required|max_length[256]|valid_email',
-                'company'  => 'required|max_length[64]',
-                'origin'   => 'required|is_natural_no_zero|is_not_unique[origins.id]',
-                'solution' => 'required|is_natural_no_zero|is_not_unique[solutions.id]',
-                'message'  => 'if_exist|max_length[4096]',
+                'name'         => 'required|max_length[64]',
+                'phone'        => 'required|max_length[15]',
+                'email'        => 'required|max_length[256]|valid_email',
+                'company'      => 'required|max_length[64]',
+                'origin'       => 'required|is_natural_no_zero|is_not_unique[origins.id]',
+                'solution'     => 'required|is_natural_no_zero|is_not_unique[solutions.id]',
+                'message'      => 'if_exist|max_length[4096]',
+                'rating'       => 'required|is_natural|less_than_equal_to[10]',
+                'observations' => 'if_exist|max_length[4096]',
             ])) {
                 $message = trimAll($this->request->getPost('message'));
 
+                $observations = trimAll($this->request->getPost('observations'));
+
                 // Actualiza los datos del prospecto.
                 $prospectModel->update($id, [
-                    'name'        => trimAll($this->request->getPost('name')),
-                    'phone'       => stripAllSpaces($this->request->getPost('phone')),
-                    'email'       => lowerCase(trim($this->request->getPost('email'))),
-                    'company'     => trimAll($this->request->getPost('company')),
-                    'origin_id'   => $this->request->getPost('origin'),
-                    'solution_id' => $this->request->getPost('solution'),
-                    'message'     => $message === '' ? null : $message,
+                    'name'         => trimAll($this->request->getPost('name')),
+                    'phone'        => stripAllSpaces($this->request->getPost('phone')),
+                    'email'        => lowerCase(trim($this->request->getPost('email'))),
+                    'company'      => trimAll($this->request->getPost('company')),
+                    'origin_id'    => $this->request->getPost('origin'),
+                    'solution_id'  => $this->request->getPost('solution'),
+                    'message'      => $message === '' ? null : $message,
+                    'rating'       => trim($this->request->getPost('rating')),
+                    'observations' => $observations === '' ? null : $observations,
                 ]);
 
                 return redirect()
@@ -144,7 +152,9 @@ class Prospects extends BaseController
             $solutionModel = model('SolutionModel');
 
             // Consulta todas las soluciones de ssbajio.
-            $solutions = $solutionModel->orderBy('name', 'asc')->findAll();
+            $solutions = $solutionModel->select('id, name')
+                ->orderBy('name', 'asc')
+                ->findAll();
 
             $originModel = model('OriginModel');
 

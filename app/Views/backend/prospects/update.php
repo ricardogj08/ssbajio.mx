@@ -189,7 +189,7 @@
             <div class="form-control">
                 <label for="message" class="label">
                     <span class="label-text">
-                        Mensaje:
+                        Mensaje (opcional):
                     </span>
                 </label>
                 <textarea
@@ -198,7 +198,7 @@
                     maxlength="4096"
                     rows="4"
                     cols="50"
-                    placeholder="Escribe una nota para el prospecto..."
+                    placeholder="Escribe el mensaje del prospecto..."
                     class="textarea textarea-bordered textarea-secondary resize-none h-32"
                 ><?= esc($prospect->message) ?></textarea>
                 <label class="label">
@@ -208,6 +208,62 @@
                 </label>
             </div>
             <!-- Fin del campo del mensaje -->
+
+            <!-- Campo del rating -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">
+                        Rating (opcional):
+                    </span>
+                </label>
+                <div class="flex items-center gap-x-2">
+                    <div class="font-semibold text-2xl">
+                        <?= esc(number_format($prospect->rating, 1)) ?>
+                    </div>
+                    <div class="rating rating-lg rating-half">
+                        <?php foreach (range(0, 10) as $rating): ?>
+                            <input
+                                type="radio"
+                                name="rating"
+                                class="<?= $rating ? ($rating % 2 ? 'mask mask-star-2 bg-orange-400 mask-half-1' : 'mask mask-star-2 bg-orange-400 mask-half-2 mr-2') : 'rating-hidden' ?>"
+                                aria-label="Rating de <?= esc($rating) ?>"
+                                value="<?= esc($rating) ?>"
+                                <?= (int) $prospect->rating === $rating ? 'checked' : '' ?>
+                            >
+                        <?php endforeach ?>
+                    </div>
+                </div>
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('rating')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del rating -->
+
+            <!-- Campo de observaciones -->
+            <div class="form-control">
+                <label for="observations" class="label">
+                    <span class="label-text">
+                        Observaciones (opcional):
+                    </span>
+                </label>
+                <textarea
+                    name="observations"
+                    id="observations"
+                    maxlength="4096"
+                    rows="4"
+                    cols="50"
+                    placeholder="Escribe una nota para el prospecto..."
+                    class="textarea textarea-bordered textarea-secondary resize-none h-32"
+                ><?= esc($prospect->observations) ?></textarea>
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('observations')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de observaciones -->
 
             <div class="flex flex-col lg:flex-row lg:justify-end gap-4">
                 <label for="modal-action-submit" class="btn btn-primary">

@@ -21,6 +21,8 @@ class ProspectModel extends Model
         'origin_id',
         'solution_id',
         'message',
+        'rating',
+        'observations',
     ];
 
     // Dates

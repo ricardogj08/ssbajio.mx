@@ -62,6 +62,33 @@
                 <td><?= esc($prospect->message) ?></td>
             </tr>
             <tr>
+                <th>Rating:</th>
+                <td>
+                    <div class="flex items-center gap-x-2">
+                        <div class="font-semibold">
+                            <?= esc(number_format($prospect->rating, 1)) ?>
+                        </div>
+                        <div class="rating rating-half">
+                            <?php foreach (range(0, 10) as $rating): ?>
+                                <input
+                                    type="radio"
+                                    name="rating"
+                                    class="<?= $rating ? ($rating % 2 ? 'mask mask-star-2 bg-orange-400 mask-half-1' : 'mask mask-star-2 bg-orange-400 mask-half-2 mr-2') : 'rating-hidden' ?>"
+                                    aria-label="Rating de <?= esc($rating) ?>"
+                                    value="<?= esc($rating) ?>"
+                                    disabled
+                                    <?= (int) $prospect->rating === $rating ? 'checked' : '' ?>
+                                >
+                            <?php endforeach ?>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>Observaciones:</th>
+                <td><?= esc($prospect->observations) ?></td>
+            </tr>
+            <tr>
                 <th>Fecha de registro:</th>
                 <td>
                     <?= esc(CodeIgniter\I18n\Time::parse($prospect->created_at)

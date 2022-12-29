@@ -4,6 +4,7 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
 use CodeIgniter\Exceptions\PageNotFoundException;
+use Shuchkin\SimpleXLSXGen;
 
 class Prospects extends BaseController
 {
@@ -170,5 +171,53 @@ class Prospects extends BaseController
         }
 
         throw PageNotFoundException::forPageNotFound();
+    }
+
+    /**
+     * Descarga la información de los prospectos en una hoja de cálculo.
+     */
+    public function download()
+    {
+        $data = [
+            // Encabezados
+            [
+                '<center><b>Fecha</b></center>',
+                '<center><b>Nombre</b></center>',
+                '<center><b>Teléfono</b></center>',
+                '<center><b>Email</b></center>',
+                '<center><b>Empresa</b></center>',
+                '<center><b>Interés en</b></center>',
+                '<center><b>Origen</b></center>',
+                '<center><b>Mensaje</b></center>',
+                '<center><b>Rating</b></center>',
+                '<center><b>Observaciones</b></center>',
+            ],
+        ];
+
+        $prospectModel = model('ProspectModel');
+
+        // Consulta los datos de los prospectos.
+        $prospects = $prospectModel->solution()
+            ->origin()
+            ->orderBy('prospects.created_at', 'desc')
+            ->findAll();
+
+        foreach ($prospects as $prospect) {
+            $data[] = [
+                $prospect->created_at,
+                "\0" . $prospect->name,
+                "\0" . $prospect->phone,
+                $prospect->email,
+                "\0" . $prospect->company,
+                "\0" . $prospect->solution,
+                "\0" . $prospect->origin,
+                "\0" . $prospect->message,
+                $prospect->rating,
+                "\0" . $prospect->observations,
+            ];
+        }
+
+        // Genera la hoja de cálculo.
+        SimpleXLSXGen::fromArray($data)->download();
     }
 }

@@ -107,6 +107,7 @@ $routes->group('backend', static function ($routes) {
             $routes->post('eliminar/(:num)', 'Backend\Prospects::delete/$1', ['as' => 'backend.prospects.delete']);
             $routes->get('modificar/(:num)', 'Backend\Prospects::update/$1', ['as' => 'backend.prospects.update']);
             $routes->post('modificar/(:num)', 'Backend\Prospects::update/$1', ['as' => 'backend.prospects.update']);
+            $routes->get('descargar', 'Backend\Prospects::download', ['as' => 'backend.prospects.download']);
         });
 
         $routes->addRedirect('', 'backend.prospects.index');

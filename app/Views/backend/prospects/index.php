@@ -7,19 +7,32 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
-        Prospectos
-    </h1>
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
+        <div>
+            <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
+                Prospectos
+            </h1>
 
-    <h2 class="text-sm">
-        Búsqueda y consulta de todos los prospectos registrados.
-    </h2>
+            <h2 class="text-sm">
+                Búsqueda y consulta de todos los prospectos registrados.
+            </h2>
 
-    <p class="text-error">
-        <small>
-            <?= esc(session()->getFlashdata('error')) ?>
-        </small>
-    </p>
+            <p class="text-error">
+                <small>
+                    <?= esc(session()->getFlashdata('error')) ?>
+                </small>
+            </p>
+        </div>
+
+        <a
+            href="<?= url_to('backend.prospects.download') ?>"
+            class="btn btn-secondary gap-2"
+            target="_blank"
+        >
+            <i class="bi bi-cloud-arrow-down-fill text-xl"></i>
+            Exportar
+        </a>
+    </div>
 
     <?= $validation->listErrors('backend_errors') ?>
 

@@ -72,7 +72,7 @@ class Auth extends BaseController
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'email' => 'required|max_length[256]|valid_email|is_not_unique[users.email,active,1]',
         ])) {
-            $userModel = model('userModel');
+            $userModel = model('UserModel');
 
             // Consulta los datos del usuario.
             $user = $userModel->where('email', lowerCase(trim($this->request->getPost('email'))))

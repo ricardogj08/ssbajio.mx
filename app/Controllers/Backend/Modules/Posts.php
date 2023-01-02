@@ -137,7 +137,7 @@ class Posts extends BaseController
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[posts.id]']
         )) {
-            $postModel = model('postModel');
+            $postModel = model('PostModel');
 
             // Consulta los datos del artículo.
             $post = $postModel->user()->find($id);
@@ -160,7 +160,7 @@ class Posts extends BaseController
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[posts.id]']
         )) {
-            $postModel = model('postModel');
+            $postModel = model('PostModel');
 
             // Consulta los datos del artículo.
             $post = $postModel->find($id);

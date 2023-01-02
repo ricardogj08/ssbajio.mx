@@ -61,6 +61,12 @@ $routes->group('soluciones', static function ($routes) {
     $routes->get('(:segment)', 'Website\Solutions::show/$1', ['as' => 'website.solutions.show']);
 });
 
+// Ruta de servicios de SSB.
+$routes->get('servicios', 'Website\Services::index', ['as' => 'website.services.index']);
+
+// Ruta de acerca de nosotros.
+$routes->get('fabricantes-distribuidores-tornillos-industriales', 'Website\About::index', ['as' => 'website.about.index']);
+
 // Definición de rutas del backend.
 $routes->group('backend', static function ($routes) {
     // Rutas de inicio de sesión.

@@ -28,7 +28,7 @@ class Users extends BaseController
                 ],
             ]
         )) {
-            $userModel = model('userModel');
+            $userModel = model('UserModel');
 
             // Registra el nuevo usuario.
             $userModel->insert([
@@ -72,7 +72,7 @@ class Users extends BaseController
         // Patrón de búsqueda (por defecto: '').
         $query = trimAll($this->request->getGet('q'));
 
-        $userModel = model('userModel');
+        $userModel = model('UserModel');
 
         /**
          * Consulta los datos de todos los usuarios
@@ -105,7 +105,7 @@ class Users extends BaseController
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {
-            $userModel = model('userModel');
+            $userModel = model('UserModel');
 
             // Consulta los datos del usuario.
             $user = $userModel->find($id);
@@ -136,7 +136,7 @@ class Users extends BaseController
             ['id' => $id],
             ['id' => 'required|is_natural_no_zero|is_not_unique[users.id]']
         )) {
-            $userModel = model('userModel');
+            $userModel = model('UserModel');
 
             // Consulta los datos del usuario.
             $user = $userModel->role()->find($id);

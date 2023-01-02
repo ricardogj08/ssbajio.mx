@@ -131,7 +131,7 @@ class Settings extends BaseController
             setting()->set('App.apps', strtrim($this->request->getPost('googleTagManager')), 'google:TagManager');
 
             // Elimina el archivo de Google Search Console.
-            if ((bool) $this->request->getPost('deleteGoogleSearchConsole')) {
+            if ($this->request->getPost('deleteGoogleSearchConsole')) {
                 $file = FCPATH . setting()->get('App.apps', 'google:SearchConsole');
 
                 is_file($file) && unlink($file);

@@ -2,6 +2,7 @@
 
 Soluciones de Sujeción del Bajío
 
+* [Demo](https://labs.genotipo.mx/ssbajio.mx/)
 * [Notion](https://ricardogj08.notion.site/ssbajio-mx-Soluciones-de-Sujeci-n-del-Baj-o-4b0be272de7840a6870f672d3f6698d2)
 
 ## Dependencias
@@ -43,6 +44,9 @@ Crea la base de datos de la aplicación:
 	    CHARACTER SET = 'utf8mb4'
 	    COLLATE = 'utf8mb4_spanish_ci';
 
+o desde `spark`:
+
+	php spark db:create ssbajiomx
 
 Construye todas tablas de la base de datos:
 
@@ -103,6 +107,7 @@ Envía por email los últimos artículos publicados:
 * [Google reCAPTCHA - Verifying the user's response](https://developers.google.com/recaptcha/docs/verify)
 * [Tinify - API Reference](https://tinypng.com/developers/reference/php)
 * [Clippy - CSS clip-path maker](https://bennettfeely.com/clippy/)
+* [Tutoriales Hostinger - CodeIgniter Tutorial: The Complete Guide](https://www.hostinger.com/tutorials/codeigniter-tutorial)
 
 ## Licencia
 

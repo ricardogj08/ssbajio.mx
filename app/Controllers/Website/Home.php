@@ -18,42 +18,32 @@ class Home extends BaseController
             ->orderBy('created_at', 'asc')
             ->findAll();
 
+        $sectors = json_decode(json_encode([
+            [
+                'name'      => 'Sector alimenticio',
+                'icon'      => 'bi-justify',
+                'thumbnail' => '1672764045_2597ad4f3552acc84aa3.webp',
+            ],
+            [
+                'name'      => 'Transporte y automotriz',
+                'icon'      => 'bi-car-front-fill',
+                'thumbnail' => '1672764150_865148028672b1c8c122.jpg',
+            ],
+            [
+                'name'      => 'Construcción y Ferretero',
+                'icon'      => 'bi-wrench-adjustable',
+                'thumbnail' => '1672764209_1e97c915d3411afa16ec.jpg',
+            ],
+            [
+                'name'      => 'Sector industrial',
+                'icon'      => 'bi-bar-chart-fill',
+                'thumbnail' => '1672764267_9e1bd2dba0f266b84443.jpg',
+            ],
+        ]));
+
         return view('website/home/index', [
             'solutions' => $solutions,
-            'sectors'   => json_decode(json_encode([
-                [
-                    'name' => 'Sector alimenticio',
-                    'icon' => 'bi-justify',
-                ],
-                [
-                    'name' => 'Transporte y automotriz',
-                    'icon' => 'bi-car-front-fill',
-                ],
-                [
-                    'name' => 'Construcción y Ferretero',
-                    'icon' => 'bi-wrench-adjustable',
-                ],
-                [
-                    'name' => 'Sector industrial',
-                    'icon' => 'bi-bar-chart-fill',
-                ],
-                [
-                    'name' => 'Sector alimenticio',
-                    'icon' => 'bi-justify',
-                ],
-                [
-                    'name' => 'Transporte y automotriz',
-                    'icon' => 'bi-car-front-fill',
-                ],
-                [
-                    'name' => 'Construcción y Ferretero',
-                    'icon' => 'bi-wrench-adjustable',
-                ],
-                [
-                    'name' => 'Sector industrial',
-                    'icon' => 'bi-bar-chart-fill',
-                ],
-            ])),
+            'sectors'   => $sectors,
         ]);
     }
 }

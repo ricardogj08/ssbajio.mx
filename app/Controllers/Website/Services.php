@@ -6,8 +6,20 @@ use App\Controllers\BaseController;
 
 class Services extends BaseController
 {
+    /**
+     * Renderiza la vista de servicios.
+     */
     public function index()
     {
-        return view('website/services/index');
+        $solutionModel = model('SolutionModel');
+
+        // Consulta todas las soluciones de ssbajio.
+        $solutions = $solutionModel->select('name, cover, slug')
+            ->orderBy('created_at', 'asc')
+            ->findAll();
+
+        return view('website/services/index', [
+            'solutions' => $solutions,
+        ]);
     }
 }

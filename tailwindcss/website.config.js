@@ -43,11 +43,13 @@ module.exports = {
         19: '4.75rem',
         25: '6.25rem',
         26: '6.5rem',
+        27: '6.75rem',
         30: '7.5rem',
         31: '7.75rem',
         34: '8.5rem',
         37: '9.25rem',
         38: '9.5rem',
+        39: '9.75rem',
         42: '10.5rem',
         50: '12.5rem',
         53: '13.25rem',
@@ -78,6 +80,9 @@ module.exports = {
       backdropBrightness: {
         30: '.3',
         20: '.2'
+      },
+      letterSpacing: {
+        widesm: '0.02em'
       },
       fontSize: {
         13: '0.813rem',

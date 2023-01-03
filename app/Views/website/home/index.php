@@ -93,7 +93,7 @@
                             Contamos con un alto enfoque en servicio que nos ha permitido sobresalir en los principales sectores de "supply chain" siendo hoy en día un aliado estratégico para las empresas que requieren de una producción continua, garantizando stock siempre disponible minimizando así, las incidencias.
                         </p>
                         <a
-                            href="#"
+                            href="<?= url_to('website.about.index') ?>"
                             class="ssbajio-btn bg-ssbajio-red-1 py-2.5 text-center block lg:inline-block hover:bg-ssbajio-red-2"
                         >
                             Acerca de Nosotros
@@ -250,7 +250,7 @@
                                     <!-- Portada del sector -->
                                     <div class="group-hover:brightness-75 transition">
                                         <img
-                                            src="https://picsum.photos/1920/1080"
+                                            src="<?= base_url(['uploads/website/sectors/thumbnails/', $sector->thumbnail]) ?>"
                                             class="h-88 w-66 object-cover rounded-2xl"
                                             alt="<?= esc($sector->name) ?>"
                                         >
@@ -277,7 +277,7 @@
                         type="button"
                         role="button"
                         aria-label="Botón de retroceso del carrusel de sectores"
-                        class="sectors-carousel-prev absolute top-0 -left-4 lg:-left-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="2xl:hidden sectors-carousel-prev absolute top-0 -left-4 lg:-left-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
                         <span class="inline-flex items-center justify-center group-focus:outline-none">
                             <i class="bi bi-chevron-left text-ssbajio-dark-1 text-2xl lg:text-4xl"></i>
@@ -290,7 +290,7 @@
                         type="button"
                         role="button"
                         aria-label="Botón de siguiente del carrusel de sectores"
-                        class="sectors-carousel-next absolute top-0 -right-4 lg:-right-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="2xl:hidden sectors-carousel-next absolute top-0 -right-4 lg:-right-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
                         <span class="inline-flex items-center justify-center group-focus:outline-none">
                             <i class="bi bi-chevron-right text-ssbajio-dark-1 text-2xl lg:text-4xl"></i>

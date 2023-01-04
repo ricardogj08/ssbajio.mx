@@ -38,7 +38,7 @@
         <div class="container">
             <div class="pt-12 lg:pt-24 pb-14 lg:pb-27 grid grid-cols-1 lg:grid-cols-12 gap-7.5">
                 <p class="lg:col-start-2 lg:col-span-10 text-center text-white text-17 font-light tracking-widesm">
-                    En SSB nos enfocamos en poder brindarte soluciones de administración de almacenes, gestión de inventarios, análisis de consumos y todo lo necesario para que nunca detengas tu producción. Tomamos control de tus inventarios de tornillería y herramienta, para organizarlos y administrarlos, reduciendo así la carga de trabajo de tus áreas de compras y almacén.
+                    En SSB nos enfocamos en poder brindarte soluciones de administración de almacenes, gestión de inventarios, análisis de consumos y todo lo necesario para que nunca detengas tu producción. Tomamos control de tus inventarios de tornillería y herramienta, para organizarlos y administrarlos, reduciendo así la carga de trabajo de tus áreas de compras y almacén.
                 </p>
             </div>
         </div>
@@ -162,7 +162,7 @@
                             </h3>
 
                             <p class="font-light">
-                                Definimos un stock exclusivo para tu empresa administrado en nuestros almacenes para asegurar así, disponibilidad inmediata.
+                                Definimos un stock exclusivo para tu empresa administrado en nuestros almacenes para asegurar así, disponibilidad inmediata.
                             </p>
                         </div>
 
@@ -172,7 +172,7 @@
                             </h3>
 
                             <p class="font-light">
-                                Gracias a nuestra metodología, procesos y mobiliario especializado, logramos una organización de tu tornillería y herramientas para una gestión eficaz y rápida ubicación del producto.
+                                Gracias a nuestra metodología, procesos y mobiliario especializado, logramos una organización de tu tornillería y herramientas para una gestión eficaz y rápida ubicación del producto.
                             </p>
                         </div>
 
@@ -182,7 +182,7 @@
                             </h3>
 
                             <p class="font-light mx-3 lg:mx-6">
-                                Diseñamos y establecemos almacenes «in plant» con personal operativo de SSB en garantía para administrar sus consumos.
+                                Diseñamos y establecemos almacenes «in plant» con personal operativo de SSB en garantía para administrar sus consumos.
                             </p>
                         </div>
                     </div>

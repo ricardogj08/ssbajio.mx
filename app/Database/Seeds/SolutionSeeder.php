@@ -54,7 +54,7 @@ class SolutionSeeder extends Seeder
                 'metadescription' => 'Somos proveedores autorizados de pintura Sherwin Williams, la cual brinda los mejores acabados para el segmento automotriz. ¡Contáctanos!',
                 'caption'         => 'Distribuidores autorizados de pintura Sherwin Williams',
                 'subtitle'        => 'Descubre nuestra gran variedad de productos para repintado automotriz.',
-                'description'     => 'Trabajamos para proporcionar soluciones de recubrimientos avanzados y un servicio de cálidad con productos de línea arquitectónica, línea para estructuras, pisos, sistema contra incendios y especializados para la industria alimenticia, farmacéutica, metalmecánica, automotriz e industrial en general.',
+                'description'     => 'Trabajamos para proporcionar soluciones de recubrimientos avanzados y un servicio de calidad con productos de línea arquitectónica, línea para estructuras, pisos, sistema contra incendios y especializados para la industria alimenticia, farmacéutica, metalmecánica, automotriz e industrial en general.',
             ],
             [
                 'alias'           => 'ferreteria',

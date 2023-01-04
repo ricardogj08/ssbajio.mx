@@ -70,7 +70,7 @@
 
                     <div class="text-ssbajio-gray-dark-1">
                         <div class="pb-13 lg:pb-26 grid grid-cols-1 lg:grid-cols-12 items-center gap-7.5">
-                            <div class="lg:col-start-2 lg:col-span-4 text-center mx-auto">
+                            <div class="lg:col-start-2 lg:col-span-4 mx-auto">
                                 <img
                                     src="<?= base_url('images/website/services/index/suministro-inventario.webp') ?>"
                                     alt="Garantiza tu suministro inmediato"

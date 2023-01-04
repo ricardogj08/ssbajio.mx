@@ -243,7 +243,7 @@
                         <!-- Lista de sectores -->
                         <?php foreach ($sectors as $itr => $sector): ?>
                             <!-- Sector -->
-                            <a href="#" class="group flex justify-center">
+                            <a class="group flex justify-center">
                                 <div class="flex flex-col gap-y-8">
                                     <!-- Portada del sector -->
                                     <div class="group-hover:brightness-75 transition">

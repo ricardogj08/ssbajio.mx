@@ -52,6 +52,7 @@ module.exports = {
         38: '9.5rem',
         39: '9.75rem',
         42: '10.5rem',
+        49: '12.25rem',
         50: '12.5rem',
         53: '13.25rem',
         62: '15.5rem',
@@ -68,6 +69,7 @@ module.exports = {
       },
       height: {
         18: '4.5rem',
+        19: '4.75rem',
         43: '10.75rem',
         62: '15.5rem',
         65: '16.25rem',
@@ -149,6 +151,9 @@ module.exports = {
           },
           green: {
             1: '#00C15A'
+          },
+          yellow: {
+            1: '#FFA412'
           }
         }
       }

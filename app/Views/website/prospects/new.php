@@ -59,7 +59,7 @@
                     <!-- Fin de la tarjeta de contacto -->
                 </div>
 
-                <div class="hidden lg:flex justify-end absolute bottom-0 right-0">
+                <div class="hidden lg:flex justify-end absolute bottom-0 right-0 w-full">
                     <img
                         src="<?= base_url('images/website/prospects/new/cuadrado-circulos-white.webp') ?>"
                         alt="Cuadrado de circulos blancos"

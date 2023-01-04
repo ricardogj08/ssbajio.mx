@@ -59,17 +59,25 @@
                             >
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-7.5 relative">
-                        <div
-                            style="background-image: url('https://picsum.photos/1920/1080');"
-                            class="lg:col-start-2 lg:col-span-10 bg-cover bg-center bg-no-repeat rounded-xl"
-                        >
-                            <div class="py-16 lg:py-31 backdrop-brightness-30 rounded-xl">
-                                <h2 class="text-white text-center lg:whitespace-pre-line font-title text-xl lg:text-32 leading-normal uppercase">Soluciones integrales de tornillería especializada,
-                                    herramientas industriales refacciones de transporte,
-                                    ferretería y más...
-                                </h2>
-                            </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-7.5">
+                        <div class="lg:col-start-2 lg:col-span-10 relative">
+                            <video
+                                class="w-full h-56 lg:h-auto max-w-full rounded-xl brightness-30 object-cover"
+                                autoplay
+                                muted
+                                loop
+                            >
+                                <source
+                                    src="<?= base_url('videos/website/home/index/banner.mp4') ?>"
+                                    type="video/mp4"
+                                >
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <h2 class="text-white text-center lg:whitespace-pre-line font-title text-xl lg:text-32 leading-normal uppercase absolute top-0 left-0 w-full h-full flex items-center justify-center">Soluciones integrales de tornillería especializada,
+                                herramientas industriales refacciones de transporte,
+                                ferretería y más...
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -243,7 +251,7 @@
                         <!-- Lista de sectores -->
                         <?php foreach ($sectors as $itr => $sector): ?>
                             <!-- Sector -->
-                            <a class="group flex justify-center">
+                            <div class="group flex justify-center">
                                 <div class="flex flex-col gap-y-8">
                                     <!-- Portada del sector -->
                                     <div class="group-hover:brightness-75 transition">
@@ -263,7 +271,7 @@
                                         </h3>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                             <!-- Fin del sector -->
                         <?php endforeach ?>
                         <!-- Fin de la lista de sectores -->

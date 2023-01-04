@@ -85,6 +85,9 @@ module.exports = {
         30: '.3',
         20: '.2'
       },
+      brightness: {
+        30: '.3'
+      },
       letterSpacing: {
         widesm: '0.02em'
       },

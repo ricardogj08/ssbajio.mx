@@ -2,9 +2,9 @@
 <div class="bg-ssbajio-dark-1">
     <div class="container">
         <div class="py-20 lg:pt-39 lg:pb-44 text-white relative">
-            <h3 class="font-title text-3xl lg:text-35 text-center uppercase mb-6 lg:mb-12">
+            <h2 class="font-title text-3xl lg:text-35 text-center uppercase mb-6 lg:mb-12">
                 Soluciones Integrales
-            </h3>
+            </h2>
 
             <!-- Carrusel de soluciones -->
             <div class="solutions-carousel">
@@ -48,7 +48,6 @@
             <!-- Botón de retroceso -->
             <button
                 type="button"
-                role="button"
                 aria-label="Botón de retroceso del carrusel de soluciones"
                 class="solutions-carousel-prev absolute top-0 -left-4 lg:-left-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             >
@@ -61,7 +60,6 @@
             <!-- Botón de siguiente -->
             <button
                 type="button"
-                role="button"
                 aria-label="Botón de siguiente del carrusel de soluciones"
                 class="solutions-carousel-next absolute top-0 -right-4 lg:-right-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
             >

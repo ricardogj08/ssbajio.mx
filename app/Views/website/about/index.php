@@ -55,6 +55,6 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-    <script type="text/javascript" src="<?= base_url('js/siema.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/website/home/index/solutions-carousel.js') ?>"></script>
+    <script src="<?= base_url('js/siema.js') ?>"></script>
+    <script src="<?= base_url('js/website/home/index/solutions-carousel.js') ?>"></script>
 <?= $this->endSection() ?>

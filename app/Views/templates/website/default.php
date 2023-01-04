@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?= service('request')->getLocale() ?>">
+<html lang="<?= esc(service('request')->getLocale()) ?>">
 <head>
     <!-- Google Tag Manager -->
     <?php if (ENVIRONMENT === 'production'): ?>
@@ -20,13 +20,20 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Declaración del idioma -->
+    <link rel="alternate" href="<?= current_url() ?>" hreflang="<?= esc(service('request')->getLocale()) ?>">
+
+    <!-- Favicon -->
     <link
         rel="icon"
         type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.general', 'favicon')))->getMimeType() ?>"
         href="<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'favicon')]) ?>"
     >
+
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/website.css') ?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
     <?= $this->renderSection('head') ?>
 </head>
 <body>
@@ -49,7 +56,7 @@
     </main>
     <!-- Fin del contenido de la página web -->
 
-    <script type="text/javascript" src="<?= base_url('js/flowbite.js') ?>"></script>
+    <script src="<?= base_url('js/flowbite.js') ?>"></script>
     <?= $this->renderSection('scripts') ?>
 </body>
 </html>

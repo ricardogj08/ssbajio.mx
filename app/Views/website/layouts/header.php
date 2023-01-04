@@ -5,7 +5,7 @@
             <div class="flex items-center gap-x-5 lg:gap-x-10">
                 <!-- Logo -->
                 <a href="<?= url_to('website.home.index') ?>" aria-label="Logo <?= esc(setting()->get('App.general', 'company')) ?>">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846.52 246.06" xmlns:v="https://vecta.io/nano"
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846.52 246.06"
                     class="h-12 lg:h-20 w-auto"
                   >
                     <style>
@@ -57,6 +57,7 @@
                     <li class="lg:hidden">
                         <a
                             href="tel:<?= esc(stripAllSpaces(setting()->get('App.general', 'phone'))) ?>"
+                            rel="nofollow"
                             class="block py-2 lg:py-0 border-b lg:border-0 border-ssbajio-gray-dark-2 hover:text-ssbajio-gray-light-1"
                         >
                             <i class="bi bi-telephone-fill mr-2"></i>

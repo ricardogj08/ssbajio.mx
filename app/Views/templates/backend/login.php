@@ -1,18 +1,25 @@
 <!doctype html>
 <html
-    lang="<?= service('request')->getLocale() ?>"
+    lang="<?= esc(service('request')->getLocale()) ?>"
     data-theme="<?= esc(setting()->get('App.general', 'theme')) ?>"
 >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Declaración del idioma -->
+    <link rel="alternate" href="<?= current_url() ?>" hreflang="<?= esc(service('request')->getLocale()) ?>">
+
+    <!-- Favicon -->
     <link
         rel="icon"
         type="<?= (new CodeIgniter\Files\File(FCPATH . 'uploads/backend/settings/' . setting()->get('App.general', 'favicon')))->getMimeType() ?>"
         href="<?= base_url(['uploads/backend/settings/', setting()->get('App.general', 'favicon')]) ?>"
     >
+
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/backend.css') ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
     <?= $this->renderSection('head') ?>
 </head>
 <body

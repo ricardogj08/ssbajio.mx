@@ -23,12 +23,12 @@
                     <!-- Titulo -->
                     <div class="sm:col-span-5 z-10 sm:z-auto">
                         <h1 class="uppercase font-title text-5xl lg:text-80 leading-tight">
-                            <div class="text-ssbajio-gray-dark-6">
+                            <span class="text-ssbajio-gray-dark-6">
                                 Proveeduría
-                            </div>
-                            <div class="text-white">
+                            </span>
+                            <span class="text-white">
                                 Industrial
-                            </div>
+                            </span>
                         </h1>
                         <h2 class="text-white lg:text-lg font-semibold whitespace-pre-line leading-relaxed lg:leading-loose mt-4 lg:mt-7">Soluciones e insumos para
                             cadena de suministro y
@@ -163,7 +163,6 @@
                     <!-- Botón de retroceso -->
                     <button
                         type="button"
-                        role="button"
                         aria-label="Botón de retroceso del carrusel de soluciones"
                         class="solutions-carousel-prev absolute top-0 -left-4 lg:-left-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
@@ -176,7 +175,6 @@
                     <!-- Botón de siguiente -->
                     <button
                         type="button"
-                        role="button"
                         aria-label="Botón de siguiente del carrusel de soluciones"
                         class="solutions-carousel-next absolute top-0 -right-4 lg:-right-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
@@ -212,25 +210,25 @@
                         <h2 class="text-lg font-semibold text-ssbajio-dark-1 mb-2 lg:mb-4">
                             Servicio de gestión y  administración de almacén para tornillería industrial
                         </h2>
-                        <p class="text-ssbajio-gray-dark-1 font-light text-17">
+                        <h3 class="text-ssbajio-gray-dark-1 font-light text-17">
                             Ofrecemos un servicio integral de administración de tornillería a nuestros clientes con un gran volumen de consumo.
-                        </p>
+                        </h3>
                     </div>
                     <div>
                         <h2 class="text-lg font-semibold text-ssbajio-dark-1 mb-2 lg:mb-4">
                             Administración en nuestros almacenes
                         </h2>
-                        <p class="text-ssbajio-gray-dark-1 font-light text-17">
+                        <h3 class="text-ssbajio-gray-dark-1 font-light text-17">
                             Te otorgamos un stock exclusivo administrado en nuestros almacenes para asegurar disponibilidad inmediata.
-                        </p>
+                        </h3>
                     </div>
                     <div>
                         <h2 class="text-lg font-semibold text-ssbajio-dark-1 mb-2 lg:mb-4">
                             Administración en tu almacén
                         </h2>
-                        <p class="text-ssbajio-gray-dark-1 font-light text-17">
+                        <h3 class="text-ssbajio-gray-dark-1 font-light text-17">
                             Establecemos almacenes «in plant» con personal de SSB en garantía para administrar sus consumos.
-                        </p>
+                        </h3>
                     </div>
                 </div>
 
@@ -275,7 +273,6 @@
                     <!-- Botón de retroceso -->
                     <button
                         type="button"
-                        role="button"
                         aria-label="Botón de retroceso del carrusel de sectores"
                         class="2xl:hidden sectors-carousel-prev absolute top-0 -left-4 lg:-left-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
@@ -288,7 +285,6 @@
                     <!-- Botón de siguiente -->
                     <button
                         type="button"
-                        role="button"
                         aria-label="Botón de siguiente del carrusel de sectores"
                         class="2xl:hidden sectors-carousel-next absolute top-0 -right-4 lg:-right-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
@@ -475,8 +471,8 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-    <script type="text/javascript" src="<?= base_url('js/siema.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/website/home/index/solutions-carousel.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/website/home/index/sectors-carousel.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/website/home/index/recommendations-carousel.js') ?>"></script>
+    <script src="<?= base_url('js/siema.js') ?>"></script>
+    <script src="<?= base_url('js/website/home/index/solutions-carousel.js') ?>"></script>
+    <script src="<?= base_url('js/website/home/index/sectors-carousel.js') ?>"></script>
+    <script src="<?= base_url('js/website/home/index/recommendations-carousel.js') ?>"></script>
 <?= $this->endSection() ?>

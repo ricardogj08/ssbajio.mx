@@ -3,7 +3,7 @@
 <?= $this->section('head') ?>
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/trix.css') ?>">
 
-    <script type="text/javascript" src="<?= base_url('js/trix.js') ?>"></script>
+    <script src="<?= base_url('js/trix.js') ?>"></script>
 
     <title>
         Blog | Registro

@@ -76,18 +76,18 @@
     <div class="bg-ssbajio-dark-1">
         <div class="container">
             <div class="py-13 lg:py-26">
-                <h3 class="text-white text-lg lg:text-xl font-semibold text-center mb-9 lg:mb-18">
+                <h2 class="text-white text-lg lg:text-xl font-semibold text-center mb-9 lg:mb-18">
                     Ventajas de contratar una solución de sujeción con SSB
-                </h3>
+                </h2>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-7.5">
                     <div class="flex flex-col items-center text-center gap-y-3.5 lg:gap-y-7">
                         <div class="text-ssbajio-gray-dark-7 font-title text-45 h-18">
                             10
                         </div>
-                        <p class="text-white font-light tracking-wide">
+                        <h3 class="text-white font-light tracking-wide">
                             Contamos con más de 10 años de experiencia en el mercado.
-                        </p>
+                        </h3>
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-y-3.5 lg:gap-y-7">
@@ -97,9 +97,9 @@
                                 <path d="M353.8 54.1L330.2 6.3c-3.9-8.3-16.1-8.6-20.4 0L286.2 54.1l-52.3 7.5c-9.3 1.4-13.3 12.9-6.4 19.8l38 37-9 52.1c-1.4 9.3 8.2 16.5 16.8 12.2l46.9-24.8 46.6 24.4c8.6 4.3 18.3-2.9 16.8-12.2l-9-52.1 38-36.6c6.8-6.8 2.9-18.3-6.4-19.8l-52.3-7.5zM256 256c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H384c17.7 0 32-14.3 32-32V288c0-17.7-14.3-32-32-32H256zM32 320c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H160c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32H32zm416 96v64c0 17.7 14.3 32 32 32H608c17.7 0 32-14.3 32-32V416c0-17.7-14.3-32-32-32H480c-17.7 0-32 14.3-32 32z"/>
                             </svg>
                         </div>
-                        <p class="text-white font-light tracking-wide">
+                        <h3 class="text-white font-light tracking-wide">
                             Ofrecemos Servicio de gestión y  administración de almacén para tu producto.
-                        </p>
+                        </h3>
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-y-3.5 lg:gap-y-7">
@@ -109,9 +109,9 @@
                                 <path d="M0 488V171.3c0-26.2 15.9-49.7 40.2-59.4L308.1 4.8c7.6-3.1 16.1-3.1 23.8 0L599.8 111.9c24.3 9.7 40.2 33.3 40.2 59.4V488c0 13.3-10.7 24-24 24H568c-13.3 0-24-10.7-24-24V224c0-17.7-14.3-32-32-32H128c-17.7 0-32 14.3-32 32V488c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24zm488 24l-336 0c-13.3 0-24-10.7-24-24V432H512l0 56c0 13.3-10.7 24-24 24zM128 400V336H512v64H128zm0-96V224H512l0 80H128z"/>
                             </svg>
                         </div>
-                        <p class="text-white font-light tracking-wide">
+                        <h3 class="text-white font-light tracking-wide">
                             Trabajamos con los principales proveedores y fabricantes de herramientas de Estados Unidos y México.
-                        </p>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -123,9 +123,9 @@
     <div class="bg-ssbajio-gray-light-3">
         <div class="container">
             <div class="pt-20 lg:pt-42 pb-24 lg:pb-48 text-ssbajio-dark-1 relative">
-                <h3 class="text-center font-title text-3xl lg:text-35 uppercase mb-7 lg:mb-14">
+                <h2 class="text-center font-title text-3xl lg:text-35 uppercase mb-7 lg:mb-14">
                     ¿Necesitas otra solución de sujeción?
-                </h3>
+                </h2>
 
                 <!-- Carrusel de soluciones -->
                 <div class="solutions-carousel">
@@ -166,7 +166,6 @@
                 <!-- Botón de retroceso -->
                 <button
                     type="button"
-                    role="button"
                     aria-label="Botón de retroceso del carrusel de soluciones"
                     class="solutions-carousel-prev absolute top-0 -left-4 lg:-left-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 >
@@ -179,7 +178,6 @@
                 <!-- Botón de siguiente -->
                 <button
                     type="button"
-                    role="button"
                     aria-label="Botón de siguiente del carrusel de soluciones"
                     class="solutions-carousel-next absolute top-0 -right-4 lg:-right-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 >
@@ -190,7 +188,6 @@
                 <!-- Fin del botón de siguiente -->
             </div>
             <!-- Fin de la sección de soluciones -->
-            </div>
         </div>
     </div>
     <!-- Fin de la sección de otras soluciones -->
@@ -199,6 +196,6 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-    <script type="text/javascript" src="<?= base_url('js/siema.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/website/home/index/solutions-carousel.js') ?>"></script>
+    <script src="<?= base_url('js/siema.js') ?>"></script>
+    <script src="<?= base_url('js/website/home/index/solutions-carousel.js') ?>"></script>
 <?= $this->endSection() ?>

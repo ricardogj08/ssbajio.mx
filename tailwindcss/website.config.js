@@ -46,6 +46,7 @@ module.exports = {
         27: '6.75rem',
         30: '7.5rem',
         31: '7.75rem',
+        33: '8.25rem',
         34: '8.5rem',
         37: '9.25rem',
         38: '9.5rem',
@@ -62,7 +63,8 @@ module.exports = {
         7.5: '1.875rem',
         13: '3.25rem',
         15: '3.75rem',
-        18: '4.5rem'
+        18: '4.5rem',
+        26: '6.5rem'
       },
       height: {
         18: '4.5rem',
@@ -83,6 +85,9 @@ module.exports = {
       },
       letterSpacing: {
         widesm: '0.02em'
+      },
+      borderRadius: {
+        '6xl': '3rem'
       },
       fontSize: {
         13: '0.813rem',
@@ -106,7 +111,8 @@ module.exports = {
         ssbajio: {
           red: {
             1: '#E20006',
-            2: '#C30005'
+            2: '#C30005',
+            3: '#CD0005'
           },
           gray: {
             light: {

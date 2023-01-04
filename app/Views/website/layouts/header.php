@@ -1,4 +1,4 @@
-<nav class="bg-white shadow-md">
+<nav class="bg-white shadow-md sticky top-0 left-0 right-0 z-30">
     <div class="container lg:px-12 py-4">
         <!-- Barra de navegación -->
         <div class="flex flex-wrap items-center justify-between text-ssbajio-gray-dark-1 dark:text-white font-semibold">

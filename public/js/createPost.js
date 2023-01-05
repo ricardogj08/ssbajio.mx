@@ -1,39 +1,48 @@
 
 function uploadFileAttachment (attachment) {
-  // uploadFile(attachment.file)
+  const setProgress = (progress) => attachment.setUploadProgress(progress)
+
+  uploadFile(attachment.file, setProgress)
 }
 
-// function uploadFile (file) {
-//   // const HOST = 'path to save teh file'
-//   const key = createStorageKey(file)
-//   const formData = createFormData(key, file)
+function uploadFile (file, setProgressCallback) {
+  const HOST = 'http://localhost:8080/backend/modulos/blog/attachments'
+  const key = createStorageKey(file)
+  const formData = createFormData(key, file)
+  // const csrfToken = document.querySelector('input[name="csrf_test_name"]').value
 
-//   console.log(formData)
+  fetch(HOST, {
+    method: 'POST',
+    // headers: {
+    //   'X-CSRF-TOKEN': csrfToken// <--- aquí el token
+    // },
+    body: formData,
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin' // include, *same-origin, omit
+  }).then(response => {
+    setProgressCallback(100)
+    return response.json()
+  }).then(obj => console.log(obj))
+    .catch(err => console.log(err))
+}
 
-//   // fetch(HOST, {
-//   //   method: 'POST',
-//   //   body: formData
-//   // })
-// }
+function createStorageKey (file) {
+  const date = new Date()
+  const day = date.toISOString().slice(0, 10)
+  const name = date.getTime() + '-' + file.name
+  return ['tmp', day, name].join('/')
+}
 
-// function createStorageKey (file) {
-//   const date = new Date()
-//   const day = date.toISOString().slice(0, 10)
-//   const name = date.getTime() + '-' + file.name
-//   return ['tmp', day, name].join('/')
-// }
-
-// function createFormData (key, file) {
-//   const data = new FormData()
-//   data.append('key', key)
-//   data.append('Content-Type', file.type)
-//   data.append('file', file)
-//   return data
-// }
+function createFormData (key, file) {
+  const data = new FormData()
+  data.append('key', key)
+  data.append('Content-Type', file.type)
+  data.append('attachment', file)
+  return data
+}
 
 window.addEventListener('trix-attachment-add', event => {
-  console.log('attachment init event')
-  console.log(event)
   if (!event.attachment.file) return
   uploadFileAttachment(event.attachment)
 })

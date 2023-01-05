@@ -1,6 +1,7 @@
 <?= $this->extend('templates/website/default') ?>
 
 <?= $this->section('head') ?>
+    <script src="<?= base_url('js/observe.js') ?>" type="module" defer></script>
     <title>
         Proveedor de Tornillos y Herramientas Industriales en México
     </title>
@@ -12,12 +13,12 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-    <header>
-        <?= $this->include('website/layouts/header') ?>
-    </header>
+
+    <?= $this->include('website/layouts/header') ?>
+
 
     <!-- Primera sección -->
-    <section class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5">
+    <section class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5 observable">
         <div class="container">
             <div class="pt-8 lg:pt-15 pb-28 lg:pb-53">
                 <!-- Titulo y tornillo con sello -->

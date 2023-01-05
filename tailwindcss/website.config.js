@@ -79,7 +79,8 @@ module.exports = {
       width: {
         18: '4.5rem',
         66: '16.5rem',
-        91: '22.75rem'
+        91: '22.75rem',
+        188: '47rem'
       },
       backdropBrightness: {
         30: '.3',
@@ -110,6 +111,7 @@ module.exports = {
         }
         ],
         80: '5rem',
+        84: '5.25rem',
         192: '12rem'
       },
       colors: {

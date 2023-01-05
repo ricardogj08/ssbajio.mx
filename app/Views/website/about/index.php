@@ -135,7 +135,28 @@
                     </div>
 
                     <!-- Ubicación en google maps -->
-                    <div>
+                    <div class="flex justify-center items-center relative">
+                        <img
+                            src="<?= base_url('images/website/about/index/mapa.webp') ?>"
+                            class="w-96 lg:w-188 h-auto object-cover"
+                        >
+                        <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full">
+                            <div class="group p-4">
+                                <i class="bi bi-circle-fill text-ssbajio-red-1 text-4xl lg:text-84 animate-pulse group-hover:animate-none group-hover:text-ssbajio-red-2 group-hover:transition group-hover:hidden"></i>
+
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.6535492737862!2d-100.41620664194335!3d20.575512696561436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d345382f79e22b%3A0xd91242cc9594cdcb!2sProl.%20Av.%20Zaragoza%2099-Int.%2043%2C%20Jardines%20de%20la%20Hacienda%2C%2076180%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses!2smx!4v1672934871368!5m2!1ses!2smx"
+                                    width="600"
+                                    height="450"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    class="hidden group-hover:block absolute top-0 left-0 w-full h-full bg-ssbajio-gray-dark-1 p-3 rounded-2xl shadow-2xl"
+                                >
+                                </iframe>
+                            </div>
+                        </div>
                     </div>
                     <!-- Fin de la ubicación en google maps -->
                 </div>

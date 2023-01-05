@@ -1,5 +1,5 @@
 <!-- Botón de WhatsApp -->
-<div class="fixed z-30 right-4 bottom-4 lg:right-8 lg:bottom-16 animate-bounce">
+<div class="fixed z-20 right-4 bottom-4 lg:right-8 lg:bottom-16 animate-bounce">
     <a
         target="_blank"
         aria-label="Chat de WhatsApp"

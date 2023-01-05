@@ -172,7 +172,7 @@
                     <button
                         type="button"
                         aria-label="Botón de retroceso del carrusel de soluciones"
-                        class="solutions-carousel-prev absolute top-0 -left-4 lg:-left-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="solutions-carousel-prev absolute top-0 -left-4 lg:-left-10 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
                         <span class="inline-flex items-center justify-center group-focus:outline-none">
                             <i class="bi bi-chevron-left text-white text-2xl lg:text-4xl"></i>
@@ -184,7 +184,7 @@
                     <button
                         type="button"
                         aria-label="Botón de siguiente del carrusel de soluciones"
-                        class="solutions-carousel-next absolute top-0 -right-4 lg:-right-10 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="solutions-carousel-next absolute top-0 -right-4 lg:-right-10 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
                         <span class="inline-flex items-center justify-center group-focus:outline-none">
                             <i class="bi bi-chevron-right text-white text-2xl lg:text-4xl"></i>
@@ -282,7 +282,7 @@
                     <button
                         type="button"
                         aria-label="Botón de retroceso del carrusel de sectores"
-                        class="2xl:hidden sectors-carousel-prev absolute top-0 -left-4 lg:-left-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="2xl:hidden sectors-carousel-prev absolute top-0 -left-4 lg:-left-16 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
                         <span class="inline-flex items-center justify-center group-focus:outline-none">
                             <i class="bi bi-chevron-left text-ssbajio-dark-1 text-2xl lg:text-4xl"></i>
@@ -294,7 +294,7 @@
                     <button
                         type="button"
                         aria-label="Botón de siguiente del carrusel de sectores"
-                        class="2xl:hidden sectors-carousel-next absolute top-0 -right-4 lg:-right-16 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        class="2xl:hidden sectors-carousel-next absolute top-0 -right-4 lg:-right-16 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     >
                         <span class="inline-flex items-center justify-center group-focus:outline-none">
                             <i class="bi bi-chevron-right text-ssbajio-dark-1 text-2xl lg:text-4xl"></i>

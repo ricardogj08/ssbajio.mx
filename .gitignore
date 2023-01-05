@@ -136,3 +136,5 @@ node_modules/
 #-------------------------
 public/uploads/website/posts/covers/*
 !public/uploads/website/posts/covers/index.html
+public/uploads/website/posts/attachments/*
+!public/uploads/website/posts/attachments/index.html

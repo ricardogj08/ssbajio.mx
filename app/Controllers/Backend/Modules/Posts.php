@@ -4,12 +4,15 @@ namespace App\Controllers\Backend\Modules;
 
 use App\Controllers\BaseController;
 use App\Libraries\ImageCompressor;
+use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\I18n\Time;
 use RuntimeException;
 
 class Posts extends BaseController
 {
+    use ResponseTrait;
+
     /**
      * Renderiza la vista de registro de artículos
      * y registra un nuevo artículo.
@@ -179,5 +182,53 @@ class Posts extends BaseController
         }
 
         throw PageNotFoundException::forPageNotFound();
+    }
+
+    /**
+     * Almacena archivos adjuntos.
+     */
+    public function createAttachment()
+    {
+        // Valida el archivo.
+        if ($this->validate([
+            'attachment' => 'uploaded[attachment]|max_size[attachment,16384]',
+        ])) {
+            $attachment = $this->request->getFile('attachment');
+
+            if (! $attachment->isValid() || $attachment->hasMoved()) {
+                return $this->failServerError($attachment->getErrorString() . '(' . $attachment->getError() . ')');
+            }
+
+            // Comprime el archivo si es una imagen.
+            if ($this->validate([
+                'attachment' => 'is_image[attachment]',
+            ])) {
+                ImageCompressor::getInstance()->run($attachment->getRealPath());
+            }
+
+            // Ruta de archivos adjuntos subidos para los artículos.
+            $uploadsPath = FCPATH . 'uploads/website/posts/attachments/';
+
+            $newName = $attachment->getRandomName();
+
+            // Almacena el archivo.
+            $attachment->move($uploadsPath, $newName);
+
+            return $this->respondCreated([
+                'attachment' => $newName,
+            ]);
+        }
+
+        return $this->failValidationError($this->validator->getError('attachment'));
+    }
+
+    /**
+     * Elimina un archivo adjunto.
+     *
+     * @param mixed|null $id
+     * @param mixed|null $attachment
+     */
+    public function deleteAttachment($attachment = null)
+    {
     }
 }

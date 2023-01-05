@@ -12,7 +12,9 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-	<?= $this->include('website/layouts/header') ?>
+    <header>
+        <?= $this->include('website/layouts/header') ?>
+    </header>
 
     <!-- Primera sección -->
     <section class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5">

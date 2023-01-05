@@ -43,17 +43,27 @@
                 <tbody>
                     <tr>
                         <th>Empresa:</th>
-                        <td><?= setting()->get('App.general', 'company') ?></td>
+                        <td><?= esc(setting()->get('App.general', 'company')) ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>Dirección:</th>
+                        <td><?= esc(setting()->get('App.general', 'address')) ?></td>
                     </tr>
 
                     <tr>
                         <th>Teléfono:</th>
-                        <td><?= setting()->get('App.general', 'phone') ?></td>
+                        <td><?= esc(setting()->get('App.general', 'phone')) ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>Horario:</th>
+                        <td><?= esc(setting()->get('App.general', 'schedules')) ?></td>
                     </tr>
 
                     <tr>
                         <th>Tema:</th>
-                        <td><?= setting()->get('App.general', 'theme') ?></td>
+                        <td><?= esc(setting()->get('App.general', 'theme')) ?></td>
                     </tr>
 
                     <tr>
@@ -179,6 +189,19 @@
                     <tr>
                         <th>Google reCAPTCHA:</th>
                         <td><?= esc(setting()->get('App.apps', 'google:Recaptcha')) ?></td>
+                    </tr>
+
+                    <tr>
+                        <th>Google Maps URL:</th>
+                        <td>
+                            <a href="<?= esc(setting()->get('App.apps', 'google:Maps', 'url')) ?>"
+                                target="_blank"
+                                rel=”nofollow”
+                                class="link link-secondary"
+                            >
+                                <?= esc(setting()->get('App.apps', 'google:Maps')) ?>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

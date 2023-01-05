@@ -65,6 +65,31 @@
             </div>
             <!-- Fin del campo del nombre de la empresa -->
 
+            <!-- Campo de la dirección de la empresa -->
+            <div class="form-control">
+                <label for="address" class="label">
+                    <span class="label-text">
+                        Dirección de la empresa:
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    required
+                    maxlength="256"
+                    placeholder="Escribe la dirección de la empresa"
+                    value="<?= esc(setting()->get('App.general', 'address')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('address')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de la dirección de la empresa -->
+
             <!-- Campo del teléfono de la empresa -->
             <div class="form-control">
                 <label for="phone" class="label">
@@ -89,6 +114,31 @@
                 </label>
             </div>
             <!-- Fin del campo del teléfono de la empresa -->
+
+            <!-- Campo del horario de la empresa -->
+            <div class="form-control">
+                <label for="schedules" class="label">
+                    <span class="label-text">
+                        Horario de la empresa:
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    name="schedules"
+                    id="schedules"
+                    required
+                    maxlength="256"
+                    placeholder="Escribe el horario de la empresa"
+                    value="<?= esc(setting()->get('App.general', 'schedules')) ?>"
+                    class="input input-bordered input-primary"
+                >
+                <label class="label">
+                    <span class="label-text-alt text-error">
+                        <?= esc($validation->getError('schedules')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo del horario de la empresa -->
 
             <!-- Campo del tema de colores -->
             <div class="form-control">
@@ -398,6 +448,30 @@
                 </label>
             </div>
             <!-- Fin del campo del reCAPTCHA -->
+
+            <!-- Campo de la URL del iframe de Google Maps -->
+            <div class="form-control">
+                <label for="googleMaps" class="label">
+                    <span class="label-text">
+                        URL del <code class="text-warning">iframe</code> de Google Maps:
+                    </span>
+                </label>
+                <input
+                    type="url"
+                    name="googleMaps"
+                    id="googleMaps"
+                    maxlength="2048"
+                    placeholder="Escribe la URL del iframe de Google Maps"
+                    value="<?= esc(setting()->get('App.apps', 'google:Maps')) ?>"
+                    class="input input-bordered input-secondary"
+                >
+                <label class="label">
+                    <span class="label-text-alt">
+                        <?= esc($validation->getError('googleMaps')) ?>
+                    </span>
+                </label>
+            </div>
+            <!-- Fin del campo de la URL del iframe de Google Maps -->
         </section>
         <!-- Fin del grupo de campos de aplicaciones -->
 

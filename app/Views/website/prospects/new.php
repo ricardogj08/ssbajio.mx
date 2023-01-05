@@ -38,9 +38,8 @@
                     <div class="bg-gradient-to-br from-ssbajio-red-2 via-ssbajio-red-1 to-ssbajio-orange-1 px-6 lg:px-24 pt-6 lg:pt-24 pb-14 lg:pb-30 rounded-2xl flex flex-col gap-y-7 lg:gap-y-14 font-semibold lg:-mb-16">
                         <div class="flex items-center gap-x-5 lg:gap-x-10">
                             <i class="bi bi-geo-alt text-2xl lg:text-28"></i>
-                            <h3 class="lg:whitespace-pre-line">Prol. Zaragoza 99 Int. 43. Col.
-                                Jardines de la Hacienda, Querétaro,
-                                Qro. CP. 7180
+                            <h3 class="tracking-wide">
+                                <?= esc(setting()->get('App.general', 'address')) ?>
                             </h3>
                         </div>
                         <div class="flex items-center gap-x-5 lg:gap-x-10">
@@ -51,8 +50,8 @@
                         </div>
                         <div class="flex items-center gap-x-5 lg:gap-x-10">
                             <i class="bi bi-clock text-2xl lg:text-28"></i>
-                            <h3 class="whitespace-pre-line">Lunes a Viernes
-                                8:30 am · 6:30 pm
+                            <h3 class="w-36">
+                                <?= esc(setting()->get('App.general', 'schedules')) ?>
                             </h3>
                         </div>
                     </div>

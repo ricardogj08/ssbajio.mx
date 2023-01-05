@@ -17,8 +17,16 @@ class SettingSeeder extends Seeder
             setting()->set('App.general', 'Soluciones de Sujeción del Bajío', 'company');
         }
 
+        if (setting()->get('App.general', 'address') === null) {
+            setting()->set('App.general', 'Carretera Federal 57 México Querétaro Lateral Norte Km 201, 76240 Santiago de Querétaro, Qro.', 'address');
+        }
+
         if (setting()->get('App.general', 'phone') === null) {
-            setting()->set('App.general', '442 215 2730', 'phone');
+            setting()->set('App.general', '442 220 9582', 'phone');
+        }
+
+        if (setting()->get('App.general', 'schedules') === null) {
+            setting()->set('App.general', 'Lunes a Viernes 9:00 am · 6:30 pm', 'schedules');
         }
 
         if (setting()->get('App.general', 'theme') === null) {
@@ -51,6 +59,10 @@ class SettingSeeder extends Seeder
 
         if (setting()->get('App.apps', 'google:Recaptcha') === null) {
             setting()->set('App.apps', '6LeKlZojAAAAALJDscGS6k4ko0ZCOCNn8vgp_Ks4', 'google:Recaptcha');
+        }
+
+        if (setting()->get('App.apps', 'google:Maps') === null) {
+            setting()->set('App.apps', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7470.758514053875!2d-100.30782083612978!3d20.572563976536227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d343d2a90eed71%3A0x131fe1da87f977e6!2sSoluciones%20De%20Sujecion%20Del%20Bajio!5e0!3m2!1ses!2smx!4v1672939385720!5m2!1ses!2smx', 'google:Maps');
         }
     }
 }

@@ -21,13 +21,15 @@ class Settings extends BaseController
             'acid', 'lemonade', 'night', 'coffee', 'winter',
         ];
 
-        $themeslist = implode(',', array_merge($themes, ['']));
+        $themeslist = implode(',', $themes);
 
         // Valida los campos del formulario.
         if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
             'company'                   => 'required|max_length[256]',
+            'address'                   => 'required|max_length[256]',
             'phone'                     => 'required|max_length[15]',
-            'theme'                     => "if_exist|string|in_list[{$themeslist}]",
+            'schedules'                 => 'required|max_length[256]',
+            'theme'                     => "permit_empty|string|in_list[{$themeslist}]",
             'favicon'                   => 'max_size[favicon,2048]|is_image[favicon]',
             'background'                => 'max_size[background,2048]|is_image[background]',
             'logo'                      => 'max_size[logo,2048]|is_image[logo]',
@@ -39,12 +41,19 @@ class Settings extends BaseController
             'googleSearchConsole'       => 'max_size[googleSearchConsole,2]|mime_in[googleSearchConsole,text/plain]|ext_in[googleSearchConsole,html]',
             'deleteGoogleSearchConsole' => 'if_exist|in_list[1]',
             'googleRecaptcha'           => 'if_exist|max_length[256]',
+            'googleMaps'                => 'if_exist|valid_url_strict',
         ])) {
             // Nombre de la empresa.
             setting()->set('App.general', trimAll($this->request->getPost('company')), 'company');
 
+            // Derección de la empresa.
+            setting()->set('App.general', trimAll($this->request->getPost('address')), 'address');
+
             // Teléfono de contacto.
             setting()->set('App.general', trimAll($this->request->getPost('phone')), 'phone');
+
+            // Horarios de la empresa.
+            setting()->set('App.general', trimAll($this->request->getPost('schedules')), 'schedules');
 
             // Tema de colores.
             setting()->set('App.general', strtrim($this->request->getPost('theme')), 'theme');
@@ -160,6 +169,9 @@ class Settings extends BaseController
 
             // Google reCAPTCHA.
             setting()->set('App.apps', strtrim($this->request->getPost('googleRecaptcha')), 'google:Recaptcha');
+
+            // Google Maps URL.
+            setting()->set('App.apps', strtrim($this->request->getPost('googleMaps')), 'google:Maps');
 
             return redirect()
                 ->route('backend.settings.index')

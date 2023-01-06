@@ -9,7 +9,8 @@
     name="description"
     content="Distribuidores Mayoristas de Tornillería Industrial, Refaccionaria, para Construcción, Ferretera y Automotriz. Con Servicio de administración de almacenes."
     >
-    <script src="<?= base_url('js/observe.js') ?>" type="module" defer></script>
+
+    <script src="<?= base_url('js/website/home/index/observe.js') ?>" type="module" defer></script>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>

@@ -11,6 +11,7 @@
     >
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="<?= base_url('js/website/home/index/observe.js') ?>" type="module" defer></script>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>

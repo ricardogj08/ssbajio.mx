@@ -9,15 +9,16 @@ function uploadFile (file, setProgressCallback) {
   const HOST = 'http://localhost:8080/backend/modulos/blog/attachments'
   const key = createStorageKey(file)
   const formData = createFormData(key, file)
-  // const csrfToken = document.querySelector('input[name="csrf_test_name"]').value
+  const token = document.querySelector('input[name="csrf"]').value
 
   fetch(HOST, {
     method: 'POST',
-    // headers: {
-    //   'X-CSRF-TOKEN': csrfToken// <--- aquí el token
-    // },
+    headers: {
+      'X-CSRF-TOKEN': token, // CSRF Token
+      'X-Requested-With': 'XMLHttpRequest'
+    },
     body: formData,
-    mode: 'cors', // no-cors, *cors, same-origin
+    mode: 'same-origin', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin' // include, *same-origin, omit
   }).then(response => {
@@ -46,7 +47,6 @@ window.addEventListener('trix-attachment-add', event => {
   if (!event.attachment.file) return
   uploadFileAttachment(event.attachment)
 })
-console.log('que pedo')
 
 window.addEventListener('trix-attachment-remove', event => {
   console.log('Deleting file...')

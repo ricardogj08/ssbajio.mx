@@ -18,7 +18,7 @@
 
     <div
         style="background-image: url('<?= base_url('images/website/prospects/new/hero.webp') ?>');"
-        class="bg-cover bg-cover bg-no-repeat"
+        class="bg-cover bg-no-repeat"
     >
         <!-- Filtro de opacidad -->
         <div class="backdrop-brightness-20">

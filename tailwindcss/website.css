@@ -29,8 +29,4 @@
 	.ssbajio-mask {
 		clip-path: polygon(0 0, 100% 0, 100% 28%, 35% 100%, 0 100%, 0% 50%);
 	}
-
-	.nav-scrolled {
-		@apply bg-red-400
-	}
 }

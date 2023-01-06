@@ -13,7 +13,9 @@ class UserSeeder extends Seeder
     {
         $roleModel = model('RoleModel');
 
-        $role = $roleModel->where('name', 'admin')->first();
+        $role = $roleModel->select('id')
+            ->where('name', 'admin')
+            ->first();
 
         $userModel = model('UserModel');
 

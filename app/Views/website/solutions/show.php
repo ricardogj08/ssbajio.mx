@@ -52,7 +52,7 @@
 
     <div class="bg-ssbajio-gray-light-3">
         <div class="container">
-            <div class="pt-20 lg:pt-82">
+            <div class="pt-20 lg:pt-82 pb-25 lg:pb-50">
                 <!-- Subtitulo de la solución -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-7.5 pb-3 lg:pb-6">
                     <h2 class="lg:col-start-3 lg:col-span-5 text-ssbajio-dark-1 text-lg font-semibold">
@@ -68,6 +68,25 @@
                     </p>
                 </div>
                 <!-- Fin de la descripción de la solución -->
+
+                <!-- Categorías y productos -->
+                <?php foreach ($categories as $category): ?>
+                    <!-- Categoría de productos -->
+                    <div class="text-center pt-20 lg:pt-40">
+                        <h2 class="text-ssbajio-dark-1 text-3xl lg:text-35 font-title uppercase mb-2.5 lg:mb-5">
+                            <?= esc($category->name) ?>
+                        </h2>
+
+                        <p class="text-ssbajio-gray-dark-1 text-17 font-light">
+                            <?= esc($category->description) ?>
+                        </p>
+
+                        <!-- Lista de productos -->
+                        <!-- Fin de la lista de productos -->
+                    </div>
+                    <!-- Fin de la categoría de productos -->
+                <?php endforeach ?>
+                <!-- Fin de las categorías y productos -->
             </div>
         </div>
     </div>

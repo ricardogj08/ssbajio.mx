@@ -21,6 +21,7 @@ class CreateSolutionsTable extends Migration
                 'type'       => 'varchar',
                 'constraint' => 32,
                 'unique'     => true,
+                'null'       => true,
             ],
             'slug' => [
                 'type'       => 'varchar',
@@ -69,6 +70,12 @@ class CreateSolutionsTable extends Migration
             'description' => [
                 'type'       => 'varchar',
                 'constraint' => 512,
+            ],
+            'small' => [
+                'type'       => 'tinyint',
+                'constraint' => 1,
+                'unsigned'   => true,
+                'default'    => false,
             ],
             'created_at' => [
                 'type' => 'datetime',

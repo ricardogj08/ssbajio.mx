@@ -29,10 +29,19 @@ class Solutions extends BaseController
                 ->orderBy('created_at', 'asc')
                 ->findAll();
 
+            $categoryModel = model('CategoryModel');
+
+            // Consulta todas las categorías de los productos de la solución.
+            $categories = $categoryModel->select('name, description')
+                ->where('solution_id', $solution->id)
+                ->orderBy('created_at', 'asc')
+                ->findAll();
+
             return view('website/solutions/show', [
                 'solution'   => $solution,
                 'title_size' => strlen($solution->title),
                 'solutions'  => $solutions,
+                'categories' => $categories,
             ]);
         }
 

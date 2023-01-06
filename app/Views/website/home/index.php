@@ -121,9 +121,9 @@
                         <h2 class="text-white text-3xl lg:text-35 font-title uppercase mb-3 lg:mb-6">
                             Nuestras soluciones
                         </h2>
-                        <h3 class="text-ssbajio-gray-light-4 lg:text-xl font-light">
+                        <p class="text-ssbajio-gray-light-4 lg:text-xl font-light">
                             Venta y Distribución de Tornillería, Productos Industriales y Herramientas.
-                        </h3>
+                        </p>
                     </div>
 
                     <!-- Carrusel de soluciones -->

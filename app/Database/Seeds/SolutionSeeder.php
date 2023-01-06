@@ -27,6 +27,7 @@ class SolutionSeeder extends Seeder
                 'caption'         => null,
                 'subtitle'        => 'Mayoristas de tornillos, tuercas, rondanas y tornillería especializada.',
                 'description'     => 'Somos proveedores y distribuidores en soluciones de herramientas de sujeción, contamos con una amplia gama de tornillos y aplicaciones, si no encuentras un elemento a la medida, lo fabricamos para ti.',
+                'small'           => false,
             ],
             [
                 'alias'           => 'herramientas',
@@ -41,6 +42,7 @@ class SolutionSeeder extends Seeder
                 'caption'         => 'Venta de herramientas eléctricas y manuales',
                 'subtitle'        => 'Distribuidores mayoristas de herramientas para el sector, alimenticio, automotriz, para construcción e industrial.',
                 'description'     => 'Contamos con un gran stock de accesorios y materiales industriales de las mejoras marcas ofrecerte una solución integral para tu empresa.',
+                'small'           => false,
             ],
             [
                 'alias'           => 'pinturas',
@@ -55,6 +57,7 @@ class SolutionSeeder extends Seeder
                 'caption'         => 'Distribuidores autorizados de pintura Sherwin Williams',
                 'subtitle'        => 'Descubre nuestra gran variedad de productos para repintado automotriz.',
                 'description'     => 'Trabajamos para proporcionar soluciones de recubrimientos avanzados y un servicio de calidad con productos de línea arquitectónica, línea para estructuras, pisos, sistema contra incendios y especializados para la industria alimenticia, farmacéutica, metalmecánica, automotriz e industrial en general.',
+                'small'           => true,
             ],
             [
                 'alias'           => 'ferreteria',
@@ -69,6 +72,7 @@ class SolutionSeeder extends Seeder
                 'caption'         => null,
                 'subtitle'        => 'Gran variedad de accesorios especializados para las diferentes industrias.',
                 'description'     => 'En SSB nos especializamos en proveer productos de ferretería para cubrir las necesidades de nuestros clientes, brindando equipos de calidad con las mejores marcas y con los mejores precios del mercado para tu empresa.',
+                'small'           => false,
             ],
             [
                 'alias'           => 'contingencia',
@@ -83,6 +87,7 @@ class SolutionSeeder extends Seeder
                 'caption'         => null,
                 'subtitle'        => 'Protégete ante la emergencia sanitaria.',
                 'description'     => 'Contamos con la mejor calidad de cubrebocas, gel antibacterial, tapete sanitizantes, guantes, caretas, termómetros y lentes de seguridad, para que estes seguro en todo momento.',
+                'small'           => true,
             ],
             [
                 'alias'           => 'filtros',
@@ -97,6 +102,7 @@ class SolutionSeeder extends Seeder
                 'caption'         => null,
                 'subtitle'        => 'Distribuidor oficial de filtros y refacciones automotrices para equipo pesado y ligero.',
                 'description'     => 'En SSB somos distribuidores oficiales de MANN FILTER, contando con una amplia línea de productos tanto para equipo pesado, como para equipo ligero, así como filtros de Aire, Aceite, Cabina y Combustible. Todos los productos con los que contamos son fabricados de acuerdo con las últimas normas internacionales de fabricación y especificaciones de la industria.',
+                'small'           => false,
             ],
         ]);
     }

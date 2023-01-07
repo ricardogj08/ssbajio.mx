@@ -1,73 +1,101 @@
-const HOSTURLS = {
-  upload: 'http://localhost:8080/backend/modulos/blog/attachments',
-  access: 'http://localhost:8080/uploads/website/posts/attachments/'
-}
+const HOST = document.querySelector('input[name="host"]').value
+const TOKEN = document.querySelector('input[name="csrf"]').value
 
-let fileName = ''
-const token = document.querySelector('input[name="csrf"]').value
+/**
+ * Evento que escucha al agregar un archivo adjunto en Trix.
+ */
+window.addEventListener('trix-attachment-add', event => {
+  if (event.attachment.file) {
+    uploadFileAttachment(event.attachment)
+  }
+})
 
+/**
+ * Evento que escucha al eliminar un archivo adjunto en Trix.
+ */
+window.addEventListener('trix-attachment-remove', event => {
+  if (event.attachment.file) {
+    deleteFileAttachment(event.attachment)
+  }
+})
+
+/**
+ * Almacena un archivo adjunto en el servidor desde Trix.
+ */
 function uploadFileAttachment (attachment) {
-  const setProgress = (progress) => attachment.setUploadProgress(progress)
-  const setAttributes = (attributes) => attachment.setAttributes(attributes)
+  const setProgress = progress => attachment.setUploadProgress(progress)
+  const setAttributes = attributes => attachment.setAttributes(attributes)
 
   uploadFile(attachment.file, setProgress, setAttributes)
 }
 
-function uploadFile (file, setProgressCallback, setSuccessCallback) {
+/**
+ * Almacena un archivo adjunto en el servidor.
+ */
+function uploadFile (file, progressCallback, successCallback) {
   const formData = createFormData(file)
 
-  fetch(HOSTURLS.upload, {
+  fetch(HOST, {
     method: 'POST',
     headers: {
-      'X-CSRF-TOKEN': token, // CSRF Token
+      'X-CSRF-TOKEN': TOKEN,
       'X-Requested-With': 'XMLHttpRequest'
     },
     body: formData,
-    mode: 'same-origin', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin' // include, *same-origin, omit
-  }).then(response => {
-    setProgressCallback(100)
-    return response.json()
-  }).then(obj => {
-    fileName = obj.attachment
-
-    const attributes = {
-      url: `${HOSTURLS.access}${fileName}`,
-      href: `${HOSTURLS.access}${fileName}?content-disposition=attachment`
-    }
-    setSuccessCallback(attributes)
+    mode: 'same-origin',
+    cache: 'no-cache',
+    credentials: 'same-origin'
   })
-    .catch(err => console.log(err))
+    .then(res => {
+      progressCallback(100)
+
+      return res.json()
+    })
+    .then(json => {
+      console.log(json)
+
+      const attachment = json.attachment
+
+      const attributes = {
+        filename: attachment.filename,
+        url: attachment.url,
+        href: attachment.url + '?content-disposition=attachment'
+      }
+
+      successCallback(attributes)
+    })
+    .catch(err => console.error(err))
 }
 
+/**
+ * Define el cuerpo de la petición.
+ */
 function createFormData (file) {
   const data = new FormData()
+
   data.append('Content-Type', file.type)
   data.append('attachment', file)
+
   return data
 }
 
-function deleteFile () {
-  fetch(`${HOSTURLS.upload}/${fileName}`, {
+/**
+ * Elimina un archivo adjunto en el servidor desde Trix.
+ */
+function deleteFileAttachment (file) {
+  const endpoint = new URL(file.getAttribute('filename'), HOST + '/')
+
+  fetch(endpoint, {
     method: 'DELETE',
     headers: {
-      'X-CSRF-TOKEN': token, // CSRF Token
+      'X-CSRF-TOKEN': TOKEN,
       'X-Requested-With': 'XMLHttpRequest'
     },
-    mode: 'same-origin', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin' // include, *same-origin, omit
+    mode: 'same-origin',
+    cache: 'no-cache',
+    credentials: 'same-origin'
   })
-    .then(response => console.log(response))
-    .catch(err => console.log(err))
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .catch(err => console.error(err))
 }
-
-window.addEventListener('trix-attachment-add', event => {
-  if (!event.attachment.file) return
-  uploadFileAttachment(event.attachment)
-})
-
-window.addEventListener('trix-attachment-remove', event => {
-  deleteFile()
-})

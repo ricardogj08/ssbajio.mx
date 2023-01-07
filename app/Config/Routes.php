@@ -134,7 +134,7 @@ $routes->group('backend', static function ($routes) {
                 $routes->get('', 'Backend\Modules\Posts::index', ['as' => 'backend.modules.posts.index']);
                 $routes->get('(:num)', 'Backend\Modules\Posts::show/$1', ['as' => 'backend.modules.posts.show']);
                 $routes->post('eliminar/(:num)', 'Backend\Modules\Posts::delete/$1', ['as' => 'backend.modules.posts.delete']);
-                $routes->post('attachments', 'Backend\Modules\Posts::createAttachment', ['as' => 'backend.modules.posts.create.attachment']);
+                $routes->post('attachments', 'Backend\Modules\Posts::createAttachment', ['as' => 'backend.modules.posts.createAttachment']);
                 $routes->delete('attachments/(:segment)', 'Backend\Modules\Posts::deleteAttachment/$1', ['as' => 'backend.modules.posts.deleteAttachment']);
             });
 

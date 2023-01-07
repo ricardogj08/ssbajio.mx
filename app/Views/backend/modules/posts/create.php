@@ -3,7 +3,7 @@
 <?= $this->section('head') ?>
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/trix.css') ?>">
 
-    <script type="text/javascript" src="<?= base_url('js/trix.js') ?>"></script>
+    <script src="<?= base_url('js/trix.js') ?>"></script>
     <script src="<?= base_url('js/backend/modules/posts/create/createAttachment.js') ?>" type="module" defer></script>
 
     <title>
@@ -39,6 +39,8 @@
 
     <!-- Formulario de registro de artículos -->
     <?= form_open_multipart(url_to('backend.modules.posts.create')) ?>
+        <input type="hidden" name="host" value="<?= url_to('backend.modules.posts.createAttachment') ?>">
+
         <div class="flex flex-col gap-y-2">
             <!-- Campo del título -->
             <div class="form-control">

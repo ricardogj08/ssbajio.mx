@@ -207,15 +207,18 @@ class Posts extends BaseController
             }
 
             // Ruta de archivos adjuntos subidos para los artículos.
-            $uploadsPath = FCPATH . 'uploads/website/posts/attachments/';
+            $uploadsPath = 'uploads/website/posts/attachments/';
 
             $newName = $attachment->getRandomName();
 
             // Almacena el archivo.
-            $attachment->move($uploadsPath, $newName);
+            $attachment->move(FCPATH . $uploadsPath, $newName);
 
             return $this->respondCreated([
-                'attachment' => $newName,
+                'attachment' => [
+                    'filename' => $newName,
+                    'url'      => '/' . $uploadsPath . $newName,
+                ],
             ]);
         }
 
@@ -230,5 +233,28 @@ class Posts extends BaseController
      */
     public function deleteAttachment($attachment = null)
     {
+        if ($this->validateData(
+            ['attachment' => $attachment],
+            ['attachment' => 'required|string']
+        )) {
+            $file = basename($attachment);
+
+            // Ruta de archivos adjuntos subidos para los artículos.
+            $uploadsPath = 'uploads/website/posts/attachments/';
+
+            $filePath = FCPATH . $uploadsPath . $file;
+
+            // Elimina el archivo.
+            is_file($filePath) && unlink($filePath);
+
+            return $this->respondDeleted([
+                'attachment' => [
+                    'filename' => $file,
+                    'url'      => '/' . $uploadsPath . $file,
+                ],
+            ]);
+        }
+
+        return $this->failValidationError($this->validator->getError('attachment'));
     }
 }

@@ -41,7 +41,7 @@
                 <button
                     data-collapse-toggle="navbar"
                     type="button"
-                    class="lg:hidden text-2xl leading-none p-1 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                    class="lg:hidden text-2xl leading-none p-1 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:text-ssbajio-gray-dark-1"
                     aria-controls="navbar"
                     aria-expanded="false"
                 >

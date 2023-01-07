@@ -17,8 +17,10 @@
     <div class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5">
         <?= $this->include('website/layouts/header') ?>
 
+        <div class="observable"></div>
+
         <!-- Primera sección -->
-        <section class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5 observable">
+        <section class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5">
             <div class="container">
                 <div class="pt-8 lg:pt-15 pb-28 lg:pb-53">
                     <!-- Titulo y tornillo con sello -->

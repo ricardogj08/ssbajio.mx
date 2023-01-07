@@ -2,7 +2,7 @@ const headerNav = document.querySelector('header nav')
 const sectionToObserve = document.querySelector('.observable')
 
 const observableOptions = {
-  rootMargin: '-250px 0px 0px 0px'
+  rootMargin: '-64px 0px 0px 0px'
 }
 
 const sectionObserver = new IntersectionObserver((entries, sectionObserver) => {

@@ -18,14 +18,16 @@
 
     <div
         style="background-image: url('<?= base_url('images/website/prospects/new/hero.webp') ?>');"
-        class="bg-cover bg-center bg-no-repeat"
+        class="bg-cover xl:bg-contain bg-top bg-no-repeat"
     >
         <!-- Filtro de opacidad -->
         <div class="backdrop-brightness-20">
             <?= $this->include('website/layouts/header') ?>
 
+            <div class="observable"></div>
+
             <!-- Sección de contacto -->
-            <div class="container relative observable">
+            <div class="container relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-7.5 items-baseline pt-13 pb-13 lg:pb-0 text-white">
                     <div>
                         <h1 class="text-4xl lg:text-6xl font-title uppercase mb-6">

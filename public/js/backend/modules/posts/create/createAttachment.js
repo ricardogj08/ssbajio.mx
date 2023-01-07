@@ -1,17 +1,22 @@
+const HOSTURLS = {
+  upload: 'http://localhost:8080/backend/modulos/blog/attachments',
+  access: 'http://localhost:8080/uploads/website/posts/attachments/'
+}
+
+let fileName = ''
+const token = document.querySelector('input[name="csrf"]').value
 
 function uploadFileAttachment (attachment) {
   const setProgress = (progress) => attachment.setUploadProgress(progress)
+  const setAttributes = (attributes) => attachment.setAttributes(attributes)
 
-  uploadFile(attachment.file, setProgress)
+  uploadFile(attachment.file, setProgress, setAttributes)
 }
 
-function uploadFile (file, setProgressCallback) {
-  const HOST = 'http://localhost:8080/backend/modulos/blog/attachments'
-  const key = createStorageKey(file)
-  const formData = createFormData(key, file)
-  const token = document.querySelector('input[name="csrf"]').value
+function uploadFile (file, setProgressCallback, setSuccessCallback) {
+  const formData = createFormData(file)
 
-  fetch(HOST, {
+  fetch(HOSTURLS.upload, {
     method: 'POST',
     headers: {
       'X-CSRF-TOKEN': token, // CSRF Token
@@ -24,23 +29,38 @@ function uploadFile (file, setProgressCallback) {
   }).then(response => {
     setProgressCallback(100)
     return response.json()
-  }).then(obj => console.log(obj))
+  }).then(obj => {
+    fileName = obj.attachment
+
+    const attributes = {
+      url: `${HOSTURLS.access}${fileName}`,
+      href: `${HOSTURLS.access}${fileName}?content-disposition=attachment`
+    }
+    setSuccessCallback(attributes)
+  })
     .catch(err => console.log(err))
 }
 
-function createStorageKey (file) {
-  const date = new Date()
-  const day = date.toISOString().slice(0, 10)
-  const name = date.getTime() + '-' + file.name
-  return ['tmp', day, name].join('/')
-}
-
-function createFormData (key, file) {
+function createFormData (file) {
   const data = new FormData()
-  data.append('key', key)
   data.append('Content-Type', file.type)
   data.append('attachment', file)
   return data
+}
+
+function deleteFile () {
+  fetch(`${HOSTURLS.upload}/${fileName}`, {
+    method: 'DELETE',
+    headers: {
+      'X-CSRF-TOKEN': token, // CSRF Token
+      'X-Requested-With': 'XMLHttpRequest'
+    },
+    mode: 'same-origin', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin' // include, *same-origin, omit
+  })
+    .then(response => console.log(response))
+    .catch(err => console.log(err))
 }
 
 window.addEventListener('trix-attachment-add', event => {
@@ -49,6 +69,5 @@ window.addEventListener('trix-attachment-add', event => {
 })
 
 window.addEventListener('trix-attachment-remove', event => {
-  console.log('Deleting file...')
-  console.log(event.attachment.file)
+  deleteFile()
 })

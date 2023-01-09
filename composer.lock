@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f99e368d17c90832222913ba485e7646",
+    "content-hash": "564fb016493ad080b3fae2b54741ca69",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -192,6 +192,58 @@
                 "source": "https://github.com/codeigniter4/translations"
             },
             "time": "2022-12-31T10:36:24+00:00"
+        },
+        {
+            "name": "imangazaliev/didom",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Imangazaliev/DiDOM.git",
+                "reference": "87f7089d95aef7fd09dc68826cfa245b90f3040b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Imangazaliev/DiDOM/zipball/87f7089d95aef7fd09dc68826cfa245b90f3040b",
+                "reference": "87f7089d95aef7fd09dc68826cfa245b90f3040b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-iconv": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DiDom\\": "src/DiDom/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Imangazaliev Muhammad",
+                    "email": "imangazalievm@gmail.com"
+                }
+            ],
+            "description": "Simple and fast HTML parser",
+            "homepage": "https://github.com/Imangazaliev/DiDOM",
+            "keywords": [
+                "didom",
+                "html",
+                "parser",
+                "xml"
+            ],
+            "support": {
+                "issues": "https://github.com/Imangazaliev/DiDOM/issues",
+                "source": "https://github.com/Imangazaliev/DiDOM/tree/2.0"
+            },
+            "time": "2022-05-08T01:48:13+00:00"
         },
         {
             "name": "kint-php/kint",

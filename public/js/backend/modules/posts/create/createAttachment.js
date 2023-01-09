@@ -14,7 +14,7 @@ window.addEventListener('trix-attachment-add', event => {
  * Evento que escucha al eliminar un archivo adjunto en Trix.
  */
 window.addEventListener('trix-attachment-remove', event => {
-  if (event.attachment.file) {
+  if (event.attachment.attachment) {
     deleteFileAttachment(event.attachment)
   }
 })

@@ -2,12 +2,12 @@
 
 <?= $this->section('head') ?>
     <title>
-        Test
+        <?= esc($post->title) ?>
     </title>
 
     <meta
         name="description"
-        content=""
+        content="<?= esc($post->excerpt) ?>"
     >
 <?= $this->endSection() ?>
 
@@ -31,8 +31,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-7.5">
                 <!-- Cuerpo del artículo -->
                 <div class="lg:col-span-9">
-                    <h1 class="text-4xl lg:text-50 font-title text-ssbajio-dark-1 uppercase mb-3 lg:mb-6">
-                        Aquí va el título
+                    <h1 class="text-4xl lg:text-50 font-title text-ssbajio-dark-1 uppercase leading-tight mb-3 lg:mb-6">
+                        <?= esc($post->title) ?>
                     </h1>
 
                     <h2 class="text-lg lg:text-2xl text-ssbajio-gray-dark-3 font-light mb-5 lg:mb-10">
@@ -41,16 +41,16 @@
 
                     <!-- Portada -->
                     <div
-                        style="background-image: url('https://picsum.photos/1920/1080')"
+                        style="background-image: url('<?= base_url(['uploads/website/posts/covers/', $post->cover]) ?>')"
                         class="bg-cover bg-center bg-no-repeat"
                     >
                         <div class="grid grid-cols-4 lg:grid-cols-9 lg:gap-7.5 pt-32 lg:pt-74">
                             <div class="bg-ssbajio-dark-1 col-span-1 lg:col-span-2 py-5 lg:py-10 text-white text-center">
                                 <div class="mb-2 text-2xl lg:text-50 font-title leading-none">
-                                    08
+                                    <?= CodeIgniter\I18n\Time::parse($post->started_at ?? $post->created_at)->toLocalizedString('dd') ?>
                                 </div>
                                 <div class="text-xs lg:text-xl font-semibold uppercase">
-                                    Junio
+                                    <?= CodeIgniter\I18n\Time::parse($post->started_at ?? $post->created_at)->toLocalizedString('MMMM') ?>
                                 </div>
                             </div>
                         </div>
@@ -59,6 +59,8 @@
 
                     <!-- Contenido del artículo -->
                     <div class="pt-7 lg:pt-14">
+                        <?= esc($post->body, 'raw') ?>
+
                         <h3 class="text-3xl lg:text-45 text-ssbajio-dark-1 font-bold leading-none mb-3.5 lg:mb-7.5">
                             Subtítulo H3
                         </h3>

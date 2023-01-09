@@ -3,6 +3,7 @@
 namespace App\Controllers\Website;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Posts extends BaseController
 {
@@ -34,6 +35,21 @@ class Posts extends BaseController
      */
     public function show($slug = null)
     {
-        return view('website/posts/show');
+        // Valida si existe el artículo.
+        if ($this->validateData(
+            ['slug' => $slug],
+            ['slug' => 'required|max_length[256]|is_not_unique[posts.slug]']
+        )) {
+            $postModel = model('PostModel');
+
+            // Consulta los datos del artículo.
+            $post = $postModel->where('slug', $slug)->first();
+
+            return view('website/posts/show', [
+                'post' => $post,
+            ]);
+        }
+
+        throw PageNotFoundException::forPageNotFound();
     }
 }

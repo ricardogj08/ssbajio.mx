@@ -7,6 +7,7 @@ use App\Libraries\ImageCompressor;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\I18n\Time;
+use DiDom\Document;
 use RuntimeException;
 
 class Posts extends BaseController
@@ -169,6 +170,21 @@ class Posts extends BaseController
 
             // Consulta los datos del artículo.
             $post = $postModel->find($id);
+
+            $document = new Document($post->body);
+
+            // Ruta de archivos adjuntos subidos para los artículos.
+            $uploadsPath = FCPATH . 'uploads/website/posts/attachments/';
+
+            // Elimina todos los archivos adjuntos del artículo.
+            foreach ($document->find('figure *::attr(href)') as $uri) {
+                $file = basename(single_service('uri', $uri)->getPath());
+
+                $filePath = $uploadsPath . $file;
+
+                // Elimina el archivo.
+                is_file($filePath) && unlink($filePath);
+            }
 
             $cover = FCPATH . 'uploads/website/posts/covers/' . $post->cover;
 

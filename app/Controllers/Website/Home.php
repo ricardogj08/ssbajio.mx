@@ -14,7 +14,7 @@ class Home extends BaseController
         $solutionModel = model('SolutionModel');
 
         // Consulta todas las soluciones de ssbajio.
-        $solutions = $solutionModel->select('name, cover, slug, excerpt')
+        $solutions = $solutionModel->select('name, cover, slug, excerpt, thumbnail')
             ->orderBy('created_at', 'asc')
             ->findAll();
 

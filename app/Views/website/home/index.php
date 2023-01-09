@@ -15,7 +15,7 @@
 
 <?= $this->section('content') ?>
     <div class="bg-gradient-to-r from-ssbajio-dark-4 to-ssbajio-gray-dark-5">
-        <?= $this->include('website/layouts/header') ?>
+        <?= $this->setVar('solutions', $solutions)->include('website/layouts/header') ?>
 
         <div class="observable"></div>
 

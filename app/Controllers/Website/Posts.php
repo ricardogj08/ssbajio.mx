@@ -12,6 +12,13 @@ class Posts extends BaseController
      */
     public function index()
     {
+        $solutionModel = model('SolutionModel');
+
+        // Consulta todas las soluciones de ssbajio.
+        $solutions = $solutionModel->select('name, thumbnail, slug')
+            ->orderBy('created_at', 'asc')
+            ->findAll();
+
         $postModel = model('PostModel');
 
         // Consulta los datos de todos los artículos con paginación.
@@ -22,8 +29,9 @@ class Posts extends BaseController
             ->paginate(5, 'posts');
 
         return view('website/posts/index', [
-            'posts' => $posts,
-            'pager' => $postModel->pager,
+            'solutions' => $solutions,
+            'posts'     => $posts,
+            'pager'     => $postModel->pager,
         ]);
     }
 
@@ -40,13 +48,21 @@ class Posts extends BaseController
             ['slug' => $slug],
             ['slug' => 'required|max_length[256]|is_not_unique[posts.slug]']
         )) {
+            $solutionModel = model('SolutionModel');
+
+            // Consulta todas las soluciones de ssbajio.
+            $solutions = $solutionModel->select('name, thumbnail, slug')
+                ->orderBy('created_at', 'asc')
+                ->findAll();
+
             $postModel = model('PostModel');
 
             // Consulta los datos del artículo.
             $post = $postModel->where('slug', $slug)->first();
 
             return view('website/posts/show', [
-                'post' => $post,
+                'solutions' => $solutions,
+                'post'      => $post,
             ]);
         }
 

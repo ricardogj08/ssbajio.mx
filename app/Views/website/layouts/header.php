@@ -1,4 +1,4 @@
-<header class="bg-transparent shadow-md sticky top-0 left-0 right-0 z-30">
+<header class="bg-transparent shadow-md sticky top-0 left-0 right-0 z-30 w-full">
     <nav class="bg-white transition-all ease-in delay-200">
         <div class="container lg:px-12 py-4">
             <!-- Barra de navegación -->
@@ -76,12 +76,13 @@
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="#"
-                                class="block py-2 lg:py-0 border-b lg:border-0 border-ssbajio-gray-dark-2 hover:text-ssbajio-gray-light-1"
+                            <button
+                                id="mega-menu-full-dropdown-button-solutions"
+                                data-collapse-toggle="mega-menu-full-dropdown-solutions"
+                                class="flex w-full py-2 lg:py-0 border-b lg:border-0 border-ssbajio-gray-dark-2 hover:text-ssbajio-gray-light-1"
                             >
                                 Soluciones
-                            </a>
+                            </button>
                         </li>
                         <li>
                             <a
@@ -120,11 +121,36 @@
                 <!-- Fin de los enlaces de navegación -->
             </div>
             <!-- Fin de la barra de navegación -->
-
-            <!-- Submenú de soluciones -->
-            <div>
-            </div>
-            <!-- Fin del submenú de soluciones -->
         </div>
+
+        <!-- Submenú de soluciones -->
+        <div class="hidden bg-white mt-4" id="mega-menu-full-dropdown-solutions">
+            <div class="container">
+                <div class="pt-12 lg:pt-23 pb-12 lg:pb-24">
+                    <div aria-labelledby="mega-menu-full-dropdown-button-solutions">
+                        <div class="grid grid-cols-1 lg:grid-cols-12">
+                            <div class="lg:col-start-5 lg:col-span-8 flex gap-7.5 overflow-x-auto">
+                                <?php foreach ($solutions as $solution): ?>
+                                    <a
+                                        href="<?= url_to('website.solutions.show', $solution->slug) ?>"
+                                        class="shrink-0 group"
+                                    >
+                                        <div
+                                            style="background-image: url('<?= base_url(['uploads/website/solutions/thumbnails/', $solution->thumbnail]) ?>');"
+                                            class="bg-cover bg-center bg-no-repeat text-white uppercase h-58 w-44 rounded-2xl"
+                                        >
+                                            <div class="w-full h-full text-center font-semibold flex items-center px-8 backdrop-brightness-75 group-hover:backdrop-brightness-50 transition rounded-2xl">
+                                                <?= esc($solution->name) ?>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin del submenú de soluciones -->
     </nav>
 </header>

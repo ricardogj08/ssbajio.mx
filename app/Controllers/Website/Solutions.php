@@ -25,7 +25,7 @@ class Solutions extends BaseController
             $solution = $solutionModel->where('slug', $slug)->first();
 
             // Consulta todas las soluciones de ssbajio.
-            $solutions = $solutionModel->select('name, slug, cover')
+            $solutions = $solutionModel->select('name, slug, cover, thumbnail')
                 ->orderBy('created_at', 'asc')
                 ->findAll();
 

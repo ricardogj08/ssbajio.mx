@@ -14,7 +14,7 @@ class About extends BaseController
         $solutionModel = model('SolutionModel');
 
         // Consulta todas las soluciones de ssbajio.
-        $solutions = $solutionModel->select('name, cover, slug')
+        $solutions = $solutionModel->select('name, cover, thumbnail, slug')
             ->orderBy('created_at', 'asc')
             ->findAll();
 

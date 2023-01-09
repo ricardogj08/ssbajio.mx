@@ -3,7 +3,8 @@ module.exports = {
   content: [
     './app/Views/templates/website/**/*.php',
     './app/Views/website/**/*.php',
-    './node_modules/flowbite/**/*.js'
+    './node_modules/flowbite/**/*.js',
+    './public/js/**/*.js'
   ],
   darkMode: 'class',
   theme: {

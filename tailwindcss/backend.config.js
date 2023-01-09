@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     './app/Views/templates/backend/**/*.php',
-    './app/Views/backend/**/*.php'
+    './app/Views/backend/**/*.php',
+    './public/js/**/*.js'
   ],
   theme: {
     container: {

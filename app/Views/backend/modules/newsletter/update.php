@@ -61,14 +61,21 @@
             <!-- Fin del campo del email -->
 
             <div class="flex flex-col lg:flex-row lg:justify-end gap-4">
-                <!-- Botón de submit -->
-                <input type="submit" value="Guardar" class="btn btn-primary">
+                <label for="modal-action-submit" class="btn btn-primary">
+                    Guardar
+                </label>
 
                 <!-- Botón que abre el modal de acción -->
                 <label for="modal-action" class="btn btn-secondary">
                     Cancelar
                 </label>
             </div>
+
+            <!-- Modal de submit -->
+            <?= $this->setData([
+                'id'      => 'modal-action-submit',
+                'message' => '¿Deseas guardar los cambios?',
+            ])->include('backend/layouts/modal-action-submit') ?>
         </div>
     <?= form_close() ?>
     <!-- Fin del formulario de modificación del email -->

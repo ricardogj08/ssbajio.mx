@@ -50,9 +50,9 @@ class Account extends BaseController
             $userModel->update($user->id, [
                 'name'     => trimAll($this->request->getPost('name')),
                 'email'    => lowerCase(trim($this->request->getPost('email'))),
-                'password' => empty($password)
-                    ? $user->password
-                    : password_hash($password, PASSWORD_DEFAULT),
+                'password' => $password
+                    ? password_hash($password, PASSWORD_DEFAULT)
+                    : $user->password,
             ]);
 
             return redirect()

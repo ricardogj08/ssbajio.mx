@@ -7,7 +7,7 @@
     <script src="<?= base_url('js/backend/modules/posts/create/createAttachment.js') ?>" type="module" defer></script>
 
     <title>
-        Blog | Registro
+        <?= esc($post->title) ?> | Modificar
     </title>
 <?= $this->endSection() ?>
 
@@ -15,11 +15,11 @@
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-y-4">
         <div>
             <h1 class="text-2xl font-bold underline decoration-wavy decoration-accent underline-offset-4 mb-2">
-                Escribe un nuevo artículo
+                <?= esc($post->title) ?>
             </h1>
 
             <h2 class="text-sm">
-                Publica o programa un nuevo artículo.
+                Modifica o actualiza los datos del artículo.
             </h2>
 
             <p class="text-error">
@@ -37,8 +37,8 @@
 
     <div class="divider"></div>
 
-    <!-- Formulario de registro de artículos -->
-    <?= form_open_multipart(url_to('backend.modules.posts.create')) ?>
+    <!-- Formulario de modificación del artículo -->
+    <?= form_open_multipart(url_to('backend.modules.posts.update', $post->id)) ?>
         <input type="hidden" name="host" value="<?= url_to('backend.modules.posts.createAttachment') ?>">
 
         <div class="flex flex-col gap-y-2">
@@ -56,9 +56,8 @@
                     required
                     maxlength="256"
                     placeholder="Escribe el título del artículo"
-                    value="<?= set_value('title') ?>"
+                    value="<?= esc($post->title) ?>"
                     class="input input-bordered input-primary"
-                    autofocus
                 >
                 <label class="label">
                     <span class="label-text-alt text-error">
@@ -79,7 +78,6 @@
                     type="file"
                     name="cover"
                     id="cover"
-                    required
                     size="2097152"
                     accept="image/*"
                     class="file-input file-input-bordered file-input-primary"
@@ -108,7 +106,7 @@
                     cols="50"
                     placeholder="Escribe el resumen del artículo..."
                     class="textarea textarea-bordered textarea-primary text-justify resize-none h-32"
-                ><?= set_value('excerpt') ?></textarea>
+                ><?= esc($post->excerpt) ?></textarea>
                 <label class="label">
                     <span class="label-text-alt text-error">
                         <?= esc($validation->getError('excerpt')) ?>
@@ -128,8 +126,9 @@
                     type="datetime-local"
                     name="started_at"
                     id="started_at"
-                    min="<?= esc(CodeIgniter\I18n\Time::now()->toLocalizedString("YYYY-MM-dd'T'HH:mm")) ?>"
-                    value="<?= set_value('started_at') ?>"
+                    value="<?= esc($post->started_at
+                        ? CodeIgniter\I18n\Time::parse($post->started_at)->toLocalizedString("YYYY-MM-dd'T'HH:mm")
+                        : $post->started_at) ?>"
                     class="input input-bordered input-secondary w-full"
                 >
                 <label class="label">
@@ -151,7 +150,7 @@
                     type="hidden"
                     name="body"
                     id="body"
-                    value="<?= set_value('body') ?>"
+                    value="<?= esc($post->body) ?>"
                 >
                 <trix-editor
                     input="body"
@@ -168,21 +167,28 @@
             <!-- Fin de los campos del contenido -->
 
             <div class="flex flex-col lg:flex-row lg:justify-end gap-4">
-                <!-- Botón de submit -->
-                <input type="submit" value="Guardar" class="btn btn-primary">
+                <label for="modal-action-submit" class="btn btn-primary">
+                    Guardar
+                </label>
 
                 <!-- Botón que abre el modal de acción -->
                 <label for="modal-action" class="btn btn-secondary">
                     Cancelar
                 </label>
             </div>
+
+            <!-- Modal de submit -->
+            <?= $this->setData([
+                'id'      => 'modal-action-submit',
+                'message' => '¿Deseas guardar los cambios?',
+            ])->include('backend/layouts/modal-action-submit') ?>
         </div>
     <?= form_close() ?>
-    <!-- Fin del formulario de registro de artículos -->
+    <!-- Fin del formulario de modificación del artículo -->
 
     <?= $this->setData([
         'id'      => 'modal-action',
         'method'  => 'backend.modules.posts.index',
-        'message' => '¿Deseas cancelar la publicación del nuevo artículo?',
+        'message' => '¿Deseas cancelar las modificaciones del artículo?',
     ])->include('backend/layouts/modal-action') ?>
 <?= $this->endSection() ?>

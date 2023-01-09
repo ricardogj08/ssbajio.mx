@@ -38,6 +38,7 @@
                     name="password"
                     id="password"
                     required
+                    autofocus
                     minlength="8"
                     maxlength="32"
                     placeholder="Escribe tu nueva contraseña"

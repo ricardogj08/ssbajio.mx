@@ -108,6 +108,7 @@ Envía por email los últimos artículos publicados:
 * [Tinify - API Reference](https://tinypng.com/developers/reference/php)
 * [Clippy - CSS clip-path maker](https://bennettfeely.com/clippy/)
 * [Tutoriales Hostinger - CodeIgniter Tutorial: The Complete Guide](https://www.hostinger.com/tutorials/codeigniter-tutorial)
+* [Trix - A rich text editor for everyday writing](https://trix-editor.org/)
 
 ## Licencia
 

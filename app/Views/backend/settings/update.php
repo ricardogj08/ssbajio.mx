@@ -442,7 +442,7 @@
                     class="input input-bordered input-secondary"
                 >
                 <label class="label">
-                    <span class="label-text-alt">
+                    <span class="label-text-alt text-error">
                         <?= esc($validation->getError('googleRecaptcha')) ?>
                     </span>
                 </label>
@@ -466,7 +466,7 @@
                     class="input input-bordered input-secondary"
                 >
                 <label class="label">
-                    <span class="label-text-alt">
+                    <span class="label-text-alt text-error">
                         <?= esc($validation->getError('googleMaps')) ?>
                     </span>
                 </label>
@@ -475,7 +475,7 @@
         </section>
         <!-- Fin del grupo de campos de aplicaciones -->
 
-        <div class="flex flex-col lg:flex-row lg:justify-end gap-4 mt-2">
+        <div class="flex flex-col lg:flex-row lg:justify-end gap-4">
             <label for="modal-action-submit" class="btn btn-primary">
                 Guardar
             </label>

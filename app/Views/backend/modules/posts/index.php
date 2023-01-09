@@ -90,7 +90,7 @@
 
                             <!-- Botón para editar un artículo -->
                             <a
-                                href="#"
+                                href="<?= url_to('backend.modules.posts.update', $post->id) ?>"
                                 aria-label="Modificar los datos del artículo"
                                 class="btn btn-square btn-sm btn-outline btn-info"
                             >

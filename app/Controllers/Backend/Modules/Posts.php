@@ -53,13 +53,13 @@ class Posts extends BaseController
                 ['title' => $slug],
                 ['title' => 'max_length[256]|is_unique[posts.slug]'],
             )) {
-                // Ruta de archivos subidos para los artículos.
+                // Ruta de portadas subidos para los artículos.
                 $uploadsPath = FCPATH . 'uploads/website/posts/covers/';
 
                 // Almacena la portada.
                 $cover->move($uploadsPath, $coverName);
 
-                $started_at = trim($this->request->getPost('started_at'));
+                $started_at = strtrim($this->request->getPost('started_at'));
 
                 $postModel = model('PostModel');
 
@@ -72,9 +72,9 @@ class Posts extends BaseController
                     'excerpt'    => trimAll($this->request->getPost('excerpt')),
                     'body'       => trim($this->request->getPost('body')),
                     'active'     => empty($started_at),
-                    'started_at' => empty($started_at)
-                        ? null
-                        : Time::parse($started_at)->toDateTimeString(),
+                    'started_at' => $started_at
+                        ? Time::parse($started_at)->toDateTimeString()
+                        : null,
                 ]);
 
                 ImageCompressor::getInstance()->run($uploadsPath . $coverName);
@@ -145,7 +145,9 @@ class Posts extends BaseController
             // Consulta los datos del artículo.
             $post = $postModel->user()->find($id);
 
-            return view('backend/modules/posts/show', ['post' => $post]);
+            return view('backend/modules/posts/show', [
+                'post' => $post,
+            ]);
         }
 
         throw PageNotFoundException::forPageNotFound();
@@ -256,5 +258,97 @@ class Posts extends BaseController
         }
 
         return $this->failValidationError($this->validator->getError('attachment'));
+    }
+
+    /**
+     * Renderiza la vista para editar un artículo
+     * y modifica los datos de un artículo.
+     *
+     * @param mixed|null $id
+     */
+    public function update($id = null)
+    {
+        if ($this->validateData(
+            ['id' => $id],
+            ['id' => 'required|is_natural_no_zero|is_not_unique[posts.id]']
+        )) {
+            $postModel = model('PostModel');
+
+            // Consulta los datos del artículo.
+            $post = $postModel->user()->find($id);
+
+            // Valida los campos del formulario.
+            if (strtolower($this->request->getMethod()) === 'post' && $this->validate([
+                'title'      => 'required|max_length[256]',
+                'cover'      => 'if_exist|uploaded[cover]|max_size[cover,2048]|is_image[cover]',
+                'excerpt'    => 'required|max_length[512]',
+                'started_at' => 'permit_empty|valid_date[Y-m-d\TH:i]',
+                'body'       => 'required|max_length[2097152]',
+            ])) {
+                $title = trimAll($this->request->getPost('title'));
+
+                // URL del artículo.
+                $slug = mb_url_title($title, '-', true);
+
+                // Valida si el slug del artículo es único a excepción de él mismo.
+                if ($this->validateData(
+                    ['title' => $slug],
+                    ['title' => "max_length[256]|is_unique[posts.slug,slug,{$post->slug}]"]
+                )) {
+                    $cover = $this->request->getFile('cover');
+
+                    $newName = $post->cover;
+
+                    // Portada.
+                    if ($cover->isValid() && ! $cover->hasMoved()) {
+                        // Ruta de portadas subidos para los artículos.
+                        $uploadsPath = FCPATH . 'uploads/website/posts/covers/';
+
+                        $oldCover = $uploadsPath . $post->cover;
+
+                        // Elimina la portada anterior.
+                        is_file($oldCover) && unlink($oldCover);
+
+                        $newName = $cover->getRandomName();
+
+                        // Almacena la nueva portada.
+                        $cover->move($uploadsPath, $newName);
+
+                        ImageCompressor::getInstance()->run($uploadsPath . $newName);
+
+                        unset($cover, $uploadsPath, $oldCover);
+                    }
+
+                    $started_at = strtrim($this->request->getPost('started_at'));
+
+                    // Actualiza los datos del artículo.
+                    $postModel->update($post->id, [
+                        'title'   => $title,
+                        'slug'    => $slug,
+                        'user_id' => session('user.id'),
+                        'cover'   => $newName,
+                        'excerpt' => trimAll($this->request->getPost('excerpt')),
+                        'body'    => trim($this->request->getPost('body')),
+                        'active'  => $started_at
+                            ? Time::now()->isAfter(Time::parse($started_at))
+                            : true,
+                        'started_at' => $started_at
+                            ? Time::parse($started_at)->toDateTimeString()
+                            : null,
+                    ]);
+
+                    return redirect()
+                        ->route('backend.modules.posts.index')
+                        ->with('toast-success', 'El artículo se ha modificado correctamente');
+                }
+            }
+
+            return view('backend/modules/posts/update', [
+                'post'       => $post,
+                'validation' => service('validation'),
+            ]);
+        }
+
+        throw PageNotFoundException::forPageNotFound();
     }
 }

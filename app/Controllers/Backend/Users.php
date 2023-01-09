@@ -186,9 +186,9 @@ class Users extends BaseController
                     'name'     => trimAll($this->request->getPost('name')),
                     'email'    => lowerCase(trim($this->request->getPost('email'))),
                     'role_id'  => $this->request->getPost('role'),
-                    'password' => empty($password)
-                        ? $user->password
-                        : password_hash($password, PASSWORD_DEFAULT),
+                    'password' => $password
+                        ? password_hash($password, PASSWORD_DEFAULT)
+                        : $user->password,
                 ]);
 
                 return redirect()

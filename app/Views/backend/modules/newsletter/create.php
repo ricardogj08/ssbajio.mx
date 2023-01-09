@@ -47,6 +47,7 @@
                     name="email"
                     id="email"
                     required
+                    autofocus
                     maxlength="256"
                     placeholder="Escribe su email"
                     value="<?= set_value('email') ?>"

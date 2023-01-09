@@ -136,6 +136,8 @@ $routes->group('backend', static function ($routes) {
                 $routes->post('eliminar/(:num)', 'Backend\Modules\Posts::delete/$1', ['as' => 'backend.modules.posts.delete']);
                 $routes->post('attachments', 'Backend\Modules\Posts::createAttachment', ['as' => 'backend.modules.posts.createAttachment']);
                 $routes->delete('attachments/(:segment)', 'Backend\Modules\Posts::deleteAttachment/$1', ['as' => 'backend.modules.posts.deleteAttachment']);
+                $routes->get('modificar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
+                $routes->post('modificar/(:num)', 'Backend\Modules\Posts::update/$1', ['as' => 'backend.modules.posts.update']);
             });
 
             // Rutas del módulo del newsletter.

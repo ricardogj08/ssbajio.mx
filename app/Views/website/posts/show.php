@@ -58,7 +58,7 @@
                     <!-- Fin de la portada -->
 
                     <!-- Contenido del artículo -->
-                    <div class="pt-7 lg:pt-14">
+                    <article class="pt-7 lg:pt-14">
                         <?= esc($post->body, 'raw') ?>
 
                         <h3 class="text-3xl lg:text-45 text-ssbajio-dark-1 font-bold leading-none mb-3.5 lg:mb-7.5">
@@ -95,7 +95,7 @@
                             <img src="https://picsum.photos/1920/1080" alt="" class="h-32 lg:h-65 object-cover">
                         </div>
                         <!-- Fin del contenido del artículo -->
-                    </div>
+                    </article>
                 </div>
                 <!-- Fin del cuerpo del artículos -->
 

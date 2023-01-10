@@ -1,5 +1,5 @@
 <!-- Soluciones integrales -->
-<div class="bg-ssbajio-dark-1">
+<section class="bg-ssbajio-dark-1">
     <div class="container">
         <div class="py-20 lg:pt-39 lg:pb-44 text-white relative">
             <h2 class="font-title text-3xl lg:text-35 text-center uppercase mb-6 lg:mb-12">
@@ -12,7 +12,7 @@
                 <?php foreach ($solutions as $itr => $solution): ?>
                     <!-- Solución -->
                     <a href="<?= url_to('website.solutions.show', $solution->slug) ?>" class="group">
-                        <div class="flex flex-col items-center gap-y-5 lg:gap-y-10 lg:px-4">
+                        <article class="flex flex-col items-center gap-y-5 lg:gap-y-10 lg:px-4">
                             <!-- Portada de la solución -->
                             <div
                                 style="background-image: url('<?= base_url('images/website/home/index/' .
@@ -37,7 +37,7 @@
                             <h3 class="text-white text-lg font-semibold mb-2.5 lg:mb-5 text-center">
                                 <?= esc($solution->name) ?>
                             </h3>
-                        </div>
+                        </article>
                     </a>
                     <!-- Fin de la solución -->
                 <?php endforeach ?>
@@ -70,5 +70,5 @@
             <!-- Fin del botón de siguiente -->
         </div>
     </div>
-</div>
+</section>
 <!-- Fin de las soluciones integrales -->

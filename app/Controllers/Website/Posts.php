@@ -4,6 +4,7 @@ namespace App\Controllers\Website;
 
 use App\Controllers\BaseController;
 use CodeIgniter\Exceptions\PageNotFoundException;
+use DiDom\Document;
 
 class Posts extends BaseController
 {
@@ -59,6 +60,50 @@ class Posts extends BaseController
 
             // Consulta los datos del artículo.
             $post = $postModel->where('slug', $slug)->first();
+
+            $document = new Document($post->body);
+
+            foreach ($document->find('br') as $element) {
+                $element->setAttribute('class', 'mb-3.5 lg:mb-7.5');
+            }
+
+            foreach ($document->find('div') as $element) {
+                $element->setAttribute('class', 'text-15 text-ssbajio-gray-dark-4 font-light tracking-wide');
+            }
+
+            foreach ($document->find('h1') as $element) {
+                $element->setAttribute('class', 'text-4xl lg:text-50 text-ssbajio-dark-1 font-bold leading-none');
+            }
+
+            foreach ($document->find('h2') as $element) {
+                $element->setAttribute('class', 'text-38 lg:text-48 text-ssbajio-dark-1 font-bold leading-none');
+            }
+
+            foreach ($document->find('h3') as $element) {
+                $element->setAttribute('class', 'text-3xl lg:text-45 text-ssbajio-dark-1 font-bold leading-none');
+            }
+
+            foreach ($document->find('h4') as $element) {
+                $element->setAttribute('class', 'text-2xl lg:text-38 text-ssbajio-dark-1 font-bold leading-none');
+            }
+
+            foreach ($document->find('h5') as $element) {
+                $element->setAttribute('class', 'text-xl lg:text-28 text-ssbajio-dark-1 font-bold leading-none');
+            }
+
+            foreach ($document->find('h6') as $element) {
+                $element->setAttribute('class', 'text-lg text-ssbajio-dark-1 font-bold leading-none');
+            }
+
+            foreach ($document->find('ol') as $element) {
+                $element->setAttribute('class', 'list-decimal list-inside space-y-2 pl-4 text-15 text-ssbajio-gray-dark-4 font-light tracking-wide');
+            }
+
+            foreach ($document->find('ul') as $element) {
+                $element->setAttribute('class', 'list-disc list-inside space-y-2 pl-4 text-15 text-ssbajio-gray-dark-4 font-light tracking-wide');
+            }
+
+            $post->body = $document->find('body')[0]->innerHtml();
 
             return view('website/posts/show', [
                 'solutions' => $solutions,

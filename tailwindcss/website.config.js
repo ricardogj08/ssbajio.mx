@@ -7,6 +7,13 @@ module.exports = {
     './public/js/**/*.js'
   ],
   darkMode: 'class',
+  safelist: [
+    'list-disc',
+    'list-decimal',
+    'list-inside',
+    'space-y-2',
+    'pl-4'
+  ],
   theme: {
     screens: {
       sm: '576px',
@@ -67,6 +74,7 @@ module.exports = {
         13: '3.25rem',
         15: '3.75rem',
         18: '4.5rem',
+        19: '4.75rem',
         26: '6.5rem'
       },
       height: {
@@ -108,6 +116,7 @@ module.exports = {
         35: '2.188rem',
         38: '2.375rem',
         45: '2.813rem',
+        48: '3rem',
         50: '3.125rem',
         60: ['3.75rem', {
           lineHeight: '4.75rem'
@@ -167,5 +176,7 @@ module.exports = {
       }
     }
   },
-  plugins: [require('flowbite/plugin')]
+  plugins: [
+    require('flowbite/plugin')
+  ]
 }

@@ -15,7 +15,7 @@
     <?= $this->include('website/layouts/header') ?>
 
     <!-- Banner -->
-    <div
+    <section
         style="background-image: url('<?= base_url('images/website/about/index/banner.webp') ?>');"
         class="bg-cover bg-center bg-no-repeat"
     >
@@ -30,11 +30,11 @@
                 </h2>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Fin del banner -->
 
     <!-- Trayectoria y modelo de SSB -->
-    <div class="bg-ssbajio-dark-1">
+    <section class="bg-ssbajio-dark-1">
         <div class="container">
             <div class="py-13 lg:py-26 grid grid-cols-1 lg:grid-cols-12 gap-7.5 text-white font-light tracking-wide">
                 <p class="lg:col-start-2 lg:col-span-5">
@@ -46,11 +46,11 @@
                 </p>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Fin de la trayectoria y modelo de SSB -->
 
     <!-- Somos tu mejor opción -->
-    <div class="bg-ssbajio-gray-light-5">
+    <section class="bg-ssbajio-gray-light-5">
         <div class="container relative">
             <div class="py-16 lg:py-32 text-center">
                 <h2 class="text-ssbajio-dark-1 text-3xl lg:text-35 font-title uppercase mb-3 lg:mb-6">
@@ -72,10 +72,10 @@
                 >
             </div>
         </div>
-    </div>
+    </section>
     <!-- Fin de somos tu mejor opción -->
 
-    <div class="bg-ssbajio-gray-light-3">
+    <section class="bg-ssbajio-gray-light-3">
         <div class="container">
             <div class="pt-24 lg:pt-49 pb-26 lg:pb-52">
                 <!-- Servicios de administración de almacenes -->
@@ -163,7 +163,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Sección de soluciones integrales -->
     <?= $this->setVar('solutions', $solutions)->include('website/layouts/solutions') ?>

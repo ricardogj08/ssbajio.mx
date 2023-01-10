@@ -15,7 +15,7 @@
     <?= $this->include('website/layouts/header') ?>
 
     <!-- Banner -->
-    <div
+    <section
         style="background-image: url('<?= base_url('images/website/services/index/banner.webp') ?>');"
         class="bg-cover bg-center bg-no-repeat"
     >
@@ -30,11 +30,11 @@
                 </h2>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Fin del banner -->
 
     <!-- Enfoque de SSB -->
-    <div class="bg-ssbajio-dark-1">
+    <section class="bg-ssbajio-dark-1">
         <div class="container">
             <div class="pt-12 lg:pt-24 pb-14 lg:pb-27 grid grid-cols-1 lg:grid-cols-12 gap-7.5">
                 <p class="lg:col-start-2 lg:col-span-10 text-center text-white text-17 font-light tracking-widesm">
@@ -42,10 +42,10 @@
                 </p>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Fin del enfoque de SSB -->
 
-    <div class="bg-ssbajio-gray-light-3">
+    <section class="bg-ssbajio-gray-light-3">
         <div class="container">
             <div class="pt-16 lg:pt-32 pb-20 lg:pb-42">
                 <!-- Sección de servicio de gestión y administración de almacén -->
@@ -191,7 +191,7 @@
                 <!-- Fin de la sección del modelo de administración de almacenes -->
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Sección de soluciones integrales -->
     <?= $this->setVar('solutions', $solutions)->include('website/layouts/solutions') ?>

@@ -14,7 +14,7 @@
 <?= $this->section('content') ?>
     <?= $this->include('website/layouts/header') ?>
 
-    <div class="bg-ssbajio-gray-light-5">
+    <section class="bg-ssbajio-gray-light-5">
         <div class="container">
             <div class="pt-12 lg:pt-25 pb-6 lg:pb-13">
                 <!-- Título de la solución -->
@@ -48,9 +48,9 @@
             </div>
             <!-- Fin de la portada de la solución -->
         </div>
-    </div>
+    </section>
 
-    <div class="bg-ssbajio-gray-light-3">
+    <section class="bg-ssbajio-gray-light-3">
         <div class="container">
             <div class="pt-20 lg:pt-82 pb-25 lg:pb-50">
                 <!-- Subtitulo de la solución -->
@@ -87,9 +87,82 @@
                     <!-- Fin de la categoría de productos -->
                 <?php endforeach ?>
                 <!-- Fin de las categorías y productos -->
+
+                <?php if ($solution->alias === 'tornilleria'): ?>
+                    <!-- Sectores de la solución de tornillería -->
+                    <div class="pt-20 lg:pt-40">
+                        <!-- Título del sector -->
+                        <h2 class="text-3xl lg:text-35 font-title uppercase text-center mb-10 lg:mb-19">
+                            Sectores donde ofrecemos soluciones de sujeción
+                        </h2>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-7.5 lg:gap-y-24 text-center lg:text-left">
+                            <article>
+                                <i class="bi bi-justify text-2xl text-white bg-gradient-to-r from-ssbajio-red-2 via-ssbajio-red-1 to-ssbajio-orange-1 px-4 py-3 rounded-2xl inline-block mb-5 lg:mb-10"></i>
+                                <h3 class="text-ssbajio-dark-1 font-semibold mb-3">
+                                    Tornillería Grado Alimenticio
+                                </h3>
+                                <p class="text-17 text-ssbajio-gray-dark-1 font-light whitespace-pre-line tracking-wide">Acero inoxidable 18-3 T304 y T316
+                                    Tornillería hexagonal, allen, estufa, tuercas, arandelas, pijas, opresores.
+                                </p>
+                            </article>
+
+                            <article>
+                                <i class="bi bi-car-front-fill text-2xl text-white bg-gradient-to-r from-ssbajio-red-2 via-ssbajio-red-1 to-ssbajio-orange-1 px-4 py-3 rounded-2xl inline-block mb-5 lg:mb-10"></i>
+                                <h3 class="text-ssbajio-dark-1 font-semibold mb-3">
+                                    Tornillería Automotriz
+                                </h3>
+                                <p class="text-17 text-ssbajio-gray-dark-1 font-light whitespace-pre-line tracking-wide">Grado 5, 8, 10.9, 12.9
+                                    Acabados: Pavonado, galvanizado, tropicalizado, cadminizado, geomet. Tornillería hexagonal, flange, tuercas, arandelas.
+                                </p>
+                            </article>
+
+                            <article>
+                                <i class="bi bi-hammer text-2xl text-white bg-gradient-to-r from-ssbajio-red-2 via-ssbajio-red-1 to-ssbajio-orange-1 px-4 py-3 rounded-2xl inline-block mb-5 lg:mb-10"></i>
+                                <h3 class="text-ssbajio-dark-1 font-semibold mb-3">
+                                    Tornillería Estructural
+                                </h3>
+                                <p class="text-17 text-ssbajio-gray-dark-1 font-light whitespace-pre-line tracking-wide">Acabados: Gic, pavonado, galvanizado, tropicalizado, geomet.
+                                    Tornillería hexagonal, arandela plana F436, arandela de presión, tuerca hex. grado 2H.
+                                </p>
+                            </article>
+
+                            <article>
+                                <i class="bi bi-bar-chart-fill text-2xl text-white bg-gradient-to-r from-ssbajio-red-2 via-ssbajio-red-1 to-ssbajio-orange-1 px-4 py-3 rounded-2xl inline-block mb-5 lg:mb-10"></i>
+                                <h3 class="text-ssbajio-dark-1 font-semibold mb-3">
+                                    Tornillería Industrial
+                                </h3>
+                                <p class="text-17 text-ssbajio-gray-dark-1 font-light whitespace-pre-line tracking-wide">Acabado: Pavonado, galvanizado, tropicalizado.
+                                    Tornillería hexagonal, allen, estufa, tuercas, arandelas, opresores.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <!-- Fin de los sectores de la solución de tornillería -->
+                <?php endif ?>
+
+                <?php if ($solution->alias === 'ferreteria'): ?>
+                    <!-- Cards informativas de ferretería -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-7.5 pt-16 lg:pt-33 text-center">
+                        <article class="bg-ssbajio-gray-light-5 rounded-2xl py-8 lg:py-16 px-8 lg:px-18 shadow-lg">
+                            <h2 class="text-lg text-ssbajio-dark-1 font-semibold mb-3">
+                                Ofrecemos soluciones a todas tus herramientas y equipo
+                            </h2>
+                            <p class="text-17 text-ssbajio-gray-dark-1">
+                                Trabajamos con las mejores marcas de productos, herramientas y equipo para el sector ferretero.
+                            </p>
+                        </article>
+                        <article class="bg-ssbajio-red-1 rounded-2xl flex flex-col justify-center py-8 lg:py-16 px-8 lg:px-18">
+                            <h2 class="text-lg text-white font-semibold">
+                                Distribuidores mayoristas de ferretería para el sector, alimenticio, automotriz, para construcción e industrial
+                            </h2>
+                        </article>
+                    </div>
+                    <!-- Fin de las cards informativas de ferretería -->
+                <?php endif ?>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Sección de ventajas -->
     <div class="bg-ssbajio-dark-1">
@@ -139,6 +212,7 @@
     <!-- Fin de la sección de ventajas -->
 
     <!-- Seccion de productos -->
+    <!--
     <section class="products bg-ssbajio-gray-light-3 py-5 min-h-[400px] flex items-center">
         <div class="container">
             <header class="text-center">
@@ -197,59 +271,11 @@
             </div>
         </div>
     </section>
+    -->
     <!-- Fin seccion de productos -->
 
-    <!-- Seccion de sectores donde se ofrece -->
-    <section class="bg-ssbajio-gray-light-3 py-5">
-        <div class="container">
-            <h2 class=" font-title text-2xl font-bold uppercase text-center">Sectores donde ofrecemos soluciones de sujeción</h2>
-            <div class="grid md:grid-cols-2 mt-12 gap-x-7 gap-y-12 justify-center">
-                <article>
-                    <span class="bg-gradient-to-r from-ssbajio-red-2 to-ssbajio-orange-1 p-3 inline-block">
-                        <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.66502 25.4866C1.0119 25.4866 0.48645 24.9647 0.48645 24.316L0.48645 23.5356C0.48645 22.8868 1.0119 22.365 1.66502 22.365H21.3079C21.961 22.365 22.4865 22.8868 22.4865 23.5356V24.316C22.4865 24.9647 21.961 25.4866 21.3079 25.4866H1.66502ZM1.27216 20.8041C0.840022 20.8041 0.48645 20.453 0.48645 20.0237C0.48645 19.5945 0.840022 19.2433 1.27216 19.2433H21.7007C22.1329 19.2433 22.4865 19.5945 22.4865 20.0237C22.4865 20.453 22.1329 20.8041 21.7007 20.8041H1.27216ZM0.48645 16.5119C0.48645 17.1606 1.0119 17.6825 1.66502 17.6825H21.3079C21.961 17.6825 22.4865 17.1606 22.4865 16.5119V15.7315C22.4865 15.0828 21.961 14.5609 21.3079 14.5609L1.66502 14.5609C1.0119 14.5609 0.48645 15.0828 0.48645 15.7315L0.48645 16.5119ZM1.66502 13.0001C1.0119 13.0001 0.48645 12.4782 0.48645 11.8295L0.48645 11.0491C0.48645 10.4004 1.0119 9.87846 1.66502 9.87846L21.3079 9.87846C21.961 9.87846 22.4865 10.4004 22.4865 11.0491V11.8295C22.4865 12.4782 21.961 13.0001 21.3079 13.0001L1.66502 13.0001ZM1.66502 3.63522H21.3079C21.961 3.63522 22.4865 3.11333 22.4865 2.46461V1.68421C22.4865 1.0355 21.961 0.513599 21.3079 0.513599H1.66502C1.0119 0.513599 0.48645 1.0355 0.48645 1.68421L0.48645 2.46461C0.48645 3.11333 1.0119 3.63522 1.66502 3.63522ZM21.7007 6.75684H1.27216C0.840022 6.75684 0.48645 6.40566 0.48645 5.97644C0.48645 5.54721 0.840022 5.19603 1.27216 5.19603H21.7007C22.1329 5.19603 22.4865 5.54721 22.4865 5.97644C22.4865 6.40566 22.1329 6.75684 21.7007 6.75684Z" fill="white"/>
-                        </svg>
-                    </span>
-                    <h3 class="font-bold text-ssbajio-dark-1 mt-6 mb-1">Tornillería Grado Alimenticio</h3>
-                    <p class="text-ssbajio-gray-dark-1">Acero inoxidable 18-3 T304 y T316 Tornillería hexagonal, allen, estufa, tuercas, arandelas, pijas, opresores.</p>
-                </article>
-                <article class="md:text-right">
-                    <span class="bg-gradient-to-r from-ssbajio-red-2 to-ssbajio-orange-1 p-3 inline-block">
-                        <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.98438 3.44464L2.10938 8.82857C0.87358 9.34286 0 10.5696 0 12V16.2857C0 17.5554 0.687145 18.6643 1.70455 19.2536V22.2857C1.70455 23.2339 2.46626 24 3.40909 24H5.11364C6.05646 24 6.81818 23.2339 6.81818 22.2857V19.7143H20.4545V22.2857C20.4545 23.2339 21.2163 24 22.1591 24H23.8636C24.8065 24 25.5682 23.2339 25.5682 22.2857V19.2536C26.5856 18.6589 27.2727 17.5554 27.2727 16.2857V12C27.2727 10.5696 26.3991 9.34286 25.1634 8.82857L23.2884 3.44464C22.5692 1.38214 20.6357 0 18.4624 0H8.81037C6.63707 0 4.70348 1.38214 3.98438 3.44464ZM8.81037 3.42857H18.4624C19.1868 3.42857 19.8313 3.88929 20.071 4.575L21.4613 8.57143H5.81143L7.2017 4.575C7.44141 3.88929 8.08594 3.42857 8.81037 3.42857ZM16.1932 12.8571H11.0795C10.6108 12.8571 10.2273 13.2429 10.2273 13.7143V15.4286C10.2273 15.9 10.6108 16.2857 11.0795 16.2857H16.1932C16.6619 16.2857 17.0455 15.9 17.0455 15.4286V13.7143C17.0455 13.2429 16.6619 12.8571 16.1932 12.8571ZM2.55682 13.2857C2.55682 12.5732 3.12678 12 3.83523 12H5.53977C6.24822 12 6.81818 12.5732 6.81818 13.2857C6.81818 13.9982 6.24822 14.5714 5.53977 14.5714H3.83523C3.12678 14.5714 2.55682 13.9982 2.55682 13.2857ZM23.4375 12H21.733C21.0245 12 20.4545 12.5732 20.4545 13.2857C20.4545 13.9982 21.0245 14.5714 21.733 14.5714H23.4375C24.146 14.5714 24.7159 13.9982 24.7159 13.2857C24.7159 12.5732 24.146 12 23.4375 12Z" fill="white"/>
-                        </svg>
-
-                    </span>
-                    <h3 class="font-bold text-ssbajio-dark-1 mt-6 mb-1">Tornillería Automotriz</h3>
-                    <p class="text-ssbajio-gray-dark-1">Grado 5, 8, 10.9, 12.9</p>
-                    <p class="text-ssbajio-gray-dark-1">Acabados: Pavonado, galvanizado, tropicalizado, cadminizado, geomet. Tornillería hexagonal, flange, tuercas, arandelas.</p>
-                </article>
-                <article>
-                    <span class="bg-gradient-to-r from-ssbajio-red-2 to-ssbajio-orange-1 p-3 inline-block">
-                        <svg width="30" height="23" viewBox="0 0 30 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5752 1.64286C11.5752 0.734152 12.3141 0 13.2288 0H16.5359C17.4506 0 18.1895 0.734152 18.1895 1.64286V1.76094V6.87433C18.1895 7.16183 18.4221 7.39286 18.7115 7.39286C18.8975 7.39286 19.0732 7.29531 19.1662 7.13103L21.6466 2.82366C25.4395 4.68214 28.0646 8.54286 28.1111 13.0196V16.4286H1.65359V13.1429C1.65359 8.61473 4.28901 4.69754 8.11812 2.82366L10.5985 7.13103C10.6915 7.29531 10.8672 7.39286 11.0532 7.39286C11.3426 7.39286 11.5752 7.16183 11.5752 6.87433V1.76094V1.64286ZM0 18.9237C0 18.4513 0.382394 18.0714 0.857802 18.0714H28.9069C29.3823 18.0714 29.7647 18.4513 29.7647 18.9237C29.7647 19.165 29.6614 19.3908 29.465 19.5346C28.3436 20.3509 23.9875 23 14.8824 23C5.77725 23 1.42106 20.3509 0.299714 19.5346C0.10335 19.396 0 19.165 0 18.9237Z" fill="white"/>
-                        </svg>
-                    </span>
-                    <h3 class="font-bold text-ssbajio-dark-1 mt-6 mb-1">Tornillería Estructural</h3>
-                    <p class="text-ssbajio-gray-dark-1">Acabados: Gic, pavonado, galvanizado, tropicalizado, geomet.</p>
-                    <p>Tornillería hexagonal, arandela plana F436, arandela de presión, tuerca hex. grado 2H.</p>
-                </article>
-                <article class="md:text-right">
-                    <span class="bg-gradient-to-r from-ssbajio-red-2 to-ssbajio-orange-1 p-3 inline-block mr-auto">
-                        <svg width="25" height="21" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.52534 0C0.681635 0 0 0.670313 0 1.5V12.75V15V18.75C0 19.9922 1.02484 21 2.28801 21H22.1174C23.3806 21 24.4054 19.9922 24.4054 18.75V12.75V5.63438C24.4054 4.78125 23.4807 4.24219 22.718 4.64531L15.2534 8.59688V5.63438C15.2534 4.78125 14.3286 4.24219 13.566 4.64531L6.10135 8.59688V1.5C6.10135 0.670313 5.41972 0 4.57601 0H1.52534Z" fill="white"/>
-                        </svg>
-                    </span>
-                    <h3 class="font-bold text-ssbajio-dark-1 mt-6 mb-1">Tornillería Industrial</h3>
-                    <p class="text-ssbajio-gray-dark-1">Acabado: Pavonado, galvanizado, tropicalizado.</p>
-                    <p>Tornillería hexagonal, allen, estufa, tuercas, arandelas, opresores.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-    <!-- Fin de sectores donde se ofrece -->
-
     <!-- Seccion de productos variante 2-->
+    <!--
     <section class="products bg-ssbajio-gray-light-3 py-5 min-h-[400px] flex items-center">
         <div class="container">
             <header class="text-center">
@@ -296,23 +322,11 @@
             </div>
         </div>
     </section>
+    -->
     <!-- Fin seccion de productos variante 2 -->
 
-    <!-- Seccion de double info card -->
-    <section class="bg-ssbajio-gray-light-3">
-        <div class="container flex gap-5 flex-col md:flex-row">
-            <article class="rounded-xl bg-ssbajio-gray-light-5 md:w-1/2 min-h-[250px] text-center px-5 flex flex-col justify-center items-center">
-                <h4 class="font-bold text-lg text-ssbajio-dark-1">Ofrecemos soluciones a todas tus herramientas y equipo</h4>
-                <p class="text-md text-ssbajio-gray-dark-1 mt-3">Trabajamos con las mejores marcas de productos, herramientas y equipo para el sector ferretero. </p>
-            </article>
-            <article class="rounded-xl bg-ssbajio-red-1 md:w-1/2 min-h-[250px] text-center px-5 flex flex-col justify-center items-center">
-                <h4 class="font-bold text-lg text-ssbajio-dark-1">Distribuidores mayoristas de ferretería para el sector, alimenticio, automotriz, para construcción e industrial</h4>
-            </article>
-        </div>
-    </section>
-    <!-- Fin de double info card -->
-
     <!-- Seccion de caracteristicas -->
+    <!--
     <section class="bg-ssbajio-dark-1  min-h-[60vh] text-white flex items-center py-8 my-2">
         <div class="container">
             <h3 class="font-semibold text-center text-lg mb-12">Ventajas de contratar una solución de sujeción con SSB</h3>
@@ -344,10 +358,11 @@
             </ul>
         </div>
     </section>
+    -->
     <!-- Fin seccion caracteristicas -->
 
     <!-- Sección de otras soluciones -->
-    <div class="bg-ssbajio-gray-light-3">
+    <section class="bg-ssbajio-gray-light-3">
         <div class="container">
             <div class="pt-20 lg:pt-42 pb-24 lg:pb-48 text-ssbajio-dark-1 relative">
                 <h2 class="text-center font-title text-3xl lg:text-35 uppercase mb-7 lg:mb-14">
@@ -360,7 +375,7 @@
                     <?php foreach ($solutions as $itr => $solution): ?>
                         <!-- Solución -->
                         <a href="<?= url_to('website.solutions.show', $solution->slug) ?>" class="group">
-                            <div class="flex flex-col items-center gap-y-3 lg:gap-y-6 lg:px-4">
+                            <article class="flex flex-col items-center gap-y-3 lg:gap-y-6 lg:px-4">
                                 <!-- Portada de la solución -->
                                 <div
                                     style="background-image: url('<?= base_url('images/website/solutions/show/background-solution.webp') ?>');"
@@ -382,7 +397,7 @@
                                 <h3 class="text-lg font-bold text-center">
                                     <?= esc($solution->name) ?>
                                 </h3>
-                            </div>
+                            </article>
                         </a>
                         <!-- Fin de la solución -->
                     <?php endforeach ?>
@@ -416,7 +431,7 @@
             </div>
             <!-- Fin de la sección de soluciones -->
         </div>
-    </div>
+    </section>
     <!-- Fin de la sección de otras soluciones -->
 
     <?= $this->include('website/layouts/footer') ?>

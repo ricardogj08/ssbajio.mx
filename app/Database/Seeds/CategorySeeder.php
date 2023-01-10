@@ -13,14 +13,6 @@ class CategorySeeder extends Seeder
     {
         $solutionModel = model('SolutionModel');
 
-        $tornilleria = $solutionModel->select('id')
-            ->where('alias', 'tornilleria')
-            ->first();
-
-        $ferreteria = $solutionModel->select('id')
-            ->where('alias', 'ferreteria')
-            ->first();
-
         $herramientas = $solutionModel->select('id')
             ->where('alias', 'herramientas')
             ->first();
@@ -40,18 +32,6 @@ class CategorySeeder extends Seeder
         $categoryModel = model('CategoryModel');
 
         $categoryModel->ignore()->insertBatch([
-            [
-                'solution_id' => $tornilleria->id,
-                'alias'       => 'tornilleria_seccion',
-                'name'        => '¡Tenemos los productos que tus proyectos necesitan!',
-                'description' => 'Contamos con un amplio inventario enfocado a la tornillería para resolver todas tus necesidades industriales.',
-            ],
-            [
-                'solution_id' => $ferreteria->id,
-                'alias'       => 'ferreteria_seccion',
-                'name'        => '¡Tenemos los productos que tus proyectos necesitan!',
-                'description' => 'Contamos con un amplio inventario enfocado a la ferretería para resolver todas tus necesidades industriales.',
-            ],
             [
                 'solution_id' => $herramientas->id,
                 'alias'       => 'herramientas_urrea',

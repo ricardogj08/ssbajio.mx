@@ -133,7 +133,7 @@
                             <?php foreach ($solutions as $itr => $solution): ?>
                                 <!-- Solución -->
                                 <a href="<?= url_to('website.solutions.show', $solution->slug) ?>" class="group">
-                                    <div class="flex flex-col items-center gap-y-5 lg:gap-y-10 lg:px-4">
+                                    <article class="flex flex-col items-center gap-y-5 lg:gap-y-10 lg:px-4">
                                         <!-- Portada de la solución -->
                                         <div
                                             style="background-image: url('<?= base_url('images/website/home/index/' .
@@ -165,7 +165,7 @@
                                                 <?= esc($solution->excerpt) ?>
                                             </p>
                                         </div>
-                                    </div>
+                                    </article>
                                 </a>
                                 <!-- Fin de la solución -->
                             <?php endforeach ?>

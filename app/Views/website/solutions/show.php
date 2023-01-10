@@ -75,16 +75,18 @@
                 <?php foreach ($categories as $category): ?>
                     <!-- Categoría de productos -->
                     <div class="text-center pt-20 lg:pt-40">
-                        <h2 class="text-ssbajio-dark-1 text-3xl lg:text-35 font-title uppercase mb-2.5 lg:mb-5">
-                            <?= esc($category->name) ?>
-                        </h2>
+                        <?php if (isset($category->name)): ?>
+                            <div class="<?= (bool) $category->products ? 'pb-6 lg:pb-13' : '' ?>">
+                                <h2 class="text-ssbajio-dark-1 text-3xl lg:text-35 font-title uppercase mb-2.5 lg:mb-5">
+                                    <?= esc($category->name) ?>
+                                </h2>
 
-                        <p class="text-ssbajio-gray-dark-1 text-17 font-light">
-                            <?= esc($category->description) ?>
-                        </p>
+                                <p class="text-ssbajio-gray-dark-1 text-17 font-light leading-relaxed whitespace-pre-line tracking-wide"><?= esc($category->description) ?></p>
+                            </div>
+                        <?php endif ?>
 
                         <!-- Lista de productos -->
-                        <?php if (isset($category->products)): ?>
+                        <?php if ((bool) $category->products): ?>
                             <div class="flex flex-col lg:flex-none items-center md:items-start md:grid md:grid-cols-3 xl:grid-cols-12 gap-7.5 md:gap-y-28">
                                 <?php foreach ($category->products as $product): ?>
                                     <article class="w-1/2 md:w-auto md:col-span-1 xl:col-span-2 flex flex-col gap-y-4 group">
@@ -97,8 +99,14 @@
                                                 >
                                             </div>
                                         </div>
-                                        <h3 class="text-ssbajio-gray-dark-1 font-bold">
-                                            <?= esc($product->name) ?>
+
+                                        <h3 class="font-bold">
+                                            <span class="text-ssbajio-gray-dark-1 block">
+                                                <?= esc($product->name) ?>
+                                            </span>
+                                            <span class="text-ssbajio-red-1 text-xs">
+                                                <?= esc($product->title) ?>
+                                            </span>
                                         </h3>
                                     </article>
                                 <?php endforeach ?>
@@ -190,6 +198,19 @@
                     </div>
                 <?php endif ?>
                 <!-- Fin del banner de almacén de tornillería -->
+
+                <!-- Botón de me interesa -->
+                <div class="text-center pt-5 lg:pt-10">
+                    <?php if ($solution->alias === 'pinturas'): ?>
+                        <a
+                            href="<?= url_to('website.prospects.new') ?>"
+                            class="ssbajio-btn bg-ssbajio-red-1 block lg:inline-block hover:bg-ssbajio-red-2"
+                        >
+                            Me interesa
+                        </a>
+                    <?php endif ?>
+                </div>
+                <!-- Fin del botón de me interesa -->
             </div>
         </div>
     </section>

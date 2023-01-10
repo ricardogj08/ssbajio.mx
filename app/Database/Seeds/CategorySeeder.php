@@ -63,6 +63,14 @@ class CategorySeeder extends Seeder
                 'description' => 'Con la pintura vinílica obtendrás los mejores acabados gracias a su fácil aplicación y gran poder de cobertura. Se puede aplicar tanto en interiores como en exteriores, pues ofrece gran resistencia a la intemperie ademas de contar con una amplia gama de colores.',
             ],
             [
+                'solution_id' => $pinturas->id,
+                'alias'       => 'pintura_excelo',
+                'name'        => 'Pintura automotriz línea Excelo',
+                'description' => 'Esta línea de pintura se caracteriza por su excelente calidad, desempeño, confiabilidad y rentabilidad, ademas de ser un producto fácil de usar y de gran durabilidad. Contamos con una serie de sistemas de repintados como laca, acrílica, esmalte acrílico, poliuretano acrílico, esmalte alquidal o de secado rápido que permiten satisfacer cualquier necesidad.
+
+Con Excelo obtén mejores acabados para los segmentos de repintado automotriz, flotillas y vehículos comerciales así como también para la industria metal mecánica.',
+            ],
+            [
                 'solution_id' => $filtros->id,
                 'alias'       => 'filtros_mann',
                 'name'        => 'Tipos de filtros MANN FILTER',

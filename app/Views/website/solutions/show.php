@@ -88,8 +88,8 @@
                 <?php endforeach ?>
                 <!-- Fin de las categorías y productos -->
 
+                <!-- Sectores de la solución de tornillería -->
                 <?php if ($solution->alias === 'tornilleria'): ?>
-                    <!-- Sectores de la solución de tornillería -->
                     <div class="pt-20 lg:pt-40">
                         <!-- Título del sector -->
                         <h2 class="text-3xl lg:text-35 font-title uppercase text-center mb-10 lg:mb-19">
@@ -138,11 +138,11 @@
                             </article>
                         </div>
                     </div>
-                    <!-- Fin de los sectores de la solución de tornillería -->
                 <?php endif ?>
+                <!-- Fin de los sectores de la solución de tornillería -->
 
+                <!-- Cards informativas de ferretería -->
                 <?php if ($solution->alias === 'ferreteria'): ?>
-                    <!-- Cards informativas de ferretería -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-7.5 pt-16 lg:pt-33 text-center">
                         <article class="bg-ssbajio-gray-light-5 rounded-2xl py-8 lg:py-16 px-8 lg:px-18 shadow-lg">
                             <h2 class="text-lg text-ssbajio-dark-1 font-semibold mb-3">
@@ -158,8 +158,16 @@
                             </h2>
                         </article>
                     </div>
-                    <!-- Fin de las cards informativas de ferretería -->
                 <?php endif ?>
+                <!-- Fin de las cards informativas de ferretería -->
+
+                <!-- Banner de almacén de tornillería -->
+                <?php if ($solution->alias === 'tornilleria'): ?>
+                    <div class="pt-16 lg:pt-33">
+                        <?= $this->include('website/layouts/banner-almacen.php') ?>
+                    </div>
+                <?php endif ?>
+                <!-- Fin del banner de almacén de tornillería -->
             </div>
         </div>
     </section>

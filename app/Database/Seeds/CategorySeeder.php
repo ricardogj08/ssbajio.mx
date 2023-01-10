@@ -68,6 +68,12 @@ class CategorySeeder extends Seeder
                 'name'        => 'Tipos de filtros MANN FILTER',
                 'description' => 'Contamos con una amplia variedad de filtros Mann Filter, la marca de filtros premium mas importante del mercado.',
             ],
+            [
+                'solution_id' => $contingencia->id,
+                'alias'       => 'contingencia',
+                'name'        => null,
+                'description' => null,
+            ],
         ]);
     }
 }

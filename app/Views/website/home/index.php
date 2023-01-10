@@ -268,10 +268,10 @@
                                         </div>
                                         <!-- Fin de la portada del sector -->
 
-                                        <div class="flex items-center gap-x-4">
-                                            <i class="bi <?= esc($sector->icon) ?> <?= ($itr + 1) % 4 ? 'text-ssbajio-dark-1' : 'text-ssbajio-red-1' ?> text-4xl"></i>
+                                        <div class="flex items-center gap-x-4 text-ssbajio-gray-dark-1 group-hover:text-ssbajio-red-1 transition">
+                                            <i class="bi <?= esc($sector->icon) ?> text-4xl"></i>
 
-                                            <h3 class="<?= ($itr + 1) % 4 ? 'text-ssbajio-gray-dark-1' : 'text-ssbajio-red-1' ?> font-semibold">
+                                            <h3 class="font-semibold">
                                                 <?= esc($sector->name) ?>
                                             </h3>
                                         </div>
@@ -314,7 +314,7 @@
                 <div class="relative lg:-mb-32 pb-24 lg:pb-0">
                     <?= $this->include('website/layouts/banner-almacen.php') ?>
 
-                    <div class="hidden lg:grid grid-cols-12 gap-7.5 absolute -top-3.5 xl:-top-6 2xl:top-16 left-0 w-full">
+                    <div class="hidden lg:grid grid-cols-12 gap-7.5 absolute lg:-top-6 2xl:top-6 left-0 w-full">
                         <div class="col-start-10 col-span-2">
                             <img
                                 src="<?= base_url('images/website/home/index/cuadrado-circulos-dark.webp') ?>"

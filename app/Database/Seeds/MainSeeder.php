@@ -17,5 +17,6 @@ class MainSeeder extends Seeder
         $this->call('OriginSeeder');
         $this->call('SolutionSeeder');
         $this->call('CategorySeeder');
+        $this->call('ProductSeeder');
     }
 }

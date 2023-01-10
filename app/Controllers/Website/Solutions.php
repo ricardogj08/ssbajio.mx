@@ -32,10 +32,20 @@ class Solutions extends BaseController
             $categoryModel = model('CategoryModel');
 
             // Consulta todas las categorías de los productos de la solución.
-            $categories = $categoryModel->select('name, description')
+            $categories = $categoryModel->select('id, name, description')
                 ->where('solution_id', $solution->id)
                 ->orderBy('created_at', 'asc')
                 ->findAll();
+
+            $productModel = model('ProductModel');
+
+            // Consulta los productos de cada categoría.
+            foreach ($categories as $itr => $category) {
+                $categories[$itr]->products = $productModel->select('name, title, cover')
+                    ->where('category_id', $category->id)
+                    ->orderBy('created_at')
+                    ->findAll();
+            }
 
             return view('website/solutions/show', [
                 'solution'   => $solution,

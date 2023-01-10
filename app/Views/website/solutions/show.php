@@ -42,9 +42,11 @@
                         >
                     </div>
                 </div>
-                <h2 class="text-ssbajio-red-1 lg:text-lg font-semibold text-center">
-                    <?= esc($solution->caption) ?>
-                </h2>
+                <?php if (isset($solution->caption)): ?>
+                    <h2 class="text-ssbajio-red-1 lg:text-lg font-semibold text-center">
+                        <?= esc($solution->caption) ?>
+                    </h2>
+                <?php endif ?>
             </div>
             <!-- Fin de la portada de la solución -->
         </div>
@@ -82,6 +84,26 @@
                         </p>
 
                         <!-- Lista de productos -->
+                        <?php if (isset($category->products)): ?>
+                            <div class="flex flex-col lg:flex-none items-center md:items-start md:grid md:grid-cols-3 xl:grid-cols-12 gap-7.5 md:gap-y-28">
+                                <?php foreach ($category->products as $product): ?>
+                                    <article class="w-1/2 md:w-auto md:col-span-1 xl:col-span-2 flex flex-col gap-y-4 group">
+                                        <div class="bg-white rounded-2xl group-hover:brightness-75 transition">
+                                            <div class="p-4">
+                                                <img
+                                                    src="<?= base_url(['uploads/website/products/covers/', $product->cover]) ?>"
+                                                    alt="<?= esc($product->name) ?>"
+                                                    class="h-34 m-auto object-scale-down"
+                                                >
+                                            </div>
+                                        </div>
+                                        <h3 class="text-ssbajio-gray-dark-1 font-bold">
+                                            <?= esc($product->name) ?>
+                                        </h3>
+                                    </article>
+                                <?php endforeach ?>
+                            </div>
+                        <?php endif ?>
                         <!-- Fin de la lista de productos -->
                     </div>
                     <!-- Fin de la categoría de productos -->

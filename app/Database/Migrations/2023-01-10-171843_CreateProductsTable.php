@@ -5,9 +5,9 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 /**
- * Migración que crea la tabla de categorías.
+ * Migración que crea la tabla de productos.
  */
-class CreateCategoriesTable extends Migration
+class CreateProductsTable extends Migration
 {
     public function up()
     {
@@ -17,25 +17,24 @@ class CreateCategoriesTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'solution_id' => [
+            'category_id' => [
                 'type'     => 'int',
                 'unsigned' => true,
-            ],
-            'alias' => [
-                'type'       => 'varchar',
-                'constraint' => 32,
-                'unique'     => true,
-                'null'       => true,
+                'null'     => true,
             ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 256,
+            ],
+            'title' => [
+                'type'       => 'varchar',
+                'constraint' => 256,
                 'null'       => true,
             ],
-            'description' => [
+            'cover' => [
                 'type'       => 'varchar',
-                'constraint' => 512,
-                'null'       => true,
+                'constraint' => 64,
+                'unique'     => true,
             ],
             'created_at' => [
                 'type' => 'datetime',
@@ -48,13 +47,13 @@ class CreateCategoriesTable extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('solution_id', 'solutions', 'id', 'restrict', 'cascade');
+        $this->forge->addForeignKey('category_id', 'categories', 'id', 'restrict', 'cascade');
 
-        $this->forge->createTable('categories', true);
+        $this->forge->createTable('products', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('categories', true);
+        $this->forge->dropTable('products', true);
     }
 }
